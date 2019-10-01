@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
 
     private bool onGround;
     public Transform groundCheck;
-    private float radiusCheck;
+    public float radiusCheck;
     public LayerMask whatIsGround;
     bool hasWep = false;
 
@@ -17,6 +17,7 @@ public class CharacterController : MonoBehaviour
     public Transform player;
     public Transform direction;
     public GameObject waterBubblePrefab;
+    public Animator move;
 
     private int jumps = 1;
 
@@ -32,7 +33,6 @@ public class CharacterController : MonoBehaviour
     }
     // Shoots water
     public void ShootWaterGun(){
-        Debug.Log(hasWep);
         if(hasWep){
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
 
@@ -48,6 +48,7 @@ public class CharacterController : MonoBehaviour
     // Method to move the player
     public void Move(float moveInput, float speed)
     {
+        move.SetBool("Moving", true);
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         // If moving right and facing left then need to flip the image
@@ -66,18 +67,18 @@ public class CharacterController : MonoBehaviour
 
     // Method to jump
     public void Jump(bool keyPressed, float jumpSpeed){
-        Debug.Log(jumps);
-        if(keyPressed){
-
+        if (keyPressed){
             if (jumps == 0)
             {
                 return;
             }
             else if (jumps > 0)
             {
+                move.SetBool("Jumping", true);
                 jumps--;
                 rb.velocity = Vector2.up * jumpSpeed;
             }
+
         }
 
     }
@@ -89,6 +90,16 @@ public class CharacterController : MonoBehaviour
         {
             jumps = 1;
         }
+        if(!Input.GetButton("Horizontal")){
+            move.SetBool("Moving", false);
+        }
+        if (!Input.GetButton("Jump"))
+        {
+            Debug.Log("Jump");
+            move.SetBool("Jumping", false);
+        }
+
+
     }
 
     private void Flip()

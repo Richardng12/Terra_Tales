@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class WaterBubbleScript : MonoBehaviour
 {
-    public float waterSpeed = 10.0f;
+    public float waterSpeed = 13.0f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-    private float time = 1.5f;
+    private float time = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class WaterBubbleScript : MonoBehaviour
         rb.velocity = transform.right * waterSpeed;
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(this.gameObject);
     }

@@ -10,10 +10,10 @@ public class CharacterAction : MonoBehaviour
     public float jumpSpeed = 8;
     private float moveInput = 8;
     private bool jump = false;
-    private bool shoot = true;
-    public float fireSpeed = 0.3f;
+    private bool shoot = false;
+    public float fireSpeed = 0.5f;
     private float currentTime;
-
+ 
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
@@ -21,10 +21,9 @@ public class CharacterAction : MonoBehaviour
         {
             jump = true;
         }
-        if (Input.GetButton("Fire1") && Time.time > currentTime)
+        if (Input.GetButtonDown("Fire1"))
         {
-            characterController.ShootWaterGun();
-            currentTime = currentTime+fireSpeed;
+            shoot = true;
         }
 
 
@@ -35,7 +34,7 @@ private void FixedUpdate()
 {
         characterController.Move(moveInput, speed);
         characterController.Jump(jump, jumpSpeed);
-        if(shoot && Input.GetButton("Fire1"))
+        if(shoot)
         {
             characterController.ShootWaterGun();
         }
