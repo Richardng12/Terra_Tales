@@ -12,6 +12,7 @@ public class CharacterController : MonoBehaviour
     public float radiusCheck;
     public LayerMask whatIsGround;
     bool hasWep = false;
+    public int health = 5;
 
     private Rigidbody2D rb;
     public Transform player;
@@ -55,8 +56,18 @@ public class CharacterController : MonoBehaviour
     {
         // Checks if grounded
         onGround = Physics2D.OverlapCircle(groundCheck.position,radiusCheck,whatIsGround);
-    }
 
+    }
+    public void LoseHealth()
+    {
+        if (health > 0)
+        {
+            health--;
+        }
+        else {
+            health = 5;
+         }
+    }
 
     // Shoots water gun  by instantianting a waterBubble object
     // dependent on couple of variables
