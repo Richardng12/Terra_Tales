@@ -18,8 +18,8 @@ public class CharacterController : MonoBehaviour
     public Transform direction;
     public GameObject waterBubblePrefab;
     public Animator move;
-    public float reload;
-    private float reloadTimeLeft = 0;
+    public float rateOfFire;
+    float timeToFire = 0;
 
     private int jumps = 1;
 
@@ -60,21 +60,26 @@ public class CharacterController : MonoBehaviour
 
     // Shoots water gun  by instantianting a waterBubble object
     // dependent on couple of variables
-    public void ShootWaterGun()
+    public void CheckFireRate()
     {
         if (hasWep)
         {
-            if (reloadTimeLeft <= 0)
+            if (rateOfFire == 0)
             {
-                Instantiate(waterBubblePrefab, direction.position, direction.rotation);
-                reloadTimeLeft = reload;
+                Shoot();
             }
             else
             {
-                reloadTimeLeft = reloadTimeLeft - Time.deltaTime;
-            }
-
+                if (Time.time > timeToFire){
+                    timeToFire = Time.time + 1 / rateOfFire;
+                    Shoot();
+                    }
+                }
         }
+    }
+    private void Shoot()
+    {
+        Instantiate(waterBubblePrefab, direction.position, direction.rotation);
     }
 
     // Method to move the player
