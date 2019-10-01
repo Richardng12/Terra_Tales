@@ -23,7 +23,7 @@ public class CharacterAction : MonoBehaviour
         }
         if (Input.GetButton("Fire1") && Time.time > currentTime)
         {
-            shoot = true;
+            characterController.ShootWaterGun();
             currentTime = currentTime+fireSpeed;
         }
 
@@ -35,7 +35,8 @@ private void FixedUpdate()
 {
         characterController.Move(moveInput, speed);
         characterController.Jump(jump, jumpSpeed);
-        if(shoot){
+        if(shoot && Input.GetButton("Fire1"))
+        {
             characterController.ShootWaterGun();
         }
         shoot = false;
