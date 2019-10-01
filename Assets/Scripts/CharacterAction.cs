@@ -11,7 +11,6 @@ public class CharacterAction : MonoBehaviour
     private float moveInput = 8;
     private bool jump = false;
     private bool shoot = false;
-    private float fireSpeed = 0.5f;
  
     void Update()
     {

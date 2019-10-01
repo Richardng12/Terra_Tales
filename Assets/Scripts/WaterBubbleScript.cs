@@ -6,7 +6,6 @@ public class WaterBubbleScript : MonoBehaviour
 {
     public float waterSpeed = 13.0f;
     private Rigidbody2D rb;
-    private Vector2 screenBounds;
     private float time = 2f;
 
     // Start is called before the first frame update

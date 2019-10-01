@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour
 
     private bool facingRight = true;
 
-    private bool onGround;
+    private bool onGround = true;
     public Transform groundCheck;
     public float radiusCheck;
     public LayerMask whatIsGround;
