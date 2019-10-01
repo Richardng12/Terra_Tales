@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             secondsToCountDown--;
             text.text  = "Time Left: " + minutes.ToString() + ":" + seconds.ToString();
-            
+            //TODO add the finish level thing here which is called to end the level.
         }
     }
 
