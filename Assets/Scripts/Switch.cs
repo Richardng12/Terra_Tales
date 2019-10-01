@@ -8,30 +8,46 @@ using UnityEngine.UI;
 public class Switch : MonoBehaviour
 {
 
-    [SerializeField]
-    private Text pickUpText;
+    // Reference to Sprite Renderer component
+    private Renderer rend;
 
-    private bool pickUpAllowed;
+    // Color value that we can set in Inspector
+    // It's White by default
+    [SerializeField]
+    private Color colorToTurnTo = Color.white;
+
+
+
+    // Change sprite color to selected color
+
+    public Text allowSwitchText;
+    private bool isOn;
+    private Rigidbody2D switc;
+
+    private bool allowSwitch;
 
     // Use this for initialization
     private void Start()
     {
-        pickUpText.gameObject.SetActive(false);
+        // Assign Renderer component to rend variable
+        rend = GetComponent<Renderer>();
+        switc = GetComponent<Rigidbody2D>();
+        allowSwitchText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
-            PickUp();
+        if (allowSwitch && Input.GetKeyDown(KeyCode.E))
+            ChangeState();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            pickUpText.gameObject.SetActive(true);
-            pickUpAllowed = true;
+            allowSwitchText.gameObject.SetActive(true);
+            allowSwitch = true;
         }
     }
 
@@ -39,14 +55,28 @@ public class Switch : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            pickUpText.gameObject.SetActive(false);
-            pickUpAllowed = false;
+            allowSwitchText.gameObject.SetActive(false);
+            allowSwitch = false;
         }
     }
 
-    private void PickUp()
+    private void ChangeState()
     {
-        Destroy(gameObject);
+        isOn = !isOn;
+        if (isOn)
+        {
+            allowSwitchText.text = "Turned on";
+
+            rend.material.color = new Color(249, 166, 2);
+
+        }
+        else
+        {
+            rend.material.color = new Color(255,255,255);
+
+            allowSwitchText.text = "Turned Off";
+
+        }
     }
 
 }
