@@ -6,7 +6,6 @@ public class CharacterController : MonoBehaviour
 {
 
     public float speed;
-    private float moveInput;
     private bool facingRight = true;
 
     private bool onGround;
@@ -16,8 +15,7 @@ public class CharacterController : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private int extraJumps = 1;
-    public float jumpVelocity;
+    private int jumps = 1;
 
     void Start()
     {
@@ -27,42 +25,56 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Gets the movement in the certain direction
-        moveInput = Input.GetAxis("Horizontal");
-        // assoicates velocity of the rigidbody with the velocity and the prev movement
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-
         // Checks if grounded
         onGround = Physics2D.OverlapCircle(groundCheck.position,radiusCheck,whatIsGround);
+      
+
+    }
+
+    // Method to move the player
+    public void Move(float moveInput)
+    {
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
         // If moving right and facing left then need to flip the image
-        if(facingRight == false && moveInput > 0){
+        if (facingRight == false && moveInput > 0)
+        {
             Flip();
         }
         // if moving left and facing right need to flip image back
-        else if(facingRight && moveInput < 0){
+        else if (facingRight && moveInput < 0)
+        {
             Flip();
 
         }
 
     }
+
+    // Method to jump
+    public void Jump(bool keyPressed, float jumpSpeed){
+        Debug.Log(jumps);
+        if(keyPressed){
+
+            if (jumps == 0)
+            {
+                return;
+            }
+            else if (jumps > 0)
+            {
+                jumps--;
+                rb.velocity = Vector2.up * jumpSpeed;
+            }
+        }
+
+    }
+
+    // Checks if the jumps should reset
     private void Update()
     {
-         
         if (onGround)
         {
-            extraJumps = 1;
+            jumps = 1;
         }
-
-        if (extraJumps == 0)
-        {
-            return;
-        }
-        else if(Input.GetButtonDown("Jump") && extraJumps > 0){
-            extraJumps--;
-            rb.velocity = Vector2.up * jumpVelocity;
-        }
-       
-
     }
 
     private void Flip()
@@ -74,5 +86,9 @@ public class CharacterController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    public Rigidbody2D GetRigidbody(){
+        return rb;
     }
 }
