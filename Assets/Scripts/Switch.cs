@@ -10,7 +10,7 @@ public class Switch : MonoBehaviour
 
     // Reference to Sprite Renderer component
     private Renderer rend;
-
+    public EnergyBar energyBar;
     // Color value that we can set in Inspector
     // It's White by default
     [SerializeField]
@@ -66,13 +66,14 @@ public class Switch : MonoBehaviour
         if (isOn)
         {
             allowSwitchText.text = "Turned on";
-
+            energyBar.increaseEnergy(1);
             rend.material.color = new Color(249, 166, 2);
 
         }
         else
         {
             rend.material.color = new Color(255,255,255);
+            energyBar.increaseEnergy(-1);
 
             allowSwitchText.text = "Turned Off";
 

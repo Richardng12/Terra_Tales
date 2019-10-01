@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerFillBar : MonoBehaviour
+public class EnergyBar : MonoBehaviour
 {
     private Slider slider;
-    private float currentValue;
+    private int currentValue;
 
     // Start is called before the first frame update
     void Start()
     {
         slider = GetComponent<Slider>();
-        currentValue = 0f;
+        currentValue = 10;
     }
-
+    public void increaseEnergy(int i)
+    {
+        currentValue += i;
+    }
     // Update is called once per frame
     void Update()
     {
-        currentValue += 0.1f;
 
         slider.value = currentValue;
     }
