@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour
     public Transform groundCheck;
     private float radiusCheck;
     public LayerMask whatIsGround;
-    public bool hasWep = false;
+    bool hasWep = false;
 
     private Rigidbody2D rb;
     public Transform player;
@@ -24,7 +24,7 @@ public class CharacterController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag.Equals("Water Gun")){
             hasWep = true; 
@@ -32,7 +32,7 @@ public class CharacterController : MonoBehaviour
     }
     // Shoots water
     public void ShootWaterGun(){
-        Debug.Log(true);
+        Debug.Log(hasWep);
         if(hasWep){
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
 
