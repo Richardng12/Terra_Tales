@@ -11,8 +11,7 @@ public class CharacterAction : MonoBehaviour
     private float moveInput = 8;
     private bool jump = false;
     private bool shoot = false;
-    public float fireSpeed = 0.5f;
-    private float currentTime;
+    private float fireSpeed = 0.5f;
  
     void Update()
     {
@@ -21,7 +20,7 @@ public class CharacterAction : MonoBehaviour
         {
             jump = true;
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDow("Fire1"))
         {
             shoot = true;
         }

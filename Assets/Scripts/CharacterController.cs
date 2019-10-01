@@ -18,12 +18,15 @@ public class CharacterController : MonoBehaviour
     public Transform direction;
     public GameObject waterBubblePrefab;
     public Animator move;
+    public float reload;
+    private float reloadTimeLeft;
 
     private int jumps = 1;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,18 +34,47 @@ public class CharacterController : MonoBehaviour
             hasWep = true; 
         }
     }
-    // Shoots water
-    public void ShootWaterGun(){
-        if(hasWep){
-            Instantiate(waterBubblePrefab, direction.position, direction.rotation);
-
+    // Checks if the jumps should reset
+    private void Update()
+    {
+        if (onGround)
+        {
+            jumps = 1;
+        }
+        if (!Input.GetButton("Horizontal"))
+        {
+            move.SetBool("Moving", false);
+        }
+        if (!Input.GetButton("Jump"))
+        {
+            Debug.Log("Jump");
+            move.SetBool("Jumping", false);
         }
     }
-
     private void FixedUpdate()
     {
         // Checks if grounded
         onGround = Physics2D.OverlapCircle(groundCheck.position,radiusCheck,whatIsGround);
+    }
+
+
+    // Shoots water gun  by instantianting a waterBubble object
+    // dependent on couple of variables
+    public void ShootWaterGun()
+    {
+        if (hasWep)
+        {
+            if (reloadTimeLeft <= 0)
+            {
+                Instantiate(waterBubblePrefab, direction.position, direction.rotation);
+                reloadTimeLeft = reload;
+            }
+            else
+            {
+                reloadTimeLeft = reloadTimeLeft - Time.deltaTime;
+            }
+
+        }
     }
 
     // Method to move the player
@@ -83,35 +115,17 @@ public class CharacterController : MonoBehaviour
 
     }
 
-    // Checks if the jumps should reset
-    private void Update()
-    {
-        if (onGround)
-        {
-            jumps = 1;
-        }
-        if(!Input.GetButton("Horizontal")){
-            move.SetBool("Moving", false);
-        }
-        if (!Input.GetButton("Jump"))
-        {
-            Debug.Log("Jump");
-            move.SetBool("Jumping", false);
-        }
-
-
-    }
-
     private void Flip()
     {
         // Switches the player position
         facingRight = !facingRight;
 
         // Multiply the player's x local scale by -1
-        Vector3 scale = transform.localScale;
+        Vector3 scale = player.localScale;
         scale.x *= -1;
-        transform.localScale = scale;
-        direction.Rotate(0f, 180f, 0f);
+        player.localScale = scale;
+        direction.Rotate(0f, 180f, 0f); 
+
     }
 
     public Rigidbody2D GetRigidbody(){
