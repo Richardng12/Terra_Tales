@@ -10,6 +10,7 @@ public class CharacterAction : MonoBehaviour
     public float jumpSpeed;
     private float moveInput;
     private bool jump = false;
+    private bool shoot = true;
 
 
     Rigidbody2D rb;
@@ -20,12 +21,20 @@ public class CharacterAction : MonoBehaviour
         if(Input.GetButtonDown("Jump")){
             jump = true;
         }
+        if(Input.GetButtonDown("Fire1")){
+            shoot = true;
+        }
     }
 
     private void FixedUpdate()
     {
         characterController.Move(moveInput);
         characterController.Jump(jump, jumpSpeed);
+        if (shoot)
+        {
+            characterController.ShootWaterGun();
+        }
+        shoot = false;
         jump = false;
     }
     

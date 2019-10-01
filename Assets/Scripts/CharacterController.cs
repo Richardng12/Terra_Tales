@@ -12,8 +12,12 @@ public class CharacterController : MonoBehaviour
     public Transform groundCheck;
     private float radiusCheck;
     public LayerMask whatIsGround;
+    public bool hasWep = false;
 
     private Rigidbody2D rb;
+    public Transform player;
+    public Transform direction;
+    public GameObject waterBubblePrefab;
 
     private int jumps = 1;
 
@@ -21,14 +25,25 @@ public class CharacterController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag.Equals("Water Gun")){
+            hasWep = true; 
+        }
+    }
+    // Shoots water
+    public void ShootWaterGun(){
+        Debug.Log(true);
+        if(hasWep){
+            Instantiate(waterBubblePrefab, direction.position, direction.rotation);
 
+        }
+    }
 
     private void FixedUpdate()
     {
         // Checks if grounded
         onGround = Physics2D.OverlapCircle(groundCheck.position,radiusCheck,whatIsGround);
-      
-
     }
 
     // Method to move the player
@@ -83,9 +98,10 @@ public class CharacterController : MonoBehaviour
         facingRight = !facingRight;
 
         // Multiply the player's x local scale by -1
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        //Vector3 scale = transform.localScale;
+        //scale.x *= -1;
+        //transform.localScale = scale;
+        player.Rotate(0f, 180f, 0f);
     }
 
     public Rigidbody2D GetRigidbody(){
