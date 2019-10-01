@@ -57,7 +57,7 @@ public class CharacterController : MonoBehaviour
         {
             return;
         }
-        else if(Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0){
+        else if(Input.GetButtonDown("Jump") && extraJumps > 0){
             extraJumps--;
             rb.velocity = Vector2.up * jumpVelocity;
         }
