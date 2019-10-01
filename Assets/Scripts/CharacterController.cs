@@ -7,47 +7,96 @@ public class CharacterController : MonoBehaviour
 
     private bool facingRight = true;
 
-    private bool onGround;
+    private bool onGround = true;
     public Transform groundCheck;
-    private float radiusCheck;
+    public float radiusCheck;
     public LayerMask whatIsGround;
-    public bool hasWep = false;
+    bool hasWep = false;
+    public int health = 5;
 
     private Rigidbody2D rb;
     public Transform player;
     public Transform direction;
     public GameObject waterBubblePrefab;
+    public Animator move;
+    public float rateOfFire;
+    float timeToFire = 0;
 
     private int jumps = 1;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag.Equals("Water Gun")){
             hasWep = true; 
         }
     }
-    // Shoots water
-    public void ShootWaterGun(){
-        Debug.Log(true);
-        if(hasWep){
-            Instantiate(waterBubblePrefab, direction.position, direction.rotation);
-
+    // Checks if the jumps should reset
+    private void Update()
+    {
+        if (onGround)
+        {
+            jumps = 1;
+        }
+        if (!Input.GetButton("Horizontal"))
+        {
+            move.SetBool("Moving", false);
+        }
+        if (!Input.GetButton("Jump"))
+        {
+            Debug.Log("Jump");
+            move.SetBool("Jumping", false);
         }
     }
-
     private void FixedUpdate()
     {
         // Checks if grounded
         onGround = Physics2D.OverlapCircle(groundCheck.position,radiusCheck,whatIsGround);
+
+    }
+    public void LoseHealth()
+    {
+        if (health > 0)
+        {
+            health--;
+        }
+        else {
+            health = 5;
+         }
+    }
+
+    // Shoots water gun  by instantianting a waterBubble object
+    // dependent on couple of variables
+    public void CheckFireRate()
+    {
+        if (hasWep)
+        {
+            if (rateOfFire == 0)
+            {
+                Shoot();
+            }
+            else
+            {
+                if (Time.time > timeToFire){
+                    timeToFire = Time.time + 1 / rateOfFire;
+                    Shoot();
+                    }
+                }
+        }
+    }
+    private void Shoot()
+    {
+        Instantiate(waterBubblePrefab, direction.position, direction.rotation);
     }
 
     // Method to move the player
     public void Move(float moveInput, float speed)
     {
+        move.SetBool("Moving", true);
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         // If moving right and facing left then need to flip the image
@@ -66,29 +115,20 @@ public class CharacterController : MonoBehaviour
 
     // Method to jump
     public void Jump(bool keyPressed, float jumpSpeed){
-        Debug.Log(jumps);
-        if(keyPressed){
-
+        if (keyPressed){
             if (jumps == 0)
             {
                 return;
             }
             else if (jumps > 0)
             {
+                move.SetBool("Jumping", true);
                 jumps--;
                 rb.velocity = Vector2.up * jumpSpeed;
             }
+
         }
 
-    }
-
-    // Checks if the jumps should reset
-    private void Update()
-    {
-        if (onGround)
-        {
-            jumps = 1;
-        }
     }
 
     private void Flip()
@@ -97,10 +137,11 @@ public class CharacterController : MonoBehaviour
         facingRight = !facingRight;
 
         // Multiply the player's x local scale by -1
-        Vector3 scale = transform.localScale;
+        Vector3 scale = player.localScale;
         scale.x *= -1;
-        transform.localScale = scale;
-        direction.Rotate(0f, 180f, 0f);
+        player.localScale = scale;
+        direction.Rotate(0f, 180f, 0f); 
+
     }
 
     public Rigidbody2D GetRigidbody(){
