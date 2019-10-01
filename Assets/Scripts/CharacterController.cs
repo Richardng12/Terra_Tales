@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
-    public float speed;
     private bool facingRight = true;
 
     private bool onGround;
@@ -47,7 +46,7 @@ public class CharacterController : MonoBehaviour
     }
 
     // Method to move the player
-    public void Move(float moveInput)
+    public void Move(float moveInput, float speed)
     {
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
@@ -98,10 +97,10 @@ public class CharacterController : MonoBehaviour
         facingRight = !facingRight;
 
         // Multiply the player's x local scale by -1
-        //Vector3 scale = transform.localScale;
-        //scale.x *= -1;
-        //transform.localScale = scale;
-        player.Rotate(0f, 180f, 0f);
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+        direction.Rotate(0f, 180f, 0f);
     }
 
     public Rigidbody2D GetRigidbody(){
