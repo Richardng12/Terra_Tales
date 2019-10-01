@@ -20,7 +20,7 @@ public class CharacterAction : MonoBehaviour
         {
             jump = true;
         }
-        if (Input.GetButtonDow("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             shoot = true;
         }

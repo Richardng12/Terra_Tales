@@ -19,7 +19,7 @@ public class CharacterController : MonoBehaviour
     public GameObject waterBubblePrefab;
     public Animator move;
     public float reload;
-    private float reloadTimeLeft;
+    private float reloadTimeLeft = 0;
 
     private int jumps = 1;
 
