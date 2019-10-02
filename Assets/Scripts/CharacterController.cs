@@ -19,14 +19,23 @@ public class CharacterController : MonoBehaviour
     public Transform direction;
     public GameObject waterBubblePrefab;
     public Animator move;
+
     public float rateOfFire;
     float timeToFire = 0;
 
     private int jumps = 1;
 
+    bool isInVuln = false;
+    float timeBeenInvulnerable = 0;
+    readonly float inVulnerableTimer = 1;
+    Renderer renderer;
+    Color c ;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<Renderer>();
+        c = renderer.material.color;
+
 
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -35,6 +44,23 @@ public class CharacterController : MonoBehaviour
             hasWep = true; 
         }
     }
+    private void CheckInvulnerability() {
+        if (timeBeenInvulnerable >= 2) {
+            c.a = 1f;
+            renderer.material.color = c;
+            isInVuln = false;
+            timeBeenInvulnerable = 0;
+          }
+        else
+        {
+            timeBeenInvulnerable = timeBeenInvulnerable + Time.deltaTime;
+            c.a = 0.5f;
+            renderer.material.color = c;
+        }
+
+
+    }
+
     // Checks if the jumps should reset
     private void Update()
     {
@@ -48,8 +74,19 @@ public class CharacterController : MonoBehaviour
         }
         if (!Input.GetButton("Jump"))
         {
-            Debug.Log("Jump");
             move.SetBool("Jumping", false);
+        }
+        // Checks invulnerability if player is invulnerable
+        Debug.Log(health);
+        if (isInVuln)
+         {
+            Debug.Log("INVULNERABLE");
+            CheckInvulnerability();
+         }
+        else
+        {
+            Debug.Log("NOT INVULNERABLE");
+
         }
     }
     private void FixedUpdate()
@@ -60,13 +97,19 @@ public class CharacterController : MonoBehaviour
     }
     public void LoseHealth()
     {
-        if (health > 0)
+        // If character isnt invulnerable
+        if (!isInVuln)
         {
-            health--;
+            if (health > 0)
+            {
+                health--;
+                isInVuln = true;
+            }
+            else
+            {
+                health = 5;
+            }
         }
-        else {
-            health = 5;
-         }
     }
 
     // Shoots water gun  by instantianting a waterBubble object

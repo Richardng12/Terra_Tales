@@ -23,7 +23,10 @@ public class WaterBubbleScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(this.gameObject);
+        if (!collision.gameObject.tag.Equals("Obstacles"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void DestroyWaterBubble(){
