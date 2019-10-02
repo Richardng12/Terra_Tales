@@ -11,8 +11,10 @@ public class FireSpriteController : MonoBehaviour
 
     private bool movingRight = true;
 
-    public Transform groundDetection;
+    public int health = 9;
 
+    public Transform groundDetection;
+    private CharacterController character;
     void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
@@ -33,6 +35,28 @@ public class FireSpriteController : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 movingRight = true;
             }
+        }
+    }
+
+    public void TakeDamage()
+    {
+        if (health > 3)
+        {
+            health -= 3;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("hit player");
+        character = other.gameObject.GetComponent<CharacterController>();
+        if (character != null)
+        {
+            character.LoseHealth();
         }
     }
 }
