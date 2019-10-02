@@ -12,6 +12,7 @@ public class FireSpriteController : MonoBehaviour
     private bool movingRight = true;
 
     public int health = 9;
+    private int location;
 
     public Transform groundDetection;
     private CharacterController character;
@@ -46,7 +47,10 @@ public class FireSpriteController : MonoBehaviour
         }
         else
         {
+            MonsterSpawnerScript.spawnedMonsters[location] = null;
+            MonsterSpawnerScript.currentSpawnDelay = 0;
             Destroy(this.gameObject);
+
         }
     }
 
@@ -58,5 +62,9 @@ public class FireSpriteController : MonoBehaviour
         {
             character.LoseHealth();
         }
+    }
+    public void SetLocation(int location)
+    {
+        this.location = location;
     }
 }

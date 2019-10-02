@@ -27,9 +27,10 @@ public class CharacterController : MonoBehaviour
 
     bool isInVuln = false;
     float timeBeenInvulnerable = 0;
-    readonly float inVulnerableTimer = 1;
+    readonly float inVulnerableTimer = 2;
     Renderer renderer;
     Color c ;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,14 +39,18 @@ public class CharacterController : MonoBehaviour
 
 
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag.Equals("Water Gun")){
             hasWep = true; 
         }
     }
+
+    // Checks if the character is invulnerable and changes teh renderer colour
+    // to show the player that it is invulnerable
     private void CheckInvulnerability() {
-        if (timeBeenInvulnerable >= 2) {
+        if (timeBeenInvulnerable >= inVulnerableTimer) {
             c.a = 1f;
             renderer.material.color = c;
             isInVuln = false;
@@ -61,7 +66,8 @@ public class CharacterController : MonoBehaviour
 
     }
 
-    // Checks if the jumps should reset
+    // Checks if the jumps should reset 
+    // Also checks for animation frames
     private void Update()
     {
         if (onGround)

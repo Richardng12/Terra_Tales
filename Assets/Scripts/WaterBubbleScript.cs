@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterBubbleScript : MonoBehaviour
 {
-    public float waterSpeed = 13.0f;
+    public float waterSpeed = 130.0f;
     private Rigidbody2D rb;
     private float time = 2f;
 
@@ -36,6 +36,7 @@ public class WaterBubbleScript : MonoBehaviour
     }
 
     private void DestroyWaterBubble(){
+        Debug.Log("Destroyed");
         Destroy(this.gameObject);
     }
 }
