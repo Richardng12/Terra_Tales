@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8703584791639943220}
   - component: {fileID: 8703584791639943229}
   m_Layer: 10
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,21 +152,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8703584791639943221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cebbeb71bb0c480d91c88232ffed1cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b157884e5ccf471cbbac7a74da9cce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 8703584791105506368}
-  radiusCheck: 0.5
+  radiusCheck: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 790
+    m_Bits: 2838
+  hasWep: 0
   health: 5
   player: {fileID: 8703584791639943231}
   direction: {fileID: 8703584792869128193}
   waterBubblePrefab: {fileID: 4429787587144035427, guid: 218ec8605299c4f538aa3b184db2f605,
     type: 3}
   move: {fileID: 8703584791639943229}
-  rateOfFire: 2
+  rateOfFire: 3
+  ammo: 9
 --- !u!50 &8703584791639943226
 Rigidbody2D:
   serializedVersion: 4
@@ -197,11 +199,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8703584791639943221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1d2e79eb4ec463b92cc54f6ce3f1db, type: 3}
+  m_Script: {fileID: 11500000, guid: 04a1cb69440af4d49b17d0a8a3938fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 8703584791639943225}
-  speed: 8
+  speed: 7
   jumpSpeed: 12
 --- !u!58 &8703584791639943220
 CircleCollider2D:

@@ -516,7 +516,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 903852615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7850d8798b9a348b895500dacabb6b99, type: 3}
+  m_Script: {fileID: 11500000, guid: 69cce5248ec2b410c9fecca8ac62972e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   display: {fileID: 903852619}
@@ -9402,6 +9402,24 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: -0.1}
+--- !u!4 &1411607599 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8703584792869128193, guid: d671791aed78640a7948ec4d64f5ecfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1542177528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1516113682 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8703584791639943229, guid: d671791aed78640a7948ec4d64f5ecfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1542177528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1516113689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8703584791639943231, guid: d671791aed78640a7948ec4d64f5ecfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1542177528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1542177528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9474,6 +9492,32 @@ PrefabInstance:
       propertyPath: hasWep
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8703584791639943225, guid: d671791aed78640a7948ec4d64f5ecfd,
+        type: 3}
+      propertyPath: direction
+      value: 
+      objectReference: {fileID: 1411607599}
+    - target: {fileID: 8703584791639943225, guid: d671791aed78640a7948ec4d64f5ecfd,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1516113689}
+    - target: {fileID: 8703584791639943225, guid: d671791aed78640a7948ec4d64f5ecfd,
+        type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 1815
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703584791639943225, guid: d671791aed78640a7948ec4d64f5ecfd,
+        type: 3}
+      propertyPath: waterBubblePrefab
+      value: 
+      objectReference: {fileID: 4429787587144035427, guid: 218ec8605299c4f538aa3b184db2f605,
+        type: 3}
+    - target: {fileID: 8703584791639943225, guid: d671791aed78640a7948ec4d64f5ecfd,
+        type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 1516113682}
     - target: {fileID: 8703584792869128193, guid: d671791aed78640a7948ec4d64f5ecfd,
         type: 3}
       propertyPath: m_LocalPosition.x
