@@ -38,7 +38,7 @@ public class Building : MonoBehaviour
                 applied = true;
                 energyBar.increaseEnergy(10);
             }
-            text.text = "Oh no energy max reached";
+         //   text.text = "Oh no energy max reached";
             building.gameObject.GetComponent<Renderer>().material.color = Color.red;
             //Decrease energy. Turn on aurora of POWA
         }
