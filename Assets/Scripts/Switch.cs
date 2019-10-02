@@ -32,16 +32,6 @@ public class Switch : MonoBehaviour
 
     private bool allowSwitch;
 
-    private void Start()
-    {
-        // Assign Renderer component to rend variable
-        rend = GetComponent<Renderer>();
-        switc = GetComponent<Rigidbody2D>();
-        //allowSwitchText.gameObject.SetActive(false);
-        canAdd = true;
-        isOn = false;
-        ChangeColour();
-    }
     public bool getIsOn()
     {
         return isOn;
@@ -54,6 +44,14 @@ public class Switch : MonoBehaviour
     }
 
     // Use this for initialization
+    private void Start()
+    {
+        // Assign Renderer component to rend variable
+        rend = GetComponent<Renderer>();
+        switc = GetComponent<Rigidbody2D>();
+        allowSwitchText.gameObject.SetActive(false);
+        canAdd = true;
+    }
 
     // Update is called once per frame
     private void Update()
@@ -100,14 +98,14 @@ public class Switch : MonoBehaviour
             }
 
             canAdd = false;
-           // allowSwitchText.text = "Turned on";
-            rend.material.color = Color.yellow;
+            allowSwitchText.text = "Turned on";
+            rend.material.color = new Color(249, 166, 2);
 
         }
         else
         {
             canAdd = true;
-            rend.material.color = Color.white;
+            rend.material.color = new Color(255, 255, 255);
             energyBar.increaseEnergy(-1);
 
             //allowSwitchText.text = "Turned Off";

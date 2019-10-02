@@ -5,17 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //https://www.youtube.com/watch?v=yFKg8qVclBk
-public class Window : MonoBehaviour
+public class Window: MonoBehaviour
 {
 
     // Reference to Sprite Renderer component
     private Renderer rend;
-    public SpriteRenderer person;
 
     public Rigidbody2D switch0;
     public bool hasPerson;
 
-    public bool getHasPerson()
+   public bool getHasPerson()
     {
         return hasPerson;
     }
@@ -31,13 +30,12 @@ public class Window : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        ChangeState();
+            ChangeState();
     }
+
     private void ChangeState()
     {
-        rend.material.color = switch0.gameObject.GetComponent<Renderer>().material.color;
-        person.enabled = hasPerson;
-     //   person.GetComponent<Renderer>().SetActive(hasPerson);
+            rend.material.color = switch0.gameObject.GetComponent<Renderer>().material.color;
     }
 
 }
