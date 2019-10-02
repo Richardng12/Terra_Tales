@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water Gun
   - WaterBullet
+  - Obstacles
   layers:
   - Default
   - TransparentFX
@@ -15,6 +16,7 @@ TagManager:
   - UI
   - 
   - 
+  - Obstacles
   - Ground
   - Player
   - Water Gun
@@ -38,8 +40,10 @@ TagManager:
   - 
   - 
   - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 2434931769
     locked: 0
