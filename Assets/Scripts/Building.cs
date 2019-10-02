@@ -11,11 +11,11 @@ public class Building : MonoBehaviour
     public Rigidbody2D building;
     public EnergyBar energyBar;
     public Text text;
-
+    private bool applied;
     // Start is called before the first frame update
     void Start()
     {
-        
+        applied = false;
     }
 
     public void setAllOn()
@@ -29,13 +29,29 @@ public class Building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (switch0.isOn && switch1.isOn && switch2.isOn)
         {
-            energyBar.increaseEnergy(3);
+            if (!applied)
+            {
+                applied = true;
+                energyBar.increaseEnergy(3);
+            }
             text.text = "Oh no energy max reached";
             building.gameObject.GetComponent<Renderer>().material.color = Color.red;
             //Decrease energy. Turn on aurora of POWA
         }
-        
+        else
+        {
+            if (applied)
+            {
+                energyBar.increaseEnergy(-3);
+
+            }
+            applied = false;
+            
+            building.gameObject.GetComponent<Renderer>().material.color = Color.green;
+
+        }
     }
 }

@@ -15,6 +15,7 @@ public class EnergyBar : MonoBehaviour
     }
     public void increaseEnergy(int i)
     {
+        Debug.Log("increased energy" + i.ToString());
         currentValue += i;
     }
     // Update is called once per frame
