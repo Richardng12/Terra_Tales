@@ -16,6 +16,7 @@ public class Building : MonoBehaviour
     void Start()
     {
         applied = false;
+        Update();
     }
 
     public void setAllOn()

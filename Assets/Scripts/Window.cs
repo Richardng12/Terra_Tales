@@ -23,7 +23,7 @@ public class Window: MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        hasPerson = false;
+        //hasPerson = false;
         rend = GetComponent<Renderer>();
         ChangeState();
     }

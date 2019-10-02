@@ -51,6 +51,8 @@ public class Switch : MonoBehaviour
         switc = GetComponent<Rigidbody2D>();
        // allowSwitchText.gameObject.SetActive(false);
         canAdd = true;
+        ChangeColour();
+
     }
 
     // Update is called once per frame
