@@ -101,13 +101,13 @@ public class Switch : MonoBehaviour
 
             canAdd = false;
            // allowSwitchText.text = "Turned on";
-            rend.material.color = new Color(249, 166, 2);
+            rend.material.color = Color.yellow;
 
         }
         else
         {
             canAdd = true;
-            rend.material.color = new Color(255, 255, 255);
+            rend.material.color = Color.white;
             energyBar.increaseEnergy(-1);
 
             //allowSwitchText.text = "Turned Off";
