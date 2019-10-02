@@ -12,6 +12,7 @@ public class Building : MonoBehaviour
     public EnergyBar energyBar;
     public Text text;
     private bool applied;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +36,9 @@ public class Building : MonoBehaviour
             if (!applied)
             {
                 applied = true;
-                energyBar.increaseEnergy(10);
+                energyBar.increaseEnergy(3);
             }
-            text.text = "Oh no energy max reached";
+            //text.text = "Oh no energy max reached";
             building.gameObject.GetComponent<Renderer>().material.color = Color.red;
             //Decrease energy. Turn on aurora of POWA
         }
@@ -45,7 +46,7 @@ public class Building : MonoBehaviour
         {
             if (applied)
             {
-                energyBar.increaseEnergy(-10);
+                energyBar.increaseEnergy(-3);
 
             }
             applied = false;
