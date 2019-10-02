@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //https://www.youtube.com/watch?v=yFKg8qVclBk
-public class Switch : MonoBehaviour
+public class WaterPuddle : MonoBehaviour
 {
 
     // Reference to Sprite Renderer component
     private Renderer rend;
-    public EnergyBar energyBar;
+    public EnergyBar waterBar;
     // Color value that we can set in Inspector
     // It's White by default
     [SerializeField]
@@ -21,21 +21,10 @@ public class Switch : MonoBehaviour
     // Change sprite color to selected color
 
     public Text allowSwitchText;
-    public bool isOn;
+    private bool isOn;
     private Rigidbody2D switc;
 
     private bool allowSwitch;
-
-    public bool getIsOn()
-    {
-        return isOn;
-    }
-
-    public void setIsOn(bool toSet)
-    {
-        isOn = toSet;
-        ChangeColour();
-    }
 
     // Use this for initialization
     private void Start()
@@ -74,21 +63,17 @@ public class Switch : MonoBehaviour
     private void ChangeState()
     {
         isOn = !isOn;
-        ChangeColour();
-    }
-    private void ChangeColour()
-    {
         if (isOn)
         {
             allowSwitchText.text = "Turned on";
-            energyBar.increaseEnergy(1);
+            waterBar.increaseEnergy(1);
             rend.material.color = new Color(249, 166, 2);
 
         }
         else
         {
             rend.material.color = new Color(255, 255, 255);
-            energyBar.increaseEnergy(-1);
+            waterBar.increaseEnergy(-1);
 
             allowSwitchText.text = "Turned Off";
 

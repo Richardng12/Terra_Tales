@@ -12,10 +12,17 @@ public class Window: MonoBehaviour
     private Renderer rend;
 
     public Rigidbody2D switch0;
+    public bool hasPerson;
+
+   public bool getHasPerson()
+    {
+        return hasPerson;
+    }
 
     // Use this for initialization
     private void Start()
     {
+        hasPerson = false;
         rend = GetComponent<Renderer>();
         ChangeState();
     }

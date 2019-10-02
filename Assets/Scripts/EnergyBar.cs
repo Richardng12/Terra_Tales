@@ -6,13 +6,12 @@ using UnityEngine.UI;
 public class EnergyBar : MonoBehaviour
 {
     private Slider slider;
-    private int currentValue;
+    public int currentValue;
 
     // Start is called before the first frame update
     void Start()
     {
         slider = GetComponent<Slider>();
-        currentValue = 10;
     }
     public void increaseEnergy(int i)
     {
@@ -23,5 +22,14 @@ public class EnergyBar : MonoBehaviour
     {
 
         slider.value = currentValue;
+    }
+
+    public bool isFull()
+    {
+        return currentValue > slider.maxValue;
+    }
+    public bool isEmpty()
+    {
+        return currentValue == 0;
     }
 }
