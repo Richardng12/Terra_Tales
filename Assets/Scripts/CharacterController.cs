@@ -30,6 +30,7 @@ public class CharacterController : MonoBehaviour
     readonly float inVulnerableTimer = 2;
     Renderer renderer;
     Color c ;
+    public static int ammo = 9;
 
     void Start()
     {
@@ -139,7 +140,11 @@ public class CharacterController : MonoBehaviour
     }
     private void Shoot()
     {
-        Instantiate(waterBubblePrefab, direction.position, direction.rotation);
+        if (ammo > 0)
+        {
+            Instantiate(waterBubblePrefab, direction.position, direction.rotation);
+            ammo--;
+        }
     }
 
     // Method to move the player
