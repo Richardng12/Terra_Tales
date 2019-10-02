@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour
     public Transform groundCheck;
     public float radiusCheck;
     public LayerMask whatIsGround;
-    bool hasWep = false;
+    public bool hasWep = false;
     public int health = 5;
 
     private Rigidbody2D rb;
@@ -30,15 +30,13 @@ public class CharacterController : MonoBehaviour
     readonly float inVulnerableTimer = 2;
     Renderer renderer;
     Color c ;
-    public static int ammo = 9;
+    public int ammo = 9;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
-
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -87,14 +85,8 @@ public class CharacterController : MonoBehaviour
         Debug.Log(health);
         if (isInVuln)
          {
-            Debug.Log("INVULNERABLE");
             CheckInvulnerability();
          }
-        else
-        {
-            Debug.Log("NOT INVULNERABLE");
-
-        }
     }
     private void FixedUpdate()
     {
@@ -200,5 +192,10 @@ public class CharacterController : MonoBehaviour
 
     public Rigidbody2D GetRigidbody(){
         return rb;
+    }
+
+    public int GetAmmoCount()
+    {
+        return ammo;
     }
 }
