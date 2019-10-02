@@ -5,11 +5,11 @@ using UnityEngine;
 public class Column : MonoBehaviour
 {
 
-    public Window window0;
-    public Window window1;
-    public Window window2;
-    public Switch sw0;
-    public Building building;
+    private Window window0;
+    private Window window1;
+    private Window window2;
+    private Switch sw0;
+    private Building building;
 
 
     // Start is called before the first frame update

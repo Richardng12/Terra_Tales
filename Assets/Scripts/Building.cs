@@ -29,7 +29,7 @@ public class Building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (switch0.getIsOn() && switch1.getIsOn() && switch2.getIsOn())
+        if (switch0.isOn && switch1.isOn && switch2.isOn)
         {
             energyBar.increaseEnergy(3);
             text.text = "Oh no energy max reached";

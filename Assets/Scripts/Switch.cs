@@ -16,7 +16,10 @@ public class Switch : MonoBehaviour
     [SerializeField]
     private Color colorToTurnTo = Color.white;
 
-
+    public Window window0;
+    public Window window1;
+    public Window window2;
+    public Building building;
 
     // Change sprite color to selected color
 
@@ -50,7 +53,9 @@ public class Switch : MonoBehaviour
     private void Update()
     {
         if (allowSwitch && Input.GetKeyDown(KeyCode.E))
+        {
             ChangeState();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,6 +79,10 @@ public class Switch : MonoBehaviour
     private void ChangeState()
     {
         isOn = !isOn;
+
+        if ((window0.hasPerson || window1.hasPerson || window2.hasPerson)&& !isOn) {
+            building.setAllOn();
+        }
         ChangeColour();
     }
     private void ChangeColour()
