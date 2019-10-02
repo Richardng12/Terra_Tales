@@ -23,8 +23,8 @@ public class CharacterController : MonoBehaviour
     public float rateOfFire;
     float timeToFire = 0;
 
-    private readonly float reloadDelay = 1;
-    private float currrentReloadDelay = 2;
+    private readonly float reloadDelay = 0.5f;
+    private float currrentReloadDelay = 0.5f;
 
     private int jumps = 1;
 
