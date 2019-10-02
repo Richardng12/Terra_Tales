@@ -21,6 +21,9 @@ public class CharacterController : MonoBehaviour
     public float reload;
     private float reloadTimeLeft = 0;
 
+    public GameObject currentInterObj = null;
+    public InteractionObject currentInterObjScript = null;
+
     private int jumps = 1;
 
     void Start()
