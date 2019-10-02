@@ -49,7 +49,7 @@ public class Switch : MonoBehaviour
         // Assign Renderer component to rend variable
         rend = GetComponent<Renderer>();
         switc = GetComponent<Rigidbody2D>();
-        allowSwitchText.gameObject.SetActive(false);
+       // allowSwitchText.gameObject.SetActive(false);
         canAdd = true;
     }
 
@@ -98,7 +98,7 @@ public class Switch : MonoBehaviour
             }
 
             canAdd = false;
-            allowSwitchText.text = "Turned on";
+           // allowSwitchText.text = "Turned on";
             rend.material.color = new Color(249, 166, 2);
 
         }

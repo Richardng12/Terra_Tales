@@ -10,6 +10,7 @@ public class Window: MonoBehaviour
 
     // Reference to Sprite Renderer component
     private Renderer rend;
+    public SpriteRenderer sprite;
 
     public Rigidbody2D switch0;
     public bool hasPerson;
@@ -36,6 +37,7 @@ public class Window: MonoBehaviour
     private void ChangeState()
     {
             rend.material.color = switch0.gameObject.GetComponent<Renderer>().material.color;
+            sprite.enabled = hasPerson;
     }
 
 }
