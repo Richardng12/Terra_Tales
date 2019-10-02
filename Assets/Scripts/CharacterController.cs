@@ -23,6 +23,9 @@ public class CharacterController : MonoBehaviour
     public float rateOfFire;
     float timeToFire = 0;
 
+    private readonly float reloadDelay = 1;
+    private float currrentReloadDelay = 2;
+
     private int jumps = 1;
 
     bool isInVuln = false;
@@ -158,6 +161,23 @@ public class CharacterController : MonoBehaviour
         }
 
     }
+    // Checks if the ammo is less than 9 and slowly reloads the water gun with
+    // a set delay
+    public void ReloadWaterGun() { 
+        if(ammo < 9 )
+        {
+            if (currrentReloadDelay >= reloadDelay)
+            {
+                ammo++;
+                currrentReloadDelay = 0;
+            }
+            else
+            {
+                currrentReloadDelay = currrentReloadDelay + Time.deltaTime;
+            }
+        }
+    }
+
 
     // Method to jump
     public void Jump(bool keyPressed, float jumpSpeed){
