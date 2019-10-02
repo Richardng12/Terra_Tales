@@ -35,7 +35,7 @@ public class Building : MonoBehaviour
             if (!applied)
             {
                 applied = true;
-                energyBar.increaseEnergy(3);
+                energyBar.increaseEnergy(10);
             }
             text.text = "Oh no energy max reached";
             building.gameObject.GetComponent<Renderer>().material.color = Color.red;
@@ -45,7 +45,7 @@ public class Building : MonoBehaviour
         {
             if (applied)
             {
-                energyBar.increaseEnergy(-3);
+                energyBar.increaseEnergy(-10);
 
             }
             applied = false;

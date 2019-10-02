@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 355254624}
   - component: {fileID: 355254628}
   - component: {fileID: 355254629}
+  - component: {fileID: 355254630}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -614,14 +615,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 908551373}
+  radiusCheck: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 55
-  hasWep: 1
+  health: 5
   player: {fileID: 355254627}
   direction: {fileID: 282567408}
   waterBubblePrefab: {fileID: 4429787587144035427, guid: 218ec8605299c4f538aa3b184db2f605,
     type: 3}
+  move: {fileID: 0}
+  rateOfFire: 0
 --- !u!61 &355254625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -639,7 +643,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65, y: 0.65}
+    oldSize: {x: 0.19, y: 0.34}
     newSize: {x: 0.65, y: 0.65}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -685,7 +689,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 84b0957bdeb1f425882c6a3f03cb7cac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ddb067497322347349f97e151e726b14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -748,9 +752,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 355254624}
-  speed: 5
+  speed: 0
   jumpSpeed: 8
-  fireSpeed: 0.3
+--- !u!114 &355254630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355254623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cebbeb71bb0c480d91c88232ffed1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 0}
+  radiusCheck: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  health: 5
+  player: {fileID: 0}
+  direction: {fileID: 0}
+  waterBubblePrefab: {fileID: 0}
+  move: {fileID: 0}
+  rateOfFire: 0
 --- !u!1 &371903547
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,11 +4578,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3853969773159146223, guid: cd92a352c7c514a91a49172223170c22,
-        type: 3}
-      propertyPath: m_Name
-      value: WaterGun
-      objectReference: {fileID: 0}
     - target: {fileID: 2698905298095834817, guid: cd92a352c7c514a91a49172223170c22,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4612,15 +4633,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9218171334647926479, guid: cd92a352c7c514a91a49172223170c22,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2814375682478784317, guid: cd92a352c7c514a91a49172223170c22,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853969773159146223, guid: cd92a352c7c514a91a49172223170c22,
+        type: 3}
+      propertyPath: m_Name
+      value: WaterGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218171334647926479, guid: cd92a352c7c514a91a49172223170c22,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd92a352c7c514a91a49172223170c22, type: 3}

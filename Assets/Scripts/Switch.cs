@@ -26,6 +26,7 @@ public class Switch : MonoBehaviour
 
     public Text allowSwitchText;
     public bool isOn;
+    private bool lastState;
     private Rigidbody2D switc;
 
     private bool allowSwitch;
@@ -48,6 +49,7 @@ public class Switch : MonoBehaviour
         rend = GetComponent<Renderer>();
         switc = GetComponent<Rigidbody2D>();
         allowSwitchText.gameObject.SetActive(false);
+        canAdd = true;
     }
 
     // Update is called once per frame
