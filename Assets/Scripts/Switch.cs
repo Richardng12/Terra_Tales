@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 //https://www.youtube.com/watch?v=yFKg8qVclBk
 public class Switch : MonoBehaviour
@@ -24,7 +25,7 @@ public class Switch : MonoBehaviour
 
     // Change sprite color to selected color
 
-    public Text allowSwitchText;
+    //public Text allowSwitchText;
     public bool isOn;
     private bool lastState;
     private Rigidbody2D switc;
@@ -36,10 +37,10 @@ public class Switch : MonoBehaviour
         // Assign Renderer component to rend variable
         rend = GetComponent<Renderer>();
         switc = GetComponent<Rigidbody2D>();
-        allowSwitchText.gameObject.SetActive(false);
+        //allowSwitchText.gameObject.SetActive(false);
         canAdd = true;
         isOn = false;
-        Update();
+        ChangeColour();
     }
     public bool getIsOn()
     {
@@ -67,7 +68,7 @@ public class Switch : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            allowSwitchText.gameObject.SetActive(true);
+           // allowSwitchText.gameObject.SetActive(true);
             allowSwitch = true;
         }
     }
@@ -76,7 +77,7 @@ public class Switch : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            allowSwitchText.gameObject.SetActive(false);
+           // allowSwitchText.gameObject.SetActive(false);
             allowSwitch = false;
         }
     }
@@ -99,7 +100,7 @@ public class Switch : MonoBehaviour
             }
 
             canAdd = false;
-            allowSwitchText.text = "Turned on";
+           // allowSwitchText.text = "Turned on";
             rend.material.color = Color.yellow;
 
         }
@@ -109,7 +110,7 @@ public class Switch : MonoBehaviour
             rend.material.color = Color.white;
             energyBar.increaseEnergy(-1);
 
-            allowSwitchText.text = "Turned Off";
+            //allowSwitchText.text = "Turned Off";
 
         }
     }
