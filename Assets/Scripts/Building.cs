@@ -11,6 +11,7 @@ public class Building : MonoBehaviour
     public Rigidbody2D building;
     public EnergyBar energyBar;
     public Text text;
+
     private bool applied;
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,7 @@ public class Building : MonoBehaviour
             }
             applied = false;
             
-            building.gameObject.GetComponent<Renderer>().material.color = Color.green;
+            building.gameObject.GetComponent<Renderer>().material.color = Color.white;
 
         }
     }
