@@ -45,10 +45,17 @@ public class OilEnemy : MonoBehaviour
 
     void Update()
     {
-        pos = new Vector2(playerPos.position.x, playerPos.position.y);
-        oppMove = rb.position - pos;
-        moveInput = pos - rb.position;
-        moveVelocity = moveInput.normalized * speed;
+        if (travelTime > 0)
+        {
+            travelTime--;
+        }
+        else
+        {
+            pos = new Vector2(playerPos.position.x, playerPos.position.y);
+            oppMove = rb.position - pos;
+            moveInput = pos - rb.position;
+            moveVelocity = moveInput.normalized * speed;
+        }
 
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
@@ -69,8 +76,12 @@ public class OilEnemy : MonoBehaviour
         }
 
         //If it hits a boundary
-        if (other.CompareTag("Boundary")) { 
-
+        if (other.CompareTag("Boundary")) {
+            travelTime = 1000;
+            pos = new Vector2(centrePos.position.x, centrePos.position.y);
+            oppMove = rb.position - pos;
+            moveInput = pos - rb.position;
+            moveVelocity = moveInput.normalized * speed;
         }
     }
 
