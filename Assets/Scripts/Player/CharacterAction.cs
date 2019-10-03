@@ -18,11 +18,6 @@ public class CharacterAction : MonoBehaviour
         {
             jump = true;
         }
-        if (Input.GetButton("Fire1"))
-        {
-            characterController.CheckFireRate();
-        }
-      
     }
 
 

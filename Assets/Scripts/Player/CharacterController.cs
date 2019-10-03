@@ -11,20 +11,25 @@ public class CharacterController : MonoBehaviour
     public Transform groundCheck;
     public float radiusCheck;
     public LayerMask whatIsGround;
-    public bool hasWep = false;
     public int health = 5;
+
+    public Transform direction;
 
     private Rigidbody2D rb;
     public Transform player;
-    public Transform direction;
-    public GameObject waterBubblePrefab;
     public Animator move;
 
-    public float rateOfFire;
-    float timeToFire = 0;
 
-    private readonly float reloadDelay = 0.5f;
-    private float currrentReloadDelay = 0.5f;
+
+
+    //public GameObject waterBubblePrefab;
+    //public bool hasWep = false;
+    //public float rateOfFire;
+    //float timeToFire = 0;
+    //private readonly float reloadDelay = 0.5f;
+    //private float currrentReloadDelay = 0.5f;
+    //public int ammo = 9;
+
 
     private int jumps = 1;
 
@@ -33,7 +38,6 @@ public class CharacterController : MonoBehaviour
     readonly float inVulnerableTimer = 2;
     Renderer renderer;
     Color c ;
-    public int ammo = 9;
 
     void Start()
     {
@@ -42,12 +46,7 @@ public class CharacterController : MonoBehaviour
         c = renderer.material.color;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag.Equals("Water Gun")){
-            hasWep = true; 
-        }
-    }
+    // Collision 2D
 
     // Checks if the character is invulnerable and changes teh renderer colour
     // to show the player that it is invulnerable
@@ -114,33 +113,9 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    // Shoots water gun  by instantianting a waterBubble object
-    // dependent on couple of variables
-    public void CheckFireRate()
-    {
-        if (hasWep)
-        {
-            if (rateOfFire == 0)
-            {
-                Shoot();
-            }
-            else
-            {
-                if (Time.time > timeToFire){
-                    timeToFire = Time.time + 1 / rateOfFire;
-                    Shoot();
-                    }
-                }
-        }
-    }
-    private void Shoot()
-    {
-        if (ammo > 0)
-        {
-            Instantiate(waterBubblePrefab, direction.position, direction.rotation);
-            ammo--;
-        }
-    }
+
+
+   
 
     // Method to move the player
     public void Move(float moveInput, float speed)
@@ -160,22 +135,6 @@ public class CharacterController : MonoBehaviour
 
         }
 
-    }
-    // Checks if the ammo is less than 9 and slowly reloads the water gun with
-    // a set delay
-    public void ReloadWaterGun() { 
-        if(ammo < 9 )
-        {
-            if (currrentReloadDelay >= reloadDelay)
-            {
-                ammo++;
-                currrentReloadDelay = 0;
-            }
-            else
-            {
-                currrentReloadDelay = currrentReloadDelay + Time.deltaTime;
-            }
-        }
     }
 
 
@@ -212,10 +171,5 @@ public class CharacterController : MonoBehaviour
 
     public Rigidbody2D GetRigidbody(){
         return rb;
-    }
-
-    public int GetAmmoCount()
-    {
-        return ammo;
     }
 }

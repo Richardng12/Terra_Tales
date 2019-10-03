@@ -46,8 +46,9 @@ GameObject:
   - component: {fileID: 3100417671843463447}
   - component: {fileID: 3100417671843463448}
   - component: {fileID: 3100417671843463441}
+  - component: {fileID: 3212358756528883913}
   m_Layer: 10
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,6 +67,7 @@ Transform:
   m_Children:
   - {fileID: 3100417671312975212}
   - {fileID: 3100417673039110445}
+  - {fileID: 5649946664296366355}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,15 +162,10 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 791
-  hasWep: 0
   health: 5
-  player: {fileID: 3100417671843463443}
   direction: {fileID: 3100417673039110445}
-  waterBubblePrefab: {fileID: 4429787587144035427, guid: 218ec8605299c4f538aa3b184db2f605,
-    type: 3}
+  player: {fileID: 3100417671843463443}
   move: {fileID: 3100417671843463441}
-  rateOfFire: 3
-  ammo: 9
 --- !u!50 &3100417671843463446
 Rigidbody2D:
   serializedVersion: 4
@@ -240,6 +237,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3212358756528883913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100417671843463449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcc92f93dd9a4396869ba6c55c9047e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {fileID: 3100417673039110445}
+  waterBubblePrefab: {fileID: 4429787587144035427, guid: 218ec8605299c4f538aa3b184db2f605,
+    type: 3}
+  hasWep: 0
+  rateOfFire: 2
+  ammo: 9
 --- !u!1 &3100417673039110446
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,4 +284,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3100417671843463443}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5028547031267481757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5649946664296366355}
+  m_Layer: 10
+  m_Name: holdpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5649946664296366355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028547031267481757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012, y: 0.478, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3100417671843463443}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

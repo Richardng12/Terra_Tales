@@ -12,14 +12,14 @@ public class AmmoHUD : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        display.enabled = player.GetComponent<CharacterController>().hasWep;
+        display.enabled = player.GetComponent<ShootWater>().hasWep;
 }
     // Update is called once per frame
     void Update()
     {
 
-       ammoCount.text = CreateAmmoText(player.GetComponent<CharacterController>().GetAmmoCount());
-        display.enabled = player.GetComponent<CharacterController>().hasWep; 
+       ammoCount.text = CreateAmmoText(player.GetComponent<ShootWater>().GetAmmoCount());
+       display.enabled = player.GetComponent<ShootWater>().hasWep; 
     }
 
     private string CreateAmmoText(int ammo)

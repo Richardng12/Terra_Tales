@@ -19,7 +19,7 @@ public class PuddleScript : MonoBehaviour
         {
             player = GameObject.Find("Player");
 
-            player.GetComponent<CharacterController>().ReloadWaterGun();
+            player.GetComponent<ShootWater>().ReloadWaterGun();
         }
     }
 
