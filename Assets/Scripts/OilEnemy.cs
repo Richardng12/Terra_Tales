@@ -77,7 +77,7 @@ public class OilEnemy : MonoBehaviour
 
         //If it hits a boundary
         if (other.CompareTag("Boundary")) {
-            travelTime = 1000;
+            travelTime = 500;
             pos = new Vector2(centrePos.position.x, centrePos.position.y);
             oppMove = rb.position - pos;
             moveInput = pos - rb.position;
