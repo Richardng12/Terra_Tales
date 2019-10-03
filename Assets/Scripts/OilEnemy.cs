@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class OilEnemy : MonoBehaviour
 {
+    //Speed of enemy
+    public float speed;
 
+    //Reference to player position and object
     private Transform playerPos;
-
     private CharacterController player;
 
+    //Initialise object body
     private Rigidbody2D rb;
 
-    private Vector2 velocity;
-
-
+    //Variables to calculate velocity
     private Vector2 moveVelocity;
     private Vector2 moveInput;
     private Vector2 pos;
@@ -37,7 +38,7 @@ public class OilEnemy : MonoBehaviour
         pos = new Vector2(playerPos.position.x, playerPos.position.y);
         oppMove = rb.position - pos;
         moveInput = pos - rb.position;
-        moveVelocity = moveInput.normalized * 4;
+        moveVelocity = moveInput.normalized * speed;
 
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }

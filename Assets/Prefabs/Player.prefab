@@ -160,12 +160,13 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1846
+  health: 5
   player: {fileID: 4705881599946905162}
   direction: {fileID: 4705881598718244468}
   waterBubblePrefab: {fileID: 4429787587144035427, guid: 218ec8605299c4f538aa3b184db2f605,
     type: 3}
   move: {fileID: 4705881599946905160}
-  reload: 0
+  rateOfFire: 0
 --- !u!50 &4705881599946905167
 Rigidbody2D:
   serializedVersion: 4
