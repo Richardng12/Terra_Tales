@@ -52,9 +52,9 @@ public class Switch : MonoBehaviour
         switc = GetComponent<Rigidbody2D>();
         // allowSwitchText.gameObject.SetActive(false);
         canAdd = true;
-        ChangeColour();
         windows =gameObject.GetComponentsInChildren<Window>();
-    
+        ChangeColour();
+
 
     }
 
@@ -87,15 +87,21 @@ public class Switch : MonoBehaviour
 
     private void ChangeState()
     {
-        isOn = !isOn;
+        
+        
         bool hasPerson = false;
         foreach(Window window in windows)
         {
             hasPerson |= window.hasPerson;
         }
-        if (hasPerson && !isOn)
+
+        if (hasPerson && isOn)
         {
             building.setAllOn();
+        }
+        else
+        {
+            isOn = !isOn;
         }
         ChangeColour();
     }
