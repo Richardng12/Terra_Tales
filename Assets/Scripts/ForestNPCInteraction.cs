@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ForestNPCInteraction : MonoBehaviour
 {
     public bool Interactable = false;
+    public DialogueTrigger dialogueTrigger;
 
     public Text showText;
 
@@ -17,9 +18,9 @@ public class ForestNPCInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("f") && Interactable)
+        if (Input.GetKeyDown("e") && Interactable)
         {
-            Debug.Log("Hello");
+            dialogueTrigger.TriggerDialogue();
         }
 
     }
