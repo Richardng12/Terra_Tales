@@ -673,15 +673,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: RubbishBag
       objectReference: {fileID: 0}
+    - target: {fileID: 8306085652348385930, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2449066949716600113, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.43
+      value: 18.48
       objectReference: {fileID: 0}
     - target: {fileID: 2449066949716600113, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.95
+      value: 11.936
       objectReference: {fileID: 0}
     - target: {fileID: 2449066949716600113, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
         type: 3}
@@ -727,6 +732,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449066949716600113, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15246889
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449066949716600113, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.14825787
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378408047707755417, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378408047707755418, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378408047707755418, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378408047707755418, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 8.83
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fee2cc6eec754a91908f2aa5b8892b4, type: 3}
@@ -9853,9 +9888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02acb61d0f0e4504b914973f0ea38ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 2
+  grabDistance: 5
   holdPoint: {fileID: 1707916521}
-  throwVelocity: 2
+  throwVelocity: 0
 --- !u!1 &2104555676
 GameObject:
   m_ObjectHideFlags: 0
