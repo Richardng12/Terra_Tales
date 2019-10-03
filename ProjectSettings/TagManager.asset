@@ -7,6 +7,8 @@ TagManager:
   - Water Gun
   - WaterBullet
   - OneShot
+  - Boundary
+  - Centre
   layers:
   - Default
   - TransparentFX
@@ -43,6 +45,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Platform
+    uniqueID: 838001341
+    locked: 0
+  - name: Foilage
+    uniqueID: 1559905631
+    locked: 0
+  - name: Items
+    uniqueID: 1336760341
     locked: 0
   - name: Player
     uniqueID: 1559662511

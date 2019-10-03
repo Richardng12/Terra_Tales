@@ -11,6 +11,9 @@ public class OilEnemy : MonoBehaviour
     private Transform playerPos;
     private CharacterController player;
 
+    //Reference to centre of map
+    private Transform centrePos;
+
     //Initialise object body
     private Rigidbody2D rb;
 
@@ -21,11 +24,18 @@ public class OilEnemy : MonoBehaviour
     private Vector2 tempMove;
     private Vector2 oppMove;
 
+    //Variables for boundary collision
+    private int travelTime = 0;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
 
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+
+        centrePos = GameObject.FindGameObjectWithTag("Centre").transform;
+
+
 
         //velocity = new Vector2(5f, 5f);
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -56,6 +66,11 @@ public class OilEnemy : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+        }
+
+        //If it hits a boundary
+        if (other.CompareTag("Boundary")) { 
+
         }
     }
 
