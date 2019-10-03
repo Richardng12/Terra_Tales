@@ -9,7 +9,7 @@ public class Building : MonoBehaviour
     
     //public Rigidbody2D building;
     public EnergyBar energyBar;
-    public Text text;
+   // public Text text;
 
     private bool applied;
     // Start is called before the first frame update
@@ -22,6 +22,7 @@ public class Building : MonoBehaviour
         foreach (Switch switcha in switches)
         {
             switcha.building = this;
+            switcha.energyBar = energyBar;
         }
     }
 

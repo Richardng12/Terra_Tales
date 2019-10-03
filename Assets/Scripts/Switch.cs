@@ -16,7 +16,7 @@ public class Switch : MonoBehaviour
     // Color value that we can set in Inspector
     // It's White by default
     [SerializeField]
-    private Color colorToTurnTo = Color.white;
+    //private Color colorToTurnTo = Color.white;
 
     private Window[] windows;
     // public Window window0;
