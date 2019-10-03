@@ -11,30 +11,64 @@ public class CharacterController : MonoBehaviour
     public Transform groundCheck;
     public float radiusCheck;
     public LayerMask whatIsGround;
-    bool hasWep = false;
+    public int health = 5;
+
+    public Transform direction;
 
     private Rigidbody2D rb;
     public Transform player;
-    public Transform direction;
-    public GameObject waterBubblePrefab;
     public Animator move;
-    public float reload;
-    private float reloadTimeLeft = 0;
+
+
+
+
+    //public GameObject waterBubblePrefab;
+    //public bool hasWep = false;
+    //public float rateOfFire;
+    //float timeToFire = 0;
+    //private readonly float reloadDelay = 0.5f;
+    //private float currrentReloadDelay = 0.5f;
+    //public int ammo = 9;
+
 
     private int jumps = 1;
+
+    bool isInVuln = false;
+    float timeBeenInvulnerable = 0;
+    readonly float inVulnerableTimer = 2;
+    Renderer renderer;
+    Color c ;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<Renderer>();
+        c = renderer.material.color;
+    }
+
+    // Collision 2D
+
+    // Checks if the character is invulnerable and changes teh renderer colour
+    // to show the player that it is invulnerable
+    private void CheckInvulnerability() {
+        if (timeBeenInvulnerable >= inVulnerableTimer) {
+            c.a = 1f;
+            renderer.material.color = c;
+            isInVuln = false;
+            timeBeenInvulnerable = 0;
+          }
+        else
+        {
+            timeBeenInvulnerable = timeBeenInvulnerable + Time.deltaTime;
+            c.a = 0.5f;
+            renderer.material.color = c;
+        }
+
 
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag.Equals("Water Gun")){
-            hasWep = true; 
-        }
-    }
-    // Checks if the jumps should reset
+
+    // Checks if the jumps should reset 
+    // Also checks for animation frames
     private void Update()
     {
         if (onGround)
@@ -47,35 +81,41 @@ public class CharacterController : MonoBehaviour
         }
         if (!Input.GetButton("Jump"))
         {
-            Debug.Log("Jump");
             move.SetBool("Jumping", false);
         }
+        // Checks invulnerability if player is invulnerable
+        Debug.Log(health);
+        if (isInVuln)
+         {
+            CheckInvulnerability();
+         }
     }
     private void FixedUpdate()
     {
         // Checks if grounded
         onGround = Physics2D.OverlapCircle(groundCheck.position,radiusCheck,whatIsGround);
+
     }
-
-
-    // Shoots water gun  by instantianting a waterBubble object
-    // dependent on couple of variables
-    public void ShootWaterGun()
+    public void LoseHealth()
     {
-        if (hasWep)
+        // If character isnt invulnerable
+        if (!isInVuln)
         {
-            if (reloadTimeLeft <= 0)
+            if (health > 0)
             {
-                Instantiate(waterBubblePrefab, direction.position, direction.rotation);
-                reloadTimeLeft = reload;
+                health--;
+                isInVuln = true;
             }
             else
             {
-                reloadTimeLeft = reloadTimeLeft - Time.deltaTime;
+                health = 5;
             }
-
         }
     }
+
+
+
+   
 
     // Method to move the player
     public void Move(float moveInput, float speed)
@@ -96,6 +136,7 @@ public class CharacterController : MonoBehaviour
         }
 
     }
+
 
     // Method to jump
     public void Jump(bool keyPressed, float jumpSpeed){

@@ -6,12 +6,11 @@ public class CharacterAction : MonoBehaviour
 {
     public CharacterController characterController;
     public float speed;
-
     public float jumpSpeed = 8;
-    private float moveInput = 8;
+    private float moveInput;
     private bool jump = false;
-    private bool shoot = false;
- 
+    private bool loseHealth = false;
+
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
@@ -19,12 +18,6 @@ public class CharacterAction : MonoBehaviour
         {
             jump = true;
         }
-        if (Input.GetButtonDown("Fire1"))
-        {
-            shoot = true;
-        }
-
-
     }
 
 
@@ -32,11 +25,11 @@ private void FixedUpdate()
 {
         characterController.Move(moveInput, speed);
         characterController.Jump(jump, jumpSpeed);
-        if(shoot)
+        if (loseHealth)
         {
-            characterController.ShootWaterGun();
+            characterController.LoseHealth();
         }
-        shoot = false;
+        loseHealth = false;
         jump = false;
     }
     

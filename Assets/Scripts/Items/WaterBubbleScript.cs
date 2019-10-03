@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterBubbleScript : MonoBehaviour
 {
-    public float waterSpeed = 13.0f;
+    public float waterSpeed = 130.0f;
     private Rigidbody2D rb;
     private float time = 2f;
 
@@ -23,10 +23,20 @@ public class WaterBubbleScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(this.gameObject);
+        FireSpriteController fire = collision.gameObject.GetComponent<FireSpriteController>();
+        if(fire != null)
+        {
+            fire.TakeDamage();
+        }
+        if (!collision.gameObject.tag.Equals("Obstacles"))
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 
     private void DestroyWaterBubble(){
+        Debug.Log("Destroyed");
         Destroy(this.gameObject);
     }
 }
