@@ -12,6 +12,7 @@ public class Building : MonoBehaviour
    // public Text text;
 
     private bool applied;
+    private bool shortCircuit;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,24 @@ public class Building : MonoBehaviour
         Update();
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("hit player");
+        CharacterController character = other.gameObject.GetComponent<CharacterController>();
+        if (character != null && shortCircuit)
+        {
+            character.LoseHealth();
+        }
+    }
+    private IEnumerator HandleIt()
+    {
+        applied = true;
+        // process pre-yield
+        yield return new WaitForSeconds(5.0f);
+        shortCircuit = false;
+        this.gameObject.GetComponent<Renderer>().material.color = Color.magenta;
+        // process post-yield
+    }
     // Update is called once per frame
     void Update()
     {
@@ -48,10 +67,12 @@ public class Building : MonoBehaviour
             {
                 applied = true;
                 energyBar.increaseEnergy(5);
+                shortCircuit = true;
+                // Change colour for 5 seconds
+                this.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                StartCoroutine(HandleIt());
             }
-         //   text.text = "Oh no energy max reached";
-            this.gameObject.GetComponent<Renderer>().material.color = Color.red;
-            //Decrease energy. Turn on aurora of POWA
+            
         }
         else
         {
@@ -61,7 +82,8 @@ public class Building : MonoBehaviour
 
             }
             applied = false;
-            
+            shortCircuit = false;
+
             this.gameObject.GetComponent<Renderer>().material.color = Color.white;
 
         }
