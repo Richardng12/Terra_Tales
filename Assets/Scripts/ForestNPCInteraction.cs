@@ -12,7 +12,6 @@ public class ForestNPCInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        showText.text = "";
     }
 
     // Update is called once per frame
@@ -41,9 +40,8 @@ public class ForestNPCInteraction : MonoBehaviour
         if (Collision.gameObject.tag.Equals("Player"))
         {
             Debug.Log(Interactable);
-            showText.gameObject.SetActive(true);
+            showText.gameObject.SetActive(false);
             Interactable = false;
-            showText.text = "";
         }
     }
 }
