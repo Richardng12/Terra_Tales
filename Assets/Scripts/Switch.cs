@@ -18,9 +18,10 @@ public class Switch : MonoBehaviour
     [SerializeField]
     private Color colorToTurnTo = Color.white;
 
-    public Window window0;
-    public Window window1;
-    public Window window2;
+    private Window[] windows;
+    // public Window window0;
+    // public Window window1;
+    //public Window window2;
     public Building building;
 
     // Change sprite color to selected color
@@ -49,9 +50,11 @@ public class Switch : MonoBehaviour
         // Assign Renderer component to rend variable
         rend = GetComponent<Renderer>();
         switc = GetComponent<Rigidbody2D>();
-       // allowSwitchText.gameObject.SetActive(false);
+        // allowSwitchText.gameObject.SetActive(false);
         canAdd = true;
         ChangeColour();
+        windows =gameObject.GetComponentsInChildren<Window>();
+    
 
     }
 
@@ -68,7 +71,7 @@ public class Switch : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-           // allowSwitchText.gameObject.SetActive(true);
+            // allowSwitchText.gameObject.SetActive(true);
             allowSwitch = true;
         }
     }
@@ -77,7 +80,7 @@ public class Switch : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-           // allowSwitchText.gameObject.SetActive(false);
+            // allowSwitchText.gameObject.SetActive(false);
             allowSwitch = false;
         }
     }
@@ -85,8 +88,13 @@ public class Switch : MonoBehaviour
     private void ChangeState()
     {
         isOn = !isOn;
-
-        if ((window0.hasPerson || window1.hasPerson || window2.hasPerson)&& !isOn) {
+        bool hasPerson = false;
+        foreach(Window window in windows)
+        {
+            hasPerson |= window.hasPerson;
+        }
+        if (hasPerson && !isOn)
+        {
             building.setAllOn();
         }
         ChangeColour();
@@ -95,12 +103,13 @@ public class Switch : MonoBehaviour
     {
         if (isOn)
         {
-            if (canAdd) {
+            if (canAdd)
+            {
                 energyBar.increaseEnergy(1);
             }
 
             canAdd = false;
-           // allowSwitchText.text = "Turned on";
+            // allowSwitchText.text = "Turned on";
             rend.material.color = Color.yellow;
 
         }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnergyBar : MonoBehaviour
 {
+    public Slider slider2;
     private Slider slider;
     public int currentValue;
 

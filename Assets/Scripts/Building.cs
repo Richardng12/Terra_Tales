@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class Building : MonoBehaviour
 {
-    public Switch switch0;
-    public Switch switch1;
-    public Switch switch2;
-    public Rigidbody2D building;
+    private Switch[] switches;
+    
+    //public Rigidbody2D building;
     public EnergyBar energyBar;
     public Text text;
 
@@ -16,23 +15,33 @@ public class Building : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switches = GetComponentsInChildren<Switch>();
         applied = false;
         Update();
+
+        foreach (Switch switcha in switches)
+        {
+            switcha.building = this;
+        }
     }
 
     public void setAllOn()
     {
-        switch0.setIsOn(true);
-        switch1.setIsOn(true);
-        switch2.setIsOn(true);
+        foreach(Switch switcha in switches){
+            switcha.setIsOn(true);
+        }
         Update();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (switch0.isOn && switch1.isOn && switch2.isOn)
+        bool switchOn = true;
+        foreach(Switch switcha in switches)
+        {
+            switchOn &= switcha.isOn;
+        }
+        if (switchOn)
         {
             if (!applied)
             {
@@ -40,7 +49,7 @@ public class Building : MonoBehaviour
                 energyBar.increaseEnergy(5);
             }
          //   text.text = "Oh no energy max reached";
-            building.gameObject.GetComponent<Renderer>().material.color = Color.red;
+            this.gameObject.GetComponent<Renderer>().material.color = Color.red;
             //Decrease energy. Turn on aurora of POWA
         }
         else
@@ -52,7 +61,7 @@ public class Building : MonoBehaviour
             }
             applied = false;
             
-            building.gameObject.GetComponent<Renderer>().material.color = Color.white;
+            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
 
         }
     }
