@@ -1,44 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Seedling : MonoBehaviour
 {
 
-    public bool Interactable = false;
-    public float CurrentProgress;
-    public  readonly float MaxProgress = 5;
+    public Slider progressBar;
+    public bool complete;
+    public bool interactable = false;
+    public float currentProgress;
+    public float maxProgress = 5;
+
+    public GameObject pivot;
+
+    private Behaviour behaviour;
+
     // Start is called before the first frame update
     void Start()
     {
-        CurrentProgress = 0;
+        currentProgress = 0;
+        complete = false;
+        progressBar.value = CalculateProgress();
+        progressBar.gameObject.SetActive(false);
+        pivot.transform.localScale = new Vector3(1, 1, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("f") && Interactable)
+        // complete progress bar
+        if (Input.GetKey("e") && interactable && currentProgress > 5)
         {
-            CurrentProgress += Time.deltaTime;
-            Debug.Log(CurrentProgress);
+            interactable = false;
+            complete = true;
+            progressBar.gameObject.SetActive(false);
         }
-        if(Input.GetKey("f") && Interactable && CurrentProgress == 5)
+        if (Input.GetKey("e") && interactable)
         {
-            Interactable = false;
+            float time = Time.deltaTime;
+            currentProgress += time;
+            progressBar.value = CalculateProgress();
+            pivot.transform.localScale += new Vector3(time, time, 0);
         }
-        if (Input.GetKeyUp("f") && CurrentProgress < MaxProgress )
+        if (Input.GetKeyUp("e") && currentProgress < maxProgress)
         {
-            CurrentProgress = 0;
+            currentProgress = 0;
+            progressBar.value = CalculateProgress();
+            pivot.transform.localScale = new Vector3(1, 1, 0);
         }
 
     }
 
+    private float CalculateProgress()
+    {
+        return currentProgress / maxProgress;
+    }
+
     private void OnTriggerEnter2D(Collider2D Collision)
     {
-        if (Collision.gameObject.tag.Equals("Player"))
+        if (Collision.gameObject.tag.Equals("Player") && complete != true)
         {
-            Debug.Log(Interactable);
-            Interactable = true;
+            interactable = true;
+            progressBar.gameObject.SetActive(true);
         }
     }
 
@@ -46,9 +69,11 @@ public class Seedling : MonoBehaviour
     {
         if (Collision.gameObject.tag.Equals("Player"))
         {
-            Debug.Log(Interactable);
-            Interactable = false;
-            CurrentProgress = 0;
+            interactable = false;
+            currentProgress = 0;
+            progressBar.gameObject.SetActive(false);
+            if (complete != true)
+                pivot.transform.localScale = new Vector3(1, 1, 0);
         }
     }
 }
