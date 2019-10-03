@@ -89,10 +89,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1728566034938495791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1296ccecaefaa4ee28a75d4852f1de5b, type: 3}
+  m_Script: {fileID: 11500000, guid: b0e845336398d4b0a8e76b89a8678e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 2838232147502429533}
+  fire: {fileID: 1720438530676308884}
 --- !u!1 &2838232147502429532
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,9 +104,9 @@ GameObject:
   - component: {fileID: 2838232147502429505}
   - component: {fileID: 2838232147502429504}
   - component: {fileID: 2838232147502429506}
-  - component: {fileID: 2838232147502429533}
   - component: {fileID: 2838232147502429507}
   - component: {fileID: 2838232147502429510}
+  - component: {fileID: 1720438530676308884}
   m_Layer: 12
   m_Name: FireEnemy
   m_TagString: Fire Enemy
@@ -204,22 +204,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.4, y: 5.78}
   m_EdgeRadius: 0
---- !u!114 &2838232147502429533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2838232147502429532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43aa520efb54a4677bc5ffcabe97476b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  distance: 5
-  health: 3
-  groundDetection: {fileID: 2838232148415816354}
 --- !u!50 &2838232147502429507
 Rigidbody2D:
   serializedVersion: 4
@@ -257,6 +241,22 @@ CircleCollider2D:
   m_Offset: {x: 0.12, y: -3.21}
   serializedVersion: 2
   m_Radius: 2.6
+--- !u!114 &1720438530676308884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838232147502429532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f3c029d77bd4b299f0a0603030c0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  distance: 5
+  health: 9
+  groundDetection: {fileID: 2838232148415816354}
 --- !u!1 &2838232148415816381
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2838232148415816381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: -7.9, z: 0}
+  m_LocalPosition: {x: 0.6, y: -7.33, z: 0}
   m_LocalScale: {x: 2.290565, y: 0.70243996, z: 1.2216347}
   m_Children: []
   m_Father: {fileID: 2838232147502429505}
