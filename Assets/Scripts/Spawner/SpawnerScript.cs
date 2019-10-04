@@ -7,8 +7,8 @@ public class SpawnerScript : MonoBehaviour
     public Transform[] spawnLocations;
     public GameObject[] objectsToSpawn;
     int randomSpawnPoint;
-    readonly int spawnDelay = 2;
-    public float currentSpawnDelay = 2;
+    public int spawnDelay = 2;
+    float currentSpawnDelay = 2;
     AbstractSpawnableObject[] spawnedObject;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class SpawnerScript : MonoBehaviour
         for (int i =0; i < 5; i++) {
             SpawnObject();
             }
-        InvokeRepeating("SpawnObject",0f,10f);
+        InvokeRepeating("SpawnObject",0f,1f);
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class SpawnerScript : MonoBehaviour
         {
             Debug.Log("Spawned");
             int chosenObject = Random.Range(0, objectsToSpawn.Length);
-            spawnedObject[randomSpawnPoint] = Instantiate(objectsToSpawn[chosenObject], spawnLocations[randomSpawnPoint].position, Quaternion.identity).GetComponent<FireSpriteController>();
+            spawnedObject[randomSpawnPoint] = Instantiate(objectsToSpawn[chosenObject], spawnLocations[randomSpawnPoint].position, Quaternion.identity).GetComponent<AbstractSpawnableObject>();
             spawnedObject[randomSpawnPoint].SetLocation(randomSpawnPoint);
         }
 
@@ -48,5 +48,10 @@ public class SpawnerScript : MonoBehaviour
     public AbstractSpawnableObject[] getSpawnedObjects()
     {
         return spawnedObject;
+    }
+
+    public void SetCurrentSpawnDelay(float delay)
+    {
+        this.currentSpawnDelay = delay;
     }
 }
