@@ -1182,12 +1182,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 999188857}
-  m_RootOrder: 5
+  m_Father: {fileID: 1100589836}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 674.65, y: -0.0000061989}
+  m_AnchoredPosition: {x: 674.65, y: 174.5}
   m_SizeDelta: {x: 232.5, y: 177.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769935632
@@ -1643,9 +1643,6 @@ RectTransform:
   - {fileID: 1100589836}
   - {fileID: 657934711}
   - {fileID: 1786383955}
-  - {fileID: 769935631}
-  - {fileID: 1773389464}
-  - {fileID: 1104481837}
   m_Father: {fileID: 216418156}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1970,6 +1967,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 842531747}
+  - {fileID: 769935631}
   m_Father: {fileID: 999188857}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2094,12 +2092,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 999188857}
-  m_RootOrder: 7
+  m_Father: {fileID: 1933579683}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -665, y: -0.0000061989}
+  m_AnchoredPosition: {x: 0, y: -125.00001}
   m_SizeDelta: {x: 231.62, y: 177.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1104481838
@@ -2458,7 +2456,6 @@ GameObject:
   - component: {fileID: 1563478028}
   - component: {fileID: 1563478027}
   - component: {fileID: 1563478026}
-  - component: {fileID: 1563478029}
   - component: {fileID: 1563478030}
   m_Layer: 5
   m_Name: StartGameButton
@@ -2584,18 +2581,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563478024}
   m_CullTransparentMesh: 0
---- !u!114 &1563478029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563478024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1563478030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2622,7 +2607,6 @@ GameObject:
   - component: {fileID: 1564052643}
   - component: {fileID: 1564052642}
   - component: {fileID: 1564052646}
-  - component: {fileID: 1564052648}
   - component: {fileID: 1564052647}
   m_Layer: 5
   m_Name: OceanButton
@@ -2643,6 +2627,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1287192712}
+  - {fileID: 1773389464}
   m_Father: {fileID: 999188857}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2757,21 +2742,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564052640}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a219974d56c401849843048619f83337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1564052648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564052640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
+  m_Script: {fileID: 11500000, guid: a219974d56c401849843048619f83337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1586857151
@@ -2880,12 +2853,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 999188857}
-  m_RootOrder: 6
+  m_Father: {fileID: 1564052641}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -626, y: -356.95}
+  m_AnchoredPosition: {x: 721, y: 458.04993}
   m_SizeDelta: {x: 250.1, y: 172.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773389465
@@ -3014,7 +2987,6 @@ GameObject:
   - component: {fileID: 1933579685}
   - component: {fileID: 1933579684}
   - component: {fileID: 1933579688}
-  - component: {fileID: 1933579689}
   - component: {fileID: 1933579690}
   m_Layer: 5
   m_Name: ForestButton
@@ -3035,6 +3007,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 380536937}
+  - {fileID: 1104481837}
   m_Father: {fileID: 999188857}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3095,8 +3068,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 11500000, guid: daed587222927734395babe04e1f6d6a, type: 3}
+        m_MethodName: set_name
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3151,18 +3124,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a36dc246e3a44de47ace233c6b1ec342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1933579689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933579682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1933579690
