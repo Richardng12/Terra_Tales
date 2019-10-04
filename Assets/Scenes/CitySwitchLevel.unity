@@ -192,6 +192,8 @@ GameObject:
   - component: {fileID: 355254629}
   - component: {fileID: 355254630}
   - component: {fileID: 355254631}
+  - component: {fileID: 355254633}
+  - component: {fileID: 355254632}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -367,6 +369,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &355254632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355254623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a1cb69440af4d49b17d0a8a3938fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 0}
+  speed: 0
+  jumpSpeed: 8
+--- !u!114 &355254633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355254623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b157884e5ccf471cbbac7a74da9cce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 0}
+  radiusCheck: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  health: 5
+  direction: {fileID: 0}
+  player: {fileID: 0}
+  move: {fileID: 0}
 --- !u!1 &371903547
 GameObject:
   m_ObjectHideFlags: 0
