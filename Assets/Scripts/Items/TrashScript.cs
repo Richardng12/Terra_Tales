@@ -22,5 +22,7 @@ public class TrashScript : AbstractSpawnableObject
     {
         spawner.getSpawnedObjects()[spawnLocation] = null;
         spawner.SetCurrentSpawnDelay(0);
+        Destroy(this.gameObject);
+
     }
 }

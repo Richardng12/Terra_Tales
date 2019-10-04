@@ -60,4 +60,8 @@ public class GrabObject : MonoBehaviour
         Gizmos.DrawLine(transform.position - Vector3.right * transform.localScale.x, transform.position + Vector3.right * transform.localScale.x*grabDistance);
     }
 
+    public void SetGrabbed(bool boolean)
+    {
+        isGrabbed = boolean;
+    }
 }

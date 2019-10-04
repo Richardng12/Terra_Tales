@@ -40,6 +40,7 @@ public class SpawnerScript : MonoBehaviour
             Debug.Log("Spawned");
             int chosenObject = Random.Range(0, objectsToSpawn.Length);
             spawnedObject[randomSpawnPoint] = Instantiate(objectsToSpawn[chosenObject], spawnLocations[randomSpawnPoint].position, Quaternion.identity).GetComponent<AbstractSpawnableObject>();
+            spawnedObject[randomSpawnPoint].name = objectsToSpawn[chosenObject].name;
             spawnedObject[randomSpawnPoint].SetLocation(randomSpawnPoint);
         }
 

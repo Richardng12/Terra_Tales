@@ -19,18 +19,6 @@ public class CharacterController : MonoBehaviour
     public Transform player;
     public Animator move;
 
-
-
-
-    //public GameObject waterBubblePrefab;
-    //public bool hasWep = false;
-    //public float rateOfFire;
-    //float timeToFire = 0;
-    //private readonly float reloadDelay = 0.5f;
-    //private float currrentReloadDelay = 0.5f;
-    //public int ammo = 9;
-
-
     private int jumps = 1;
 
     bool isInVuln = false;
