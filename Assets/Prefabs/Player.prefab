@@ -42,11 +42,11 @@ GameObject:
   - component: {fileID: 3100417671843463442}
   - component: {fileID: 3100417671843463444}
   - component: {fileID: 3100417671843463445}
-  - component: {fileID: 3100417671843463446}
   - component: {fileID: 3100417671843463447}
   - component: {fileID: 3100417671843463448}
   - component: {fileID: 3100417671843463441}
   - component: {fileID: 3212358756528883913}
+  - component: {fileID: 4705881599946905167}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -67,7 +67,6 @@ Transform:
   m_Children:
   - {fileID: 3100417671312975212}
   - {fileID: 3100417673039110445}
-  - {fileID: 5649946664296366355}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -158,39 +157,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 3100417671312975212}
-  radiusCheck: 0
+  radiusCheck: 0.5
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1846
+    m_Bits: 790
   health: 5
-  player: {fileID: 4705881599946905162}
-  direction: {fileID: 4705881598718244468}
-  waterBubblePrefab: {fileID: 4429787587144035427, guid: 218ec8605299c4f538aa3b184db2f605,
-    type: 3}
-  move: {fileID: 4705881599946905160}
-  rateOfFire: 0
---- !u!50 &4705881599946905167
-
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3100417671843463449}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1.4633733
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 2.5
-  m_Material: {fileID: 6200000, guid: 28a5d4367c0ea48689e73f0b217c0114, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
+  direction: {fileID: 3100417673039110445}
+  player: {fileID: 3100417671843463443}
+  move: {fileID: 3100417671843463441}
 --- !u!114 &3100417671843463447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +233,27 @@ MonoBehaviour:
   hasWep: 0
   rateOfFire: 2
   ammo: 9
+--- !u!50 &4705881599946905167
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100417671843463449}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1.4633733
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 2.5
+  m_Material: {fileID: 6200000, guid: 28a5d4367c0ea48689e73f0b217c0114, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &3100417673039110446
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,34 +283,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3100417671843463443}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5028547031267481757
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5649946664296366355}
-  m_Layer: 10
-  m_Name: holdpoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5649946664296366355
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5028547031267481757}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.012, y: 0.478, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3100417671843463443}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
