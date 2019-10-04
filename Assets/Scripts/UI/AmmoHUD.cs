@@ -12,7 +12,7 @@ public class AmmoHUD : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
         display.enabled = player.GetComponent<ShootWater>().hasWep;
 }
     // Update is called once per frame
