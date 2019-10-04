@@ -3,14 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Water Gun
-  - WaterBullet
-  - Obstacles
-  - Fire Enemy
-  - Grabbable
-  - InterObject
-  - GUI
+  tags: [Water Gun, WaterBullet, Obstacles, Fire Enemy, Grabbable, InterObject, GUI,
+    LevelBounds, Music, Background]
   layers:
   - Default
   - TransparentFX
@@ -26,31 +20,64 @@ TagManager:
   - Water Gun
   - Enemy
   - Item
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Platforms
+  - Player
+  - Volumes
+  - OneWayPlatforms
+  - Projectiles
+  - Enemies
+  - LevelBounds
+  - Ladders
+  - PlayerProjectiles
+  - MovingObjects
+  - MovingPlatforms
+  - Foreground
+  - MovingOneWayPlatforms
+  - NoCollision
+  - Background
+  - Friendlies
+  - Invulnerable
+  - PlatformsPlayerOnly
+  - MidHeightOneWayPlatforms
+  - Pushables
   - 
   - 
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1830790129
+    locked: 0
+  - name: Background
+    uniqueID: 2674791413
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Foreground
-    uniqueID: 2434931769
+    uniqueID: 649949249
+    locked: 0
+  - name: ForegroundFront
+    uniqueID: 119007259
     locked: 0
   - name: Foreground2
     uniqueID: 2731564487
+    locked: 0
+  - name: Between
+    uniqueID: 606350985
+    locked: 0
+  - name: Player
+    uniqueID: 2666359821
+    locked: 0
+  - name: Platforms
+    uniqueID: 600026165
+    locked: 0
+  - name: Foreground
+    uniqueID: 1795597123
+    locked: 0
+  - name: VisibleParticles
+    uniqueID: 940224915
+    locked: 0
+  - name: UI
+    uniqueID: 3241408355
     locked: 0
