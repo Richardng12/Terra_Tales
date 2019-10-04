@@ -1,25 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ForestNPCInteraction : MonoBehaviour
 {
-    public bool Interactable = false;
+    public bool interactable = false;
+    public DialogueTrigger dialogueTrigger;
 
     public Text showText;
 
     // Start is called before the first frame update
     void Start()
     {
+        interactable = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("f") && Interactable)
+        if (Input.GetKeyDown("e") && interactable)
         {
-            Debug.Log("Hello");
+            dialogueTrigger.TriggerDialogue();
+            interactable = false;
         }
 
     }
@@ -28,9 +29,9 @@ public class ForestNPCInteraction : MonoBehaviour
     {
         if (Collision.gameObject.tag.Equals("Player"))
         {
-            Debug.Log(Interactable);
+            Debug.Log(interactable);
             showText.gameObject.SetActive(true);
-            Interactable = true;
+            interactable = true;
             showText.text = "Press E";
         }
     }
@@ -39,9 +40,9 @@ public class ForestNPCInteraction : MonoBehaviour
     {
         if (Collision.gameObject.tag.Equals("Player"))
         {
-            Debug.Log(Interactable);
+            Debug.Log(interactable);
             showText.gameObject.SetActive(false);
-            Interactable = false;
+            interactable = false;
         }
     }
 }
