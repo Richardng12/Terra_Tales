@@ -23,13 +23,14 @@ public class WaterBubbleScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        FireSpriteController fire = collision.gameObject.GetComponent<FireSpriteController>();
-        if(fire != null)
+        ICharacter fire = collision.gameObject.GetComponent<ICharacter>();
+        if (fire != null)
         {
-            fire.TakeDamage();
+            fire.LoseHealth();
         }
-        if (!collision.gameObject.tag.Equals("Obstacles"))
+        if (!collision.gameObject.tag.Equals("Obstacles") && !collision.gameObject.tag.Equals("Items") && (!collision.gameObject.tag.Equals("Grabbable")))
         {
+            Debug.Log(collision.gameObject.tag);
             Destroy(this.gameObject);
         }
 

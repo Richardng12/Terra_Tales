@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class FireSpriteController : MonoBehaviour
+public class FireSpriteController : AbstractSpawnableObject, ICharacter
 {
     // Start is called before the first frame update
     public float speed;
@@ -12,11 +12,24 @@ public class FireSpriteController : MonoBehaviour
     private bool movingRight = true;
 
     public int health = 9;
-    private int location;
+    private int spawnLocation;
 
     public Transform groundDetection;
     private CharacterController character;
+    private SpawnerScript spawner;
+
+    private void Start()
+    {
+        spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
+    }
+
     void Update()
+
+    {
+        Move();
+    }
+
+    public void Move()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
@@ -39,7 +52,7 @@ public class FireSpriteController : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void LoseHealth()
     {
         if (health > 3)
         {
@@ -47,11 +60,16 @@ public class FireSpriteController : MonoBehaviour
         }
         else
         {
-            MonsterSpawnerScript.spawnedMonsters[location] = null;
-            MonsterSpawnerScript.currentSpawnDelay = 0;
+            OnDestroy();
             Destroy(this.gameObject);
 
         }
+    }
+
+    private void OnDestroy()
+    {
+        spawner.getSpawnedObjects()[spawnLocation] = null;
+        spawner.SetCurrentSpawnDelay(0);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -65,6 +83,11 @@ public class FireSpriteController : MonoBehaviour
     }
     public void SetLocation(int location)
     {
-        this.location = location;
+        this.spawnLocation = location;
+    }
+
+    public void Move(float moveInput, float speed)
+    {
+        throw new NotImplementedException();
     }
 }

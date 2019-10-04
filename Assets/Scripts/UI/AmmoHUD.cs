@@ -8,10 +8,11 @@ public class AmmoHUD : MonoBehaviour
     public Canvas display; // Assign in inspector
     GameObject player;
     public Text ammoCount;
+    public string amountOfAmmo;
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
         display.enabled = player.GetComponent<ShootWater>().hasWep;
 }
     // Update is called once per frame
@@ -24,6 +25,10 @@ public class AmmoHUD : MonoBehaviour
 
     private string CreateAmmoText(int ammo)
     {
-        return ": " + ammo + "/9";
+        if(ammo == 99)
+        {
+            return ": " + "∞" + amountOfAmmo; 
+        }
+        return ": " + ammo + amountOfAmmo;
     }
 }

@@ -33,10 +33,15 @@ public class ShootWater : MonoBehaviour
     }
     private void Shoot()
     {
-        if (ammo > 0)
+        if (ammo > 0 && ammo != 99)
         {
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
             ammo--;
+        }
+        else
+        {
+            Instantiate(waterBubblePrefab, direction.position, direction.rotation);
+
         }
     }
     // Shoots water gun  by instantianting a waterBubble object

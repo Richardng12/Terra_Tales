@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour, ICharacter
 {
 
     private bool facingRight = true;
@@ -18,18 +18,6 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D rb;
     public Transform player;
     public Animator move;
-
-
-
-
-    //public GameObject waterBubblePrefab;
-    //public bool hasWep = false;
-    //public float rateOfFire;
-    //float timeToFire = 0;
-    //private readonly float reloadDelay = 0.5f;
-    //private float currrentReloadDelay = 0.5f;
-    //public int ammo = 9;
-
 
     private int jumps = 1;
 
@@ -84,7 +72,6 @@ public class CharacterController : MonoBehaviour
             move.SetBool("Jumping", false);
         }
         // Checks invulnerability if player is invulnerable
-        Debug.Log(health);
         if (isInVuln)
          {
             CheckInvulnerability();
@@ -171,5 +158,10 @@ public class CharacterController : MonoBehaviour
 
     public Rigidbody2D GetRigidbody(){
         return rb;
+    }
+
+    public void Move()
+    {
+        throw new System.NotImplementedException();
     }
 }
