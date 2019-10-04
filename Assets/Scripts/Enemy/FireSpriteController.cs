@@ -64,7 +64,7 @@ public class FireSpriteController : AbstractSpawnableObject
     private void OnDestroy()
     {
         spawner.getSpawnedObjects()[spawnLocation] = null;
-        spawner.currentSpawnDelay = 0;
+        spawner.SetCurrentSpawnDelay(0);
     }
 
     void OnTriggerEnter2D(Collider2D other)

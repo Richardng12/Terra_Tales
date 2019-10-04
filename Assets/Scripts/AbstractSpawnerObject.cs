@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-    public abstract class AbstractSpawnableObject : MonoBehaviour
+    public class SpawnableObject : MonoBehaviour
     {
         private int spawnLocation;
         private SpawnerScript spawner;

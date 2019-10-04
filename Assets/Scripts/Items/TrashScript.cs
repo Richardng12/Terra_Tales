@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TrashScript : AbstractSpawnableObject
 {
-    public SpawnerScript spawner;
+    private SpawnerScript spawner;
     private int spawnLocation;
 
     private void Start()
@@ -21,6 +21,6 @@ public class TrashScript : AbstractSpawnableObject
     public void OnDestroy()
     {
         spawner.getSpawnedObjects()[spawnLocation] = null;
-        spawner.currentSpawnDelay = 0;
+        spawner.SetCurrentSpawnDelay(0);
     }
 }
