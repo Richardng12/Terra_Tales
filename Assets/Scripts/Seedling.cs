@@ -13,7 +13,9 @@ public class Seedling : MonoBehaviour
 
     public GameObject pivot;
 
-    private Behaviour behaviour;
+    private GameObject treeCounterObject;
+
+    private TreeCounter treeCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,8 @@ public class Seedling : MonoBehaviour
         progressBar.value = CalculateProgress();
         progressBar.gameObject.SetActive(false);
         pivot.transform.localScale = new Vector3(1, 1, 0);
+        treeCounterObject = GameObject.Find("TreeCounter");
+        treeCounter = treeCounterObject.GetComponent<TreeCounter>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,7 @@ public class Seedling : MonoBehaviour
             interactable = false;
             complete = true;
             progressBar.gameObject.SetActive(false);
+            treeCounter.updateAndDisplayTreeCounter();
         }
         if (Input.GetKey("e") && interactable)
         {
@@ -42,12 +47,12 @@ public class Seedling : MonoBehaviour
             progressBar.value = CalculateProgress();
             pivot.transform.localScale += new Vector3(time, time, 0);
         }
-        if (Input.GetKeyUp("e") && currentProgress < maxProgress)
-        {
-            currentProgress = 0;
-            progressBar.value = CalculateProgress();
-            pivot.transform.localScale = new Vector3(1, 1, 0);
-        }
+        // if (Input.GetKeyUp("e") && currentProgress < maxProgress)
+        // {
+        //     currentProgress = 0;
+        //     progressBar.value = CalculateProgress();
+        //     pivot.transform.localScale = new Vector3(1, 1, 0);
+        // }
 
     }
 
@@ -58,7 +63,7 @@ public class Seedling : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D Collision)
     {
-        if (Collision.gameObject.tag.Equals("Player") && complete != true)
+        if (Collision.gameObject.tag.Equals("Player") && complete == false)
         {
             interactable = true;
             progressBar.gameObject.SetActive(true);
@@ -67,13 +72,13 @@ public class Seedling : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D Collision)
     {
-        if (Collision.gameObject.tag.Equals("Player"))
+        if (Collision.gameObject.tag.Equals("Player") && complete == false)
         {
             interactable = false;
-            currentProgress = 0;
+            // currentProgress = 0;
             progressBar.gameObject.SetActive(false);
-            if (complete != true)
-                pivot.transform.localScale = new Vector3(1, 1, 0);
+            // if (complete != true)
+            //     pivot.transform.localScale = new Vector3(1, 1, 0);
         }
     }
 }
