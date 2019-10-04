@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour, ICharacter
 {
 
     private bool facingRight = true;
@@ -159,5 +159,10 @@ public class CharacterController : MonoBehaviour
 
     public Rigidbody2D GetRigidbody(){
         return rb;
+    }
+
+    public void Move()
+    {
+        throw new System.NotImplementedException();
     }
 }

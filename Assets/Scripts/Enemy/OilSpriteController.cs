@@ -65,7 +65,8 @@ public class OilEnemy : MonoBehaviour
         //Collision with player
         if (other.CompareTag("Player"))
         {
-            //TODO player loses hp
+            player.LoseHealth();
+            Destroy(this.gameObject);
         }
 
         //Water bubble

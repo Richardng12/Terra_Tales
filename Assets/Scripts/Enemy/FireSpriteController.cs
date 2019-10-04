@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class FireSpriteController : AbstractSpawnableObject
+public class FireSpriteController : AbstractSpawnableObject, ICharacter
 {
     // Start is called before the first frame update
     public float speed;
@@ -26,6 +26,11 @@ public class FireSpriteController : AbstractSpawnableObject
     void Update()
 
     {
+        Move();
+    }
+
+    public void Move()
+    {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
         //origin, direction, length
@@ -47,7 +52,7 @@ public class FireSpriteController : AbstractSpawnableObject
         }
     }
 
-    public void TakeDamage()
+    public void LoseHealth()
     {
         if (health > 3)
         {
@@ -79,5 +84,10 @@ public class FireSpriteController : AbstractSpawnableObject
     public void SetLocation(int location)
     {
         this.spawnLocation = location;
+    }
+
+    public void Move(float moveInput, float speed)
+    {
+        throw new NotImplementedException();
     }
 }
