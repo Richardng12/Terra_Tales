@@ -2596,7 +2596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 0
 --- !u!114 &1563478030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2623,6 +2622,8 @@ GameObject:
   - component: {fileID: 1564052643}
   - component: {fileID: 1564052642}
   - component: {fileID: 1564052646}
+  - component: {fileID: 1564052648}
+  - component: {fileID: 1564052647}
   m_Layer: 5
   m_Name: OceanButton
   m_TagString: Untagged
@@ -2747,6 +2748,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a36dc246e3a44de47ace233c6b1ec342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1564052647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564052640}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a219974d56c401849843048619f83337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1564052648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564052640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1586857151
@@ -2990,6 +3015,7 @@ GameObject:
   - component: {fileID: 1933579684}
   - component: {fileID: 1933579688}
   - component: {fileID: 1933579689}
+  - component: {fileID: 1933579690}
   m_Layer: 5
   m_Name: ForestButton
   m_TagString: Untagged
@@ -3068,7 +3094,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1933579686}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UnityEngine.SceneManagement;
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1933579686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3128,7 +3165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 0
+--- !u!114 &1933579690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933579682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daed587222927734395babe04e1f6d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1951369322
 GameObject:
   m_ObjectHideFlags: 0

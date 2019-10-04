@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-        SceneManager.LoadScene(1);
+    void Start () {
+		Button btn = GetComponent<Button>();
+		btn.onClick.AddListener(TaskOnClick);
+	}
 
-        }
-    }
+	void TaskOnClick(){
+        SceneManager.LoadSceneAsync(1);
+
+		Debug.Log ("You have clicked the button!");
+	}
 
 }
