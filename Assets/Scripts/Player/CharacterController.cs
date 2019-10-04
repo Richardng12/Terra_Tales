@@ -72,7 +72,6 @@ public class CharacterController : MonoBehaviour, ICharacter
             move.SetBool("Jumping", false);
         }
         // Checks invulnerability if player is invulnerable
-        Debug.Log(health);
         if (isInVuln)
          {
             CheckInvulnerability();
