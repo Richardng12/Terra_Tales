@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OilEnemy : MonoBehaviour
+public class OilSpriteController : AbstractSpawnableObject, ICharacter
 {
     //Speed of enemy
     public float speed;
@@ -45,6 +45,35 @@ public class OilEnemy : MonoBehaviour
 
     void Update()
     {
+        Move();
+    }
+
+    public void LoseHealth()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Collision with player
+        if (other.CompareTag("Player"))
+        {
+            player.LoseHealth();
+            Destroy(this.gameObject);
+        }
+
+        //If it hits a boundary
+        if (other.CompareTag("Boundary")) {
+            travelTime = 500;
+            pos = new Vector2(centrePos.position.x, centrePos.position.y);
+            oppMove = rb.position - pos;
+            moveInput = pos - rb.position;
+            moveVelocity = moveInput.normalized * speed;
+        }
+    }
+    
+    public void Move()
+    {
         if (travelTime > 0)
         {
             travelTime--;
@@ -60,31 +89,8 @@ public class OilEnemy : MonoBehaviour
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void Move(float moveInput, float speed)
     {
-        //Collision with player
-        if (other.CompareTag("Player"))
-        {
-            player.LoseHealth();
-            Destroy(this.gameObject);
-        }
-
-        //Water bubble
-        if (other.CompareTag("WaterBullet"))
-        {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
-
-        //If it hits a boundary
-        if (other.CompareTag("Boundary")) {
-            travelTime = 500;
-            pos = new Vector2(centrePos.position.x, centrePos.position.y);
-            oppMove = rb.position - pos;
-            moveInput = pos - rb.position;
-            moveVelocity = moveInput.normalized * speed;
-        }
+        throw new System.NotImplementedException();
     }
-
-
 }
