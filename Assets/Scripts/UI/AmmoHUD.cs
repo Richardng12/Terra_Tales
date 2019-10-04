@@ -8,6 +8,7 @@ public class AmmoHUD : MonoBehaviour
     public Canvas display; // Assign in inspector
     GameObject player;
     public Text ammoCount;
+    public string amountOfAmmo;
 
     void Start()
     {
@@ -24,6 +25,10 @@ public class AmmoHUD : MonoBehaviour
 
     private string CreateAmmoText(int ammo)
     {
-        return ": " + ammo + "/9";
+        if(ammo == 99)
+        {
+            return ": " + "∞" + amountOfAmmo; 
+        }
+        return ": " + ammo + amountOfAmmo;
     }
 }
