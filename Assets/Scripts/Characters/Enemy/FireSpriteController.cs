@@ -12,7 +12,6 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     private bool movingRight = true;
 
     public int health = 9;
-    private int spawnLocation;
 
     public Transform groundDetection;
     private CharacterController character;
@@ -68,7 +67,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
 
     private void OnDestroy()
     {
-        spawner.getSpawnedObjects()[spawnLocation] = null;
+        spawner.getSpawnedObjects()[this.GetLocation()] = null;
         spawner.SetCurrentSpawnDelay(0);
     }
 
@@ -81,10 +80,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
             character.LoseHealth();
         }
     }
-    public void SetLocation(int location)
-    {
-        this.spawnLocation = location;
-    }
+
 
     public void Move(float moveInput, float speed)
     {

@@ -9,6 +9,7 @@ public class SpawnerScript : MonoBehaviour
     int randomSpawnPoint;
     public int spawnDelay = 2;
     float currentSpawnDelay = 2;
+    public float spawnRate;
     AbstractSpawnableObject[] spawnedObject;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class SpawnerScript : MonoBehaviour
         for (int i =0; i < 5; i++) {
             SpawnObject();
             }
-        InvokeRepeating("SpawnObject",0f,1f);
+        InvokeRepeating("SpawnObject",0f,spawnRate);
     }
 
     // Update is called once per frame
@@ -34,14 +35,14 @@ public class SpawnerScript : MonoBehaviour
     void SpawnObject()
     {
         randomSpawnPoint = Random.Range(0, spawnLocations.Length);
-        
+  
         if (spawnedObject[randomSpawnPoint] == null && currentSpawnDelay >= spawnDelay)
         {
-            Debug.Log("Spawned");
+            Debug.Log("SPAWN");
             int chosenObject = Random.Range(0, objectsToSpawn.Length);
             spawnedObject[randomSpawnPoint] = Instantiate(objectsToSpawn[chosenObject], spawnLocations[randomSpawnPoint].position, Quaternion.identity).GetComponent<AbstractSpawnableObject>();
             spawnedObject[randomSpawnPoint].name = objectsToSpawn[chosenObject].name;
-            spawnedObject[randomSpawnPoint].SetLocation(randomSpawnPoint);
+            spawnedObject[randomSpawnPoint].GetComponent<AbstractSpawnableObject>().SetLocation(randomSpawnPoint);
         }
 
     }

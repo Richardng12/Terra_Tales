@@ -7,7 +7,14 @@ using UnityEngine;
         private int spawnLocation;
         private SpawnerScript spawner;
 
-    public void SetLocation(int location) { }
+    public void SetLocation(int location) {
+        this.spawnLocation = location;
+         }
+
+    public int GetLocation() {
+
+        return spawnLocation;
+}
 
     private void OnDestroy(){}
 }

@@ -24,6 +24,8 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     private Vector2 tempMove;
     private Vector2 oppMove;
 
+    SpawnerScript spawner;
+
     //Variables for boundary collision
     private int travelTime = 0;
 
@@ -35,7 +37,7 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
 
         centrePos = GameObject.FindGameObjectWithTag("Centre").transform;
 
-
+        spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
 
         //velocity = new Vector2(5f, 5f);
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -53,13 +55,21 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         Destroy(gameObject);
     }
 
+    private void OnDestroy()
+    {
+        spawner.getSpawnedObjects()[this.GetLocation()] = null;
+        spawner.SetCurrentSpawnDelay(0);
+        Destroy(this.gameObject);
+
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         //Collision with player
         if (other.CompareTag("Player"))
         {
             player.LoseHealth();
-            Destroy(this.gameObject);
+            OnDestroy();
         }
 
         //If it hits a boundary
