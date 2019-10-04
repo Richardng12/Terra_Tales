@@ -6,6 +6,7 @@ public class GrabObject : MonoBehaviour
 {
     private bool isGrabbed = false;
     RaycastHit2D touching;
+
     public float grabDistance = 2f;
     public Transform holdPoint;
     Rigidbody2D rb;
@@ -44,8 +45,9 @@ public class GrabObject : MonoBehaviour
         else
         {
             Physics2D.queriesStartInColliders = false;
-            touching = Physics2D.Raycast(transform.position - Vector3.right * transform.localScale.x, Vector2.right * transform.localScale.x, grabDistance);
+            touching = Physics2D.Raycast(transform.position - Vector3.right * transform.localScale.x, Vector2.right * transform.localScale.x, grabDistance*2);
 
+           
             if (touching.collider != null && touching.collider.gameObject.tag.Equals("Grabbable"))
             {
                 isGrabbed = true;
