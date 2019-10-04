@@ -12,7 +12,7 @@ public class TrashScript : AbstractSpawnableObject
         spawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<SpawnerScript>();
     }
 
-    public void OnDestroy()
+    public override void OnDestroy()
     {
         Debug.Log("Destroy: " + this.GetLocation());
         spawner.getSpawnedObjects()[this.GetLocation()] = null;

@@ -55,7 +55,7 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         Destroy(gameObject);
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
         spawner.SetCurrentSpawnDelay(0);

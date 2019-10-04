@@ -65,7 +65,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         }
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
         spawner.SetCurrentSpawnDelay(0);
@@ -86,4 +86,6 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     {
         throw new NotImplementedException();
     }
+
+  
 }
