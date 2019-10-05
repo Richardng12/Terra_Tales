@@ -63,6 +63,7 @@ public class Switch : MonoBehaviour
     {
         if (allowSwitch && Input.GetKeyDown(KeyCode.E))
         {
+            
             ChangeState();
         }
     }
@@ -71,6 +72,7 @@ public class Switch : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
+            Debug.Log("Entered Building");
             // allowSwitchText.gameObject.SetActive(true);
             allowSwitch = true;
         }
