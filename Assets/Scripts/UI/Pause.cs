@@ -6,12 +6,17 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour 
 {
     public GameObject theObject;
+    public Button resumeButton;
     private bool paused;
-   
+     void Start () {
+		Button btn = GetComponent<Button>();
+		resumeButton.onClick.AddListener(ContinueGame);
+	}
+
     void Update()
     {
-        PauseGame();
-        Debug.Log("ewe");
+        //PauseGame();
+     //   Debug.Log("ewe");
         if(Input.GetKeyDown(KeyCode.Escape)) 
         {
         Debug.Log("escape pressed");
