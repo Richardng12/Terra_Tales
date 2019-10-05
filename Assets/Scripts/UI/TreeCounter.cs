@@ -18,6 +18,8 @@ public class TreeCounter : MonoBehaviour
 
     public void updateAndDisplayTreeCounter()
     {
+        treeText.color = Color.yellow;
+
         treesPlanted++;
         treeText.text = "Planted " + treesPlanted + "/10 Trees";
         StartCoroutine(TextFadeOutRoutine());
