@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ShootWater : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class ShootWater : MonoBehaviour
         {
             this.CheckFireRate();
         }
+    }
+
+    internal bool isFull()
+    {
+        return ammo == 9;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
