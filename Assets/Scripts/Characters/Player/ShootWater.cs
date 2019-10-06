@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ShootWater : MonoBehaviour
 {
@@ -24,6 +25,15 @@ public class ShootWater : MonoBehaviour
         }
     }
 
+    internal bool isFull()
+    {
+        return ammo == 9;
+    }
+    internal bool isEmpty()
+    {
+        return ammo == 0;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Water Gun"))
@@ -42,6 +52,26 @@ public class ShootWater : MonoBehaviour
         {
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
 
+        }
+    }
+    // Shoots water gun  by instantianting a waterBubble object
+    // dependent on couple of variables
+    public void waterTree()
+    {
+        if (hasWep)
+        {
+            if (rateOfFire == 0)
+            {
+                DecreaseAmmoCount();
+            }
+            else
+            {
+                if (Time.time > timeToFire)
+                {
+                    timeToFire = Time.time + 2 / rateOfFire;
+                    DecreaseAmmoCount();
+                }
+            }
         }
     }
     // Shoots water gun  by instantianting a waterBubble object
