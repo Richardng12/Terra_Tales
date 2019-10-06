@@ -5,22 +5,36 @@ using UnityEngine.UI;
 
 public class TreeTracker : MonoBehaviour, ITracker<int>
 {
+    public int treesToPlant;
     private int[] treesPlanted = new int[1];
 
     public Text text;
 
     public float fadeOutTime;
+
+    public GameObject gameManager;
+
+    private Color startingColour;
+
+
     // Start is called before the first frame update
     void Start()
     {
         treesPlanted[0] = 0;
+        startingColour = text.color;
     }
 
     public void UpdateAndDisplayTaskCounter(int i = 0)
     {
+        text.color = startingColour;
         treesPlanted[i]++;
-        text.text = "Planted " + treesPlanted[i] + "/10 Trees";
+        text.text = "Planted " + treesPlanted[i] + "/" + treesToPlant + " Trees";
         StartCoroutine(TextFadeOutRoutine());
+        if (treesPlanted[i] == treesToPlant)
+        {
+            Scoring scoring = gameManager.GetComponent<Scoring>();
+            scoring.CalculateStageScore("Forest");
+        }
     }
 
     public IEnumerator TextFadeOutRoutine()
