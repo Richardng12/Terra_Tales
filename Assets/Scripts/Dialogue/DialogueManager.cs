@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour {
     private bool dialogueEnded = true;
 
 	private Queue<string> listOfSentences;
+    public Image image;
 
 	void Start () {
 		listOfSentences = new Queue<string>();
@@ -25,6 +26,7 @@ public class DialogueManager : MonoBehaviour {
 	{
         dialogueEnded = false;
         animator.SetBool("IsOpen", true);
+        image.gameObject.SetActive(true);
         nameText.text = dialogue.name;
 		listOfSentences.Clear();
 
@@ -74,8 +76,7 @@ public class DialogueManager : MonoBehaviour {
 	{
         dialogueEnded = true;
 		Time.timeScale = 1f;
-                           Debug.Log("time set to 1");
-
+        image.gameObject.SetActive(false);
         animator.SetBool("IsOpen", false);
 	}
 

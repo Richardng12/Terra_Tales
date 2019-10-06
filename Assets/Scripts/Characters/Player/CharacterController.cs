@@ -91,14 +91,14 @@ public class CharacterController : MonoBehaviour, ICharacter
         // If character isnt invulnerable
         if (!isInVuln)
         {
-            if (health > 0)
+            if (health > 1)
             {
                 health--;
                 isInVuln = true;
             }
             else
             {
-                health = 5;
+                LevelReset.ResetScene();
             }
         }
     }
