@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class ForestNPCInteraction : MonoBehaviour
 {
     public bool interactable = false;
-    public DialogueTrigger dialogueTrigger;
     public DialogueManager dialogueManager;
     public bool initialised = false;
     private bool wasUsed = false;
@@ -32,7 +31,6 @@ public class ForestNPCInteraction : MonoBehaviour
             else if (interactable )
             {
                 wasUsed = false;
-                dialogueTrigger.TriggerDialogue();
                 interactable = false;
                 initialised = true;
             }

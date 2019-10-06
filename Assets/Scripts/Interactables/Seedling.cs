@@ -15,7 +15,7 @@ public class Seedling : MonoBehaviour
 
     private GameObject treeCounterObject;
 
-    private TreeTracker treeCounter;
+    private ForestTracker treeCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class Seedling : MonoBehaviour
         progressBar.gameObject.SetActive(false);
         pivot.transform.localScale = new Vector3(1, 1, 0);
         treeCounterObject = GameObject.Find("TreeCounter");
-        treeCounter = treeCounterObject.GetComponent<TreeTracker>();
+        treeCounter = treeCounterObject.GetComponent<ForestTracker>();
     }
 
     // Update is called once per frame

@@ -10,19 +10,22 @@ public class DialogueManager : MonoBehaviour {
 
 	public Animator animator;
 	private bool first;
+    private bool dialogueEnded = true;
 
 	private Queue<string> listOfSentences;
 
 	void Start () {
 		listOfSentences = new Queue<string>();
 	}
-
-	public void StartDialogue (Dialogue dialogue)
+    public bool GetDialogueEnded()
+    {
+        return dialogueEnded;
+    }
+    public void StartDialogue (Dialogue dialogue)
 	{
-		animator.SetBool("IsOpen", true);
-
-		nameText.text = dialogue.name;
-
+        dialogueEnded = false;
+        animator.SetBool("IsOpen", true);
+        nameText.text = dialogue.name;
 		listOfSentences.Clear();
 
 		foreach (string sentence in dialogue.sentences)
@@ -33,7 +36,7 @@ public class DialogueManager : MonoBehaviour {
 		DisplayNextSentence();
 	}
 
-	public int DisplayNextSentence ()
+	public void DisplayNextSentence ()
 	{
 		if(first){
 			first = true;
@@ -42,13 +45,12 @@ public class DialogueManager : MonoBehaviour {
 		if (listOfSentences.Count == 0)
 		{
 			EndDialogue();
-			return listOfSentences.Count;
+            return;
 		}
 
 		string sentence = listOfSentences.Dequeue();
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));
-		return listOfSentences.Count;
 
 	}
 
@@ -62,8 +64,15 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 
-	public void EndDialogue()
+   public IEnumerator LoadDialogueBox()
+    {
+        yield return new WaitForSeconds(animator.playbackTime);
+        Time.timeScale = 0f;
+}
+
+    public void EndDialogue()
 	{
+        dialogueEnded = true;
 		Time.timeScale = 1f;
 		animator.SetBool("IsOpen", false);
 	}

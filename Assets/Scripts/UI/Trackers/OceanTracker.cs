@@ -69,6 +69,11 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
         }
         return true;
     }
+
+    public int[] GetTasks()
+    {
+        return tasks;
+    }
 }
 
 
