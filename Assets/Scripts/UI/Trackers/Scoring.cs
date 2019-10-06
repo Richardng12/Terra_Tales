@@ -18,7 +18,7 @@ public class Scoring : MonoBehaviour
     public void CalculateStageScore(string stage)
     {
         int currentScore = ScoreCalculation();
-
+        timerObject.GetComponent<Timer>().StopTimer();
         // check the stage type and replace score for stage if its greater
         switch (stage)
         {

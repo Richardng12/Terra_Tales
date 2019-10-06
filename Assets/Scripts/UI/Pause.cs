@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Pause : MonoBehaviour 
 {
-    public GameObject theObject;
+    public GameObject pauseMenu;
     public Button resumeButton;
     private bool paused;
      void Start () {
@@ -15,8 +15,8 @@ public class Pause : MonoBehaviour
     void Update()
     {
         //PauseGame();
-     //   Debug.Log("ewe");
-        if(Input.GetKeyDown(KeyCode.Escape)) 
+        //   Debug.Log("ewe");
+        if (Input.GetKeyDown(KeyCode.Escape)) 
         {
         Debug.Log("escape pressed");
             if (!paused) 
@@ -32,15 +32,16 @@ public class Pause : MonoBehaviour
     private void PauseGame()
     {
         paused = true;
-        Time.timeScale = 0;
-        theObject.SetActive(true);
+        Time.timeScale = 0f;
+        Debug.Log(Time.timeScale);
+        pauseMenu.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
     } 
-    private void ContinueGame()
+    public void ContinueGame()
     {
         paused = false;
         Time.timeScale = 1;
-        theObject.SetActive(false);
+        pauseMenu.SetActive(false);
         //enable the scripts again
     }
 }

@@ -29,7 +29,7 @@ public class CharacterController : MonoBehaviour, ICharacter
 
     void Start()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
@@ -91,14 +91,14 @@ public class CharacterController : MonoBehaviour, ICharacter
         // If character isnt invulnerable
         if (!isInVuln)
         {
-            if (health > 0)
+            if (health > 1)
             {
                 health--;
                 isInVuln = true;
             }
             else
             {
-                health = 5;
+                LevelReset.ResetScene();
             }
         }
     }

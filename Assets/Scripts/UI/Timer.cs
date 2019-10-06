@@ -35,7 +35,7 @@ public class Timer : MonoBehaviour
         co = StartCoroutine(StartCountdown());
     }
 
-    void StopTimer()
+    public void StopTimer()
     {
         StopCoroutine(co);
     }
