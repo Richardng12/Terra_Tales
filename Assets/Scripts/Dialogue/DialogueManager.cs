@@ -74,7 +74,9 @@ public class DialogueManager : MonoBehaviour {
 	{
         dialogueEnded = true;
 		Time.timeScale = 1f;
-		animator.SetBool("IsOpen", false);
+                           Debug.Log("time set to 1");
+
+        animator.SetBool("IsOpen", false);
 	}
 
 }

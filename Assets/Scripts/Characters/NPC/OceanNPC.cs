@@ -37,17 +37,11 @@ public class OceanNPC : MonoBehaviour, INPC
                 dialogueManager.DisplayNextSentence();
                 if (dialogueManager.GetDialogueEnded())
                 {
+                    Debug.Log("time set to 1");
                     Time.timeScale = 1.0f;
                     initialised = false;
                 }
             }
-        }
-
-        if (!interactable)
-        {
-            interactable = false;
-            initialised = false;
-            dialogueManager.EndDialogue();
         }     }
 
     public void TriggerDialogue()
@@ -87,5 +81,10 @@ public class OceanNPC : MonoBehaviour, INPC
             dialogue[1].sentences[2] = "You have Composted " +
     oceanTracker.GetTasks()[2] + "/5 Apple cores";
 
-    }      private void OnTriggerEnter2D(Collider2D Collision)     {         if (Collision.gameObject.tag.Equals("Player")) {             showText.gameObject.SetActive(true);             interactable = true;             showText.text = "Press E";         }     }      private void OnTriggerExit2D(Collider2D Collision)     {         if (Collision.gameObject.tag.Equals("Player"))         {             showText.gameObject.SetActive(false);             interactable = false;         }     } 
+    }      private void OnTriggerEnter2D(Collider2D Collision)     {         if (Collision.gameObject.tag.Equals("Player")) {             showText.gameObject.SetActive(true);             interactable = true;             showText.text = "Press E";         }     }      private void OnTriggerExit2D(Collider2D Collision)     {         if (Collision.gameObject.tag.Equals("Player"))         {             showText.gameObject.SetActive(false);             interactable = false;
+            if (!interactable)
+            {
+                initialised = false;
+                dialogueManager.EndDialogue();
+            }         }     } 
 }

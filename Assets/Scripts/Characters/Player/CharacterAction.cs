@@ -13,7 +13,6 @@ public class CharacterAction : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Time.timeScale);
         moveInput = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {

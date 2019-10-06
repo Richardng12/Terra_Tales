@@ -14,7 +14,6 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        Time.timeScale = 0;
         //PauseGame();
         //   Debug.Log("ewe");
         if (Input.GetKeyDown(KeyCode.Escape)) 
@@ -33,12 +32,12 @@ public class Pause : MonoBehaviour
     private void PauseGame()
     {
         paused = true;
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         Debug.Log(Time.timeScale);
         pauseMenu.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
     } 
-    private void ContinueGame()
+    public void ContinueGame()
     {
         paused = false;
         Time.timeScale = 1;
