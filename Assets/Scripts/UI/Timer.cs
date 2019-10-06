@@ -7,16 +7,16 @@ public class Timer : MonoBehaviour
 {
     public float secondsToCountDown;
     public Text text;
-    public IEnumerator startCountdown()
+    public IEnumerator StartCountdown()
     {
         while (secondsToCountDown > 0)
         {
-            int minutes =(int) secondsToCountDown / 60;
+            int minutes = (int)secondsToCountDown / 60;
             int seconds = (int)secondsToCountDown - 60 * minutes;
             Debug.Log("Countdown: " + secondsToCountDown);
             yield return new WaitForSeconds(1.0f);
             secondsToCountDown--;
-            text.text  = "Time Left: " + minutes.ToString() + ":" + seconds.ToString();
+            text.text = "Time Left: " + minutes.ToString() + ":" + seconds.ToString();
             //TODO add the finish level thing here which is called to end the level.
         }
     }
@@ -27,12 +27,10 @@ public class Timer : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-         StartCoroutine(startCountdown());
     }
 
-    // Update is called once per frame
-    void Update()
+    void StopTimer()
     {
-        
+        StopCoroutine(StartCountdown);
     }
 }
