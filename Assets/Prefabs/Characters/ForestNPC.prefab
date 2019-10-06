@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 8356056257285849767}
   - component: {fileID: 8356056257285849766}
   - component: {fileID: 8356056257285849765}
+  - component: {fileID: 3817174419690111370}
   - component: {fileID: 8356056257285849760}
   m_Layer: 0
   m_Name: ForestNPC
@@ -176,6 +177,23 @@ MonoBehaviour:
   dialogueManager: {fileID: 0}
   initialised: 0
   showText: {fileID: 8356056256648286481}
+--- !u!114 &3817174419690111370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356056257285849764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523d1311add62074d8887f1ab42cd0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  done: 0
+  showText: {fileID: 0}
+  initialised: 0
 --- !u!58 &8356056257285849760
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -149146,6 +149146,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theObject: {fileID: 200843613}
   resumeButton: {fileID: 466322107}
+--- !u!114 &1793724922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8356056256648286481, guid: 875cf7feed4050b4ebcc78b6455ee7de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964938171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1907379543
 GameObject:
   m_ObjectHideFlags: 0
@@ -149296,6 +149308,31 @@ PrefabInstance:
       propertyPath: dialogueTrigger
       value: 
       objectReference: {fileID: 2933808254994771083}
+    - target: {fileID: 8356056257285849765, guid: 875cf7feed4050b4ebcc78b6455ee7de,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817174419690111370, guid: 875cf7feed4050b4ebcc78b6455ee7de,
+        type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 2933808254994771083}
+    - target: {fileID: 3817174419690111370, guid: 875cf7feed4050b4ebcc78b6455ee7de,
+        type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 2933808255173204403}
+    - target: {fileID: 3817174419690111370, guid: 875cf7feed4050b4ebcc78b6455ee7de,
+        type: 3}
+      propertyPath: showText
+      value: 
+      objectReference: {fileID: 1793724922}
+    - target: {fileID: 3817174419690111370, guid: 875cf7feed4050b4ebcc78b6455ee7de,
+        type: 3}
+      propertyPath: runOnce
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 875cf7feed4050b4ebcc78b6455ee7de, type: 3}
 --- !u!1 &2079507268
@@ -150982,6 +151019,16 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 2933808255173204403}
+    - target: {fileID: 423318151816178696, guid: e31a5d98fe129814bb486cb081684647,
+        type: 3}
+      propertyPath: runOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 423318151816178696, guid: e31a5d98fe129814bb486cb081684647,
+        type: 3}
+      propertyPath: autoActivate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31a5d98fe129814bb486cb081684647, type: 3}
 --- !u!114 &2933808254994771083 stripped

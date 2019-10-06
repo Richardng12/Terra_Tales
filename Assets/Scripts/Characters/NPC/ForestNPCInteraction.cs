@@ -7,6 +7,7 @@ public class ForestNPCInteraction : MonoBehaviour
     public DialogueTrigger dialogueTrigger;
     public DialogueManager dialogueManager;
     public bool initialised = false;
+    private bool wasUsed = false;
 
     public Text showText;
 
@@ -23,18 +24,21 @@ public class ForestNPCInteraction : MonoBehaviour
         {
             if (initialised)
             {
-                dialogueManager.DisplayNextSentence();
+                if(dialogueManager.DisplayNextSentence() ==0){
+                    initialised = false;
+                    dialogueManager.EndDialogue();
+                };
             }
-        }
-                if (Input.GetKeyDown("e") && interactable)
-        {
-            dialogueTrigger.TriggerDialogue();
-            interactable = false;
-            initialised = true;
-        }
+            else if (interactable )
+            {
+                wasUsed = false;
+                dialogueTrigger.TriggerDialogue();
+                interactable = false;
+                initialised = true;
+            }
 
+        }
     }
-
     private void OnTriggerEnter2D(Collider2D Collision)
     {
         if (Collision.gameObject.tag.Equals("Player"))
