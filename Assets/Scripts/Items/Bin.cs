@@ -5,7 +5,14 @@ public class Bin : MonoBehaviour, IBins
 {
     GameObject collidedObject;
     public GameObject player;
+    public GameObject oceanTrackerObject;
+    private OceanTracker oceanTracker;
     public string binItem;
+
+    void Start()
+    {
+        oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
+    }
 
     public bool CheckRubbish()
     {
@@ -26,22 +33,23 @@ public class Bin : MonoBehaviour, IBins
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //If the collsion object is a rubbish type which is grabbable
-        if (collision.gameObject.tag.Equals("Grabbable"))
+        CharacterController character = player.GetComponent<CharacterController>();
+        GrabObject grabObject = player.GetComponent<GrabObject>();
+
+        // If the collsion object is a rubbish type which is grabbable and the player
+        // has released it
+        if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed() )
         {
-            CharacterController character = player.GetComponent<CharacterController>();
-            GrabObject grabObject = player.GetComponent<GrabObject>();
-            //Set player isGrabbed to false
-            grabObject.SetGrabbed(false);
+            Debug.Log(grabObject.GetIsGrabbed());
+
             collidedObject = collision.gameObject;
             if (CheckRubbish())
             {
-                //Add point counter
+                oceanTracker.UpdateAndDisplayTaskCounter(binItem);
             }
             else
             {
-                // Character loses health due to wrong rubbish placement
-                character.LoseHealth();
+                // Character gets prompted of wrong rubbish placement
             }
             DestroyRubbish();
 
