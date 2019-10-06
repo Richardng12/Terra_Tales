@@ -5,6 +5,8 @@ public class ForestNPCInteraction : MonoBehaviour
 {
     public bool interactable = false;
     public DialogueTrigger dialogueTrigger;
+    public DialogueManager dialogueManager;
+    public bool initialised = false;
 
     public Text showText;
 
@@ -17,10 +19,18 @@ public class ForestNPCInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e") && interactable)
+        if (Input.GetKeyDown("e"))
+        {
+            if (initialised)
+            {
+                dialogueManager.DisplayNextSentence();
+            }
+        }
+                if (Input.GetKeyDown("e") && interactable)
         {
             dialogueTrigger.TriggerDialogue();
             interactable = false;
+            initialised = true;
         }
 
     }

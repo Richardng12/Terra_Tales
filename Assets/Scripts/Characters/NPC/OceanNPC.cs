@@ -8,7 +8,9 @@ public class OceanNPC : MonoBehaviour
 
     public bool interactable = false;
     public DialogueTrigger dialogueTrigger;
+    public DialogueManager dialogueManager;
     public Text showText;
+    public bool initialised = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,18 @@ public class OceanNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("e"))
+        {
+            if (initialised)
+            {
+                dialogueManager.DisplayNextSentence();
+            }
+        }
         if (Input.GetKeyDown("e") && interactable)
         {
             dialogueTrigger.TriggerDialogue();
             interactable = false;
+            initialised = true;
         }
 
     }
