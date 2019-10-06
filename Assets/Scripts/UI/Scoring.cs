@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Scoring : MonoBehaviour
 {
@@ -28,12 +29,13 @@ public class Scoring : MonoBehaviour
                 break;
             default:
                 overallScore = forestScore + oceanScore + cityScore;
+                break;
         }
     }
 
 
     private int ScoreCalculation()
     {
-
+        return 0;
     }
 }

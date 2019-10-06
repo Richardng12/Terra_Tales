@@ -7,6 +7,8 @@ public class Timer : MonoBehaviour
 {
     public float secondsToCountDown;
     public Text text;
+
+    Coroutine co;
     public IEnumerator StartCountdown()
     {
         while (secondsToCountDown > 0)
@@ -27,10 +29,13 @@ public class Timer : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
+        co = StartCoroutine(StartCountdown());
     }
 
     void StopTimer()
     {
-        StopCoroutine(StartCountdown);
+        StopCoroutine(co);
     }
+
+
 }
