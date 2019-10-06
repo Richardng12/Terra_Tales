@@ -15,7 +15,7 @@ public class Seedling : MonoBehaviour
 
     private GameObject treeCounterObject;
 
-    private TreeCounter treeCounter;
+    private TreeTracker treeCounter;
 
     public GameObject player;
 
@@ -30,7 +30,7 @@ public class Seedling : MonoBehaviour
         pivot.transform.localScale = new Vector3(1, 1, 0);
         shootWater = player.GetComponent<ShootWater>();
         treeCounterObject = GameObject.Find("TreeCounter");
-        treeCounter = treeCounterObject.GetComponent<TreeCounter>();
+        treeCounter = treeCounterObject.GetComponent<TreeTracker>();
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class Seedling : MonoBehaviour
             complete = true;
             progressBar.gameObject.SetActive(false);
             shootWater.DecreaseAmmoCount();
-            treeCounter.updateAndDisplayTreeCounter();
+            treeCounter.UpdateAndDisplayTaskCounter();
         }
         if (Input.GetKey("e") && interactable)
         {

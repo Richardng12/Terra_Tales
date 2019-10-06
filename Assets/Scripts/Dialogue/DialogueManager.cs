@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour {
 	public Text dialogueText;
 
 	public Animator animator;
+	private bool first;
 
 	private Queue<string> listOfSentences;
 
@@ -32,17 +33,23 @@ public class DialogueManager : MonoBehaviour {
 		DisplayNextSentence();
 	}
 
-	public void DisplayNextSentence ()
+	public int DisplayNextSentence ()
 	{
+		if(first){
+			first = true;
+		}
+
 		if (listOfSentences.Count == 0)
 		{
 			EndDialogue();
-			return;
+			return listOfSentences.Count;
 		}
 
 		string sentence = listOfSentences.Dequeue();
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));
+		return listOfSentences.Count;
+
 	}
 
 	IEnumerator TypeSentence (string sentence)
@@ -55,8 +62,9 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 
-	void EndDialogue()
+	public void EndDialogue()
 	{
+		Time.timeScale = 1f;
 		animator.SetBool("IsOpen", false);
 	}
 

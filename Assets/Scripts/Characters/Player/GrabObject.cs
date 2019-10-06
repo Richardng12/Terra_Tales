@@ -45,7 +45,7 @@ public class GrabObject : MonoBehaviour
         else
         {
             Physics2D.queriesStartInColliders = false;
-            touching = Physics2D.Raycast(transform.position - Vector3.right * transform.localScale.x, Vector2.right * transform.localScale.x, grabDistance*2);
+            touching = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, grabDistance);
 
            
             if (touching.collider != null && touching.collider.gameObject.tag.Equals("Grabbable"))
@@ -54,10 +54,9 @@ public class GrabObject : MonoBehaviour
             }
         }
     }
-    public void OnDrawGizmos()
+    public bool GetIsGrabbed()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position - Vector3.right * transform.localScale.x, transform.position + Vector3.right * transform.localScale.x*grabDistance);
+        return isGrabbed;
     }
 
     public void SetGrabbed(bool boolean)
