@@ -5,6 +5,9 @@ public class ForestNPCInteraction : MonoBehaviour
 {
     public bool interactable = false;
     public DialogueTrigger dialogueTrigger;
+    public DialogueManager dialogueManager;
+    public bool initialised = false;
+    private bool wasUsed = false;
 
     public Text showText;
 
@@ -17,14 +20,25 @@ public class ForestNPCInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e") && interactable)
+        if (Input.GetKeyDown("e"))
         {
-            dialogueTrigger.TriggerDialogue();
-            interactable = false;
+            if (initialised)
+            {
+                if(dialogueManager.DisplayNextSentence() ==0){
+                    initialised = false;
+                    dialogueManager.EndDialogue();
+                };
+            }
+            else if (interactable )
+            {
+                wasUsed = false;
+                dialogueTrigger.TriggerDialogue();
+                interactable = false;
+                initialised = true;
+            }
+
         }
-
     }
-
     private void OnTriggerEnter2D(Collider2D Collision)
     {
         if (Collision.gameObject.tag.Equals("Player"))
