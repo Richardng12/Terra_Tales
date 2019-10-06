@@ -19,7 +19,7 @@ public class TreeTracker : MonoBehaviour, ITracker<int>
     public void UpdateAndDisplayTaskCounter(int i = 0)
     {
         treesPlanted[i]++;
-        text.text = "Planted " + treesPlanted + "/10 Trees";
+        text.text = "Planted " + treesPlanted[i] + "/10 Trees";
         StartCoroutine(TextFadeOutRoutine());
     }
 
