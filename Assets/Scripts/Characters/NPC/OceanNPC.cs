@@ -17,29 +17,51 @@ public class OceanNPC : MonoBehaviour, INPC
     private bool startOfLevel = true;
 
     private bool initialised = false;
-    public Text showText;     // Start is called before the first frame update     void Start()     {
+    public Text showText;
+     // Start is called before the first frame update     void Start()     {
         dialogueManager = FindObjectOfType<DialogueManager>();
-        oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();         interactable = false;     }      // Update is called once per frame     void Update()     {
+        oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();         interactable = false;     }      // Update is called once per frame     void Update()     {   // When player walks into the starting npc it should trigger dialogue
+        // that freezes the game unti dialogue is finished
         if (startOfLevel && interactable)
         {
-            TriggerDialogue();
-            initialised = true;
-        }
-         if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (interactable && !initialised)
+            // Initialised means the dialogue has started so if it has started 
+            // Keep time scale to 0
+            if (initialised)
             {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                // If dialogue hasnt started and its first time interaction then
+                // start the dialogue and set initialised to true
                 TriggerDialogue();
                 initialised = true;
             }
+        }
+        // If player presses E it should continue the dialogue         if (Input.GetKeyDown(KeyCode.E))
+        {
+            // If in range of NPC and dialogue has not yet started then start
+            // the diagloue 
+            if (interactable && !initialised)
+            {
+                TriggerDialogue();
+                // Set dialogue to started
+                initialised = true;
+            }
+            // If still in range and dialogue has started then show the next 
+            // sentences in the dialogue
             else if(interactable && initialised)
             {
                 dialogueManager.DisplayNextSentence();
+                // Once dialogue has ended then set time scale to 1
                 if (dialogueManager.GetDialogueEnded())
                 {
-                    Debug.Log("time set to 1");
                     Time.timeScale = 1.0f;
+                    // Dialogue has ended
                     initialised = false;
+                    // Start of level should only gets set to false once as that
+                    // dialogue only happens at the start
+                    startOfLevel = false;
                 }
             }
         }     }
@@ -51,7 +73,6 @@ public class OceanNPC : MonoBehaviour, INPC
         {
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
-            startOfLevel = false;
         }
         // If complete then npc thanks
         else if (oceanTracker.CheckIsComplete())
@@ -71,17 +92,20 @@ public class OceanNPC : MonoBehaviour, INPC
 
     public void CreateTaskDialogue()
     {
-        // Size will always be 2 with first one saying not finished
+        // First sentence talks about rubbish bag task
         dialogue[1].sentences[0] = "You have collected " +
         oceanTracker.GetTasks()[0] + "/5 Rubbish Bags";
-
+        // Second sentence talks about recycling task
         dialogue[1].sentences[1] = "You have Recycled " +
-   oceanTracker.GetTasks()[1] + "/5 Cans"; 
-            
-            dialogue[1].sentences[2] = "You have Composted " +
-    oceanTracker.GetTasks()[2] + "/5 Apple cores";
+        oceanTracker.GetTasks()[1] + "/5 Cans"; 
+        // Third sentence talks about compost task
+        dialogue[1].sentences[2] = "You have Composted " +
+        oceanTracker.GetTasks()[2] + "/5 Apple cores";
 
-    }      private void OnTriggerEnter2D(Collider2D Collision)     {         if (Collision.gameObject.tag.Equals("Player")) {             showText.gameObject.SetActive(true);             interactable = true;             showText.text = "Press E";         }     }      private void OnTriggerExit2D(Collider2D Collision)     {         if (Collision.gameObject.tag.Equals("Player"))         {             showText.gameObject.SetActive(false);             interactable = false;
+    }      private void OnTriggerEnter2D(Collider2D Collision)     {
+        // If collision is detected then set interactable to true meaning the
+        // player can press E to talk to the NpC         if (Collision.gameObject.tag.Equals("Player")) {             showText.gameObject.SetActive(true);             interactable = true;             showText.text = "Press E";         }     } 
+    // If out of range of NPC then the dialogue should automatically end     private void OnTriggerExit2D(Collider2D Collision)     {         if (Collision.gameObject.tag.Equals("Player"))         {             showText.gameObject.SetActive(false);             interactable = false;
             if (!interactable)
             {
                 initialised = false;
