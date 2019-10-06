@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TreeTracker : MonoBehaviour, ITracker<int>
+public class ForestTracker : MonoBehaviour, ITracker<int>
 {
     private int[] treesPlanted = new int[1];
 
