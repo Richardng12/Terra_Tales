@@ -25,15 +25,17 @@ public class ForestNPCInteraction : MonoBehaviour
             {
                 dialogueManager.DisplayNextSentence();
             }
-        }
-                if (Input.GetKeyDown("e") && interactable)
-        {
-            dialogueTrigger.TriggerDialogue();
-            interactable = false;
-            initialised = true;
-        }
 
+            else if (interactable)
+            {
+                dialogueTrigger.TriggerDialogue();
+                interactable = false;
+                initialised = true;
+            }
+
+        }
     }
+
 
     private void OnTriggerEnter2D(Collider2D Collision)
     {
