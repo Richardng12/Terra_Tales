@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &805763329097223261
+--- !u!1 &423318151736080693
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 805763329097223263}
-  - component: {fileID: 805763329097223260}
+  - component: {fileID: 423318151736080695}
+  - component: {fileID: 423318151736080692}
   m_Layer: 0
   m_Name: DialogueText
   m_TagString: Untagged
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &805763329097223263
+--- !u!4 &423318151736080695
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805763329097223261}
+  m_GameObject: {fileID: 423318151736080693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 805763330897484130}
+  m_Father: {fileID: 423318151816178698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &805763329097223260
+--- !u!114 &423318151736080692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805763329097223261}
+  m_GameObject: {fileID: 423318151736080693}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4784432a1af4c464eb65749d37453daf, type: 3}
@@ -46,10 +46,10 @@ MonoBehaviour:
   dialogue:
     name: Tutorial
     sentences:
-    - "Press E to interact\t"
-    - arrow keys to move
-    - hold e to plant trees
---- !u!1 &805763330897484129
+    - Press E to interact NPCS/Objects
+    - Use the arrow keys to move
+    - Space bar to use your weapon (when applicable)
+--- !u!1 &423318151816178697
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,38 +57,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 805763330897484130}
-  - component: {fileID: 805763330897484131}
-  - component: {fileID: 805763330897484128}
+  - component: {fileID: 423318151816178698}
+  - component: {fileID: 423318151816178699}
+  - component: {fileID: 423318151816178696}
   m_Layer: 0
-  m_Name: TutorialTrigger
+  m_Name: TutorialTrigger 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &805763330897484130
+--- !u!4 &423318151816178698
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805763330897484129}
+  m_GameObject: {fileID: 423318151816178697}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.44, y: 3.31, z: 15.078906}
+  m_LocalPosition: {x: 19.88, y: 30.88, z: 15.078906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 805763329097223263}
+  - {fileID: 423318151736080695}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &805763330897484131
+--- !u!58 &423318151816178699
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805763330897484129}
+  m_GameObject: {fileID: 423318151816178697}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -98,16 +98,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &805763330897484128
+--- !u!114 &423318151816178696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805763330897484129}
+  m_GameObject: {fileID: 423318151816178697}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 523d1311add62074d8887f1ab42cd0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTrigger: {fileID: 805763329097223260}
+  dialogueTrigger: {fileID: 423318151736080692}
+  dialogueManager: {fileID: 0}
+  done: 0
+  initialised: 0

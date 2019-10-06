@@ -6,7 +6,9 @@ public class TutorialTrigger : MonoBehaviour
 {
 
     public DialogueTrigger dialogueTrigger;
+    public DialogueManager dialogueManager;
     public bool done = false;
+    public bool initialised = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,13 @@ public class TutorialTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("e"))
+        {
+            if (initialised)
+            {
+                dialogueManager.DisplayNextSentence();
+            }
+        }
     }
 
 
@@ -27,6 +35,7 @@ public class TutorialTrigger : MonoBehaviour
             if (!done)
             {
                 dialogueTrigger.TriggerDialogue();
+                initialised = true;
             }
         }
     }
