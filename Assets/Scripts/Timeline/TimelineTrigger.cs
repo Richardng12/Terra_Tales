@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 public class TimelineTrigger : MonoBehaviour
 {
     public PlayableDirector timeline;
+    public GameObject greenScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,12 @@ public class TimelineTrigger : MonoBehaviour
     {
 
     }
+    //TODO upon player completion
     void OnTriggerEnter2D(Collider2D c)
     {
         if (c.gameObject.tag.Equals("Player"))
         {
+            greenScene.SetActive(true);
             timeline.Play();
             Debug.Log("hi");
         }
