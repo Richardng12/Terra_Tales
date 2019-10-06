@@ -15,9 +15,15 @@ public class Timer : MonoBehaviour
         {
             int minutes = (int)time / 60;
             int seconds = (int)time - 60 * minutes;
+            string secondsString = "Time Left: " + minutes.ToString() + ":";
+            if (seconds < 10)
+            {
+                secondsString += 0;
+            }
+            secondsString += seconds.ToString();
             yield return new WaitForSeconds(1.0f);
             time--;
-            text.text = "Time Left: " + minutes.ToString() + ":" + seconds.ToString();
+            text.text = secondsString;
             //TODO add the finish level thing here which is called to end the level.
         }
     }
