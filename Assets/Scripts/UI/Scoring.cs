@@ -5,7 +5,9 @@ using System;
 
 public class Scoring : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject playerObject;
+
+    public GameObject timerObject;
     static public int forestScore = 0;
 
     static public int oceanScore = 0;
@@ -16,6 +18,8 @@ public class Scoring : MonoBehaviour
     public void CalculateStageScore(string stage)
     {
         int currentScore = ScoreCalculation();
+
+        // check the stage type and replace score for stage if its greater
         switch (stage)
         {
             case "Forest":
@@ -33,9 +37,16 @@ public class Scoring : MonoBehaviour
         }
     }
 
-
     private int ScoreCalculation()
     {
-        return 0;
+        // Grabs the scripts from the objects provided
+        CharacterController characterController = playerObject.GetComponent<CharacterController>();
+        Timer timer = timerObject.GetComponent<Timer>();
+
+        // Calculate the score from time and health
+        int timerScore = (int)timer.time * 50;
+        int healthScore = characterController.health * 200;
+
+        return timerScore + healthScore;
     }
 }
