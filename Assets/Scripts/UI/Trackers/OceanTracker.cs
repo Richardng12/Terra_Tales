@@ -12,12 +12,22 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
     private bool isComplete;
 
     public float fadeOutTime;
+
+    public GameObject gameManager;
     void Start()
     {
         startingColour = text.color;
         for(int i = 0; i < tasks.Length; i++)
         {
             tasks[i] = 0;
+        }
+    }
+
+    void Update()
+    {
+        if (isComplete)
+        {
+            gameManager.GetComponent<Scoring>().CalculateStageScore("Ocean");
         }
     }
     // Checks what task the update corresponds too and shows the text
