@@ -45,8 +45,11 @@ public class Seedling : MonoBehaviour
             shootWater.DecreaseAmmoCount();
             treeCounter.UpdateAndDisplayTaskCounter();
         }
-        if (Input.GetKey("e") && interactable)
+        if (Input.GetKey("e") && interactable && !player.GetComponent<ShootWater>().isEmpty())
         {
+            player = GameObject.Find("Player");
+
+            player.GetComponent<ShootWater>().waterTree();
             float time = Time.deltaTime;
             currentProgress += time;
             progressBar.value = CalculateProgress();
