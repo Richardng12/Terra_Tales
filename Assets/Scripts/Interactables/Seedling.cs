@@ -13,10 +13,13 @@ public class Seedling : MonoBehaviour
 
     public GameObject pivot;
 
-    private GameObject treeCounterObject;
+    public GameObject treeCounterObject;
 
     private ForestTracker treeCounter;
 
+    public GameObject player;
+
+    private ShootWater shootWater;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +28,13 @@ public class Seedling : MonoBehaviour
         progressBar.value = CalculateProgress();
         progressBar.gameObject.SetActive(false);
         pivot.transform.localScale = new Vector3(1, 1, 0);
+<<<<<<< HEAD
         treeCounterObject = GameObject.Find("TreeCounter");
         treeCounter = treeCounterObject.GetComponent<ForestTracker>();
+=======
+        shootWater = player.GetComponent<ShootWater>();
+        treeCounter = treeCounterObject.GetComponent<TreeTracker>();
+>>>>>>> toMerge/HighScoreScreen
     }
 
     // Update is called once per frame
@@ -38,6 +46,7 @@ public class Seedling : MonoBehaviour
             interactable = false;
             complete = true;
             progressBar.gameObject.SetActive(false);
+            shootWater.DecreaseAmmoCount();
             treeCounter.UpdateAndDisplayTaskCounter();
         }
         if (Input.GetKey("e") && interactable)

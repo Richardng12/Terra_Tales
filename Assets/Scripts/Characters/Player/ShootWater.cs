@@ -13,7 +13,7 @@ public class ShootWater : MonoBehaviour
     private float currrentReloadDelay = 0.5f;
     public int ammo = 9;
 
- 
+
 
     // Update is called once per frame
     void Update()
@@ -36,7 +36,7 @@ public class ShootWater : MonoBehaviour
         if (ammo > 0 && ammo != 99)
         {
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
-            ammo--;
+            DecreaseAmmoCount();
         }
         else
         {
@@ -73,7 +73,7 @@ public class ShootWater : MonoBehaviour
         {
             if (currrentReloadDelay >= reloadDelay)
             {
-                ammo++;
+                IncreaseAmmoCount();
                 currrentReloadDelay = 0;
             }
             else
@@ -85,6 +85,16 @@ public class ShootWater : MonoBehaviour
     public int GetAmmoCount()
     {
         return ammo;
+    }
+
+    public void DecreaseAmmoCount()
+    {
+        ammo--;
+    }
+
+    public void IncreaseAmmoCount()
+    {
+        ammo++;
     }
 
 }
