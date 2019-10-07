@@ -9,6 +9,11 @@ change, while also overcoming obstacles along the way. When the final challenge 
 
 Are you ready for the challenge?
 
+
+To play the game: 
+
+ - Go on releases, download the PROTOTYPE zip and run the .exe file
+
 Team Members
 ---
 
@@ -21,3 +26,19 @@ Team Members
 |[HongShi10](https://github.com/HongShi10)| Hong Shi  | hshi952  |
 |[jiamouxbakh](https://github.com/jiamouxbakh)| Allen Wang  | awan968  |
 |[tomatopaste202](https://github.com/tomatopaste202)| Jun Han Zhu  | jzhu267 |
+
+Build Instructions
+-----
+1.Clone the repository
+
+2.Download and install the up-to-date version of the Unity game engine
+
+3.Use Unity to build the project (File -> Build and run)
+
+Running the Prebuilt gane
+---
+1. Download the latest release from our release page.
+
+2. Unzip to a folder
+
+3. Run 306 Project 2.exe
