@@ -5,13 +5,18 @@ public class Bin : MonoBehaviour, IBins
 {
     GameObject collidedObject;
     public GameObject player;
+    CharacterController character;
     public GameObject oceanTrackerObject;
+    GrabObject grabObject;
     private OceanTracker oceanTracker;
     public string binItem;
 
     void Start()
     {
         oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
+        character = player.GetComponent<CharacterController>();
+        grabObject = player.GetComponent<GrabObject>();
+
     }
 
     public bool CheckRubbish()
@@ -33,14 +38,16 @@ public class Bin : MonoBehaviour, IBins
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CharacterController character = player.GetComponent<CharacterController>();
-        GrabObject grabObject = player.GetComponent<GrabObject>();
 
+        CheckCollision(collision);
+    }
+
+    public void CheckCollision(Collider2D collision)
+    {
         // If the collsion object is a rubbish type which is grabbable and the player
         // has released it
-        if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed() )
+        if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
         {
-            Debug.Log(grabObject.GetIsGrabbed());
 
             collidedObject = collision.gameObject;
             if (CheckRubbish())
@@ -54,5 +61,11 @@ public class Bin : MonoBehaviour, IBins
             DestroyRubbish();
 
         }
+    }
+
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        CheckCollision(collision);
     }
 }
