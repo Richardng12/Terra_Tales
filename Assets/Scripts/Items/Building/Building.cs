@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Building : MonoBehaviour
 {
     private Switch[] switches;
-    
+
     //public Rigidbody2D building;
     public EnergyBar energyBar;
-   // public Text text;
+    // public Text text;
 
     private bool applied;
     private bool shortCircuit;
@@ -27,9 +27,11 @@ public class Building : MonoBehaviour
         }
     }
 
+    // Set all the building lights on
     public void setAllOn()
     {
-        foreach(Switch switcha in switches){
+        foreach (Switch switcha in switches)
+        {
             switcha.setIsOn(true);
         }
         Update();
@@ -37,32 +39,40 @@ public class Building : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("hit player");
         CharacterController character = other.gameObject.GetComponent<CharacterController>();
+
+        // Make the character lose health if the building is shortcircuited.
         if (character != null && shortCircuit)
         {
             character.LoseHealth();
         }
     }
+
+    // Set the colour to red to ward the player
     private IEnumerator HandleIt()
     {
         applied = true;
         // process pre-yield
         yield return new WaitForSeconds(5.0f);
         shortCircuit = false;
-        this.gameObject.GetComponent<Renderer>().material.color = Color.magenta;
+        if (shortCircuit)
+        {
+            this.gameObject.GetComponent<Renderer>().material.color = Color.magenta;
+        }
         // process post-yield
     }
+
     // Update is called once per frame
     void Update()
     {
         bool switchOn = true;
-        foreach(Switch switcha in switches)
+        foreach (Switch switcha in switches)
         {
             switchOn &= switcha.isOn;
         }
         if (switchOn)
         {
+            // Set building to red if shortcircuited and update energy bar.
             if (!applied)
             {
                 applied = true;
@@ -72,12 +82,13 @@ public class Building : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().material.color = Color.red;
                 StartCoroutine(HandleIt());
             }
-            
+
         }
         else
         {
             if (applied)
             {
+                // Undo energy bar change
                 energyBar.increaseEnergy(-5);
 
             }

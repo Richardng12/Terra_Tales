@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
-
 //https://www.youtube.com/watch?v=yFKg8qVclBk
 public class Switch : MonoBehaviour
 {
@@ -52,7 +51,7 @@ public class Switch : MonoBehaviour
         switc = GetComponent<Rigidbody2D>();
         // allowSwitchText.gameObject.SetActive(false);
         canAdd = true;
-        windows =gameObject.GetComponentsInChildren<Window>();
+        windows = gameObject.GetComponentsInChildren<Window>();
         ChangeColour();
 
 
@@ -85,12 +84,15 @@ public class Switch : MonoBehaviour
         }
     }
 
+    /**
+    Switch between the states, on and off.
+     */
     private void ChangeState()
     {
-        
-        
         bool hasPerson = false;
-        foreach(Window window in windows)
+
+        // Check if any windows have a person
+        foreach (Window window in windows)
         {
             hasPerson |= window.hasPerson;
         }
@@ -105,6 +107,8 @@ public class Switch : MonoBehaviour
         }
         ChangeColour();
     }
+
+    //Update colour depending on whether it is on or off
     private void ChangeColour()
     {
         if (isOn)
