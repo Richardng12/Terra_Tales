@@ -19,6 +19,9 @@ public class Seedling : MonoBehaviour
 
     public GameObject player;
 
+
+    //private Coroutine co;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,7 @@ public class Seedling : MonoBehaviour
         progressBar.gameObject.SetActive(false);
         pivot.transform.localScale = new Vector3(1, 1, 0);
         treeCounter = treeCounterObject.GetComponent<ForestTracker>();
-
+        //co = StartCoroutine(StartGlow());
     }
 
     // Update is called once per frame
@@ -87,4 +90,27 @@ public class Seedling : MonoBehaviour
             //     pivot.transform.localScale = new Vector3(1, 1, 0);
         }
     }
+
+    //private IEnumerator StartGlow()
+    //{
+    //    while (true)
+    //    {
+    //        for (float i = 1; i <= 3; i += Time.deltaTime)
+    //        {
+    //           gameObject.GetComponent<SpriteGlowEffect>().outlineWidth = i;
+
+    //            yield return null;
+    //        }
+
+    //        for (float i = 3; i <= 1; i -= Time.deltaTime)
+    //        {
+    //            gameObject.GetComponent<SpriteGlowEffect>().outlineWidth = i;
+
+    //            yield return null;
+    //        }
+
+    //    }
+    //}
+
+
 }
