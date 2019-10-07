@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ForestNPC : MonoBehaviour
+public class ForestNPC : MonoBehaviour, INPC
 {
     private bool interactable = false;
     public Dialogue[] dialogue;
     private DialogueManager dialogueManager;
     private ForestTracker treeTracker;
-    public GameObject oceanTrackerObject;
+    public GameObject treeTrackerObject;
+    public GameObject timelineTrigger;
 
     private bool startOfLevel = true;
 
@@ -18,7 +19,7 @@ public class ForestNPC : MonoBehaviour
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
-        treeTracker = oceanTrackerObject.GetComponent<ForestTracker>();
+        treeTracker = treeTrackerObject.GetComponent<ForestTracker>();
         interactable = false;
     }
 
@@ -84,6 +85,7 @@ public class ForestNPC : MonoBehaviour
         else if (treeTracker.CheckIsComplete())
         {
             dialogueManager.StartDialogue(dialogue[2]);
+            timelineTrigger.GetComponent<TimelineTrigger>().PlayCutScene();
 
         }
         // Talks about current state of tasks

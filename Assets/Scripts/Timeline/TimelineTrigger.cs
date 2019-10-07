@@ -19,13 +19,10 @@ public class TimelineTrigger : MonoBehaviour
 
     }
     //TODO upon player completion
-    void OnTriggerEnter2D(Collider2D c)
+   public void PlayCutScene()
     {
-        if (c.gameObject.tag.Equals("Player"))
-        {
-            greenScene.SetActive(true);
-            timeline.Play();
-            Debug.Log("hi");
-        }
+        greenScene.SetActive(true);
+        timeline.Play();
+
     }
 }
