@@ -14,6 +14,11 @@ public class OceanNPC : MonoBehaviour, INPC
     private OceanTracker oceanTracker;
     public GameObject oceanTrackerObject;
 
+    public GameObject finishScreen;
+
+    public Text scoreText;
+
+    public GameObject timerObject;
     private bool startOfLevel = true;
 
     private bool initialised = false;
@@ -56,9 +61,12 @@ public class OceanNPC : MonoBehaviour, INPC
                 // Once dialogue has ended then set time scale to 1
                 if (dialogueManager.GetDialogueEnded())
                 {
+
                     Time.timeScale = 1.0f;
                     // Dialogue has ended
+                    Debug.Log("HELLO");
                     initialised = false;
+
                     // Start of level should only gets set to false once as that
                     // dialogue only happens at the start
                     startOfLevel = false;
@@ -73,11 +81,18 @@ public class OceanNPC : MonoBehaviour, INPC
         {
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
+            timerObject.GetComponent<Timer>().StartTimer();
         }
         // If complete then npc thanks
         else if (oceanTracker.CheckIsComplete())
         {
             dialogueManager.StartDialogue(dialogue[2]);
+
+               //TEMP finishScene
+
+                    finishScreen.SetActive(true);
+                    Time.timeScale = 0f;
+                    scoreText.text = Scoring.oceanScore.ToString();
             
 
         }

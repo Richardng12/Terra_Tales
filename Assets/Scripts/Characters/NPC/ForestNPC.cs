@@ -67,8 +67,6 @@ public class ForestNPC : MonoBehaviour, INPC
                     Time.timeScale = 1.0f;
                     // Dialogue has ended
 
-                    timerObject.GetComponent<Timer>().StartTimer();
-
                     initialised = false;
                     // Start of level should only gets set to false once as that
                     // dialogue only happens at the start
@@ -85,6 +83,7 @@ public class ForestNPC : MonoBehaviour, INPC
         {
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
+            timerObject.GetComponent<Timer>().StartTimer();
         }
         // If complete then npc thanks
         else if (treeTracker.CheckIsComplete())

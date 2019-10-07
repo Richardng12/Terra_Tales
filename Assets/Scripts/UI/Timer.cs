@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     public float time;
     public Text text;
 
-    Coroutine co;
+   static Coroutine co;
     public IEnumerator StartCountdown()
     {
         while (time > 0)
@@ -36,6 +36,7 @@ public class Timer : MonoBehaviour
 
     public void StopTimer()
     {
+        Debug.Log("Stopped Timer");
         StopCoroutine(co);
     }
 

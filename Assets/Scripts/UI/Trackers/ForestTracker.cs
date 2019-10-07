@@ -32,8 +32,9 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         treesPlanted[i]++;
         text.text = "Planted " + treesPlanted[i] + "/" + treesToPlant + " Trees";
         StartCoroutine(TextFadeOutRoutine());
-        if (isComplete)
+        if (CheckIsComplete())
         {
+            Debug.Log("Here");
             Scoring scoring = gameManager.GetComponent<Scoring>();
             scoring.CalculateStageScore("Forest");
         }
