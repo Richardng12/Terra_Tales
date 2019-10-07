@@ -6,6 +6,7 @@ public class Seedling : MonoBehaviour
 {
 
     public Slider progressBar;
+    public GameObject image;
     public bool complete;
     public bool interactable = false;
     public float currentProgress;
@@ -42,6 +43,7 @@ public class Seedling : MonoBehaviour
             interactable = false;
             complete = true;
             progressBar.gameObject.SetActive(false);
+            image.SetActive(false);
             shootWater.DecreaseAmmoCount();
             treeCounter.UpdateAndDisplayTaskCounter();
         }
