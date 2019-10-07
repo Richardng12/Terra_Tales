@@ -27,6 +27,7 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
     {
         if (isComplete)
         {
+            
             gameManager.GetComponent<Scoring>().CalculateStageScore("Ocean");
         }
     }
@@ -36,19 +37,19 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
         text.color = startingColour;
         if (RubbishTypes.RubbishBag.ToString().Equals(binItem)) {
             tasks[0]++;
-            text.text = + tasks[0]+ "/5 Rubbish Collected";
+            text.text = + tasks[0]+ "/3 Rubbish Collected";
 
         }
         else if (RubbishTypes.RecyclableCans.ToString().Equals(binItem))
         {
             tasks[1]++;
-            text.text = tasks[1] + "/5 Recycling Collected";
+            text.text = tasks[1] + "/3 Recycling Collected";
 
         }
         else if(RubbishTypes.AppleCore.ToString().Equals(binItem))
         {
             tasks[2]++;
-            text.text = tasks[2] + "/5 Compost Collected";
+            text.text = tasks[2] + "/3 Compost Collected";
 
         }
 
@@ -72,7 +73,7 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
     {
         for(int i= 0; i < tasks.Length; i++)
         {
-            if(tasks[i] < 5)
+            if(tasks[i] < 3)
             {
                 return false;
             }

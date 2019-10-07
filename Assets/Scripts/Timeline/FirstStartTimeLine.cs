@@ -7,16 +7,15 @@ public class FirstStartTimeLine : MonoBehaviour
 {
     public PlayableDirector timeline;
     public GameObject firstStartTimeLine;
-
-    public Transform[] fires;
+    public GameObject player;
+    public GameObject[] objects;
     // Start is called before the first frame update
     void Start()
     {
-        fires = GetComponentsInChildren<Transform>();
-        foreach (Transform fire in fires)
-        {
-  
-        }
+        //Cancel player movement during cutscene
+        player = GameObject.FindWithTag("Player");
+        player.GetComponent<CharacterController>().enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -30,6 +29,8 @@ public class FirstStartTimeLine : MonoBehaviour
         if (timeline == aDirector)
         {
             firstStartTimeLine.SetActive(false);
+            player.GetComponent<CharacterController>().enabled = true;
+
         }
     }
 
