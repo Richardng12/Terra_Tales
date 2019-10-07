@@ -41,3 +41,12 @@ public class Window: MonoBehaviour
     }
 
 }
+// public class Window: MonoBehaviour
+// {   
+//     public Sprite WindowPerson;
+//     public counter = 0;
+//     void Update() {
+//         this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowPerson;
+//     }
+
+// }
