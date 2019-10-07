@@ -37,8 +37,8 @@ public class TimelineTrigger : MonoBehaviour
         {
           //  firstStartTimeLine.SetActive(false);
          //   player.GetComponent<CharacterController>().enabled = true;
-            finishScreen.SetActive(true);
             scoreText.text = Scoring.forestScore.ToString();
+            finishScreen.SetActive(true);
             Time.timeScale = 0f;
         }
     }

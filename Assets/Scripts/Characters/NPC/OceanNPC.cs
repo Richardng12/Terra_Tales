@@ -64,7 +64,6 @@ public class OceanNPC : MonoBehaviour, INPC
 
                     Time.timeScale = 1.0f;
                     // Dialogue has ended
-                    timerObject.GetComponent<Timer>().StartTimer();
                     Debug.Log("HELLO");
                     initialised = false;
 
@@ -82,6 +81,7 @@ public class OceanNPC : MonoBehaviour, INPC
         {
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
+            timerObject.GetComponent<Timer>().StartTimer();
         }
         // If complete then npc thanks
         else if (oceanTracker.CheckIsComplete())
