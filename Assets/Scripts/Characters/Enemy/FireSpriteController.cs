@@ -14,6 +14,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     public int health = 9;
 
     public Transform groundDetection;
+
     private CharacterController character;
     private SpawnerScript spawner;
 
@@ -34,8 +35,11 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
+    
+
         //origin, direction, length
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
+    
         if (groundInfo.collider == false)
         {
             if (movingRight == true)
