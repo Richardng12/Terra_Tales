@@ -80,13 +80,13 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
             character.LoseHealth();
         }
 
-        //collision with the projectile
-        if (other.CompareTag("WaterBullet"))
-        {
-            //Destroy projectile
-            Destroy(other.gameObject);
-            LoseHealth();
-        }
+        // //collision with the projectile
+        // if (other.CompareTag("WaterBullet"))
+        // {
+        //     //Destroy projectile
+        //     Destroy(other.gameObject);
+        //     LoseHealth();
+        // }
     }
 
 
