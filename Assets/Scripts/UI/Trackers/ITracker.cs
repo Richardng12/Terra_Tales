@@ -7,5 +7,7 @@ using UnityEngine;
     void UpdateAndDisplayTaskCounter(T i);
 
     IEnumerator TextFadeOutRoutine();
+
+    int[] GetTasks();
 }
     
