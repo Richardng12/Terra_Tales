@@ -78,6 +78,7 @@ public class OceanNPC : MonoBehaviour, INPC
         else if (oceanTracker.CheckIsComplete())
         {
             dialogueManager.StartDialogue(dialogue[2]);
+            
 
         }
         // Talks about current state of tasks

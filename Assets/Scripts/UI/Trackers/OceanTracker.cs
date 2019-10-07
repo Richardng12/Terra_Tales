@@ -25,10 +25,13 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
 
     void Update()
     {
-        if (isComplete)
+        if (CheckIsComplete())
         {
-            
+            Debug.Log("Hello");
+            Debug.Log(Scoring.oceanScore);
+
             gameManager.GetComponent<Scoring>().CalculateStageScore("Ocean");
+            Debug.Log(Scoring.oceanScore);
         }
     }
     // Checks what task the update corresponds too and shows the text
@@ -78,6 +81,7 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
                 return false;
             }
         }
+        isComplete = true;
         return true;
     }
 
