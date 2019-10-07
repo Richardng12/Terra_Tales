@@ -9,6 +9,11 @@ change, while also overcoming obstacles along the way. When the final challenge 
 
 Are you ready for the challenge?
 
+
+To play the game: 
+
+ - Go on releases, download the PROTOTYPE zip and run the .exe file
+
 Team Members
 ---
 
