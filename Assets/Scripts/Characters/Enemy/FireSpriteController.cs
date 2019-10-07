@@ -14,6 +14,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     public int health = 9;
 
     public Transform groundDetection;
+    public Transform wallDetection;
     private CharacterController character;
     private SpawnerScript spawner;
 
@@ -34,9 +35,12 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
+        LayerMask mask = LayerMask.GetMask("Ground");
         //origin, direction, length
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-        if (groundInfo.collider == false)
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance, mask);
+        RaycastHit2D frontInfo = Physics2D.Raycast(wallDetection.position, Vector2.left, distance, mask);
+        RaycastHit2D backInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, distance, mask);
+        if (groundInfo.collider == false || frontInfo.collider == true || backInfo.collider == true)
         {
             if (movingRight == true)
             {
