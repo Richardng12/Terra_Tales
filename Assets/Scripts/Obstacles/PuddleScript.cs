@@ -30,7 +30,7 @@ public class PuddleScript : MonoBehaviour
     {
         if (inPuddle)
         {
-            player = GameObject.Find("Player");
+            player = GameObject.FindWithTag("Player");
             float time = Time.deltaTime;
             if (gameObject.transform.localScale.x > 0 && !player.GetComponent<ShootWater>().isFull())
             {
@@ -43,9 +43,13 @@ public class PuddleScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+            Debug.Log("In pudddle not player");
+
+        if (collision.gameObject.tag.Equals("Player"))
         {
             inPuddle = true;
+            Debug.Log("In pudddle");
+
         }
     }
 

@@ -52,7 +52,7 @@ public class FireSpriteProjectile : MonoBehaviour
 
 
     private void DestroyFireProjectile(){
-        Debug.Log("Destroyed");
+     //   Debug.Log("Destroyed");
         Destroy(this.gameObject);
     }
     

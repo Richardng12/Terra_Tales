@@ -47,7 +47,7 @@ public class Seedling : MonoBehaviour
         }
         if (Input.GetKey("e") && interactable && !player.GetComponent<ShootWater>().isEmpty())
         {
-            player = GameObject.Find("Player");
+            player = GameObject.FindWithTag("Player");
 
             player.GetComponent<ShootWater>().waterTree();
             float time = Time.deltaTime;
