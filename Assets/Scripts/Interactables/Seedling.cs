@@ -11,6 +11,8 @@ public class Seedling : MonoBehaviour
     public float currentProgress;
     public float maxProgress = 5;
 
+    public GameObject image;
+
     public GameObject pivot;
 
     public GameObject treeCounterObject;
@@ -38,6 +40,7 @@ public class Seedling : MonoBehaviour
         if (Input.GetKey("e") && interactable && currentProgress > 5)
         {
             interactable = false;
+            image.SetActive(false); 
             complete = true;
             progressBar.gameObject.SetActive(false);
             player = GameObject.FindWithTag("Player");
