@@ -10,6 +10,8 @@ public class ForestNPC : MonoBehaviour, INPC
     public GameObject treeTrackerObject;
     public GameObject timelineTrigger;
 
+    public GameObject timerObject;
+
     private bool startOfLevel = true;
 
     private bool initialised = false;
@@ -64,6 +66,9 @@ public class ForestNPC : MonoBehaviour, INPC
                 {
                     Time.timeScale = 1.0f;
                     // Dialogue has ended
+
+                    timerObject.GetComponent<Timer>().StartTimer();
+
                     initialised = false;
                     // Start of level should only gets set to false once as that
                     // dialogue only happens at the start
