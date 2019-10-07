@@ -80,5 +80,8 @@ public class GrabObject : MonoBehaviour
     {
         this.rubbishItem = rubbishItem;
     }
-
+    public void SetGrabbedRubbishItem(GameObject rubbishItem)
+    {
+        grabbedRubbishItem = rubbishItem;
+    }
 }
