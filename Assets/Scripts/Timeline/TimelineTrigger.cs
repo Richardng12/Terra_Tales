@@ -23,7 +23,7 @@ public class TimelineTrigger : MonoBehaviour
     {
 
     }
-    //TODO upon player completion
+    //Plays cutscene once player has finished the forest level
    public void PlayCutScene()
     {
         greenScene.SetActive(true);
@@ -31,6 +31,7 @@ public class TimelineTrigger : MonoBehaviour
 
     }
 
+	//Pause the game and display the finish screen once the FINISH cutscene is done playing
     void OnPlayableDirectorStopped(PlayableDirector aDirector)
     {
         if (timeline == aDirector)
@@ -43,7 +44,7 @@ public class TimelineTrigger : MonoBehaviour
         }
     }
 
-
+	//Lifecycle methods
     void OnEnable()
     {
         timeline.stopped += OnPlayableDirectorStopped;

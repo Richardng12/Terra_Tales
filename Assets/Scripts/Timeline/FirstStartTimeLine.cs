@@ -26,6 +26,7 @@ public class FirstStartTimeLine : MonoBehaviour
 
     void OnPlayableDirectorStopped(PlayableDirector aDirector)
     {
+		//When initial forest cutscene is finished, set the component to non-active and enable the player movement
         if (timeline == aDirector)
         {
             firstStartTimeLine.SetActive(false);
@@ -34,7 +35,7 @@ public class FirstStartTimeLine : MonoBehaviour
         }
     }
 
-
+	//Lifecycle methods that get called once cutscene is finished
     void OnEnable()
     {
         timeline.stopped += OnPlayableDirectorStopped;
