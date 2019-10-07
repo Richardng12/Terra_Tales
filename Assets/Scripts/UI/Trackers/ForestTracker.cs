@@ -16,7 +16,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     private Color startingColour;
 
-    private bool isComplete;
+    private bool isComplete = false;
 
 
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         treesPlanted[i]++;
         text.text = "Planted " + treesPlanted[i] + "/" + treesToPlant + " Trees";
         StartCoroutine(TextFadeOutRoutine());
-        if (treesPlanted[i] == treesToPlant)
+        if (isComplete)
         {
             Scoring scoring = gameManager.GetComponent<Scoring>();
             scoring.CalculateStageScore("Forest");
@@ -53,7 +53,14 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     public bool CheckIsComplete()
     {
-        return isComplete;
+        for(int i=0; i < treesPlanted.Length; i++)
+        {
+            if (treesPlanted[i] < 1) {
+                return false;
+             }
+        }
+        isComplete = true;
+        return true;
     }
 
     public int[] GetTasks()
