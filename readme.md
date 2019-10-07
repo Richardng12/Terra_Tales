@@ -17,6 +17,8 @@ Running the Prebuilt gane
 
 3. Run 306 Project 2.exe
 
+4. (Note, City Level has not been implemented for the prototype at this stage.)
+
 
 Team Members
 ---
