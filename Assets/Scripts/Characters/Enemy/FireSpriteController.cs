@@ -73,7 +73,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("hit player");
+      //  Debug.Log("hit player");
         character = other.gameObject.GetComponent<CharacterController>();
         if (character != null)
         {

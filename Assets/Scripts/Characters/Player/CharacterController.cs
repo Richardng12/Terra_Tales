@@ -29,7 +29,7 @@ public class CharacterController : MonoBehaviour, ICharacter
 
     void Start()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;

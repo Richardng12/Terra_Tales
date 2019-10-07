@@ -10,7 +10,7 @@ public class Dialogue {
 
     //Min num of lines, max num of lines
     //Works with DialogueTrigger
-	[TextArea(3, 10)]
-	public string[] sentences;
+    [TextArea(3, 10)]
+    public string[] sentences;
 
 }

@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 2838232147502429507}
   - component: {fileID: 2838232147502429510}
   - component: {fileID: 1720438530676308884}
+  - component: {fileID: 114990044896446234}
   m_Layer: 12
   m_Name: FireEnemy
   m_TagString: Fire Enemy
@@ -165,7 +166,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1436238373
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c61d02aab5875441ea8250418e7f6679, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -257,6 +258,20 @@ MonoBehaviour:
   distance: 5
   health: 9
   groundDetection: {fileID: 2838232148415816354}
+--- !u!114 &114990044896446234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838232147502429532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9314df08ad5d1a64aba0a82413053a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shot: {fileID: 1136516451611570613, guid: f3816fd27b66a0c438c2cfcd67efff8d, type: 3}
+  timeBetweenShots: 5
 --- !u!1 &2838232148415816381
 GameObject:
   m_ObjectHideFlags: 0
