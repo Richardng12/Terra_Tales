@@ -28,8 +28,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartTimer()
     {
         text = GetComponent<Text>();
         co = StartCoroutine(StartCountdown());
