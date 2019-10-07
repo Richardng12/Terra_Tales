@@ -5,17 +5,13 @@ using UnityEngine;
 public class GrabObject : MonoBehaviour
 {
     private bool isGrabbed = false;
-    RaycastHit2D touching;
 
-    public float grabDistance = 2f;
     public Transform holdPoint;
+    GameObject grabbedRubbishItem;
+    GameObject rubbishItem;
     Rigidbody2D rb;
     public float throwVelocity;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool interactable = false;
 
     // Update is called once per frame
     void Update()
@@ -23,11 +19,16 @@ public class GrabObject : MonoBehaviour
         // If action button is pressed
         if (Input.GetButtonDown("Fire2"))
         {
+            // Grabs the object
             Grab();
         }
         if (isGrabbed)
         {
-            touching.collider.gameObject.transform.position = holdPoint.position;
+            // Throws the object
+            if (grabbedRubbishItem != null)
+            {
+                grabbedRubbishItem.transform.position = holdPoint.position;
+            }
         }
     }
     private void Grab()
@@ -35,33 +36,60 @@ public class GrabObject : MonoBehaviour
         // If player is already grabbing something
         if (isGrabbed)
         {
-            rb = touching.collider.gameObject.GetComponent<Rigidbody2D>();
+            isGrabbed = false;
+
+            if (grabbedRubbishItem != null)
+            {
+                // Then set that grabbed object as the fields rigid body
+                rb = grabbedRubbishItem.gameObject.GetComponent<Rigidbody2D>();
+            }
+            // Since the object will be thrown isGrabbed is set to false
             isGrabbed = false;
             if (rb != null)
             {
+                // Updates the objects velocity so that it is thrown
                 rb.velocity = new Vector2(transform.localScale.x, 1) * throwVelocity;
             }
         }
         else
         {
-            Physics2D.queriesStartInColliders = false;
-            touching = Physics2D.Raycast(transform.position - Vector3.right * transform.localScale.x, Vector2.right * transform.localScale.x, grabDistance*2);
-
-           
-            if (touching.collider != null && touching.collider.gameObject.tag.Equals("Grabbable"))
+            // If the player hasnt grabbed anything and is in range of r=grabbing a object
+            if (interactable)
             {
-                isGrabbed = true;
+                if (rubbishItem != null)
+                {
+                    // Set is grabbed to true so update method changes object location
+                    isGrabbed = true;
+                    // Sets the grabbedRubbishItem to the current hovered rubbish item 
+                    grabbedRubbishItem = rubbishItem;
+                }
             }
         }
     }
-    public void OnDrawGizmos()
+
+    // Getters and Setters for the fields in this class
+
+    public bool GetIsGrabbed()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position - Vector3.right * transform.localScale.x, transform.position + Vector3.right * transform.localScale.x*grabDistance);
+        return isGrabbed;
     }
 
     public void SetGrabbed(bool boolean)
     {
         isGrabbed = boolean;
+    }
+
+    public void SetInteractable(bool boolean)
+    {
+        interactable = boolean;
+    }
+
+    public void SetRubbishItem(GameObject rubbishItem)
+    {
+        this.rubbishItem = rubbishItem;
+    }
+    public void SetGrabbedRubbishItem(GameObject rubbishItem)
+    {
+        grabbedRubbishItem = rubbishItem;
     }
 }

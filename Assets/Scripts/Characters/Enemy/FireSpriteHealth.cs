@@ -15,6 +15,7 @@ public class FireSpriteHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Changes the length of the health bar
         localScale.x = fire.health;
         transform.localScale = localScale;
     }

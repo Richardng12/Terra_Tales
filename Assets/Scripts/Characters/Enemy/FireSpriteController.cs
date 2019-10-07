@@ -28,6 +28,8 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         Move();
     }
 
+    // Moves the fire sprite so that it goes to the edge of a platform and 
+    // moves in the other direction after
     public void Move()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
@@ -50,7 +52,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
             }
         }
     }
-
+    // Reduces the sprites health and destroys the object is health is 0
     public void LoseHealth()
     {
         if (health > 3)
@@ -59,26 +61,36 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         }
         else
         {
-            OnDestroy();
             Destroy(this.gameObject);
+            OnDestroy();
 
         }
     }
-
+    // Sets the index of the spawner array to be null so that more sprites can
+    // be generated from the spawner
     public override void OnDestroy()
     {
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
+        // Sets the delay
         spawner.SetCurrentSpawnDelay(0);
     }
-
+    // If sprite hits the player plays loses health
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("hit player");
+      //  Debug.Log("hit player");
         character = other.gameObject.GetComponent<CharacterController>();
         if (character != null)
         {
             character.LoseHealth();
         }
+
+        // //collision with the projectile
+        // if (other.CompareTag("WaterBullet"))
+        // {
+        //     //Destroy projectile
+        //     Destroy(other.gameObject);
+        //     LoseHealth();
+        // }
     }
 
 

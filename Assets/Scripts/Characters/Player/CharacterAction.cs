@@ -13,6 +13,7 @@ public class CharacterAction : MonoBehaviour
 
     void Update()
     {
+        // Looks for jump input from the player 
         moveInput = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {
@@ -20,9 +21,9 @@ public class CharacterAction : MonoBehaviour
         }
     }
 
-
-private void FixedUpdate()
-{
+    private void FixedUpdate()
+    {
+        // Does the certain actions for each player
         characterController.Move(moveInput, speed);
         characterController.Jump(jump, jumpSpeed);
         if (loseHealth)

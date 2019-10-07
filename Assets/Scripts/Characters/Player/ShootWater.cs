@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ShootWater : MonoBehaviour
 {
@@ -13,15 +14,25 @@ public class ShootWater : MonoBehaviour
     private float currrentReloadDelay = 0.5f;
     public int ammo = 9;
 
- 
+
 
     // Update is called once per frame
     void Update()
     {
+        // If player inputs the fire button it calls CheckFireRate()
         if (Input.GetButton("Fire1"))
         {
             this.CheckFireRate();
         }
+    }
+
+    internal bool isFull()
+    {
+        return ammo == 9;
+    }
+    internal bool isEmpty()
+    {
+        return ammo == 0;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -31,17 +42,39 @@ public class ShootWater : MonoBehaviour
             hasWep = true;
         }
     }
+    // Shoot method that instantiates a waterbubbleprefab if there is sufficient
+    // amounf of 
     private void Shoot()
     {
         if (ammo > 0 && ammo != 99)
         {
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
-            ammo--;
+            DecreaseAmmoCount();
         }
         else
         {
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
 
+        }
+    }
+    // Shoots water gun  by instantianting a waterBubble object
+    // dependent on couple of variables
+    public void waterTree()
+    {
+        if (hasWep)
+        {
+            if (rateOfFire == 0)
+            {
+                DecreaseAmmoCount();
+            }
+            else
+            {
+                if (Time.time > timeToFire)
+                {
+                    timeToFire = Time.time + 2 / rateOfFire;
+                    DecreaseAmmoCount();
+                }
+            }
         }
     }
     // Shoots water gun  by instantianting a waterBubble object
@@ -73,7 +106,7 @@ public class ShootWater : MonoBehaviour
         {
             if (currrentReloadDelay >= reloadDelay)
             {
-                ammo++;
+                IncreaseAmmoCount();
                 currrentReloadDelay = 0;
             }
             else
@@ -85,6 +118,16 @@ public class ShootWater : MonoBehaviour
     public int GetAmmoCount()
     {
         return ammo;
+    }
+
+    public void DecreaseAmmoCount()
+    {
+        ammo--;
+    }
+
+    public void IncreaseAmmoCount()
+    {
+        ammo++;
     }
 
 }

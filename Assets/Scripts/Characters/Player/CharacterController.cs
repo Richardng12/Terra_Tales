@@ -25,10 +25,11 @@ public class CharacterController : MonoBehaviour, ICharacter
     float timeBeenInvulnerable = 0;
     readonly float inVulnerableTimer = 2;
     Renderer renderer;
-    Color c ;
+    Color c;
 
     void Start()
     {
+        Time.timeScale = 1f;
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
@@ -36,15 +37,17 @@ public class CharacterController : MonoBehaviour, ICharacter
 
     // Collision 2D
 
-    // Checks if the character is invulnerable and changes teh renderer colour
+    // Checks if the character is invulnerable and changes the renderer colour
     // to show the player that it is invulnerable
-    private void CheckInvulnerability() {
-        if (timeBeenInvulnerable >= inVulnerableTimer) {
+    private void CheckInvulnerability()
+    {
+        if (timeBeenInvulnerable >= inVulnerableTimer)
+        {
             c.a = 1f;
             renderer.material.color = c;
             isInVuln = false;
             timeBeenInvulnerable = 0;
-          }
+        }
         else
         {
             timeBeenInvulnerable = timeBeenInvulnerable + Time.deltaTime;
@@ -73,36 +76,33 @@ public class CharacterController : MonoBehaviour, ICharacter
         }
         // Checks invulnerability if player is invulnerable
         if (isInVuln)
-         {
+        {
             CheckInvulnerability();
-         }
+        }
     }
     private void FixedUpdate()
     {
         // Checks if grounded
-        onGround = Physics2D.OverlapCircle(groundCheck.position,radiusCheck,whatIsGround);
+        onGround = Physics2D.OverlapCircle(groundCheck.position, radiusCheck, whatIsGround);
 
     }
+    // Character loses health if not invulnerable
     public void LoseHealth()
     {
         // If character isnt invulnerable
         if (!isInVuln)
         {
-            if (health > 0)
+            if (health >= 1)
             {
                 health--;
                 isInVuln = true;
-            }
-            else
-            {
-                health = 5;
             }
         }
     }
 
 
 
-   
+
 
     // Method to move the player
     public void Move(float moveInput, float speed)
@@ -126,8 +126,10 @@ public class CharacterController : MonoBehaviour, ICharacter
 
 
     // Method to jump
-    public void Jump(bool keyPressed, float jumpSpeed){
-        if (keyPressed){
+    public void Jump(bool keyPressed, float jumpSpeed)
+    {
+        if (keyPressed)
+        {
             if (jumps == 0)
             {
                 return;
@@ -148,15 +150,16 @@ public class CharacterController : MonoBehaviour, ICharacter
         // Switches the player position
         facingRight = !facingRight;
 
-        // Multiply the player's x local scale by -1
+        // Multiply the player's x local scale by -1 to flip the player
         Vector3 scale = player.localScale;
         scale.x *= -1;
         player.localScale = scale;
-        direction.Rotate(0f, 180f, 0f); 
+        direction.Rotate(0f, 180f, 0f);
 
     }
 
-    public Rigidbody2D GetRigidbody(){
+    public Rigidbody2D GetRigidbody()
+    {
         return rb;
     }
 

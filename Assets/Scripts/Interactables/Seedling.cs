@@ -11,11 +11,18 @@ public class Seedling : MonoBehaviour
     public float currentProgress;
     public float maxProgress = 5;
 
+    public GameObject image;
+
     public GameObject pivot;
 
-    private GameObject treeCounterObject;
+    public GameObject treeCounterObject;
 
-    private TreeCounter treeCounter;
+    private ForestTracker treeCounter;
+
+    public GameObject player;
+
+
+    //private Coroutine co;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +32,8 @@ public class Seedling : MonoBehaviour
         progressBar.value = CalculateProgress();
         progressBar.gameObject.SetActive(false);
         pivot.transform.localScale = new Vector3(1, 1, 0);
-        treeCounterObject = GameObject.Find("TreeCounter");
-        treeCounter = treeCounterObject.GetComponent<TreeCounter>();
+        treeCounter = treeCounterObject.GetComponent<ForestTracker>();
+        //co = StartCoroutine(StartGlow());
     }
 
     // Update is called once per frame
@@ -36,12 +43,17 @@ public class Seedling : MonoBehaviour
         if (Input.GetKey("e") && interactable && currentProgress > 5)
         {
             interactable = false;
+            image.SetActive(false); 
             complete = true;
             progressBar.gameObject.SetActive(false);
-            treeCounter.updateAndDisplayTreeCounter();
+            player = GameObject.FindWithTag("Player");
+            ShootWater shootWater = player.GetComponent<ShootWater>(); ;
+            shootWater.DecreaseAmmoCount();
+            treeCounter.UpdateAndDisplayTaskCounter();
         }
-        if (Input.GetKey("e") && interactable)
+        if (Input.GetKey("e") && interactable && !player.GetComponent<ShootWater>().isEmpty())
         {
+
             float time = Time.deltaTime;
             currentProgress += time;
             progressBar.value = CalculateProgress();
@@ -81,4 +93,27 @@ public class Seedling : MonoBehaviour
             //     pivot.transform.localScale = new Vector3(1, 1, 0);
         }
     }
+
+    //private IEnumerator StartGlow()
+    //{
+    //    while (true)
+    //    {
+    //        for (float i = 1; i <= 3; i += Time.deltaTime)
+    //        {
+    //           gameObject.GetComponent<SpriteGlowEffect>().outlineWidth = i;
+
+    //            yield return null;
+    //        }
+
+    //        for (float i = 3; i <= 1; i -= Time.deltaTime)
+    //        {
+    //            gameObject.GetComponent<SpriteGlowEffect>().outlineWidth = i;
+
+    //            yield return null;
+    //        }
+
+    //    }
+    //}
+
+
 }

@@ -11,6 +11,7 @@ public class WaterBubbleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Destroys water bubble after a certain time
         Invoke("DestroyWaterBubble", time);
         rb = this.GetComponent<Rigidbody2D>();
     }
@@ -18,26 +19,34 @@ public class WaterBubbleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Gives teh waterbubble a velocity when shot
         rb.velocity = transform.right * waterSpeed;
 
     }
+    // Checks types of collisions of the water bubble from the water gun
     void OnTriggerEnter2D(Collider2D collision)
     {
-        ICharacter fire = collision.gameObject.GetComponent<ICharacter>();
-        if (fire != null)
+        // If there is a character hit the character loses health and destroys
+        // the water bubble 
+        ICharacter enemy= collision.gameObject.GetComponent<ICharacter>();
+        if (enemy != null)
         {
-            fire.LoseHealth();
+            enemy.LoseHealth();
+            Destroy(this.gameObject);
         }
-        if (!collision.gameObject.tag.Equals("Obstacles") && !collision.gameObject.tag.Equals("Items") && (!collision.gameObject.tag.Equals("Grabbable")))
+        // This lets the water bubble travel through obstacles items and 
+        // grabbable objects
+
+        if (!collision.gameObject.tag.Equals("Obstacles") && 
+        !collision.gameObject.tag.Equals("Items") &&
+             (!collision.gameObject.tag.Equals("Grabbable")))
         {
-            Debug.Log(collision.gameObject.tag);
             Destroy(this.gameObject);
         }
 
     }
 
     private void DestroyWaterBubble(){
-        Debug.Log("Destroyed");
         Destroy(this.gameObject);
     }
 }

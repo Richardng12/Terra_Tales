@@ -5,8 +5,21 @@ public class Bin : MonoBehaviour, IBins
 {
     GameObject collidedObject;
     public GameObject player;
+    CharacterController character;
+    public GameObject oceanTrackerObject;
+    GrabObject grabObject;
+    private OceanTracker oceanTracker;
     public string binItem;
 
+    void Start()
+    {
+        oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
+        character = player.GetComponent<CharacterController>();
+        grabObject = player.GetComponent<GrabObject>();
+
+    }
+
+    // Checks if the rubbish is of the same type as the bin
     public bool CheckRubbish()
     {
         if (collidedObject.name.Equals(binItem))
@@ -19,6 +32,7 @@ public class Bin : MonoBehaviour, IBins
         }
     }
 
+    // Destroys the rubbish that was collided with the bin
     public void DestroyRubbish()
     {
         collidedObject.GetComponent<TrashScript>().OnDestroy();
@@ -26,25 +40,34 @@ public class Bin : MonoBehaviour, IBins
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //If the collsion object is a rubbish type which is grabbable
-        if (collision.gameObject.tag.Equals("Grabbable"))
+
+        CheckCollision(collision);
+    }
+
+    public void CheckCollision(Collider2D collision)
+    {
+        // If the collsion object is a rubbish type which is grabbable and the player
+        // has released it
+        if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
         {
-            CharacterController character = player.GetComponent<CharacterController>();
-            GrabObject grabObject = player.GetComponent<GrabObject>();
-            //Set player isGrabbed to false
-            grabObject.SetGrabbed(false);
+
             collidedObject = collision.gameObject;
             if (CheckRubbish())
             {
-                //Add point counter
+                // If the rubbish is the right type it should update the counter
+                oceanTracker.UpdateAndDisplayTaskCounter(binItem);
             }
             else
             {
-                // Character loses health due to wrong rubbish placement
-                character.LoseHealth();
+                // Character gets prompted of wrong rubbish placement
             }
             DestroyRubbish();
-
         }
+    }
+
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        CheckCollision(collision);
     }
 }
