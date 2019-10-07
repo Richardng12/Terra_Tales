@@ -56,7 +56,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
     {
         for(int i=0; i < treesPlanted.Length; i++)
         {
-            if (treesPlanted[i] < 1) {
+            if (treesPlanted[i] < treesToPlant) {
                 return false;
              }
         }
