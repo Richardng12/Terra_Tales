@@ -23,7 +23,6 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     private Vector2 pos;
     private Vector2 tempMove;
     private Vector2 oppMove;
-
     SpawnerScript spawner;
 
     //Variables for boundary collision
@@ -31,30 +30,31 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
 
     void Start()
     {
+        //Get reference to player object
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
-
+        //Get reference to player position
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
-
+        //Get reference to oil sprite
         centrePos = GameObject.FindGameObjectWithTag("Centre").transform;
-
+        //Get reference to spawner objects
         spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
-
-        //velocity = new Vector2(5f, 5f);
+        //Get reference to rigidbody object
         rb = gameObject.GetComponent<Rigidbody2D>();
-
-
     }
 
     void Update()
     {
+        //Call the move method to move the oil sprite
         Move();
     }
 
+    //Method to destroy this gameobject
     public void LoseHealth()
     {
-        Destroy(gameObject);
+        OnDestroy();
     }
 
+    //Method to destroy object and update spawn locations
     public override void OnDestroy()
     {
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
@@ -68,12 +68,14 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         //Collision with player
         if (other.CompareTag("Player"))
         {
+            //Cause player to lose health
             player.LoseHealth();
             OnDestroy();
         }
 
         //If it hits a boundary
         if (other.CompareTag("Boundary")) {
+            //Move oil sprite towards the map centre if it collides map boundary
             travelTime = 500;
             pos = new Vector2(centrePos.position.x, centrePos.position.y);
             oppMove = rb.position - pos;
@@ -82,8 +84,10 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         }
     }
     
+    //Method to move oil sprite
     public void Move()
     {
+        //Check if the oil sprite should move toward
         if (travelTime > 0)
         {
             travelTime--;
