@@ -38,6 +38,7 @@ public class TrashScript : AbstractSpawnableObject
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
+            player.SetRubbishItem(null);
             player.SetInteractable(false);
 
         }
