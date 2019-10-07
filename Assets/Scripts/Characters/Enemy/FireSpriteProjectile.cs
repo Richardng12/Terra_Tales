@@ -5,20 +5,22 @@ using UnityEngine;
 public class FireSpriteProjectile : MonoBehaviour
 {
      
+     //Variables to reference player
     private CharacterController player;
     private Vector3 target;
     //Speed of the bullet
     public float speed;
-
+    //Get reference to rigid body
     private Rigidbody2D rb;
-
+    //Projectile travel distance
     private float time = 3f;
 
     void Start() { 
+        //Invoke DestroyFireProjectile after the time has passed
         Invoke("DestroyFireProjectile", time);
-        //rb = this.GetComponent<Rigidbody2D>();
+        //Get reference to player
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
-            //Invoke("DestroyFireProjectile", time);
+        //Get vector 3 projectile target position
         target = player.transform.position - transform.position;
         target.z = 0;
         target.Normalize();
@@ -26,14 +28,13 @@ public class FireSpriteProjectile : MonoBehaviour
     }
 
     void Update() {
-            //rb.velocity = transform.right * speed;
-            transform.position = transform.position + target * speed * Time.deltaTime;
-        
+        //Move the projectile
+        transform.position = transform.position + target * speed * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+
         //Collision with the player
-        
         if (other.CompareTag("Player")) {
             //Player loses health
             player.LoseHealth();
@@ -43,16 +44,13 @@ public class FireSpriteProjectile : MonoBehaviour
 
         if (other.CompareTag("Boundary"))
         {
+            //Destroy when a boundary is hit
             Destroy(this.gameObject);
         }
     }
 
-
-
-
-
+    //Method to destroy projectile
     private void DestroyFireProjectile(){
-     //   Debug.Log("Destroyed");
         Destroy(this.gameObject);
     }
     
