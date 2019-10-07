@@ -25,15 +25,13 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
 
     void Update()
     {
+        // checks whther game objective is met then calculates score for stage
         if (CheckIsComplete())
         {
-            Debug.Log("Hello");
-            Debug.Log(Scoring.oceanScore);
-
             gameManager.GetComponent<Scoring>().CalculateStageScore("Ocean");
-            Debug.Log(Scoring.oceanScore);
         }
     }
+
     // Checks what task the update corresponds too and shows the text
     public void UpdateAndDisplayTaskCounter(string binItem)
     {

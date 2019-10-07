@@ -25,21 +25,26 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         treesPlanted[0] = 0;
         startingColour = text.color;
     }
-
+       
+    // increments the number of trees planted and displays the text on screen
     public void UpdateAndDisplayTaskCounter(int i = 0)
     {
         text.color = startingColour;
         treesPlanted[i]++;
         text.text = "Planted " + treesPlanted[i] + "/" + treesToPlant + " Trees";
+
+        // activates the coroutine to display text then fade it
         StartCoroutine(TextFadeOutRoutine());
+
+        // once the player completes task the score for the level is calculated
         if (CheckIsComplete())
         {
-            Debug.Log("Here");
             Scoring scoring = gameManager.GetComponent<Scoring>();
             scoring.CalculateStageScore("Forest");
         }
     }
 
+    // Routine that fades the alpha of a text UI component
     public IEnumerator TextFadeOutRoutine()
     {
         Color color = text.color;
@@ -52,6 +57,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         }
     }
 
+    // checks whether the objective counter is met
     public bool CheckIsComplete()
     {
         for(int i=0; i < treesPlanted.Length; i++)
@@ -64,6 +70,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         return true;
     }
 
+    // returns the number of trees planted array
     public int[] GetTasks()
     {
         return treesPlanted;
