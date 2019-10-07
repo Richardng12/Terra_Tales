@@ -76,7 +76,7 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
     {
         for(int i= 0; i < tasks.Length; i++)
         {
-            if(tasks[i] < 1)
+            if(tasks[i] < 3)
             {
                 return false;
             }
