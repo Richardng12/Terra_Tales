@@ -19,6 +19,17 @@ Running the Prebuilt gane
 
 4. (Note, City Level has not been implemented for the prototype at this stage.)
 
+Controls
+---
+Arrow keys to navigate
+
+Player can double dump by pressing up twice
+
+Escape to pause 
+
+E to interact with saplings and rubbish
+
+Space to shoot the water gun
 
 Team Members
 ---
