@@ -59,8 +59,8 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         }
         else
         {
-            OnDestroy();
             Destroy(this.gameObject);
+            OnDestroy();
 
         }
     }
@@ -78,6 +78,14 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         if (character != null)
         {
             character.LoseHealth();
+        }
+
+        //collision with the projectile
+        if (other.CompareTag("WaterBullet"))
+        {
+            //Destroy projectile
+            Destroy(other.gameObject);
+            LoseHealth();
         }
     }
 
