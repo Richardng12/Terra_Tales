@@ -25,6 +25,7 @@ Team Members
 |[Richardng12](https://github.com/Richardng12) | Richard Ng  | rng448  |
 |[HongShi10](https://github.com/HongShi10)| Hong Shi  | hshi952  |
 |[jiamouxbakh](https://github.com/jiamouxbakh)| Allen Wang  | awan968  |
+|[tomatopaste202](https://github.com/tomatopaste202)| Jun Han Zhu  | jzhu267 |
 
 Build Instructions
 -----
