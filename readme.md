@@ -33,3 +33,11 @@ Build Instructions
 2.Download and install the up-to-date version of the Unity game engine
 
 3.Use Unity to build the project (File -> Build and run)
+
+Running the Prebuilt gane
+---
+1. Download the latest release from our release page.
+
+2. Unzip to a folder
+
+3. Run 306 Project 2.exe
