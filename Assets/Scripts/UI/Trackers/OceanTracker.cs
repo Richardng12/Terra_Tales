@@ -27,6 +27,7 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
     {
         if (isComplete)
         {
+            
             gameManager.GetComponent<Scoring>().CalculateStageScore("Ocean");
         }
     }
