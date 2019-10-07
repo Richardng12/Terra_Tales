@@ -27,6 +27,7 @@ public class WaterBubbleScript : MonoBehaviour
         if (fire != null)
         {
             fire.LoseHealth();
+            Destroy(this.gameObject);
         }
         if (!collision.gameObject.tag.Equals("Obstacles") && !collision.gameObject.tag.Equals("Items") && (!collision.gameObject.tag.Equals("Grabbable")))
         {
