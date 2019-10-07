@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f7187675ec12e4aacaeb0e97ad31230a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -115,9 +115,8 @@ MonoBehaviour:
   currentProgress: 0
   maxProgress: 5
   pivot: {fileID: 5735791370182495452}
-  treeCounterObject: {fileID: 7781212371486807237, guid: 3951d381ad3dc7543816e10e2c34b5f1,
-    type: 3}
-  player: {fileID: 3100417671843463449, guid: 578d70f181e1a4c5daa9729a9433e325, type: 3}
+  treeCounterObject: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &5735791369981611911
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +175,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &5735791369981612024
 MonoBehaviour:
