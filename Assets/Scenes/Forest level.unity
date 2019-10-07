@@ -1625,6 +1625,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeTracker
       objectReference: {fileID: 0}
+    - target: {fileID: 7781212370265745502, guid: 3951d381ad3dc7543816e10e2c34b5f1,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8d9a7b6e921d8cc4882d11341281154c,
+        type: 3}
     - target: {fileID: 7781212371486807236, guid: 3951d381ad3dc7543816e10e2c34b5f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1688,7 +1694,7 @@ PrefabInstance:
     - target: {fileID: 1003265707782360329, guid: 3951d381ad3dc7543816e10e2c34b5f1,
         type: 3}
       propertyPath: treesToPlant
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1003265707782360329, guid: 3951d381ad3dc7543816e10e2c34b5f1,
         type: 3}
@@ -101169,6 +101175,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &899546664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5735791369956037147, guid: d3be5bb641c4f3443b922b73e2c75045,
+    type: 3}
+  m_PrefabInstance: {fileID: 1664072245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &899546669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899546664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 6.89
+  outlineWidth: 1
+  alphaThreshold: 0.077
+  drawOutside: 1
+  enableInstancing: 0
 --- !u!1001 &950275811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149672,6 +149702,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: treeCounterObject
@@ -149682,6 +149717,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1368136706}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 899546664}
     - target: {fileID: 5735791370799028476, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_LocalPosition.x
