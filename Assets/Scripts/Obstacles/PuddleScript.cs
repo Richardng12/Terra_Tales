@@ -55,7 +55,8 @@ public class PuddleScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        
+        if (collision.gameObject.tag.Equals("Player"))
         {
             inPuddle = false;
         }
