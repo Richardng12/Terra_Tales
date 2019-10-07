@@ -28,7 +28,6 @@ public class Seedling : MonoBehaviour
         progressBar.value = CalculateProgress();
         progressBar.gameObject.SetActive(false);
         pivot.transform.localScale = new Vector3(1, 1, 0);
-        treeCounterObject = GameObject.Find("TreeCounter");
         treeCounter = treeCounterObject.GetComponent<ForestTracker>();
         shootWater = player.GetComponent<ShootWater>();
     }
