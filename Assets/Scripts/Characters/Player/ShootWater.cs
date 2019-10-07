@@ -19,6 +19,7 @@ public class ShootWater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If player inputs the fire button it calls CheckFireRate()
         if (Input.GetButton("Fire1"))
         {
             this.CheckFireRate();
@@ -41,6 +42,8 @@ public class ShootWater : MonoBehaviour
             hasWep = true;
         }
     }
+    // Shoot method that instantiates a waterbubbleprefab if there is sufficient
+    // amounf of 
     private void Shoot()
     {
         if (ammo > 0 && ammo != 99)

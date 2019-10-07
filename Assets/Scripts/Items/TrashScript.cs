@@ -15,6 +15,8 @@ public class TrashScript : AbstractSpawnableObject
 
     }
 
+    // Destroys the rubbish and resets the array in the spawner so that more
+    // Rubbish can be spawned in the particular spawn locations
     public override void OnDestroy()
     {
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
@@ -25,6 +27,7 @@ public class TrashScript : AbstractSpawnableObject
 
     }
 
+    // If in range of rubbish sets interactable to true
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
@@ -34,7 +37,7 @@ public class TrashScript : AbstractSpawnableObject
 
         }
     }
-
+    // Sets interactable to false if leaves range of rubbish
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))

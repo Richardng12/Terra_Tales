@@ -37,7 +37,7 @@ public class CharacterController : MonoBehaviour, ICharacter
 
     // Collision 2D
 
-    // Checks if the character is invulnerable and changes teh renderer colour
+    // Checks if the character is invulnerable and changes the renderer colour
     // to show the player that it is invulnerable
     private void CheckInvulnerability()
     {
@@ -86,6 +86,7 @@ public class CharacterController : MonoBehaviour, ICharacter
         onGround = Physics2D.OverlapCircle(groundCheck.position, radiusCheck, whatIsGround);
 
     }
+    // Character loses health if not invulnerable
     public void LoseHealth()
     {
         // If character isnt invulnerable
@@ -149,7 +150,7 @@ public class CharacterController : MonoBehaviour, ICharacter
         // Switches the player position
         facingRight = !facingRight;
 
-        // Multiply the player's x local scale by -1
+        // Multiply the player's x local scale by -1 to flip the player
         Vector3 scale = player.localScale;
         scale.x *= -1;
         player.localScale = scale;

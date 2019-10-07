@@ -34,6 +34,7 @@ public class Window: MonoBehaviour
             ChangeState();
     }
 
+    // Update colour depending on switch
     private void ChangeState()
     {
             rend.material.color = switch0.gameObject.GetComponent<Renderer>().material.color;

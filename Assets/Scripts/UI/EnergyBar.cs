@@ -14,11 +14,14 @@ public class EnergyBar : MonoBehaviour
     {
         slider = GetComponent<Slider>();
     }
+
+    // Increase energy bar energy
     public void increaseEnergy(int i)
     {
         Debug.Log("increased energy" + i.ToString());
         currentValue += i;
     }
+
     // Update is called once per frame
     void Update()
     {

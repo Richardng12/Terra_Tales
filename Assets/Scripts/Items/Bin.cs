@@ -19,6 +19,7 @@ public class Bin : MonoBehaviour, IBins
 
     }
 
+    // Checks if the rubbish is of the same type as the bin
     public bool CheckRubbish()
     {
         if (collidedObject.name.Equals(binItem))
@@ -31,6 +32,7 @@ public class Bin : MonoBehaviour, IBins
         }
     }
 
+    // Destroys the rubbish that was collided with the bin
     public void DestroyRubbish()
     {
         collidedObject.GetComponent<TrashScript>().OnDestroy();
@@ -52,6 +54,7 @@ public class Bin : MonoBehaviour, IBins
             collidedObject = collision.gameObject;
             if (CheckRubbish())
             {
+                // If the rubbish is the right type it should update the counter
                 oceanTracker.UpdateAndDisplayTaskCounter(binItem);
             }
             else
@@ -59,7 +62,6 @@ public class Bin : MonoBehaviour, IBins
                 // Character gets prompted of wrong rubbish placement
             }
             DestroyRubbish();
-
         }
     }
 
