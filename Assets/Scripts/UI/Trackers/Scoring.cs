@@ -15,6 +15,11 @@ public class Scoring : MonoBehaviour
     static public int cityScore = 0;
 
     public int overallScore;
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
     public void CalculateStageScore(string stage)
     {
         int currentScore = ScoreCalculation();
