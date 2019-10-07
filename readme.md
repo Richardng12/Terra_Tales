@@ -25,3 +25,9 @@ Team Members
 |[Richardng12](https://github.com/Richardng12) | Richard Ng  | rng448  |
 |[HongShi10](https://github.com/HongShi10)| Hong Shi  | hshi952  |
 |[jiamouxbakh](https://github.com/jiamouxbakh)| Allen Wang  | awan968  |
+
+Build Instructions
+-----
+1.Clone the repository
+2.Download and install the up-to-date version of the Unity game engine
+3.Use Unity to build the project (File -> Build and run)
