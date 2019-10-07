@@ -3,10 +3,6 @@ using UnityEngine.UI;
 
 public class ForestNPC : MonoBehaviour
 {
-   {
-
-
-
     private bool interactable = false;
     public Dialogue[] dialogue;
     private DialogueManager dialogueManager;
@@ -133,5 +129,4 @@ public class ForestNPC : MonoBehaviour
         }
     }
 
-}
 }
