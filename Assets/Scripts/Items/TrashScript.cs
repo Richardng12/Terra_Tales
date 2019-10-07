@@ -20,6 +20,7 @@ public class TrashScript : AbstractSpawnableObject
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
         spawner.SetCurrentSpawnDelay(0);
         player.SetRubbishItem(null);
+        player.SetGrabbedRubbishItem(null);
         Destroy(this.gameObject);
 
     }

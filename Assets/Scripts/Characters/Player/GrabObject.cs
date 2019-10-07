@@ -36,8 +36,13 @@ public class GrabObject : MonoBehaviour
         // If player is already grabbing something
         if (isGrabbed)
         {
-            // Then set that grabbed object as the fields rigid body
-            rb = grabbedRubbishItem.gameObject.GetComponent<Rigidbody2D>();
+            isGrabbed = false;
+
+            if (grabbedRubbishItem != null)
+            {
+                // Then set that grabbed object as the fields rigid body
+                rb = grabbedRubbishItem.gameObject.GetComponent<Rigidbody2D>();
+            }
             // Since the object will be thrown isGrabbed is set to false
             isGrabbed = false;
             if (rb != null)
@@ -51,10 +56,13 @@ public class GrabObject : MonoBehaviour
             // If the player hasnt grabbed anything and is in range of r=grabbing a object
             if (interactable)
             {
-                // Set is grabbed to true so update method changes object location
-                isGrabbed = true;
-                // Sets the grabbedRubbishItem to the current hovered rubbish item 
-                grabbedRubbishItem = rubbishItem;
+                if (rubbishItem != null)
+                {
+                    // Set is grabbed to true so update method changes object location
+                    isGrabbed = true;
+                    // Sets the grabbedRubbishItem to the current hovered rubbish item 
+                    grabbedRubbishItem = rubbishItem;
+                }
             }
         }
     }
@@ -80,5 +88,8 @@ public class GrabObject : MonoBehaviour
     {
         this.rubbishItem = rubbishItem;
     }
-
+    public void SetGrabbedRubbishItem(GameObject rubbishItem)
+    {
+        grabbedRubbishItem = rubbishItem;
+    }
 }
