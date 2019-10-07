@@ -16,6 +16,8 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     private Color startingColour;
 
+    private bool isComplete;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,5 +49,15 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
             yield return null;
         }
+    }
+
+    public bool CheckIsComplete()
+    {
+        return isComplete;
+    }
+
+    public int[] GetTasks()
+    {
+        return treesPlanted;
     }
 }
