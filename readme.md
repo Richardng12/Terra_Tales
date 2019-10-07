@@ -29,5 +29,7 @@ Team Members
 Build Instructions
 -----
 1.Clone the repository
+
 2.Download and install the up-to-date version of the Unity game engine
+
 3.Use Unity to build the project (File -> Build and run)
