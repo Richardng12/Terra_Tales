@@ -94,13 +94,13 @@ public class OceanNPC : MonoBehaviour, INPC
     {
         // First sentence talks about rubbish bag task
         dialogue[1].sentences[0] = "You have collected " +
-        oceanTracker.GetTasks()[0] + "/5 Rubbish Bags";
+        oceanTracker.GetTasks()[0] + "/3 Rubbish Bags";
         // Second sentence talks about recycling task
         dialogue[1].sentences[1] = "You have Recycled " +
-        oceanTracker.GetTasks()[1] + "/5 Cans"; 
+        oceanTracker.GetTasks()[1] + "/3 Cans"; 
         // Third sentence talks about compost task
         dialogue[1].sentences[2] = "You have Composted " +
-        oceanTracker.GetTasks()[2] + "/5 Apple cores";
+        oceanTracker.GetTasks()[2] + "/3 Apple cores";
 
     }      private void OnTriggerEnter2D(Collider2D Collision)     {
         // If collision is detected then set interactable to true meaning the

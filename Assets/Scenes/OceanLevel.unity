@@ -150687,6 +150687,11 @@ PrefabInstance:
       propertyPath: grabDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114793793456208158, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b,
+        type: 3}
+      propertyPath: throwVelocity
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b, type: 3}
 --- !u!1 &2070461926 stripped
@@ -150716,12 +150721,12 @@ PrefabInstance:
     - target: {fileID: 2698905298095834817, guid: cd92a352c7c514a91a49172223170c22,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.432762
+      value: 27.46
       objectReference: {fileID: 0}
     - target: {fileID: 2698905298095834817, guid: cd92a352c7c514a91a49172223170c22,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.1
+      value: 21.97
       objectReference: {fileID: 0}
     - target: {fileID: 2698905298095834817, guid: cd92a352c7c514a91a49172223170c22,
         type: 3}
@@ -150767,6 +150772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814375682478784317, guid: cd92a352c7c514a91a49172223170c22,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd92a352c7c514a91a49172223170c22, type: 3}
@@ -151271,6 +151281,18 @@ PrefabInstance:
       propertyPath: spawnRate
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3975825385451201550, guid: 3eb60175ea7b84b2d82ff2d017726b16,
+        type: 3}
+      propertyPath: objectsToSpawn.Array.data[0]
+      value: 
+      objectReference: {fileID: 8306085652348385930, guid: 8fee2cc6eec754a91908f2aa5b8892b4,
+        type: 3}
+    - target: {fileID: 3975825385451201550, guid: 3eb60175ea7b84b2d82ff2d017726b16,
+        type: 3}
+      propertyPath: objectsToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 8815604579608076785, guid: 45672c047ffb749698b524e46c65e284,
+        type: 3}
     - target: {fileID: 3975825387039923286, guid: 3eb60175ea7b84b2d82ff2d017726b16,
         type: 3}
       propertyPath: m_LocalPosition.y
