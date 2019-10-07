@@ -11,12 +11,14 @@ public class CameraScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Gets the component of this gameobject
         mainCamera = GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Centers the camera to the player
         Vector3 playerInfo = player.transform.position;
         mainCamera.transform.position = new Vector3(playerInfo.x, playerInfo.y, playerInfo.z - cameraDistOffset);
     }
