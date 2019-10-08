@@ -1449,6 +1449,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b219145995793e9489dbaa5464dabe3d, type: 3}
+--- !u!114 &842934636 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5884810704205236136, guid: 006399ea9b7145740a178fadf763e2ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1959499791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &899798480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,6 +1676,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1011552332}
+    - target: {fileID: 911283696730950445, guid: 5a65eb929b2bd4d6facb0748725189b5,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 57143
+      objectReference: {fileID: 0}
+    - target: {fileID: 911283696730950443, guid: 5a65eb929b2bd4d6facb0748725189b5,
+        type: 3}
+      propertyPath: displayedHearts
+      value: 
+      objectReference: {fileID: 842934636}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a65eb929b2bd4d6facb0748725189b5, type: 3}
 --- !u!1001 &1118804857
