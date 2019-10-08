@@ -68,7 +68,7 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
             // allowSwitchText.gameObject.SetActive(true);
             allowSwitch = true;
@@ -77,7 +77,7 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
             // allowSwitchText.gameObject.SetActive(false);
             allowSwitch = false;

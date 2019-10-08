@@ -54,11 +54,12 @@ public class Building : MonoBehaviour
         applied = true;
         // process pre-yield
         yield return new WaitForSeconds(5.0f);
-        shortCircuit = false;
         if (shortCircuit)
         {
             this.gameObject.GetComponent<Renderer>().material.color = Color.magenta;
         }
+        shortCircuit = false;
+
         // process post-yield
     }
 
