@@ -10,7 +10,8 @@ public class Building : MonoBehaviour
     //public Rigidbody2D building;
     public EnergyBar energyBar;
     // public Text text;
-
+    private CharacterController character;
+    private bool inBuilding;
     private bool applied;
     private bool shortCircuit;
     // Start is called before the first frame update
@@ -37,23 +38,23 @@ public class Building : MonoBehaviour
         Update();
     }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        inBuilding = false;
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
-        CharacterController character = other.gameObject.GetComponent<CharacterController>();
+        inBuilding = true;
+        character = other.gameObject.GetComponent<CharacterController>();
 
-        // Make the character lose health if the building is shortcircuited.
-        if (character != null && shortCircuit)
-        {
-            character.LoseHealth();
-        }
     }
 
     // Set the colour to red to ward the player
-    private IEnumerator HandleIt()
+    private IEnumerator DelayedNormal()
     {
         applied = true;
         // process pre-yield
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(1f);
         if (shortCircuit)
         {
             this.gameObject.GetComponent<Renderer>().material.color = Color.magenta;
@@ -81,7 +82,7 @@ public class Building : MonoBehaviour
                 shortCircuit = true;
                 // Change colour for 5 seconds
                 this.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                StartCoroutine(HandleIt());
+                StartCoroutine(DelayedNormal());
             }
 
         }
@@ -98,6 +99,12 @@ public class Building : MonoBehaviour
 
             this.gameObject.GetComponent<Renderer>().material.color = Color.white;
 
+        }
+        
+        // Make the character lose health if the building is shortcircuited.
+        if (character != null && shortCircuit && inBuilding)
+        {
+            character.LoseHealth();
         }
     }
 }
