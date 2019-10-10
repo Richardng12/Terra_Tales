@@ -5,36 +5,37 @@ using UnityEngine;
 public class LightSpawner : MonoBehaviour
 {
     public Switch[] switches;
-    int randomSpawnPoint;
-    private readonly int spawnDelay = 10;
-    public static float currentSpawnDelay = 10;
-    public static FireSpriteController[] spawnedMonsters;
+    int randomInt;
     // Start is called before the first frame update
     void Start()
     {
         switches = (Switch[])Resources.FindObjectsOfTypeAll(typeof(Switch));
+        StartCoroutine(delayedLoad());
+        for (int i = 0; i < 10; i++)
+        {
+            Debug.Log("At light index " + i);
+            //    yield return new WaitForSeconds(.1f);
+            TurnOnLight();
+        }
+        InvokeRepeating("SpawnMonster", 0f, 3);
+    }
 
-        InvokeRepeating("SpawnMonster", 0f, 5f);
+    // Add in delay to nesure all lights can be found and switched on
+    IEnumerator delayedLoad()
+    {
+        //  yield return new WaitForSeconds(.1f);
+
+
+        yield return new WaitForSeconds(.1f);
+
     }
 
     // Update is called once per frame
-    void Update()
+
+
+    void TurnOnLight()
     {
-        if (currentSpawnDelay <= spawnDelay)
-        {
-            currentSpawnDelay = Time.deltaTime + currentSpawnDelay;
-        }
-
-    }
-
-    void SpawnMonster()
-    {
-        randomSpawnPoint = Random.Range(0, switches.Length);
-
-        if (currentSpawnDelay >= spawnDelay)
-        {
-            switches[randomSpawnPoint].setIsOn( true);
-        }
-
+        randomInt = Random.Range(0, switches.Length - 2);
+        switches[randomInt].setIsOn(true);
     }
 }
