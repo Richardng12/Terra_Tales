@@ -150311,6 +150311,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 297064091}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1279792984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1003265707782360329, guid: 3951d381ad3dc7543816e10e2c34b5f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 297064091}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279792983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd7e761cace84f2bb2cbadc331c1133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1327839043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7781212370265745502, guid: 3951d381ad3dc7543816e10e2c34b5f1,
@@ -150640,6 +150652,22 @@ PrefabInstance:
       propertyPath: resumeButton
       value: 
       objectReference: {fileID: 466322107}
+    - target: {fileID: 3320930405617016868, guid: 1fa70fe1c645b4bbd887859b55b87fd5,
+        type: 3}
+      propertyPath: m_Name
+      value: SeedlingHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115841682879914894, guid: 1fa70fe1c645b4bbd887859b55b87fd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f7187675ec12e4aacaeb0e97ad31230a,
+        type: 3}
+    - target: {fileID: 7477765474664941889, guid: 1fa70fe1c645b4bbd887859b55b87fd5,
+        type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 1279792984}
     m_RemovedComponents:
     - {fileID: 6751715879969090687, guid: 1fa70fe1c645b4bbd887859b55b87fd5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1fa70fe1c645b4bbd887859b55b87fd5, type: 3}
