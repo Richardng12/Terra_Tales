@@ -9,7 +9,7 @@ public class LightSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switches = (Switch[])Resources.FindObjectsOfTypeAll(typeof(Switch));
+        switches = (Switch[])FindObjectsOfType(typeof(Switch));
         StartCoroutine(delayedLoad());
         for (int i = 0; i < 10; i++)
         {
@@ -35,7 +35,7 @@ public class LightSpawner : MonoBehaviour
 
     void TurnOnLight()
     {
-        randomInt = Random.Range(0, switches.Length - 2);
+        randomInt = Random.Range(0, switches.Length  );
         switches[randomInt].setIsOn(true);
     }
 }

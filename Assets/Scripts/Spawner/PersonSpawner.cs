@@ -12,21 +12,15 @@ public class PersonSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        windows = (Window[])Resources.FindObjectsOfTypeAll(typeof(Window));
-        for(int i = 0; i < 10; i++){
-        Debug.Log("On index " + i);
-
-        }
+        windows = (Window[])FindObjectsOfType(typeof(Window));
         InvokeRepeating("SpawnMonster", 0f, 2f);
+        InvokeRepeating("SpawnMonster", 0f, 2f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentSpawnDelay <= spawnDelay)
-        {
-            currentSpawnDelay = Time.deltaTime + currentSpawnDelay;
-        }
 
     }
 
@@ -42,7 +36,7 @@ public class PersonSpawner : MonoBehaviour
 
     IEnumerator delayedOff(int index)
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(3);
         windows[index].hasPerson = false;
     }
 }
