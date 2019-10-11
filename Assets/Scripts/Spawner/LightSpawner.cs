@@ -17,7 +17,7 @@ public class LightSpawner : MonoBehaviour
             //    yield return new WaitForSeconds(.1f);
             TurnOnLight();
         }
-        InvokeRepeating("SpawnMonster", 0f, 3);
+        InvokeRepeating("TurnOnLight", 0f, 3);
     }
 
     // Add in delay to nesure all lights can be found and switched on
