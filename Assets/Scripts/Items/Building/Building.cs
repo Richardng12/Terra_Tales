@@ -100,10 +100,12 @@ public class Building : MonoBehaviour
             this.gameObject.GetComponent<Renderer>().material.color = Color.white;
 
         }
+            Debug.Log("Character " + character +"short" + shortCircuit +"inbuild" +inBuilding);
         
         // Make the character lose health if the building is shortcircuited.
         if (character != null && shortCircuit && inBuilding)
         {
+            Debug.Log("Playerloses health");
             character.LoseHealth();
         }
     }

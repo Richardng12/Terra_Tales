@@ -6,12 +6,14 @@ public class LightSpawner : MonoBehaviour
 {
     public Switch[] switches;
     int randomInt;
+
+    public int lightsToTurnOn;
     // Start is called before the first frame update
     void Start()
     {
         switches = (Switch[])FindObjectsOfType(typeof(Switch));
         StartCoroutine(delayedLoad());
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < lightsToTurnOn; i++)
         {
             Debug.Log("At light index " + i);
             //    yield return new WaitForSeconds(.1f);
