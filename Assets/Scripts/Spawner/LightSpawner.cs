@@ -15,7 +15,7 @@ public class LightSpawner : MonoBehaviour
         StartCoroutine(delayedLoad());
         for (int i = 0; i < lightsToTurnOn; i++)
         {
-            Debug.Log("At light index " + i);
+            Debug.Log("Light turned on no: " + i);
             //    yield return new WaitForSeconds(.1f);
             TurnOnLight();
         }

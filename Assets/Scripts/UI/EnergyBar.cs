@@ -9,6 +9,7 @@ public class EnergyBar : MonoBehaviour
 
     public Slider energyThreshold;
 
+public int maxEnergy;
     public int threshold;
     //private Slider slider;
     public int currentValue;
@@ -16,13 +17,15 @@ public class EnergyBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        energyThreshold.maxValue = maxEnergy;
+        energyBar.maxValue = maxEnergy;
         energyThreshold.value = threshold;
     }
 
     // Increase energy bar energy
     public void increaseEnergy(int i)
     {
-        Debug.Log("increased energy" + i.ToString());
+        //Debug.Log("increased energy" + i.ToString());
         currentValue += i;
     }
 
