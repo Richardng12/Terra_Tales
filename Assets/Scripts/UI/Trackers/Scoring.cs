@@ -20,11 +20,13 @@ public class Scoring : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
+
+    // calculates score for each stage and overall score
     public void CalculateStageScore(string stage)
     {
         int currentScore = ScoreCalculation();
         timerObject.GetComponent<Timer>().StopTimer();
-        // check the stage type and replace score for stage if its greater
+        // check the stage type and replaces score for stage if its greater than the current score 
         switch (stage)
         {
             case "Forest":

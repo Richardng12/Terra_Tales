@@ -47,7 +47,6 @@ public class Switch : MonoBehaviour
     private void Start()
     {
         // Assign Renderer component to rend variable
-        rend = GetComponent<Renderer>();
         switc = GetComponent<Rigidbody2D>();
         // allowSwitchText.gameObject.SetActive(false);
         canAdd = true;
@@ -68,7 +67,7 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
             // allowSwitchText.gameObject.SetActive(true);
             allowSwitch = true;
@@ -77,7 +76,7 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
             // allowSwitchText.gameObject.SetActive(false);
             allowSwitch = false;
@@ -119,6 +118,8 @@ public class Switch : MonoBehaviour
             }
 
             canAdd = false;
+        rend = GetComponent<Renderer>();
+
             // allowSwitchText.text = "Turned on";
             rend.material.color = Color.yellow;
 

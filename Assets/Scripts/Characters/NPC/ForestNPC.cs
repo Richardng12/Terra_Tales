@@ -104,7 +104,7 @@ public class ForestNPC : MonoBehaviour, INPC
     {
         // First sentence talks about rubbish bag task
         dialogue[1].sentences[0] = "You have planted " +
-        treeTracker.GetTasks()[0] + "/10 Trees";
+        treeTracker.GetTasks()[0] + "/6 Trees";
 
     }
 

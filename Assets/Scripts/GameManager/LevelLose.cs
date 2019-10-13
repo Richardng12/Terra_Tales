@@ -10,7 +10,7 @@ public class LevelLose : MonoBehaviour
     public GameObject timer;
 
     public GameObject loseScreen;
-    // Start is called before the first frame update
+    // Start is called before the first frame update, get the player component
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -19,6 +19,7 @@ public class LevelLose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		//If the players health reaches 0, or the timer reaches 0, display the lose screen
         if(player.GetComponent<CharacterController>().health == 0 || timer.GetComponent<Timer>().time == 0)
         {
             timer.GetComponent<Timer>().text.text = "Time Left: 0:00";
