@@ -7,6 +7,8 @@ public class Pause : MonoBehaviour
     public GameObject pauseMenu;
     public Button resumeButton;
     private bool paused;
+	
+	//Upon start, get the Resume button component and reference ContinueGame() method with it
      void Start () {
 		Button btn = GetComponent<Button>();
 		resumeButton.onClick.AddListener(ContinueGame);
@@ -16,6 +18,7 @@ public class Pause : MonoBehaviour
     {
         //PauseGame();
         //   Debug.Log("ewe");
+		//If the player presses escape, look at current game state, if its not paused - pause, if it is paused, unpause.
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
         Debug.Log("escape pressed");
@@ -29,6 +32,7 @@ public class Pause : MonoBehaviour
             }
         } 
      }
+	 //Method to call that pauses the game and freezes the time.
     private void PauseGame()
     {
         paused = true;
@@ -37,6 +41,7 @@ public class Pause : MonoBehaviour
         pauseMenu.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
     } 
+	//Method that represents the continue game state
     public void ContinueGame()
     {
         paused = false;

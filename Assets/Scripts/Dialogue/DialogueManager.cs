@@ -51,12 +51,13 @@ public class DialogueManager : MonoBehaviour {
 			first = true;
 		}
 
+		//If theres no more sentences left in array, end the dialogue
 		if (listOfSentences.Count == 0)
 		{
 			EndDialogue();
             return;
 		}
-
+		//Remove the current sentence from the queue
 		string sentence = listOfSentences.Dequeue();
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));
@@ -73,8 +74,10 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 
+	//Load the main dialogbox canvas 
    public IEnumerator LoadDialogueBox()
     {
+		//Delay before we set timescale to make sure dialogue box pops up.
         yield return new WaitForSeconds(animator.playbackTime);
         Time.timeScale = 0f;
 }
