@@ -2234,7 +2234,7 @@ GameObject:
   - component: {fileID: 576989226}
   - component: {fileID: 576989225}
   - component: {fileID: 576989224}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Tilemap
   m_TagString: Boundary
   m_Icon: {fileID: 0}
@@ -2305,7 +2305,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1521961417
   m_SortingLayer: 14
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -101058,6 +101058,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seedling (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: treeCounterObject
+      value: 
+      objectReference: {fileID: 1279792983}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791370799028476, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101113,26 +101133,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: treeCounterObject
-      value: 
-      objectReference: {fileID: 1279792983}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791371956747992, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -101325,6 +101325,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seedling (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: treeCounterObject
+      value: 
+      objectReference: {fileID: 1279792983}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791370799028476, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101380,26 +101400,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: treeCounterObject
-      value: 
-      objectReference: {fileID: 1279792983}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791371956747992, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -101645,6 +101645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnRate
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485067641868360299, guid: 8c258007a6892428abd1755c21794ea8,
+        type: 3}
+      propertyPath: spawnDelay
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4485067640281997875, guid: 8c258007a6892428abd1755c21794ea8,
         type: 3}
@@ -102554,7 +102559,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -465419065
   m_SortingLayer: 15
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.015625, z: 0}
   m_MaxChunkCount: 16
@@ -150668,8 +150673,8 @@ PrefabInstance:
       propertyPath: tracker
       value: 
       objectReference: {fileID: 1279792984}
-    m_RemovedComponents:
-    - {fileID: 6751715879969090687, guid: 1fa70fe1c645b4bbd887859b55b87fd5, type: 3}
+    m_RemovedComponents: [{fileID: 6751715879969090687, guid: 1fa70fe1c645b4bbd887859b55b87fd5,
+        type: 3}]
   m_SourcePrefab: {fileID: 100100000, guid: 1fa70fe1c645b4bbd887859b55b87fd5, type: 3}
 --- !u!1001 &1615997754
 PrefabInstance:
@@ -151129,6 +151134,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seedling (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: treeCounterObject
+      value: 
+      objectReference: {fileID: 1279792983}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791370799028476, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -151184,26 +151209,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: treeCounterObject
-      value: 
-      objectReference: {fileID: 1279792983}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791371956747992, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -154919,6 +154924,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seedling (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: treeCounterObject
+      value: 
+      objectReference: {fileID: 1279792983}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791370799028476, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -154974,26 +154999,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: treeCounterObject
-      value: 
-      objectReference: {fileID: 1279792983}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791371956747992, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -155221,6 +155226,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seedling (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: treeCounterObject
+      value: 
+      objectReference: {fileID: 1279792983}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791370799028476, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -155276,26 +155301,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: treeCounterObject
-      value: 
-      objectReference: {fileID: 1279792983}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791371956747992, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -155500,6 +155505,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seedling (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: treeCounterObject
+      value: 
+      objectReference: {fileID: 1279792983}
+    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791370799028476, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -155555,26 +155580,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037146, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: treeCounterObject
-      value: 
-      objectReference: {fileID: 1279792983}
-    - target: {fileID: 5735791369956037151, guid: d3be5bb641c4f3443b922b73e2c75045,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1368136706}
     - target: {fileID: 5735791371956747992, guid: d3be5bb641c4f3443b922b73e2c75045,
         type: 3}
       propertyPath: m_AnchorMax.y
