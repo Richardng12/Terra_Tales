@@ -31,9 +31,9 @@ public enum AchievementType
 
 public class AchievementManager : MonoBehaviour
 {
-    private static Dictionary<AchievementType, List<Achievement>> achievementsMap;
+    private static Dictionary<AchievementType, List<Achievement>> achievementsMap = new Dictionary<AchievementType, List<Achievement>>();
     //private static List<Achievement> unlockedAchievements;
-    private Dictionary<AchievementType, int> achievementCounts;
+    private Dictionary<AchievementType, int> achievementCounts = new Dictionary<AchievementType, int>();
 
     //TODO get last unlocked.
     public Achievement getAchievementForType(AchievementType achievementType)
@@ -68,7 +68,7 @@ public class AchievementManager : MonoBehaviour
 
     public AchievementManager()
     {
-        if (achievementCounts.Keys.Count != 0)
+        if (achievementCounts.Keys.Count == 0)
         {
             List<Achievement> initialList = new List<Achievement>();
             Achievement ach = new Achievement(3, false, "First Time Playing!");
@@ -79,6 +79,7 @@ public class AchievementManager : MonoBehaviour
             ach = new Achievement(3, false, "Plated the first tree!");
             initialList.Add(ach);
             achievementsMap.Add(AchievementType.PlantingTrees, initialList);
+            achievementCounts.Add(AchievementType.PlantingTrees, 4);
         }
     }
 

@@ -13,16 +13,18 @@ public class AchievementBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("I'm here");
         getStats(achievementType);
     }
 
-    void getStats(string s)
+    void getStats(String achievementType)
     {
         Type t = typeof(AchievementType);
-        AchievementType achievementType = (AchievementType)Enum.Parse(t, s);
+        AchievementType at = (AchievementType)Enum.Parse(t, achievementType);
+        Debug.Log(at);
         AchievementManager aMan = new AchievementManager();
-        achievemntMessage.text = aMan.getAchievementForType(achievementType).name;
-        int achievementCount = aMan.getCountForType(achievementType);
+        achievementName.text = aMan.getAchievementForType(at).name;
+        int achievementCount = aMan.getCountForType(at);
         achievemntMessage.text = "Congratulations on achieving " + achievementCount + achievementType.ToString();
 
     }
