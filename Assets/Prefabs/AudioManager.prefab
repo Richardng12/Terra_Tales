@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7163623601869374538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7163623601869374540}
+  - component: {fileID: 7163623601869374539}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7163623601869374540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7163623601869374538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 107.82822, y: 175.98592, z: -5.7197924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7163623601869374539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7163623601869374538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcc8abd181714f51bc1e84b0f2ae7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 40a84de9d046740839f5e229f12a5849, type: 3}
+    vol: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: HoverSound
+    clip: {fileID: 8300000, guid: 940101df99b0b4602bcf76c390ce0b61, type: 3}
+    vol: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ClickSound
+    clip: {fileID: 8300000, guid: 49530b5e013574166abf57e438806500, type: 3}
+    vol: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ForestLevel
+    clip: {fileID: 8300000, guid: f7398032862454de49ba73bf41294007, type: 3}
+    vol: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OceanLevel
+    clip: {fileID: 8300000, guid: 422b6b2ba09ba4cd7b9be310a891a1b4, type: 3}
+    vol: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 72939001}
   - component: {fileID: 72939000}
   - component: {fileID: 72939003}
+  - component: {fileID: 72939004}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -352,6 +353,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36dc246e3a44de47ace233c6b1ec342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &72939004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72938998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &109427528
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +916,7 @@ GameObject:
   - component: {fileID: 369101885}
   - component: {fileID: 369101884}
   - component: {fileID: 369101883}
+  - component: {fileID: 369101887}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1018,6 +1064,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369101881}
   m_CullTransparentMesh: 0
+--- !u!114 &369101887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369101881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &376865882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1424,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474270506}
   m_CullTransparentMesh: 0
+--- !u!114 &523693716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6984840530305290170, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6984840529853800750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ae17d5aa0634f5b86fbf8a38a9a05f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &657934710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,6 +1449,7 @@ GameObject:
   - component: {fileID: 657934713}
   - component: {fileID: 657934712}
   - component: {fileID: 657934715}
+  - component: {fileID: 657934716}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1494,6 +1597,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36dc246e3a44de47ace233c6b1ec342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &657934716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657934710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &769935630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2290,7 @@ GameObject:
   - component: {fileID: 1059340628}
   - component: {fileID: 1059340631}
   - component: {fileID: 1059340632}
+  - component: {fileID: 1059340633}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -2291,6 +2439,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b50ea1970192b448b1d2709629bbe7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1059340633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059340626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &1100589835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2496,7 @@ GameObject:
   - component: {fileID: 1100589839}
   - component: {fileID: 1100589838}
   - component: {fileID: 1100589837}
+  - component: {fileID: 1100589841}
   m_Layer: 5
   m_Name: CityButton
   m_TagString: Untagged
@@ -2443,6 +2636,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100589835}
   m_CullTransparentMesh: 0
+--- !u!114 &1100589841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100589835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &1104481836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,6 +3228,7 @@ GameObject:
   - component: {fileID: 1563478026}
   - component: {fileID: 1563478029}
   - component: {fileID: 1563478030}
+  - component: {fileID: 1563478031}
   m_Layer: 5
   m_Name: StartGameButton
   m_TagString: Untagged
@@ -3150,6 +3388,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36dc246e3a44de47ace233c6b1ec342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1563478031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563478024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &1564052640
 GameObject:
   m_ObjectHideFlags: 0
@@ -3165,6 +3447,7 @@ GameObject:
   - component: {fileID: 1564052642}
   - component: {fileID: 1564052646}
   - component: {fileID: 1564052647}
+  - component: {fileID: 1564052648}
   m_Layer: 5
   m_Name: OceanButton
   m_TagString: Untagged
@@ -3327,6 +3610,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1564052648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564052640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &1586857151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3645,6 +3972,7 @@ GameObject:
   - component: {fileID: 1933579684}
   - component: {fileID: 1933579688}
   - component: {fileID: 1933579689}
+  - component: {fileID: 1933579690}
   m_Layer: 5
   m_Name: ForestButton
   m_TagString: Untagged
@@ -3808,6 +4136,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1933579690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933579682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &1951369322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4041,6 +4413,7 @@ GameObject:
   - component: {fileID: 2041026388}
   - component: {fileID: 2041026387}
   - component: {fileID: 2041026390}
+  - component: {fileID: 2041026391}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -4188,6 +4561,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36dc246e3a44de47ace233c6b1ec342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2041026391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041026385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 523693716}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &2078732125
 GameObject:
   m_ObjectHideFlags: 0
@@ -4342,3 +4759,211 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120993319}
   m_CullTransparentMesh: 0
+--- !u!1001 &6984840529853800750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6984840530305290173, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_Name
+      value: MenuManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1186.4982
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 259.73172
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.867418
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984840530305290171, guid: 66c2addb14f3f496f8ef9e4d6fae26a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66c2addb14f3f496f8ef9e4d6fae26a1, type: 3}
+--- !u!1001 &7163623602611295768
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7163623601869374538, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 107.82822
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 175.98592
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.7197924
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374540, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d6e88da4c73994aa88af7bd78403b61c, type: 3}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[5].vol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[6].name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: da51ad6f6c9f248e8a542565f22ba757, type: 3}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[6].vol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[7].name
+      value: Throw
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 160419a30ce174e208aeb1ea63ee65fc, type: 3}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[7].vol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[7].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163623601869374539, guid: a096825fcd62c44d3acdc4f08dae7378,
+        type: 3}
+      propertyPath: sounds.Array.data[0].vol
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a096825fcd62c44d3acdc4f08dae7378, type: 3}

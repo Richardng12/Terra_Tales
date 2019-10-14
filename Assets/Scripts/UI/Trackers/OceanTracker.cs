@@ -15,13 +15,30 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
     public float fadeOutTime;
 
     public GameObject gameManager;
+
+
+    AudioManager audioManager;
+
+    string oceanLevelAudio = "OceanLevel";
+
+
+    // Start is called before the first frame update
+
     void Start()
     {
+        audioManager = AudioManager.instance;
+        if (audioManager != null)
+        {
+            audioManager.StopAll();
+            audioManager.Play(oceanLevelAudio);
+        }
+
         startingColour = text.color;
         for (int i = 0; i < tasks.Length; i++)
         {
             tasks[i] = 0;
         }
+
     }
 
     void Update()
