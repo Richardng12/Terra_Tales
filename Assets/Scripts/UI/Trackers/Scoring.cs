@@ -32,6 +32,7 @@ public class Scoring : MonoBehaviour
         switch (stage)
         {
             case "Forest":
+                currentScore += (ForestTracker.fireSpriteDestroyed * 50);
                 forestScore = Math.Max(currentScore, forestScore);
                 break;
             case "Ocean":
@@ -59,7 +60,7 @@ public class Scoring : MonoBehaviour
         // Calculate the score from time and health
         int timerScore = (int)timer.time * 50;
         int healthScore = characterController.health * 200;
-
+        Debug.Log("Score: " + (timerScore + healthScore));
         return timerScore + healthScore;
     }
 }

@@ -11,7 +11,6 @@ public class SetScore : MonoBehaviour
 
     public Text cityScore;
 
-    private Scoring scoring;
     // Start is called before the first frame update
     void Start()
     {
