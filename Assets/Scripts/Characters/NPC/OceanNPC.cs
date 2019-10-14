@@ -19,6 +19,7 @@ public class OceanNPC : MonoBehaviour, INPC
     public Text scoreText;
 
     public GameObject gameManager;
+    public GameObject imageHUD;
 
     public GameObject timerObject;
 
@@ -84,7 +85,10 @@ public class OceanNPC : MonoBehaviour, INPC
         {
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
+
             timerObject.GetComponent<Timer>().StartTimer();
+            imageHUD.SetActive(true);
+
         }
         // If complete then npc thanks
         else if (oceanTracker.CheckIsComplete())

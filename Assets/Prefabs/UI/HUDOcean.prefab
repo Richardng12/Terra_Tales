@@ -393,7 +393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7651917237203377191
 Transform:
   m_ObjectHideFlags: 0
@@ -2048,21 +2048,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2739432745825510656}
     m_Modifications:
-    - target: {fileID: 5505932264155013314, guid: d641ee75a5300497782dcc173690d47c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334525342154859848, guid: d641ee75a5300497782dcc173690d47c,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334525341111583254, guid: d641ee75a5300497782dcc173690d47c,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogForOcean
-      objectReference: {fileID: 0}
     - target: {fileID: 4334525341111583250, guid: d641ee75a5300497782dcc173690d47c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2168,6 +2153,36 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4334525341111583254, guid: d641ee75a5300497782dcc173690d47c,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogForOcean
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -288
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6784792141808091182, guid: d641ee75a5300497782dcc173690d47c,
         type: 3}
       propertyPath: m_RootOrder
@@ -2238,31 +2253,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -288
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334525340947405653, guid: d641ee75a5300497782dcc173690d47c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4334525342485714481, guid: d641ee75a5300497782dcc173690d47c,
         type: 3}
       propertyPath: m_RootOrder
@@ -2322,6 +2312,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505932264155013314, guid: d641ee75a5300497782dcc173690d47c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334525342154859848, guid: d641ee75a5300497782dcc173690d47c,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4334525342485714480, guid: d641ee75a5300497782dcc173690d47c,
         type: 3}
