@@ -129,6 +129,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacles
       objectReference: {fileID: 0}
+    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2070461926}
+    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
+        type: 3}
+      propertyPath: oceanTrackerObject
+      value: 
+      objectReference: {fileID: 1741154544}
     - target: {fileID: 1346385066504316109, guid: d99941326b4bc43d0ab0c477c90b8121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,16 +204,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2070461926}
-    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
-        type: 3}
-      propertyPath: oceanTrackerObject
-      value: 
-      objectReference: {fileID: 1741154544}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99941326b4bc43d0ab0c477c90b8121, type: 3}
 --- !u!4 &41188027 stripped
@@ -318,6 +318,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashBin (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2070461926}
+    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
+        type: 3}
+      propertyPath: oceanTrackerObject
+      value: 
+      objectReference: {fileID: 1741154544}
     - target: {fileID: 1346385066504316109, guid: d99941326b4bc43d0ab0c477c90b8121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -383,18 +393,106 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2070461926}
-    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
-        type: 3}
-      propertyPath: oceanTrackerObject
-      value: 
-      objectReference: {fileID: 1741154544}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99941326b4bc43d0ab0c477c90b8121, type: 3}
+--- !u!1 &101498191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101498195}
+  - component: {fileID: 101498194}
+  - component: {fileID: 101498193}
+  - component: {fileID: 101498192}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &101498192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101498191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &101498193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101498191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &101498194
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101498191}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &101498195
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101498191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &148120455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4498442160909011937, guid: 484f9d9be8eb64395afc518cb4f785e7,
@@ -811,6 +909,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecycleBin (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2070461926}
+    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
+        type: 3}
+      propertyPath: oceanTrackerObject
+      value: 
+      objectReference: {fileID: 1741154544}
     - target: {fileID: 167287246198370972, guid: 478d063feb0fa47c7a52ac9115efb675,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -866,16 +974,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2070461926}
-    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
-        type: 3}
-      propertyPath: oceanTrackerObject
-      value: 
-      objectReference: {fileID: 1741154544}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 478d063feb0fa47c7a52ac9115efb675, type: 3}
 --- !u!1001 &621273399
@@ -945,6 +1043,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4451610535811476508, guid: d7b013edec48746c5a430477dcbacf34,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8d9a7b6e921d8cc4882d11341281154c,
+        type: 3}
+    - target: {fileID: 4451610535811476508, guid: d7b013edec48746c5a430477dcbacf34,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5708866754097617356, guid: d7b013edec48746c5a430477dcbacf34,
         type: 3}
       propertyPath: fadeOutTime
@@ -959,17 +1068,6 @@ PrefabInstance:
         type: 3}
       propertyPath: rubbishToCollect
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4451610535811476508, guid: d7b013edec48746c5a430477dcbacf34,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 8d9a7b6e921d8cc4882d11341281154c,
-        type: 3}
-    - target: {fileID: 4451610535811476508, guid: d7b013edec48746c5a430477dcbacf34,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b013edec48746c5a430477dcbacf34, type: 3}
@@ -1421,6 +1519,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecycleBin (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2070461926}
+    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
+        type: 3}
+      propertyPath: oceanTrackerObject
+      value: 
+      objectReference: {fileID: 1741154544}
     - target: {fileID: 167287246198370972, guid: 478d063feb0fa47c7a52ac9115efb675,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1476,16 +1584,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2070461926}
-    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
-        type: 3}
-      propertyPath: oceanTrackerObject
-      value: 
-      objectReference: {fileID: 1741154544}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 478d063feb0fa47c7a52ac9115efb675, type: 3}
 --- !u!4 &883400956 stripped
@@ -122579,6 +122677,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecycleBin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2070461926}
+    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
+        type: 3}
+      propertyPath: oceanTrackerObject
+      value: 
+      objectReference: {fileID: 1741154544}
     - target: {fileID: 167287246198370972, guid: 478d063feb0fa47c7a52ac9115efb675,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -122634,16 +122742,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2070461926}
-    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
-        type: 3}
-      propertyPath: oceanTrackerObject
-      value: 
-      objectReference: {fileID: 1741154544}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 478d063feb0fa47c7a52ac9115efb675, type: 3}
 --- !u!1 &1081806469
@@ -122796,6 +122894,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUDOcean
       objectReference: {fileID: 0}
+    - target: {fileID: 2739432745825510656, guid: 484f9d9be8eb64395afc518cb4f785e7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 609366180417209977, guid: 484f9d9be8eb64395afc518cb4f785e7,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 7390939676472500812, guid: 484f9d9be8eb64395afc518cb4f785e7,
+        type: 3}
+      propertyPath: time
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116765687019429387, guid: 484f9d9be8eb64395afc518cb4f785e7,
+        type: 3}
+      propertyPath: oceanTracker
+      value: 
+      objectReference: {fileID: 1741154545}
     - target: {fileID: 2772454778586461527, guid: 484f9d9be8eb64395afc518cb4f785e7,
         type: 3}
       propertyPath: m_Name
@@ -123091,27 +123209,7 @@ PrefabInstance:
       propertyPath: m_FontData.m_MinSize
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2739432745825510656, guid: 484f9d9be8eb64395afc518cb4f785e7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390939676472500812, guid: 484f9d9be8eb64395afc518cb4f785e7,
-        type: 3}
-      propertyPath: time
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 609366180417209977, guid: 484f9d9be8eb64395afc518cb4f785e7,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 5702263917721425794, guid: 484f9d9be8eb64395afc518cb4f785e7,
-        type: 3}
-      propertyPath: oceanTracker
-      value: 
-      objectReference: {fileID: 1741154545}
-    - target: {fileID: 2116765687019429387, guid: 484f9d9be8eb64395afc518cb4f785e7,
         type: 3}
       propertyPath: oceanTracker
       value: 
@@ -123730,6 +123828,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacles
       objectReference: {fileID: 0}
+    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2070461926}
+    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
+        type: 3}
+      propertyPath: oceanTrackerObject
+      value: 
+      objectReference: {fileID: 1741154544}
     - target: {fileID: 1346385066504316109, guid: d99941326b4bc43d0ab0c477c90b8121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -123795,16 +123903,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2070461926}
-    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
-        type: 3}
-      propertyPath: oceanTrackerObject
-      value: 
-      objectReference: {fileID: 1741154544}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99941326b4bc43d0ab0c477c90b8121, type: 3}
 --- !u!1 &1686599505
@@ -151146,6 +151244,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecycleBin
       objectReference: {fileID: 0}
+    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2070461926}
+    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
+        type: 3}
+      propertyPath: oceanTrackerObject
+      value: 
+      objectReference: {fileID: 1741154544}
     - target: {fileID: 167287246198370972, guid: 478d063feb0fa47c7a52ac9115efb675,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -151201,16 +151309,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2070461926}
-    - target: {fileID: 167287246198370971, guid: 478d063feb0fa47c7a52ac9115efb675,
-        type: 3}
-      propertyPath: oceanTrackerObject
-      value: 
-      objectReference: {fileID: 1741154544}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 478d063feb0fa47c7a52ac9115efb675, type: 3}
 --- !u!1001 &1054541414986194233
@@ -151304,6 +151402,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashBin
       objectReference: {fileID: 0}
+    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2070461926}
+    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
+        type: 3}
+      propertyPath: oceanTrackerObject
+      value: 
+      objectReference: {fileID: 1741154544}
     - target: {fileID: 1346385066504316109, guid: d99941326b4bc43d0ab0c477c90b8121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -151369,16 +151477,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2070461926}
-    - target: {fileID: 1346385066504316108, guid: d99941326b4bc43d0ab0c477c90b8121,
-        type: 3}
-      propertyPath: oceanTrackerObject
-      value: 
-      objectReference: {fileID: 1741154544}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99941326b4bc43d0ab0c477c90b8121, type: 3}
 --- !u!114 &2028774681107061728 stripped

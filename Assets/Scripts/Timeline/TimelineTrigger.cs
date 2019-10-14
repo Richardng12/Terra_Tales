@@ -10,7 +10,10 @@ public class TimelineTrigger : MonoBehaviour
     public GameObject greenScene;
     // Start is called before the first frame update
 
+    public GameObject forestLevelFinishWall;
     public GameObject finishScreen;
+
+    public GameObject forestLevelWall;
 
     public Text scoreText;
     void Start()
@@ -26,7 +29,10 @@ public class TimelineTrigger : MonoBehaviour
     //Plays cutscene once player has finished the forest level
    public void PlayCutScene()
     {
+
         greenScene.SetActive(true);
+        forestLevelFinishWall.SetActive(true);
+        forestLevelWall.SetActive(false);
         timeline.Play();
 
     }
