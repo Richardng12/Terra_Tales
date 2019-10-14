@@ -24,15 +24,6 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
         }
     }
 
-    void Update()
-    {
-        // checks whther game objective is met then calculates score for stage
-        if (CheckIsComplete())
-        {
-            gameManager.GetComponent<Scoring>().CalculateStageScore("Ocean");
-        }
-    }
-
     // Checks what task the update corresponds too and shows the text
     public void UpdateAndDisplayTaskCounter(string binItem)
     {
@@ -57,6 +48,12 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
         }
 
         StartCoroutine(TextFadeOutRoutine());
+
+        // checks whther game objective is met then calculates score for stage
+        if (CheckIsComplete())
+        {
+            gameManager.GetComponent<Scoring>().StopStageTimer();
+        }
     }
 
     public IEnumerator TextFadeOutRoutine()
