@@ -16,6 +16,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     private Color startingColour;
 
+
     private bool isComplete = false;
 
 
@@ -40,7 +41,9 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         if (CheckIsComplete())
         {
             Scoring scoring = gameManager.GetComponent<Scoring>();
-            scoring.CalculateStageScore("Forest");
+            //scoring.CalculateStageScore("Forest");
+            scoring.StopStageTimer();
+            Debug.Log("Called");
         }
     }
 
