@@ -18,6 +18,10 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     static public int fireSpriteDestroyed;
 
+    AudioManager audioManager;
+
+    string forestLevelAudio = "ForestLevel";
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,12 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         fireSpriteDestroyed = 0;
         treesPlanted[0] = 0;
         startingColour = text.color;
+        audioManager = AudioManager.instance;
+        if(audioManager != null)
+        {
+            audioManager.StopAll();
+            audioManager.Play(forestLevelAudio);
+        }
     }
        
     // increments the number of trees planted and displays the text on screen

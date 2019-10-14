@@ -14,8 +14,15 @@ public class ShootWater : MonoBehaviour
     private float currrentReloadDelay = 0.5f;
     public int ammo = 9;
 
+    AudioManager audioManager;
+    string shootSound = "Shoot";
+    string reloadSound = "Reload";
 
 
+    private void Start()
+    {
+        audioManager = AudioManager.instance;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -48,13 +55,20 @@ public class ShootWater : MonoBehaviour
     {
         if(ammo == 99){
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
+            audioManager.Play(shootSound);
         }
         else if (ammo > 0 && ammo != 99)
         {
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
             DecreaseAmmoCount();
+            audioManager.Play(shootSound);
+
         }
-        
+        else
+        {
+            // Play no ammo sound
+        }
+
     }
     // Shoots water gun  by instantianting a waterBubble object
     // dependent on couple of variables
@@ -126,6 +140,7 @@ public class ShootWater : MonoBehaviour
 
     public void IncreaseAmmoCount()
     {
+        audioManager.Play(reloadSound);
         ammo++;
     }
 

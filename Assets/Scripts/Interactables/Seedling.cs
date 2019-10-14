@@ -20,6 +20,7 @@ public class Seedling : MonoBehaviour
     private ForestTracker treeCounter;
 
     public GameObject player;
+    string taskCompletedSound = "TaskComplete";
 
 
     //private Coroutine co;
@@ -42,6 +43,7 @@ public class Seedling : MonoBehaviour
         // checks if the progress bar is finished and disables tree
         if (Input.GetKey("e") && interactable && currentProgress > 5)
         {
+            AudioManager.instance.Play(taskCompletedSound);
             interactable = false;
             image.SetActive(false); 
             complete = true;

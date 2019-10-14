@@ -16,14 +16,31 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
     static public int oilSpriteDestroyed;
 
     public GameObject gameManager;
+
+
+    AudioManager audioManager;
+
+    string oceanLevelAudio = "OceanLevel";
+
+
+    // Start is called before the first frame update
+
     void Start()
     {
+        audioManager = AudioManager.instance;
+        if (audioManager != null)
+        {
+            audioManager.StopAll();
+            audioManager.Play(oceanLevelAudio);
+        }
+
         oilSpriteDestroyed = 0;
         startingColour = text.color;
         for (int i = 0; i < tasks.Length; i++)
         {
             tasks[i] = 0;
         }
+
     }
 
     // Checks what task the update corresponds too and shows the text

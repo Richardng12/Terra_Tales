@@ -27,8 +27,14 @@ public class CharacterController : MonoBehaviour, ICharacter
     Renderer renderer;
     Color c;
 
+    string jumpSound = "Jump";
+
+    AudioManager audioManager;
+
     void Start()
     {
+        audioManager = AudioManager.instance;
+
         Time.timeScale = 1f;
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
@@ -136,6 +142,9 @@ public class CharacterController : MonoBehaviour, ICharacter
             }
             else if (jumps > 0)
             {
+                // Plays the jump sound
+                audioManager.Play(jumpSound);
+                // Shows jump animation
                 move.SetBool("Jumping", true);
                 jumps--;
                 rb.velocity = Vector2.up * jumpSpeed;
