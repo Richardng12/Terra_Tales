@@ -971,6 +971,21 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 4451610535830827214, guid: d7b013edec48746c5a430477dcbacf34,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451610535830827214, guid: d7b013edec48746c5a430477dcbacf34,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451610535830827214, guid: d7b013edec48746c5a430477dcbacf34,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b013edec48746c5a430477dcbacf34, type: 3}
 --- !u!4 &651233059 stripped
@@ -123409,6 +123424,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1395174444705967273, guid: 2852ad27f42a7684dbcef0b98f8672b0,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395174444705967273, guid: 2852ad27f42a7684dbcef0b98f8672b0,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2852ad27f42a7684dbcef0b98f8672b0, type: 3}
 --- !u!4 &1381594621 stripped
@@ -131000,6 +131025,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 728531372fa6d4292825f700fcaafd18, type: 3}
     vol: 1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1909830281
 Transform:
