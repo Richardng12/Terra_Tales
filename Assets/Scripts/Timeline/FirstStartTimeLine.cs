@@ -44,7 +44,7 @@ public class FirstStartTimeLine : MonoBehaviour
     }
 
     IEnumerator delayedPlayback(){
-         yield return new WaitForSeconds(3.5f);
+         yield return new WaitForSeconds(4f);
          blackFade.GetComponent<DialogueFade>().FadeToDialogue();
     }
 

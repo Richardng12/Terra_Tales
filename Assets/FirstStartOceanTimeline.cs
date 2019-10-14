@@ -42,7 +42,7 @@ public class FirstStartOceanTimeline : MonoBehaviour
     }
 
     IEnumerator delayedPlayback(){
-         yield return new WaitForSeconds(6f);
+         yield return new WaitForSeconds(3f);
          blackFade.GetComponent<DialogueFade>().FadeToDialogue();
     }
 

@@ -19,6 +19,8 @@ public class OceanNPC : MonoBehaviour, INPC
     public Text scoreText;
 
     public GameObject timerObject;
+
+      public GameObject timelineOceanTrigger;
     private bool startOfLevel = true;
 
     private bool initialised = false;
@@ -88,11 +90,13 @@ public class OceanNPC : MonoBehaviour, INPC
         {
             dialogueManager.StartDialogue(dialogue[2]);
 
+            timelineOceanTrigger.GetComponent<TimelineOceanTrigger>().PlayCutScene();
+
                //TEMP finishScene
 
-                    finishScreen.SetActive(true);
-                    Time.timeScale = 0f;
-                    scoreText.text = Scoring.oceanScore.ToString();
+                 //   finishScreen.SetActive(true);
+                 //   Time.timeScale = 0f;
+                 //   scoreText.text = Scoring.oceanScore.ToString();
             
 
         }

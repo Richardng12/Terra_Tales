@@ -10,6 +10,8 @@ public class TimelineOceanTrigger : MonoBehaviour
 
     public GameObject oceanLevelWall;
     // Start is called before the first frame update
+
+    public GameObject oceanLevelStart;
     public GameObject finishScreen;
 
     public Text scoreText;
@@ -26,8 +28,8 @@ public class TimelineOceanTrigger : MonoBehaviour
     //Plays cutscene once player has finished the forest level
    public void PlayCutScene()
     {
-
         oceanLevelWall.SetActive(true);
+        oceanLevelStart.SetActive(false);
         timeline.Play();
 
     }

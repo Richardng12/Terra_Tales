@@ -227,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 911283696730950442, guid: 5a65eb929b2bd4d6facb0748725189b5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.6
+      value: 38.1
       objectReference: {fileID: 0}
     - target: {fileID: 911283696730950442, guid: 5a65eb929b2bd4d6facb0748725189b5,
         type: 3}
@@ -1202,7 +1202,7 @@ PrefabInstance:
     - target: {fileID: 5708866754097617356, guid: d7b013edec48746c5a430477dcbacf34,
         type: 3}
       propertyPath: rubbishToCollect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b013edec48746c5a430477dcbacf34, type: 3}
@@ -122951,6 +122951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeline: {fileID: 1034719457}
   oceanLevelWall: {fileID: 1729950568}
+  oceanLevelStart: {fileID: 927542297}
   finishScreen: {fileID: 1034719453}
   scoreText: {fileID: 1014554645}
 --- !u!95 &1034719456
@@ -122982,7 +122983,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: ab60b2b875010fb438ec58e079951499, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -123209,6 +123210,8 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 114377211562406040, guid: 3eaf3903fc9b895499e142e04ee67356, type: 2}
+    value: {fileID: 913317281}
+  - key: {fileID: 114258805502026220, guid: 3eaf3903fc9b895499e142e04ee67356, type: 2}
     value: {fileID: 913317281}
   m_ExposedReferences:
     m_References: []
@@ -131365,6 +131368,11 @@ PrefabInstance:
       propertyPath: timerObject
       value: 
       objectReference: {fileID: 148120455}
+    - target: {fileID: 7627694939070406808, guid: e62b77ba0875f4c91928786ed3acfe6f,
+        type: 3}
+      propertyPath: timelineOceanTrigger
+      value: 
+      objectReference: {fileID: 1034719453}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e62b77ba0875f4c91928786ed3acfe6f, type: 3}
 --- !u!1 &1729950568
