@@ -179,6 +179,8 @@ MonoBehaviour:
     sentences: []
   - name: 
     sentences: []
+  energyBar: {fileID: 0}
+  timerObject: {fileID: 761799387}
   showText: {fileID: 1662986629}
 --- !u!212 &21356941
 SpriteRenderer:
@@ -258,6 +260,8 @@ MonoBehaviour:
   dialogue:
   - name: Bob
     sentences: []
+  energyBar: {fileID: 234698197}
+  timerObject: {fileID: 761799387}
   showText: {fileID: 0}
 --- !u!1001 &121239524
 PrefabInstance:
@@ -1155,6 +1159,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b219145995793e9489dbaa5464dabe3d, type: 3}
+--- !u!1 &234698197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8259169614719704908, guid: 006399ea9b7145740a178fadf763e2ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1959499791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &240938036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3094633451972484052, guid: 023de8fd26ff53247a43a9da5b9a1a23,
@@ -2876,7 +2886,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1959499791}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 234698197}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b34c94d60bffd384497be2b22bdee492, type: 3}
@@ -3029,7 +3039,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1959499791}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 234698197}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -3761,6 +3771,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b219145995793e9489dbaa5464dabe3d, type: 3}
+--- !u!1 &761799387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4472296902154382228, guid: 006399ea9b7145740a178fadf763e2ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1959499791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &801942278
 GameObject:
   m_ObjectHideFlags: 0
@@ -8772,7 +8788,7 @@ PrefabInstance:
     - target: {fileID: 1385000579800687049, guid: 006399ea9b7145740a178fadf763e2ea,
         type: 3}
       propertyPath: m_Text
-      value: Timer goes here
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7177766532501423048, guid: 006399ea9b7145740a178fadf763e2ea,
         type: 3}
@@ -8855,6 +8871,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ddb067497322347349f97e151e726b14,
         type: 3}
+    - target: {fileID: 8259169614719704908, guid: 006399ea9b7145740a178fadf763e2ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006399ea9b7145740a178fadf763e2ea, type: 3}
 --- !u!1001 &1988969781
