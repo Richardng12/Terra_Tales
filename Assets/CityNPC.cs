@@ -7,8 +7,10 @@ public class CityNPC : MonoBehaviour
 
     private bool interactable = false;
     public Dialogue[] dialogue;
+    public GameObject energyBar;
     private DialogueManager dialogueManager;
 
+    public GameObject timerObject;
     
     private bool startOfLevel = true;
 
@@ -83,6 +85,10 @@ public class CityNPC : MonoBehaviour
         {
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
+            timerObject.GetComponent<Timer>().StartTimer();
+            Debug.Log(energyBar);
+//         energyBar.SetActive(true);
+
         }
         // If complete then npc thanks
         // else if (treeTracker.CheckIsComplete())
