@@ -12,7 +12,7 @@ public class Sound {
     [Range(.1f, 3f)]
     public float pitch;
 
-    public bool loop = false;
+    public bool loop;
 
     [HideInInspector]
     public AudioSource source;
@@ -21,6 +21,7 @@ public class Sound {
 
         source.volume = vol;
         source.pitch = pitch;
+        source.loop = loop;
         source.Play();
 
     }
@@ -28,7 +29,7 @@ public class Sound {
 
         this.source = source;
         this.source.clip = clip;
-        this.loop = loop;
+        this.source.loop = loop;
     }
     public void Stop()
     {
