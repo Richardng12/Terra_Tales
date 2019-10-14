@@ -10,6 +10,7 @@ public class Bin : MonoBehaviour, IBins
     GrabObject grabObject;
     private OceanTracker oceanTracker;
     public string binItem;
+    string taskCompleted = "TaskComplete";
 
     void Start()
     {
@@ -54,6 +55,7 @@ public class Bin : MonoBehaviour, IBins
             collidedObject = collision.gameObject;
             if (CheckRubbish())
             {
+                AudioManager.instance.Play(taskCompleted);
                 // If the rubbish is the right type it should update the counter
                 oceanTracker.UpdateAndDisplayTaskCounter(binItem);
             }
