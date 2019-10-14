@@ -22,7 +22,6 @@ public class Window: MonoBehaviour
 
         hasPerson = false;
         isOn = false;
-        turnOn();
     }
 
     // Update is called once per frame

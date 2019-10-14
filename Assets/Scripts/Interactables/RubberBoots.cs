@@ -16,7 +16,7 @@ public class RubberBoots : MonoBehaviour
     void Update()
     {
         if (pickUpAllowed && Input.GetKeyDown(KeyCode.E)) {
-            //TO DO
+            pickUp();
         }
     }
 
@@ -38,5 +38,6 @@ public class RubberBoots : MonoBehaviour
 
     private void pickUp() {
         Destroy(gameObject);
+        //TO DO
     }
 }
