@@ -8,24 +8,50 @@ public class AchievementBox : MonoBehaviour
 {
     public Text achievemntMessage;
     public Text achievementName;
-
+    public Image starOne;
+    private Color achievedColor = Color.yellow;
+    public Image starTwo;
+    public Image starThree;
     public string achievementType;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("I'm here");
-        getStats(achievementType);
+        GetStats(achievementType);
     }
 
-    void getStats(String achievementType)
+    void GetStats(String achievementType)
     {
         Type t = typeof(AchievementType);
         AchievementType at = (AchievementType)Enum.Parse(t, achievementType);
         Debug.Log(at);
         AchievementManager aMan = new AchievementManager();
-        achievementName.text = aMan.getAchievementForType(at).name;
-        int achievementCount = aMan.getCountForType(at);
-        achievemntMessage.text = "Congratulations on achieving " + achievementCount + achievementType.ToString();
+
+        List<Achievement> completedAchievements = aMan.GetCompletedAchievements(at);
+        SetStars(completedAchievements.Count);
+
+
+
+        achievementName.text = completedAchievements[completedAchievements.Count -1].name;
+        int achievementCount = aMan.GetCountForType(at);
+        achievemntMessage.text = "Congratulations on achieving " + achievementCount + " " + achievementType.ToString();
+
+    }
+
+    private void SetStars(int count)
+    {
+        if (count > 0)
+        {
+            starOne.color = achievedColor;
+        }
+        if (count > 1)
+        {
+            starTwo.color = achievedColor;
+        }
+        if (count > 2)
+        {
+            starThree.color = achievedColor;
+        }
 
     }
 
