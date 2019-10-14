@@ -40,6 +40,7 @@ public class Column : MonoBehaviour
     }
 
     public void wrongSwitch() {
+        Debug.Log("OIII");
         StartCoroutine(waitToTurnOn());
     }
 
@@ -52,9 +53,13 @@ public class Column : MonoBehaviour
         return false;
     }
 
+    public List<Window> getWindows() {
+        return windows;
+    }
+
     IEnumerator waitToTurnOn()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         transform.parent.GetComponent<Building>().turnAllOn();
-    }
+    } 
 }

@@ -14,6 +14,7 @@ public class Window: MonoBehaviour
 
     public Sprite WindowOffEmpty;
     public Sprite WindowOnPerson;
+    public Sprite WindowOnEmpty;
 
     // Use this for initialization
     private void Start()
@@ -58,27 +59,17 @@ public class Window: MonoBehaviour
         // foreach(AnimationState state in anim) {
         //     state.speed = 1F;
         // }
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOnEmpty;
         hasPerson = false;
     }
 
     public void turnOnEmpty() {
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOnPerson;
+        if (hasPerson) {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOnPerson;
+        } else {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOnEmpty;
+        }
+        
         isOn = true;
-    }
-
-    GameObject CreateText(Transform canvas_transform, float x, float y, string text_to_print, int font_size, Color text_color)
-    {
-        GameObject UItextGO = new GameObject("Text2");
-        UItextGO.transform.SetParent(canvas_transform);
-
-        RectTransform trans = UItextGO.AddComponent<RectTransform>();
-        trans.anchoredPosition = new Vector2(x, y);
-
-        Text text = UItextGO.AddComponent<Text>();
-        text.text = text_to_print;
-        text.fontSize = font_size;
-        text.color = text_color;
-
-        return UItextGO;
     }
 }

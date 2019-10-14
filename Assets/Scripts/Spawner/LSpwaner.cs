@@ -6,7 +6,7 @@ public class LSpwaner : MonoBehaviour
 {
     public List<Building> buildings;
 
-    public float spawnTime = 2f;
+    public float spawnTime = 1000f;
 
     private float timer = 0;
 
@@ -29,6 +29,18 @@ public class LSpwaner : MonoBehaviour
     public void SpawnRandom() {
         Building building = buildings[Random.Range(0, buildings.Count)];
         Column column = building.getColumns()[Random.Range(0, building.getColumns().Count)];
-        column.turnOnWindows(true);
+        if (column.ifWindowOn()) {
+            SpawnRandom();
+        } else {
+            column.turnOnWindows(true);
+            StartCoroutine(waitForPersonLeave(column));
+        }
+    }
+
+    IEnumerator waitForPersonLeave(Column column) {
+        yield return new WaitForSeconds(Random.Range(2, 10));
+        foreach (Window window in column.getWindows()) {
+            window.personLeave();
+        }
     }
 }
