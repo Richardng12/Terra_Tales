@@ -12,6 +12,8 @@ public class ForestNPC : MonoBehaviour, INPC
 
     public GameObject timerObject;
 
+    public GameObject gameManager;
+
     private bool startOfLevel = true;
 
     private bool initialised = false;
@@ -88,9 +90,9 @@ public class ForestNPC : MonoBehaviour, INPC
         // If complete then npc thanks
         else if (treeTracker.CheckIsComplete())
         {
+            gameManager.GetComponent<Scoring>().CalculateStageScore("Forest");
             dialogueManager.StartDialogue(dialogue[2]);
             timelineTrigger.GetComponent<TimelineTrigger>().PlayCutScene();
-
         }
         // Talks about current state of tasks
         else

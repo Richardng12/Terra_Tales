@@ -51,6 +51,8 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     //Method to destroy this gameobject
     public void LoseHealth()
     {
+        OceanTracker.oilSpriteDestroyed++;
+        Debug.Log(OceanTracker.oilSpriteDestroyed);
         OnDestroy();
     }
 

@@ -16,7 +16,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     private Color startingColour;
 
-    private bool isComplete = false;
+    static public int fireSpriteDestroyed;
 
     AudioManager audioManager;
 
@@ -26,6 +26,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
     // Start is called before the first frame update
     void Start()
     {
+        fireSpriteDestroyed = 0;
         treesPlanted[0] = 0;
         startingColour = text.color;
         audioManager = AudioManager.instance;
@@ -50,7 +51,8 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         if (CheckIsComplete())
         {
             Scoring scoring = gameManager.GetComponent<Scoring>();
-            scoring.CalculateStageScore("Forest");
+            //scoring.CalculateStageScore("Forest");
+            scoring.StopStageTimer();
         }
     }
 
@@ -76,7 +78,6 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
                 return false;
              }
         }
-        isComplete = true;
         return true;
     }
 
