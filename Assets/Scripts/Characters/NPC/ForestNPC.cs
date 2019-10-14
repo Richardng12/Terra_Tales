@@ -12,6 +12,7 @@ public class ForestNPC : MonoBehaviour, INPC
 
     public GameObject timerObject;
 
+    public GameObject seedlingHUD;
     public GameObject gameManager;
 
     private bool startOfLevel = true;
@@ -86,6 +87,7 @@ public class ForestNPC : MonoBehaviour, INPC
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
             timerObject.GetComponent<Timer>().StartTimer();
+            seedlingHUD.SetActive(true);
         }
         // If complete then npc thanks
         else if (treeTracker.CheckIsComplete())
