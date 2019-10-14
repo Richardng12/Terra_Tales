@@ -1,30 +1,28 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
-
-public class ForestNPC : MonoBehaviour, INPC
+public class CityNPC : MonoBehaviour
 {
+
     private bool interactable = false;
     public Dialogue[] dialogue;
     private DialogueManager dialogueManager;
-    private ForestTracker treeTracker;
-    public GameObject treeTrackerObject;
-    public GameObject timelineTrigger;
 
-    public GameObject timerObject;
-
-    public GameObject seedlingHUD;
-
+    
     private bool startOfLevel = true;
 
     private bool initialised = false;
+
+    
     public Text showText;
+
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
-        treeTracker = treeTrackerObject.GetComponent<ForestTracker>();
-        interactable = false;
+         interactable = false;
     }
 
     // Update is called once per frame
@@ -85,16 +83,14 @@ public class ForestNPC : MonoBehaviour, INPC
         {
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
-            timerObject.GetComponent<Timer>().StartTimer();
-            seedlingHUD.SetActive(true);
         }
         // If complete then npc thanks
-        else if (treeTracker.CheckIsComplete())
-        {
-            dialogueManager.StartDialogue(dialogue[2]);
-            timelineTrigger.GetComponent<TimelineTrigger>().PlayCutScene();
+        // else if (treeTracker.CheckIsComplete())
+        // {
+        //     dialogueManager.StartDialogue(dialogue[2]);
+        //      timelineTrigger.GetComponent<TimelineTrigger>().PlayCutScene();
 
-        }
+        // }
         // Talks about current state of tasks
         else
         {
@@ -106,8 +102,8 @@ public class ForestNPC : MonoBehaviour, INPC
     public void CreateTaskDialogue()
     {
         // First sentence talks about rubbish bag task
-        dialogue[1].sentences[0] = "You have planted " +
-        treeTracker.GetTasks()[0] + "/6 Trees";
+        dialogue[1].sentences[0] = "You have planted ";
+      //  treeTracker.GetTasks()[0] + "/6 Trees";
 
     }
 
