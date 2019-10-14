@@ -24,7 +24,7 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     private Vector2 tempMove;
     private Vector2 oppMove;
     SpawnerScript spawner;
-
+   string monsterDeathSound = "FireMonsterDeath";
     //Variables for boundary collision
     private int travelTime = 0;
 
@@ -51,12 +51,15 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     //Method to destroy this gameobject
     public void LoseHealth()
     {
+        OceanTracker.oilSpriteDestroyed++;
+        Debug.Log(OceanTracker.oilSpriteDestroyed);
         OnDestroy();
     }
 
     //Method to destroy object and update spawn locations
     public override void OnDestroy()
     {
+        AudioManager.instance.Play(monsterDeathSound);
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
         spawner.SetCurrentSpawnDelay(0);
         Destroy(this.gameObject);

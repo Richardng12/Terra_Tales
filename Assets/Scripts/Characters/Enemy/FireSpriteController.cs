@@ -18,6 +18,9 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     private CharacterController character;
     private SpawnerScript spawner;
 
+    string hitSound = "Hit";
+    string monsterDeathSound = "FireMonsterDeath";
+
     private void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
@@ -61,13 +64,15 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     {
         if (health > 3)
         {
+            AudioManager.instance.Play(hitSound);
             health -= 3;
         }
         else
         {
+            AudioManager.instance.Play(monsterDeathSound);
+            ForestTracker.fireSpriteDestroyed++;
             Destroy(this.gameObject);
             OnDestroy();
-
         }
     }
     // Sets the index of the spawner array to be null so that more sprites can

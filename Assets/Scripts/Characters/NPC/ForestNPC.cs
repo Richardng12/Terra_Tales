@@ -13,6 +13,7 @@ public class ForestNPC : MonoBehaviour, INPC
     public GameObject timerObject;
 
     public GameObject seedlingHUD;
+    public GameObject gameManager;
 
     private bool startOfLevel = true;
 
@@ -91,9 +92,9 @@ public class ForestNPC : MonoBehaviour, INPC
         // If complete then npc thanks
         else if (treeTracker.CheckIsComplete())
         {
+            gameManager.GetComponent<Scoring>().CalculateStageScore("Forest");
             dialogueManager.StartDialogue(dialogue[2]);
             timelineTrigger.GetComponent<TimelineTrigger>().PlayCutScene();
-
         }
         // Talks about current state of tasks
         else

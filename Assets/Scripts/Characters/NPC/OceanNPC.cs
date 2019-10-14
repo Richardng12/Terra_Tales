@@ -18,6 +18,8 @@ public class OceanNPC : MonoBehaviour, INPC
 
     public Text scoreText;
 
+    public GameObject gameManager;
+
     public GameObject timerObject;
 
       public GameObject timelineOceanTrigger;
@@ -66,7 +68,6 @@ public class OceanNPC : MonoBehaviour, INPC
 
                     Time.timeScale = 1.0f;
                     // Dialogue has ended
-                    Debug.Log("HELLO");
                     initialised = false;
 
                     // Start of level should only gets set to false once as that
@@ -88,6 +89,7 @@ public class OceanNPC : MonoBehaviour, INPC
         // If complete then npc thanks
         else if (oceanTracker.CheckIsComplete())
         {
+            gameManager.GetComponent<Scoring>().CalculateStageScore("Ocean");
             dialogueManager.StartDialogue(dialogue[2]);
 
             timelineOceanTrigger.GetComponent<TimelineOceanTrigger>().PlayCutScene();
@@ -97,6 +99,10 @@ public class OceanNPC : MonoBehaviour, INPC
                  //   finishScreen.SetActive(true);
                  //   Time.timeScale = 0f;
                  //   scoreText.text = Scoring.oceanScore.ToString();
+            //TEMP finishScene
+            finishScreen.SetActive(true);
+            Time.timeScale = 0f;
+            scoreText.text = Scoring.oceanScore.ToString();
             
 
         }
