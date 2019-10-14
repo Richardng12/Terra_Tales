@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
         {
             if (AudioManager.initalised)
             {
+                audioManager.StopAll();
                 audioManager.Play(MainMenuSound);
             }
         }
