@@ -66,7 +66,6 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         else
         {
             ForestTracker.fireSpriteDestroyed++;
-            Debug.Log(ForestTracker.fireSpriteDestroyed);
             Destroy(this.gameObject);
             OnDestroy();
         }

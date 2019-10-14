@@ -36,6 +36,7 @@ public class Scoring : MonoBehaviour
                 forestScore = Math.Max(currentScore, forestScore);
                 break;
             case "Ocean":
+                currentScore += (OceanTracker.oilSpriteDestroyed * 20);
                 oceanScore = Math.Max(currentScore, oceanScore);
                 break;
             case "City":
@@ -60,7 +61,6 @@ public class Scoring : MonoBehaviour
         // Calculate the score from time and health
         int timerScore = (int)timer.time * 50;
         int healthScore = characterController.health * 200;
-        Debug.Log("Score: " + (timerScore + healthScore));
         return timerScore + healthScore;
     }
 }

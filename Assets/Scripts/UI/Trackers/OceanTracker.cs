@@ -10,13 +10,15 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
 
     public Text text;
     private Color startingColour;
-    private bool isComplete;
 
     public float fadeOutTime;
+
+    static public int oilSpriteDestroyed;
 
     public GameObject gameManager;
     void Start()
     {
+        oilSpriteDestroyed = 0;
         startingColour = text.color;
         for (int i = 0; i < tasks.Length; i++)
         {
@@ -78,7 +80,6 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
                 return false;
             }
         }
-        isComplete = true;
         return true;
     }
 
