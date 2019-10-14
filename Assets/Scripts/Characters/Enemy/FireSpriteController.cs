@@ -65,9 +65,9 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         }
         else
         {
+            ForestTracker.fireSpriteDestroyed++;
             Destroy(this.gameObject);
             OnDestroy();
-
         }
     }
     // Sets the index of the spawner array to be null so that more sprites can
