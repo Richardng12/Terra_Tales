@@ -7,13 +7,13 @@ public class Achievement
 {
     public int unlockCount { get; set; }
     public bool isUnlocked { get; set; }
-    public string message { get; set; }
+    public string name { get; set; }
 
-    public Achievement(int unlockCount, bool isUnlocked, string message)
+    public Achievement(int unlockCount, bool isUnlocked, string name)
     {
         this.unlockCount = unlockCount;
         this.isUnlocked = isUnlocked;
-        this.message = message;
+        this.name = name;
     }
 }
 public enum AchievementType
@@ -35,14 +35,28 @@ public class AchievementManager : MonoBehaviour
     //private static List<Achievement> unlockedAchievements;
     private Dictionary<AchievementType, int> achievementCounts;
 
+    //TODO get last unlocked.
+    public Achievement getAchievementForType(AchievementType achievementType)
+    {
+        return achievementsMap[achievementType][0];
+    }
+    public int getCountForType(AchievementType achievementType)
+    {
+        return achievementCounts[achievementType];
+    }
+
+
+
     public List<Achievement> getUnlockedAchievements()
     {
         List<Achievement> result = new List<Achievement>();
         foreach (KeyValuePair<AchievementType, List<Achievement>> entry in achievementsMap)
         {
             // do something with entry.Value or entry.Key
-            foreach(Achievement achievement in entry.Value){
-                if(achievement.isUnlocked){
+            foreach (Achievement achievement in entry.Value)
+            {
+                if (achievement.isUnlocked)
+                {
                     result.Add(achievement);
                 }
             }
@@ -52,12 +66,20 @@ public class AchievementManager : MonoBehaviour
         //return unlockedAchievements;
     }
 
-    public void init()
+    public AchievementManager()
     {
-        List<Achievement> initialList = new List<Achievement>();
-        Achievement ach = new Achievement(3, false, "First Time Playing!");
-        initialList.Add(ach);
-        achievementsMap.Add(AchievementType.Boots, initialList);
+        if (achievementCounts.Keys.Count != 0)
+        {
+            List<Achievement> initialList = new List<Achievement>();
+            Achievement ach = new Achievement(3, false, "First Time Playing!");
+            initialList.Add(ach);
+            achievementsMap.Add(AchievementType.Boots, initialList);
+            
+            initialList = new List<Achievement>();
+            ach = new Achievement(3, false, "Plated the first tree!");
+            initialList.Add(ach);
+            achievementsMap.Add(AchievementType.PlantingTrees, initialList);
+        }
     }
 
     public void IncrementAchievement(AchievementType ach)
