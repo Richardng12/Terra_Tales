@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class FirstStartTimeLine : MonoBehaviour
+public class FirstStartOceanTimeline : MonoBehaviour
 {
-    public PlayableDirector timeline;
-    public GameObject firstStartTimeLine;
+    public PlayableDirector timeline1;
     public GameObject player;
-    public GameObject[] objects;
 
     public GameObject blackFade;
 
@@ -33,29 +31,29 @@ public class FirstStartTimeLine : MonoBehaviour
 
     void OnPlayableDirectorStopped(PlayableDirector aDirector)
     {
-		//When initial forest cutscene is finished, set the component to non-active and enable the player movement
-        if (timeline == aDirector)
+		//When initial ocean cutscene is finished, set the component to non-active and enable the player movement
+        if (timeline1 == aDirector)
         {
+            Debug.Log("blackfade should be disabled");
             blackFade.SetActive(false);
-            firstStartTimeLine.SetActive(false);
-            
             player.GetComponent<CharacterController>().enabled = true;
         }
+
     }
 
     IEnumerator delayedPlayback(){
-         yield return new WaitForSeconds(3.5f);
+         yield return new WaitForSeconds(6f);
          blackFade.GetComponent<DialogueFade>().FadeToDialogue();
     }
 
 	//Lifecycle methods that get called once cutscene is finished
     void OnEnable()
     {
-        timeline.stopped += OnPlayableDirectorStopped;
+        timeline1.stopped += OnPlayableDirectorStopped;
     }
 
     void OnDisable()
     {
-        timeline.stopped -= OnPlayableDirectorStopped;
+        timeline1.stopped -= OnPlayableDirectorStopped;
     }
 }
