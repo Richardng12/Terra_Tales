@@ -44,6 +44,7 @@ public class Seedling : MonoBehaviour
         if (Input.GetKey("e") && interactable && currentProgress > 5)
         {
             AudioManager.instance.Play(taskCompletedSound);
+            AchievementManager.instance.IncrementAchievement(AchievementType.PlantingTrees);
             interactable = false;
             image.SetActive(false); 
             complete = true;

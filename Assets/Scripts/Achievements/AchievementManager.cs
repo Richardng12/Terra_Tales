@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Achievement
 {
@@ -36,6 +37,11 @@ public enum AchievementType
 public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager instance;
+
+    public Text name;
+    public Text message;
+
+    public GameObject gameObject;
 
     private Dictionary<AchievementType, List<Achievement>> achievementsMap = new Dictionary<AchievementType, List<Achievement>>();
     //private static List<Achievement> unlockedAchievements;
@@ -89,7 +95,7 @@ public class AchievementManager : MonoBehaviour
 
     void Awake()
     {
-            Debug.Log("Awaenachieveentangercalled");
+        Debug.Log("Awaenachieveentangercalled");
 
         if (instance == null)
         {
@@ -128,12 +134,35 @@ public class AchievementManager : MonoBehaviour
         List<Achievement> achievements = achievementsMap[ach];
         foreach (Achievement achievement in achievements)
         {
+            bool waslocked = !achievement.isUnlocked;
             if (curCount >= achievement.unlockCount)
             {
                 achievement.isUnlocked = true;
+                if (waslocked)
+                {
+                    StartCoroutine(ShowAndFade());
+                    message.text = achievement.msg0 + achievement.unlockCount + achievement.msg1;
+                    name.text = achievement.name;
+                }
                 Debug.Log("Unlocked one");
             }
         }
+    }
+
+    IEnumerator ShowAndFade()
+    {
+        gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        gameObject.SetActive(false);
+
+        //int fadeOutTime = 5;
+        // for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
+       // {
+ //           gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(gameObject.GetComponent<MeshRenderer>().material.color, Color.clear, Mathf.Min(1, t / fadeOutTime));
+
+   //         yield return null;
+     //   }
+
     }
 
     // Start is called before the first frame update
