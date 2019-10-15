@@ -7,7 +7,7 @@ public class LSpwaner : MonoBehaviour
     public List<Building> buildings;
     private List<Column> columnsOnCD = new List<Column>();
 
-    public float spawnTime = 1000f;
+    public float spawnTime = 5000f;
 
     private float timer = 0;
 
@@ -52,6 +52,6 @@ public class LSpwaner : MonoBehaviour
     }
 
     IEnumerator waitForCD() {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(0.5f);
     }
 }

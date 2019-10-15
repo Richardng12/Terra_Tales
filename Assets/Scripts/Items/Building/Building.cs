@@ -25,27 +25,17 @@ public class Building : MonoBehaviour
         }
     }
 
-    // void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     // CharacterController character = other.gameObject.GetComponent<CharacterController>();
-
-    //     // Make the character lose health if the building is shortcircuited.
-    //     // if (character != null && shortCircuit)
-    //     // {
-    //     //     Debug.Log("Take dmg");
-    //     //     character.LoseHealth();
-    //     // }
-    //     if (collision.gameObject.name.Equals("Player") && shortCircuit)
-    //     {
-    //         Debug.Log("Take dmg");
-    //     }
-    // }
-
     void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.name.Equals("Player") && shortCircuit) {
-            //TO DO
-            Debug.Log("take dmg");
-        }
+        CharacterController character = collision.gameObject.GetComponent<CharacterController>();
+
+        if (character != null && shortCircuit && character.getBoots() == null) {
+            if (character.getBoots() == null) {
+                //TO DO
+                Debug.Log("take dmg");
+            } else {
+                character.getBoots().loseBootsLife();
+            }     
+        } 
     }
 
     // Turn all the building lights on due to wrong switch by player

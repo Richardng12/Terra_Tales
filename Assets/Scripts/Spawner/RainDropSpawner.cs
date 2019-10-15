@@ -6,7 +6,7 @@ public class RainDropSpawner : MonoBehaviour
 {
     public GameObject rainDrop;
 
-    public float spawnTime = 2f;
+    public float spawnTime = 0.5f;
 
     private float timer = 0;
 

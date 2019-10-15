@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RubberBoots : MonoBehaviour
 {
-    private bool pickUpAllowed;
-
+    private int life = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,29 +14,30 @@ public class RubberBoots : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pickUpAllowed && Input.GetKeyDown(KeyCode.E)) {
-            pickUp();
-        }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.name.Equals("Player"))
+    private void OnTriggerEnter2D(Collider2D collision) {
+        CharacterController character = collision.gameObject.GetComponent<CharacterController>();
+
+        // if player's boots' hp is full, player can't pick up
+        if (character != null && (character.getBoots() == null || character.getBoots().life < 10))
         {
-            pickUpAllowed = true;
+            Destroy(character.getBoots());
+            pickUp(character);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name.Equals("Player"))
-        {
-            pickUpAllowed = false;
-        }
+    private void pickUp(CharacterController character) {
+        character.setBoots(this);
+        Debug.Log("picked up!");
     }
 
-    private void pickUp() {
-        Destroy(gameObject);
-        //TO DO
+    public void loseBootsLife() {
+        life--;
+    }
+
+    public int getBootsLife() {
+        return life;
     }
 }

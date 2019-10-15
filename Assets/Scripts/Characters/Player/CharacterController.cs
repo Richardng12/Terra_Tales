@@ -27,6 +27,9 @@ public class CharacterController : MonoBehaviour, ICharacter
     Renderer renderer;
     Color c;
 
+    //City scene
+    private RubberBoots rubberBoots;
+
     void Start()
     {
         Time.timeScale = 1f;
@@ -79,6 +82,16 @@ public class CharacterController : MonoBehaviour, ICharacter
         {
             CheckInvulnerability();
         }
+        if (rubberBoots != null) {
+            if (rubberBoots.getBootsLife() == 0) {
+                rubberBoots = null;
+                Destroy(rubberBoots);
+            }
+            Debug.Log("have bootsn igga");
+        } else {
+            Debug.Log("nah dont have boots");
+        }
+        
     }
     private void FixedUpdate()
     {
@@ -166,5 +179,13 @@ public class CharacterController : MonoBehaviour, ICharacter
     public void Move()
     {
         throw new System.NotImplementedException();
+    }
+
+    public RubberBoots getBoots() {
+        return rubberBoots;
+    }
+
+    public void setBoots(RubberBoots boots) {
+        rubberBoots = boots;
     }
 }
