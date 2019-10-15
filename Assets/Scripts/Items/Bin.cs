@@ -36,7 +36,10 @@ public class Bin : MonoBehaviour, IBins
     // Destroys the rubbish that was collided with the bin
     public void DestroyRubbish()
     {
-        collidedObject.GetComponent<TrashScript>().OnDestroy();
+        if (collidedObject != null)
+        {
+            collidedObject.GetComponent<TrashScript>().OnDestroy();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
