@@ -17,6 +17,8 @@ public class Sound {
     [HideInInspector]
     public AudioSource source;
 
+
+
     public void Play() {
 
         source.volume = vol;
@@ -34,6 +36,14 @@ public class Sound {
     public void Stop()
     {
         source.Stop();
+    }
+
+    public void setSoundOff(){
+        source.volume = 0;
+    }
+
+    public void setSoundOn(){
+        source.volume = vol;
     }
 
 }

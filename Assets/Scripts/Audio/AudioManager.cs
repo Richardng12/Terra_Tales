@@ -9,68 +9,91 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     public static bool initalised = false;
 
+    public static bool musicTicked = true;
+
+    
+
+
     private void Update()
     {
-
-    }
-
-    void Awake() {
-        if(instance == null)
+        if (musicTicked)
         {
-            instance = this;
-            // Dont destroy this object when a new scene is loaded
-            DontDestroyOnLoad(this);
+            foreach (Sound s in sounds)
+            {
+                s.setSoundOn();
+            }
         }
         else
         {
-            if(instance != this)
+              foreach (Sound s in sounds)
             {
-                Destroy(this.gameObject);
+                Debug.Log("turning sound on off");
+                s.setSoundOff();
             }
         }
     }
 
-    private void Start()
+
+void Awake()
+{
+    if (instance == null)
     {
-        foreach(Sound s in sounds)
+        instance = this;
+        // Dont destroy this object when a new scene is loaded
+        DontDestroyOnLoad(this);
+    }
+    else
+    {
+        if (instance != this)
         {
-            GameObject gameSound = new GameObject(s.name);
-            gameSound.transform.SetParent(this.transform);
-            s.SetSource(gameSound.AddComponent<AudioSource>());
-        }
-        initalised = true;
-        Play("MainMenu");
-    }
-
-    public void Play(string name)
-    {            
-        foreach(Sound s in sounds){
-            if (s.name.Equals(name))
-            {
-                s.Play();
-                return;
-            }
+            Destroy(this.gameObject);
         }
     }
+}
 
-    public void StopAll()
+private void Start()
+{
+    foreach (Sound s in sounds)
     {
-        foreach (Sound s in sounds)
+        GameObject gameSound = new GameObject(s.name);
+        gameSound.transform.SetParent(this.transform);
+        s.SetSource(gameSound.AddComponent<AudioSource>());
+    }
+    initalised = true;
+    Play("MainMenu");
+}
+
+public void Play(string name)
+{
+    foreach (Sound s in sounds)
+    {
+        if (s.name.Equals(name))
+        {
+            s.Play();
+            return;
+        }
+    }
+}
+
+public void StopAll()
+{
+    foreach (Sound s in sounds)
+    {
+        s.Stop();
+    }
+}
+
+public void Stop(string name)
+{
+    foreach (Sound s in sounds)
+    {
+        if (s.name.Equals(name))
         {
             s.Stop();
+            return;
         }
     }
-
-    public void Stop(string name)
-    {
-        foreach (Sound s in sounds)
-        {
-            if (s.name.Equals(name))
-            {
-                s.Stop();
-                return;
-            }
-        }
-    }
+}
 
 }
+

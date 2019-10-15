@@ -22,6 +22,10 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     string forestLevelAudio = "ForestLevel";
 
+    void Update(){
+
+    }
+
 
     // Start is called before the first frame update
     void Start()
