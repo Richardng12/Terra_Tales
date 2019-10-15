@@ -36,12 +36,12 @@ public class AchievementBox : MonoBehaviour
         Debug.Log(aMan);
         List<AchievementName> completedAchievements = aMan.GetCompletedAchievements(at);
         SetStars(completedAchievements.Count);
-
+        SetVisibleStars(aMan.GetNumStars(at));
 
         AchievementName curAch = completedAchievements[completedAchievements.Count - 1];
         achievementName.text = curAch.name;
         int achievementCount = aMan.GetCountForType(at);
-        achievemntMessage.text = curAch.msg0 + achievementCount + curAch.msg1;
+        achievemntMessage.text = aMan.GetMessageForAchievement(at);
 
         starOneText.text = aMan.getUnlockNum(at, 0).ToString();
         starTwoText.text = aMan.getUnlockNum(at, 1).ToString();
@@ -62,6 +62,30 @@ public class AchievementBox : MonoBehaviour
         if (count > 2)
         {
             starThree.color = achievedColor;
+        }
+
+    }
+    private void SetVisibleStars(int count)
+    {
+        if (count > 0)
+        {
+            starOne.enabled = true;
+        }
+        if (count > 1)
+        {
+            starTwo.enabled = true;
+        }
+        if (count > 2)
+        {
+            starThree.enabled = true;
+        }
+        if (count > 3)
+        {
+           // starFour.color = true;
+        }
+        if (count > 4)
+        {
+           // starFive.color = true;
         }
 
     }
