@@ -113,6 +113,7 @@ public class AchievementManager : MonoBehaviour
     void Awake()
     {
         Debug.Log("Awaenachieveentangercalled");
+
         if (instance == null)
         {
             Debug.Log("Thiis");
@@ -125,7 +126,7 @@ public class AchievementManager : MonoBehaviour
         {
             if (instance != this)
             {
-                Destroy(this.achievementNotification);
+                Destroy(this.gameObject);
             }
         }
     }
@@ -167,6 +168,7 @@ public class AchievementManager : MonoBehaviour
 
     IEnumerator ShowAndFade()
     {
+        achievementNotification.gameObject.SetActive(true);
         achievementNotification.alpha = 1;
         yield return new WaitForSeconds(1);
         for (float i = 1f; i > 0; i -= 0.01f)
@@ -174,6 +176,8 @@ public class AchievementManager : MonoBehaviour
             yield return new WaitForSeconds(.01f);
             achievementNotification.alpha = i;
         }
+        achievementNotification.gameObject.SetActive(false);
+
     }
     public String GetMessageForAchievement(AchievementType achievementType)
     {
