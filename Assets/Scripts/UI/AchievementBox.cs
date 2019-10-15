@@ -34,11 +34,11 @@ public class AchievementBox : MonoBehaviour
         // AchievementManager aMan = GetComponent<AchievementManager>();
         AchievementManager aMan = AchievementManager.instance;
         Debug.Log(aMan);
-        List<Achievement> completedAchievements = aMan.GetCompletedAchievements(at);
+        List<AchievementName> completedAchievements = aMan.GetCompletedAchievements(at);
         SetStars(completedAchievements.Count);
 
 
-        Achievement curAch = completedAchievements[completedAchievements.Count - 1];
+        AchievementName curAch = completedAchievements[completedAchievements.Count - 1];
         achievementName.text = curAch.name;
         int achievementCount = aMan.GetCountForType(at);
         achievemntMessage.text = curAch.msg0 + achievementCount + curAch.msg1;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Achievement
+public class AchievementName
 {
     public int unlockCount { get; set; }
     public bool isUnlocked { get; set; }
@@ -12,13 +12,29 @@ public class Achievement
     public string msg0 { get; set; }
     public string msg1 { get; set; }
 
-    public Achievement(int unlockCount, bool isUnlocked, string name, string msg0, string msg1)
+    public AchievementName(int unlockCount, bool isUnlocked, string name, string msg0, string msg1)
     {
         this.unlockCount = unlockCount;
         this.isUnlocked = isUnlocked;
         this.name = name;
         this.msg0 = msg0;
         this.msg1 = msg1;
+    }
+}
+public class Achievement
+{
+    public string msg0 { get; set; }
+    public string msg1 { get; set; }
+    public int count { get; set; }
+
+    public List<AchievementName> achievementNames;
+
+    public Achievement(string msg0, string msg1)
+    {
+        this.msg0 = msg0;
+        this.msg1 = msg1;
+        count = 0;
+        achievementNames = new List<AchievementName>();
     }
 }
 public enum AchievementType
@@ -43,16 +59,16 @@ public class AchievementManager : MonoBehaviour
 
     public CanvasGroup achievementNotification;
 
-    private Dictionary<AchievementType, List<Achievement>> achievementsMap = new Dictionary<AchievementType, List<Achievement>>();
+    private Dictionary<AchievementType, List<AchievementName>> achievementsMap = new Dictionary<AchievementType, List<AchievementName>>();
     //private static List<Achievement> unlockedAchievements;
     private Dictionary<AchievementType, int> achievementCounts = new Dictionary<AchievementType, int>();
 
     //TODO get last unlocked.
 
-    public List<Achievement> GetCompletedAchievements(AchievementType achievementType)
+    public List<AchievementName> GetCompletedAchievements(AchievementType achievementType)
     {
-        List<Achievement> result = new List<Achievement>();
-        foreach (Achievement achievement in achievementsMap[achievementType])
+        List<AchievementName> result = new List<AchievementName>();
+        foreach (AchievementName achievement in achievementsMap[achievementType])
         {
             if (achievement.isUnlocked)
             {
@@ -63,7 +79,7 @@ public class AchievementManager : MonoBehaviour
         return result;
     }
 
-    public Achievement GetAchievementForType(AchievementType achievementType)
+    public AchievementName GetAchievementForType(AchievementType achievementType)
     {
         return achievementsMap[achievementType][0];
     }
@@ -74,13 +90,13 @@ public class AchievementManager : MonoBehaviour
 
 
 
-    public List<Achievement> GetUnlockedAchievements()
+    public List<AchievementName> GetUnlockedAchievements()
     {
-        List<Achievement> result = new List<Achievement>();
-        foreach (KeyValuePair<AchievementType, List<Achievement>> entry in achievementsMap)
+        List<AchievementName> result = new List<AchievementName>();
+        foreach (KeyValuePair<AchievementType, List<AchievementName>> entry in achievementsMap)
         {
             // do something with entry.Value or entry.Key
-            foreach (Achievement achievement in entry.Value)
+            foreach (AchievementName achievement in entry.Value)
             {
                 if (achievement.isUnlocked)
                 {
@@ -131,8 +147,8 @@ public class AchievementManager : MonoBehaviour
         Debug.Log("Updating achievements");
 
         int curCount = achievementCounts[ach];
-        List<Achievement> achievements = achievementsMap[ach];
-        foreach (Achievement achievement in achievements)
+        List<AchievementName> achievements = achievementsMap[ach];
+        foreach (AchievementName achievement in achievements)
         {
             bool waslocked = !achievement.isUnlocked;
             if (curCount >= achievement.unlockCount)
@@ -174,25 +190,26 @@ public class AchievementManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        List<Achievement> initialList = new List<Achievement>();
-        Achievement ach = new Achievement(1, false, "First Time Playing!", "Congratulations on playing for ", " time");
-        initialList.Add(ach);
-        achievementsMap.Add(AchievementType.Plays, initialList);
-        achievementCounts.Add(AchievementType.Plays, 0);
-        //achievementCounts.Add(AchievementType.PlantingTrees, 0);
+        //Initialise count array
+        foreach (AchievementType achievementType in Enum.GetValues(typeof(AchievementType)))
+        {
+            achievementCounts.Add(achievementType, 0);
+            List<AchievementName> initialList = new List<AchievementName>();
+            achievementsMap.Add(achievementType, initialList);
+        }
+        AddAchievementToType(AchievementType.Plays, 1, false, "First Time Playing!", "Congratulations on playing for ", " time");
         IncrementAchievement(AchievementType.Plays);
 
+        AddAchievementToType(AchievementType.PlantingTrees, 1, false, "Tree Trooper", "Congratulations on planting ", " tree");
+        AddAchievementToType(AchievementType.PlantingTrees, 2, false, "Tree Hugger", "Congratulations on planting ", " trees");
+        AddAchievementToType(AchievementType.PlantingTrees, 3, false, "Tree Mesiah", "Congratulations on planting ", " trees");
+        
+    }
 
-        initialList = new List<Achievement>();
-        ach = new Achievement(1, false, "Tree Trooper", "Congratulations on planting ", " trees");
-        initialList.Add(ach);
-        ach = new Achievement(2, false, "Tree Hugger", "Congratulations on planting ", " trees");
-        initialList.Add(ach);
-        ach = new Achievement(3, false, "Tree Mesiah", "Congratulations on planting ", " trees");
-        initialList.Add(ach);
-        //TODO remove this
-        achievementsMap.Add(AchievementType.PlantingTrees, initialList);
-        achievementCounts.Add(AchievementType.PlantingTrees, 0);
+    private void AddAchievementToType(AchievementType type, int unlockCount, bool isUnlocked, string name, string msg0, string msg1)
+    {
+        AchievementName achievement = new AchievementName(unlockCount,isUnlocked,name,msg0,msg1);
+        achievementsMap[type].Add(achievement);
     }
 
     // Update is called once per frame
