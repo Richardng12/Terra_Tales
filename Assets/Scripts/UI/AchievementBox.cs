@@ -12,29 +12,40 @@ public class AchievementBox : MonoBehaviour
     private Color achievedColor = Color.yellow;
     public Image starTwo;
     public Image starThree;
+    public Text starOneText;
+    public Text starTwoText;
+    public Text starThreeText;
     public string achievementType;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("I'm here");
-        GetStats(achievementType);
     }
 
+    void Update()
+    {
+        GetStats(achievementType);
+    }
     void GetStats(String achievementType)
     {
         Type t = typeof(AchievementType);
         AchievementType at = (AchievementType)Enum.Parse(t, achievementType);
         Debug.Log(at);
-        AchievementManager aMan = new AchievementManager();
-
+        // AchievementManager aMan = GetComponent<AchievementManager>();
+        AchievementManager aMan = AchievementManager.instance;
+        Debug.Log(aMan);
         List<Achievement> completedAchievements = aMan.GetCompletedAchievements(at);
         SetStars(completedAchievements.Count);
 
 
-
-        achievementName.text = completedAchievements[completedAchievements.Count -1].name;
+        Achievement curAch = completedAchievements[completedAchievements.Count - 1];
+        achievementName.text = curAch.name;
         int achievementCount = aMan.GetCountForType(at);
-        achievemntMessage.text = "Congratulations on achieving " + achievementCount + " " + achievementType.ToString();
+        achievemntMessage.text = curAch.msg0 + achievementCount + curAch.msg1;
+
+        starOneText.text = aMan.getUnlockNum(at, 0).ToString();
+        starTwoText.text = aMan.getUnlockNum(at, 1).ToString();
+        starThreeText.text = aMan.getUnlockNum(at, 2).ToString();
 
     }
 
@@ -55,9 +66,5 @@ public class AchievementBox : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

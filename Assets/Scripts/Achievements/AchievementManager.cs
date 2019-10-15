@@ -2,18 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Achievement
 {
     public int unlockCount { get; set; }
     public bool isUnlocked { get; set; }
     public string name { get; set; }
+    public string msg0 { get; set; }
+    public string msg1 { get; set; }
 
-    public Achievement(int unlockCount, bool isUnlocked, string name)
+    public Achievement(int unlockCount, bool isUnlocked, string name, string msg0, string msg1)
     {
         this.unlockCount = unlockCount;
         this.isUnlocked = isUnlocked;
         this.name = name;
+        this.msg0 = msg0;
+        this.msg1 = msg1;
     }
 }
 public enum AchievementType
@@ -31,7 +36,14 @@ public enum AchievementType
 
 public class AchievementManager : MonoBehaviour
 {
-    private static Dictionary<AchievementType, List<Achievement>> achievementsMap = new Dictionary<AchievementType, List<Achievement>>();
+    public static AchievementManager instance;
+
+    public Text name;
+    public Text message;
+
+    public GameObject gameObject;
+
+    private Dictionary<AchievementType, List<Achievement>> achievementsMap = new Dictionary<AchievementType, List<Achievement>>();
     //private static List<Achievement> unlockedAchievements;
     private Dictionary<AchievementType, int> achievementCounts = new Dictionary<AchievementType, int>();
 
@@ -81,24 +93,30 @@ public class AchievementManager : MonoBehaviour
         //return unlockedAchievements;
     }
 
-    public AchievementManager()
+    void Awake()
     {
-        if (achievementCounts.Keys.Count == 0)
-        {
-            List<Achievement> initialList = new List<Achievement>();
-            Achievement ach = new Achievement(3, false, "First Time Playing!");
-            initialList.Add(ach);
-            achievementsMap.Add(AchievementType.Boots, initialList);
+        Debug.Log("Awaenachieveentangercalled");
 
-            initialList = new List<Achievement>();
-            ach = new Achievement(1, false, "Tree Mesiah");
-            initialList.Add(ach);
-            //TODO remove this
-            achievementsMap.Add(AchievementType.PlantingTrees, initialList);
-            achievementCounts.Add(AchievementType.PlantingTrees, 4);
-            IncrementAchievement(AchievementType.PlantingTrees);
+        if (instance == null)
+        {
+            Debug.Log("Thiis");
+            instance = this;
+            DontDestroyOnLoad(this);
+
 
         }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
+    public int getUnlockNum(AchievementType achievementType, int index)
+    {
+        return achievementsMap[achievementType][index].unlockCount;
     }
 
     public void IncrementAchievement(AchievementType ach)
@@ -110,24 +128,62 @@ public class AchievementManager : MonoBehaviour
 
     private void updateAchievement(AchievementType ach)
     {
-                Debug.Log("Updating achievements");
+        Debug.Log("Updating achievements");
 
         int curCount = achievementCounts[ach];
         List<Achievement> achievements = achievementsMap[ach];
         foreach (Achievement achievement in achievements)
         {
-            if (curCount >= achievement.unlockCount  )
+            bool waslocked = !achievement.isUnlocked;
+            if (curCount >= achievement.unlockCount)
             {
                 achievement.isUnlocked = true;
+                if (waslocked)
+                {
+                    StartCoroutine(ShowAndFade());
+                    message.text = achievement.msg0 + achievement.unlockCount + achievement.msg1;
+                    name.text = achievement.name;
+                }
                 Debug.Log("Unlocked one");
             }
         }
     }
 
+    IEnumerator ShowAndFade()
+    {
+        gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        gameObject.SetActive(false);
+
+        //int fadeOutTime = 5;
+        // for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
+       // {
+ //           gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(gameObject.GetComponent<MeshRenderer>().material.color, Color.clear, Mathf.Min(1, t / fadeOutTime));
+
+   //         yield return null;
+     //   }
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        List<Achievement> initialList = new List<Achievement>();
+        Achievement ach = new Achievement(3, false, "First Time Playing!", "Congratulations on playing for ", " time");
+        initialList.Add(ach);
+        achievementsMap.Add(AchievementType.Boots, initialList);
 
+        initialList = new List<Achievement>();
+        ach = new Achievement(1, false, "Tree Trooper", "Congratulations on planting ", " trees");
+        initialList.Add(ach);
+        ach = new Achievement(5, false, "Tree Hugger", "Congratulations on planting ", " trees");
+        initialList.Add(ach);
+        ach = new Achievement(10, false, "Tree Mesiah", "Congratulations on planting ", " trees");
+        initialList.Add(ach);
+        //TODO remove this
+        achievementsMap.Add(AchievementType.PlantingTrees, initialList);
+        achievementCounts.Add(AchievementType.PlantingTrees, 1);
+        IncrementAchievement(AchievementType.PlantingTrees);
     }
 
     // Update is called once per frame
