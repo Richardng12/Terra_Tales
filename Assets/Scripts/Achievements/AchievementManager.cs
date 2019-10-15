@@ -41,7 +41,7 @@ public class AchievementManager : MonoBehaviour
     public Text name;
     public Text message;
 
-    public GameObject gameObject;
+    public GameObject achievementNotification;
 
     private Dictionary<AchievementType, List<Achievement>> achievementsMap = new Dictionary<AchievementType, List<Achievement>>();
     //private static List<Achievement> unlockedAchievements;
@@ -109,7 +109,7 @@ public class AchievementManager : MonoBehaviour
         {
             if (instance != this)
             {
-                Destroy(this.gameObject);
+                Destroy(this.achievementNotification);
             }
         }
     }
@@ -151,9 +151,9 @@ public class AchievementManager : MonoBehaviour
 
     IEnumerator ShowAndFade()
     {
-        gameObject.SetActive(true);
+        achievementNotification.SetActive(true);
         yield return new WaitForSeconds(3f);
-        gameObject.SetActive(false);
+        achievementNotification.SetActive(false);
 
         //int fadeOutTime = 5;
         // for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
