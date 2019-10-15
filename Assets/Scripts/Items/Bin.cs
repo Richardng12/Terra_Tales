@@ -49,21 +49,23 @@ public class Bin : MonoBehaviour, IBins
     {
         // If the collsion object is a rubbish type which is grabbable and the player
         // has released it
-        if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
+        if (collision != null)
         {
-
-            collidedObject = collision.gameObject;
-            if (CheckRubbish())
+            if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
             {
-                AudioManager.instance.Play(taskCompleted);
-                // If the rubbish is the right type it should update the counter
-                oceanTracker.UpdateAndDisplayTaskCounter(binItem);
+                collidedObject = collision.gameObject;
+                if (CheckRubbish())
+                {
+                    AudioManager.instance.Play(taskCompleted);
+                    // If the rubbish is the right type it should update the counter
+                    oceanTracker.UpdateAndDisplayTaskCounter(binItem);
+                }
+                else
+                {
+                    // Character gets prompted of wrong rubbish placement
+                }
+                DestroyRubbish();
             }
-            else
-            {
-                // Character gets prompted of wrong rubbish placement
-            }
-            DestroyRubbish();
         }
     }
 
