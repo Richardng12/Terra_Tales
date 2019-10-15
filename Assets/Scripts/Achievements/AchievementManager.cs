@@ -29,7 +29,7 @@ public enum AchievementType
     LevelCompletions,
     Trash,
     Switch,
-    Boots,
+    Plays,
     Deaths,
     HighScore,
 };
@@ -41,7 +41,7 @@ public class AchievementManager : MonoBehaviour
     public Text name;
     public Text message;
 
-    public GameObject achievementNotification;
+    public CanvasGroup achievementNotification;
 
     private Dictionary<AchievementType, List<Achievement>> achievementsMap = new Dictionary<AchievementType, List<Achievement>>();
     //private static List<Achievement> unlockedAchievements;
@@ -151,17 +151,23 @@ public class AchievementManager : MonoBehaviour
 
     IEnumerator ShowAndFade()
     {
-        achievementNotification.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        achievementNotification.SetActive(false);
+        achievementNotification.alpha = 1;
+        yield return new WaitForSeconds(1);
+        for (float i = 1f; i > 0; i -= 0.01f)
+        {
+            yield return new WaitForSeconds(.01f);
+            achievementNotification.alpha = i;
+
+        }
+
 
         //int fadeOutTime = 5;
         // for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
-       // {
- //           gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(gameObject.GetComponent<MeshRenderer>().material.color, Color.clear, Mathf.Min(1, t / fadeOutTime));
+        // {
+        //           gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(gameObject.GetComponent<MeshRenderer>().material.color, Color.clear, Mathf.Min(1, t / fadeOutTime));
 
-   //         yield return null;
-     //   }
+        //         yield return null;
+        //   }
 
     }
 
@@ -169,21 +175,24 @@ public class AchievementManager : MonoBehaviour
     void Start()
     {
         List<Achievement> initialList = new List<Achievement>();
-        Achievement ach = new Achievement(3, false, "First Time Playing!", "Congratulations on playing for ", " time");
+        Achievement ach = new Achievement(1, false, "First Time Playing!", "Congratulations on playing for ", " time");
         initialList.Add(ach);
-        achievementsMap.Add(AchievementType.Boots, initialList);
+        achievementsMap.Add(AchievementType.Plays, initialList);
+        achievementCounts.Add(AchievementType.Plays, 0);
+        //achievementCounts.Add(AchievementType.PlantingTrees, 0);
+        IncrementAchievement(AchievementType.Plays);
+
 
         initialList = new List<Achievement>();
         ach = new Achievement(1, false, "Tree Trooper", "Congratulations on planting ", " trees");
         initialList.Add(ach);
-        ach = new Achievement(5, false, "Tree Hugger", "Congratulations on planting ", " trees");
+        ach = new Achievement(2, false, "Tree Hugger", "Congratulations on planting ", " trees");
         initialList.Add(ach);
-        ach = new Achievement(10, false, "Tree Mesiah", "Congratulations on planting ", " trees");
+        ach = new Achievement(3, false, "Tree Mesiah", "Congratulations on planting ", " trees");
         initialList.Add(ach);
         //TODO remove this
         achievementsMap.Add(AchievementType.PlantingTrees, initialList);
-        achievementCounts.Add(AchievementType.PlantingTrees, 1);
-        IncrementAchievement(AchievementType.PlantingTrees);
+        achievementCounts.Add(AchievementType.PlantingTrees, 0);
     }
 
     // Update is called once per frame
