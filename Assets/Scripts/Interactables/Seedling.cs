@@ -20,6 +20,7 @@ public class Seedling : MonoBehaviour
     private ForestTracker treeCounter;
 
     public GameObject player;
+    private bool soundPlayed = false;
     string taskCompletedSound = "TaskComplete";
 
 
@@ -52,6 +53,11 @@ public class Seedling : MonoBehaviour
             player = GameObject.FindWithTag("Player");
             ShootWater shootWater = player.GetComponent<ShootWater>(); ;
             shootWater.DecreaseAmmoCount();
+            if (!soundPlayed)
+            {
+                AudioManager.instance.Play(taskCompletedSound);
+                soundPlayed = true;
+            }
             treeCounter.UpdateAndDisplayTaskCounter();
         }
         // updates the progress bar and increases the scale of seedling sprite 
