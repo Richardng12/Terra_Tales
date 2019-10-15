@@ -5,6 +5,7 @@ using UnityEngine;
 public class LSpwaner : MonoBehaviour
 {
     public List<Building> buildings;
+    private List<Column> columnsOnCD = new List<Column>();
 
     public float spawnTime = 1000f;
 
@@ -26,15 +27,21 @@ public class LSpwaner : MonoBehaviour
         }
     }
 
-    public void SpawnRandom() {
+    private void SpawnRandom() {
         Building building = buildings[Random.Range(0, buildings.Count)];
         Column column = building.getColumns()[Random.Range(0, building.getColumns().Count)];
-        if (column.ifWindowOn()) {
+        if (column.ifWindowOn() || columnsOnCD.Contains(column)) {
             SpawnRandom();
         } else {
             column.turnOnWindows(true);
             StartCoroutine(waitForPersonLeave(column));
+            putColumnOnCD(column);
         }
+    }
+
+    private void putColumnOnCD(Column column) {
+        columnsOnCD.Add(column);
+        StartCoroutine(waitForCD());
     }
 
     IEnumerator waitForPersonLeave(Column column) {
@@ -42,5 +49,9 @@ public class LSpwaner : MonoBehaviour
         foreach (Window window in column.getWindows()) {
             window.personLeave();
         }
+    }
+
+    IEnumerator waitForCD() {
+        yield return new WaitForSeconds(5);
     }
 }
