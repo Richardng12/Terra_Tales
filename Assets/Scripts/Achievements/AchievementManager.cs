@@ -38,6 +38,7 @@ public class Achievement
 public enum AchievementType
 {
     PlantingTrees,
+    Time,
     ReducingFires,
     RefillingGun,
     LevelCompletions,
@@ -187,15 +188,23 @@ public class AchievementManager : MonoBehaviour
     void Start()
     {
         //Initialise achievement messages
-        Achievement achievement = new Achievement("Congratulations on playing for ", " time");
+        Achievement achievement = new Achievement("Congratulations on playing for ", " time(s)");
         achievementsMap.Add(AchievementType.Plays, achievement);
-        achievement = new Achievement("Congratulations on planting ", " trees");
+        achievement = new Achievement("Congratulations on planting ", " tree(s)");
         achievementsMap.Add(AchievementType.PlantingTrees, achievement);
+
+        achievement = new Achievement("Congratulations on finishing ", " level(s) in under one minute");
+        achievementsMap.Add(AchievementType.Time, achievement);
 
 
         //Initialise achievement counts and names
         AddAchievementToType(AchievementType.Plays, 1, "First Time Playing!");
         IncrementAchievement(AchievementType.Plays);
+
+        
+        AddAchievementToType(AchievementType.Time, 1, "Speed Demon");
+        AddAchievementToType(AchievementType.Time, 2, "Sprint Demon");
+        AddAchievementToType(AchievementType.Time, 3, "Speed God");
 
         AddAchievementToType(AchievementType.PlantingTrees, 1, "Tree Trooper");
         AddAchievementToType(AchievementType.PlantingTrees, 2, "Tree Hugger");
