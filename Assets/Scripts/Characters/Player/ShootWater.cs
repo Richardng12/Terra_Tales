@@ -7,7 +7,7 @@ public class ShootWater : MonoBehaviour
 
     public Transform direction;
     public GameObject waterBubblePrefab;
-    public bool hasWep = false;
+    public bool hasWep = true;
     public float rateOfFire;
     float timeToFire = 0;
     private readonly float reloadDelay = 0.5f;
@@ -16,7 +16,8 @@ public class ShootWater : MonoBehaviour
 
     AudioManager audioManager;
     string shootSound = "Shoot";
-    string reloadSound = "Reload";
+    string reloadSound = "WaterReload";
+    string noAmmoSound = "NoAmmo";
 
 
     private void Start()
@@ -42,18 +43,11 @@ public class ShootWater : MonoBehaviour
         return ammo == 0;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.Equals("Water Gun"))
-        {
-            hasWep = true;
-        }
-    }
     // Shoot method that instantiates a waterbubbleprefab if there is sufficient
     // amounf of 
     private void Shoot()
     {
-        if(ammo == 99){
+        if (ammo == 99) {
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
             audioManager.Play(shootSound);
         }
@@ -62,11 +56,10 @@ public class ShootWater : MonoBehaviour
             Instantiate(waterBubblePrefab, direction.position, direction.rotation);
             DecreaseAmmoCount();
             audioManager.Play(shootSound);
-
         }
         else
         {
-            // Play no ammo sound
+            audioManager.Play(noAmmoSound);
         }
 
     }
@@ -74,9 +67,7 @@ public class ShootWater : MonoBehaviour
     // dependent on couple of variables
     public void waterTree()
     {
-        if (hasWep)
-        {
-            if (rateOfFire == 0)
+           if (rateOfFire == 0)
             {
                 DecreaseAmmoCount();
             }
@@ -89,12 +80,9 @@ public class ShootWater : MonoBehaviour
                 }
             }
         }
-    }
-    // Shoots water gun  by instantianting a waterBubble object
-    // dependent on couple of variables
-    public void CheckFireRate()
-    {
-        if (hasWep)
+        // Shoots water gun  by instantianting a waterBubble object
+        // dependent on couple of variables
+        public void CheckFireRate()
         {
             if (rateOfFire == 0)
             {
@@ -108,40 +96,39 @@ public class ShootWater : MonoBehaviour
                     Shoot();
                 }
             }
-        }
-    }
 
-    // Checks if the ammo is less than 9 and slowly reloads the water gun with
-    // a set delay
-    public void ReloadWaterGun()
-    {
-        if (ammo < 9)
+        }
+
+        // Checks if the ammo is less than 9 and slowly reloads the water gun with
+        // a set delay
+        public void ReloadWaterGun()
         {
-            if (currrentReloadDelay >= reloadDelay)
+            if (ammo < 9)
             {
-                IncreaseAmmoCount();
-                currrentReloadDelay = 0;
-            }
-            else
-            {
-                currrentReloadDelay = currrentReloadDelay + Time.deltaTime;
+                if (currrentReloadDelay >= reloadDelay)
+                {
+                    IncreaseAmmoCount();
+                    currrentReloadDelay = 0;
+                }
+                else
+                {
+                    currrentReloadDelay = currrentReloadDelay + Time.deltaTime;
+                }
             }
         }
-    }
-    public int GetAmmoCount()
-    {
-        return ammo;
-    }
+        public int GetAmmoCount()
+        {
+            return ammo;
+        }
 
-    public void DecreaseAmmoCount()
-    {
-        ammo--;
-    }
+        public void DecreaseAmmoCount()
+        {
+            ammo--;
+        }
 
-    public void IncreaseAmmoCount()
-    {
-        audioManager.Play(reloadSound);
-        ammo++;
+        public void IncreaseAmmoCount()
+        {
+            audioManager.Play(reloadSound);
+            ammo++;
+        }
     }
-
-}

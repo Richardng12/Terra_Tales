@@ -46,7 +46,15 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
     {
         text.color = startingColour;
         treesPlanted[i]++;
-        text.text = "Planted " + treesPlanted[i] + "/" + treesToPlant + " Trees";
+        if (CheckIsComplete())
+        {
+            text.text = "Task completed. Please Return to NPC";
+
+        }
+        else
+        {
+            text.text = "Planted " + treesPlanted[i] + "/" + treesToPlant + " Trees";
+        }
 
         // activates the coroutine to display text then fade it
         StartCoroutine(TextFadeOutRoutine());
