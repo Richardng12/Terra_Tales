@@ -21,23 +21,14 @@ public class RubberBoots : MonoBehaviour
         CharacterController character = collision.gameObject.GetComponent<CharacterController>();
 
         // if player's boots' hp is full, player can't pick up
-        if (character != null && (character.getBoots() == null || character.getBoots().life < 10))
+        if (character != null && character.getBootsHealth() < 10)
         {
-            Destroy(character.getBoots());
             pickUp(character);
         }
     }
 
     private void pickUp(CharacterController character) {
-        character.setBoots(this);
-        Debug.Log("picked up!");
-    }
-
-    public void loseBootsLife() {
-        life--;
-    }
-
-    public int getBootsLife() {
-        return life;
+        character.fillBootsHealth();
+        Destroy(gameObject);
     }
 }

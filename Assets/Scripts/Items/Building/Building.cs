@@ -28,12 +28,13 @@ public class Building : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision) {
         CharacterController character = collision.gameObject.GetComponent<CharacterController>();
 
-        if (character != null && shortCircuit && character.getBoots() == null) {
-            if (character.getBoots() == null) {
+        if (character != null && shortCircuit) {
+            if (character.getBootsHealth() > 0) {
                 //TO DO
-                Debug.Log("take dmg");
+                character.loseBootsHealth();
+                Debug.Log("boots health: " + character.getBootsHealth());
             } else {
-                character.getBoots().loseBootsLife();
+                Debug.Log("take dmg");
             }     
         } 
     }
