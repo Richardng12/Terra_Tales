@@ -15,16 +15,20 @@ public class ForestNPC : MonoBehaviour, INPC
     public GameObject seedlingHUD;
     public GameObject gameManager;
 
+    private int treesToPlant;
+
     private bool startOfLevel = true;
 
     private bool initialised = false;
     public Text showText;
+
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         treeTracker = treeTrackerObject.GetComponent<ForestTracker>();
+        treesToPlant = treeTracker.treesToPlant;
         interactable = false;
     }
 
@@ -108,7 +112,7 @@ public class ForestNPC : MonoBehaviour, INPC
     {
         // First sentence talks about rubbish bag task
         dialogue[1].sentences[0] = "You have planted " +
-        treeTracker.GetTasks()[0] + "/6 Trees";
+        treeTracker.GetTasks()[0] + "/" + treesToPlant + " Trees";
 
     }
 
