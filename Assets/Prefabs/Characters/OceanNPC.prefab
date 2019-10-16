@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4698984390100621974}
   - component: {fileID: 4698984390100621968}
   - component: {fileID: 7627694939070406808}
+  - component: {fileID: 95882369770609440}
   m_Layer: 0
   m_Name: OceanNPC
   m_TagString: Untagged
@@ -124,7 +125,7 @@ MonoBehaviour:
       Yellow bins
     - Also be careful of the oil monsters that plague the seas, standing too close
       to them can damage you!
-    - 'Use your water gun to dilute them
+    - 'Use your special power to dilute them!!
 
 '
     - Talk to me once you have collected 3 of each type!
@@ -138,7 +139,32 @@ MonoBehaviour:
     sentences:
     - Thanks for cleaning up the ocean!
   oceanTrackerObject: {fileID: 0}
+  finishScreen: {fileID: 0}
+  scoreText: {fileID: 0}
+  gameManager: {fileID: 0}
+  imageHUD: {fileID: 0}
+  timerObject: {fileID: 0}
+  timelineOceanTrigger: {fileID: 0}
   showText: {fileID: 4698984390948260092}
+--- !u!95 &95882369770609440
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4698984390100621973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f958416493994f21ad9a5cae28d718a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4698984390948260066
 GameObject:
   m_ObjectHideFlags: 0

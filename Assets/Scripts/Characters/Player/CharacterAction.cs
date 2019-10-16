@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterAction : MonoBehaviour
 {
     public CharacterController characterController;
+    public Animator moveAnimator;
     public float speed;
     public float jumpSpeed = 8;
     private float moveInput;
@@ -19,13 +20,37 @@ public class CharacterAction : MonoBehaviour
         {
             jump = true;
         }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            moveAnimator.SetTrigger("castWater");
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            moveAnimator.SetTrigger("grab");
+
+        }
+        // Sets the animation to moving
+        moveAnimator.SetFloat("speed",Mathf.Abs(moveInput));
+        if (characterController.OnGround())
+        {
+            moveAnimator.SetBool("onGround", true);
+        }
+        else
+        {
+            moveAnimator.SetBool("onGround", false);
+
+        }
     }
 
     private void FixedUpdate()
     {
         // Does the certain actions for each player
         characterController.Move(moveInput, speed);
-        characterController.Jump(jump, jumpSpeed);
+        if (characterController.Jump(jump, jumpSpeed)){
+            // Shows jump animation
+            Debug.Log("Jumping");
+            moveAnimator.SetTrigger("isJumping");
+        }
         if (loseHealth)
         {
             characterController.LoseHealth();
