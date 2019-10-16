@@ -26,7 +26,7 @@ public class RainDropSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnRandom() {
+    private void SpawnRandom() {
         Vector2 spawnPosition = Camera.main.ScreenToWorldPoint (new Vector2(Random.Range(0, Screen.width), Random.Range(600, Screen.height)));
 
         Instantiate(rainDrop, spawnPosition, Quaternion.identity);
