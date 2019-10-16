@@ -14,22 +14,28 @@ public class TimelineOceanTrigger : MonoBehaviour
     public GameObject oceanLevelStart;
     public GameObject finishScreen;
 
+    private GameObject player;
+
+    private GameObject oceanNPC;
+
+    public GameObject bins;
+
+    public GameObject spawners;
     public Text scoreText;
-    void Start()
-    {
-    
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    //Plays cutscene once player has finished the forest level
+    //Plays cutscene once player has finished the ocean level
    public void PlayCutScene()
     {
+         player = GameObject.FindWithTag("Player");
+        player.GetComponent<CharacterController>().enabled = false;
+        player.GetComponent<CharacterAction>().enabled = false;
+        oceanNPC = GameObject.FindWithTag("OceanNPC");
+        oceanNPC.GetComponent<OceanNPC>().enabled = false;
+        Debug.Log("should be playing ocean cutscene");
         oceanLevelWall.SetActive(true);
         oceanLevelStart.SetActive(false);
+        bins.SetActive(false);
+        spawners.SetActive(false);
         timeline.Play();
 
     }
@@ -39,6 +45,7 @@ public class TimelineOceanTrigger : MonoBehaviour
     {
         if (timeline == aDirector)
         {
+            Debug.Log("finish screen should show");
           //  firstStartTimeLine.SetActive(false);
          //   player.GetComponent<CharacterController>().enabled = true;
             scoreText.text = Scoring.oceanScore.ToString();

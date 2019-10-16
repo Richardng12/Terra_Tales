@@ -104,9 +104,9 @@ public class OceanNPC : MonoBehaviour, INPC
                  //   Time.timeScale = 0f;
                  //   scoreText.text = Scoring.oceanScore.ToString();
             //TEMP finishScene
-            finishScreen.SetActive(true);
-            Time.timeScale = 0f;
-            scoreText.text = Scoring.oceanScore.ToString();
+          //  finishScreen.SetActive(true);
+          //  Time.timeScale = 0f;
+           // scoreText.text = Scoring.oceanScore.ToString();
             
 
         }
