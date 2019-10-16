@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2264280112688088255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.012, y: 0.478, z: 0}
+  m_LocalPosition: {x: -0.009, y: 0.373, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2264280113014911952}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 2264280114096445399}
-  radiusCheck: 0.7
+  radiusCheck: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 790
@@ -234,7 +234,7 @@ MonoBehaviour:
   direction: {fileID: 2264280113230478438}
   waterBubblePrefab: {fileID: 4429787587144035427, guid: 218ec8605299c4f538aa3b184db2f605,
     type: 3}
-  hasWep: 0
+  hasWep: 1
   rateOfFire: 2
   ammo: 9
 --- !u!50 &2264280113014911960
@@ -296,7 +296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2264280113230478437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.315, y: -0.015, z: 0}
+  m_LocalPosition: {x: 0.327, y: -0.039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2264280113014911952}
@@ -326,8 +326,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2264280114096445398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.222, z: 0}
-  m_LocalScale: {x: 0.99162, y: 0.99162, z: 0.99162}
+  m_LocalPosition: {x: 0.076, y: -0.226, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 3.9430096}
   m_Children: []
   m_Father: {fileID: 2264280113014911952}
   m_RootOrder: 0

@@ -24,6 +24,11 @@ public class CharacterAction : MonoBehaviour
         {
             moveAnimator.SetTrigger("castWater");
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            moveAnimator.SetTrigger("grab");
+
+        }
         // Sets the animation to moving
         moveAnimator.SetFloat("speed",Mathf.Abs(moveInput));
         if (characterController.OnGround())

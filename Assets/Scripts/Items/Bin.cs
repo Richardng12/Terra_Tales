@@ -36,7 +36,7 @@ public class Bin : MonoBehaviour, IBins
     // Destroys the rubbish that was collided with the bin
     public void DestroyRubbish()
     {
-        if (collidedObject != null)
+        if (collidedObject.GetComponent<TrashScript>() != null)
         {
             collidedObject.GetComponent<TrashScript>().OnDestroy();
         }
@@ -65,7 +65,7 @@ public class Bin : MonoBehaviour, IBins
                 }
                 else
                 {
-                    // Character gets prompted of wrong rubbish placement
+                    oceanTracker.ShowWrongRubbishPrompt();
                 }
                 DestroyRubbish();
             }
