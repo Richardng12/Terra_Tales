@@ -15,6 +15,8 @@ public class ForestNPC : MonoBehaviour, INPC
     public GameObject seedlingHUD;
     public GameObject gameManager;
 
+    public GameObject dialogueBox;
+
     private int treesToPlant;
 
     private bool startOfLevel = true;
@@ -52,9 +54,17 @@ public class ForestNPC : MonoBehaviour, INPC
                 initialised = true;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.S)){
+            if(interactable){
+                EndDialogueForest();
+            }
+        }
+
         // If player presses E it should continue the dialogue
         if (Input.GetKeyDown(KeyCode.E))
         {
+            dialogueBox.SetActive(true);
             // If in range of NPC and dialogue has not yet started then start
             // the diagloue 
             if (interactable && !initialised)
@@ -114,6 +124,21 @@ public class ForestNPC : MonoBehaviour, INPC
         dialogue[1].sentences[0] = "You have planted " +
         treeTracker.GetTasks()[0] + "/" + treesToPlant + " Trees";
 
+    }
+
+    public void EndDialogueForest(){
+
+        dialogueBox.SetActive(false);
+        Debug.Log("WElp");
+         dialogueManager.EndDialogue();
+                StopAllCoroutines();
+                 dialogueManager.DisplayNextSentence();
+                    // Dialogue has ended
+
+                    initialised = false;
+                    // Start of level should only gets set to false once as that
+                    // dialogue only happens at the start
+                    startOfLevel = false;
     }
 
     private void OnTriggerEnter2D(Collider2D Collision)

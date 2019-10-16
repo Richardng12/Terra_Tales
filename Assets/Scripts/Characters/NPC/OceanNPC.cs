@@ -23,6 +23,8 @@ public class OceanNPC : MonoBehaviour, INPC
 
     public GameObject timerObject;
 
+    public GameObject dialogueBox;
+
       public GameObject timelineOceanTrigger;
     private bool startOfLevel = true;
 
@@ -48,8 +50,16 @@ public class OceanNPC : MonoBehaviour, INPC
                 initialised = true;
             }
         }
-        // If player presses E it should continue the dialogue         if (Input.GetKeyDown(KeyCode.E))
+
+          if(Input.GetKeyDown(KeyCode.S)){
+            if(interactable){
+                EndDialogueOcean();
+            }
+        }
+        // If player presses E it should continue the dialogue         
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            dialogueBox.SetActive(true);
             // If in range of NPC and dialogue has not yet started then start
             // the diagloue 
             if (interactable && !initialised)
@@ -104,9 +114,9 @@ public class OceanNPC : MonoBehaviour, INPC
                  //   Time.timeScale = 0f;
                  //   scoreText.text = Scoring.oceanScore.ToString();
             //TEMP finishScene
-            finishScreen.SetActive(true);
-            Time.timeScale = 0f;
-            scoreText.text = Scoring.oceanScore.ToString();
+          //  finishScreen.SetActive(true);
+          //  Time.timeScale = 0f;
+           // scoreText.text = Scoring.oceanScore.ToString();
             
 
         }
@@ -118,6 +128,21 @@ public class OceanNPC : MonoBehaviour, INPC
         }
 
 
+    }
+
+     public void EndDialogueOcean(){
+
+        dialogueBox.SetActive(false);
+        Debug.Log("WElp");
+         dialogueManager.EndDialogue();
+                StopAllCoroutines();
+                 dialogueManager.DisplayNextSentence();
+                    // Dialogue has ended
+
+                    initialised = false;
+                    // Start of level should only gets set to false once as that
+                    // dialogue only happens at the start
+                    startOfLevel = false;
     }
 
     public void CreateTaskDialogue()
