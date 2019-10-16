@@ -10,8 +10,8 @@ public class TrashScript : AbstractSpawnableObject
     public bool isThrowable = true;
     private void Start()
     {
-        spawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<SpawnerScript>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<GrabObject>();
+        spawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<SpawnerScript>();
 
     }
 
@@ -19,8 +19,11 @@ public class TrashScript : AbstractSpawnableObject
     // Rubbish can be spawned in the particular spawn locations
     public override void OnDestroy()
     {
-        spawner.getSpawnedObjects()[this.GetLocation()] = null;
-        spawner.SetCurrentSpawnDelay(0);
+        if (spawner != null)
+        {
+            spawner.getSpawnedObjects()[this.GetLocation()] = null;
+            spawner.SetCurrentSpawnDelay(0);
+        }
         player.SetRubbishItem(null);
         player.SetGrabbedRubbishItem(null);
         Destroy(this.gameObject);

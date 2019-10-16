@@ -17,18 +17,12 @@ public class FirstStartTimeLine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cancel player movement during cutscene
-        player = GameObject.FindWithTag("Player");
-        player.GetComponent<CharacterController>().enabled = false;
+        //Cancel player movement and shooting during cutscene
+        player.GetComponent<CharacterAction>().enabled = false;
+        player.GetComponent<ShootWater>().enabled = false;
         blackFade = GameObject.FindGameObjectWithTag("BlackFade");
 
         StartCoroutine(delayedPlayback());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-  
     }
 
     void OnPlayableDirectorStopped(PlayableDirector aDirector)
@@ -38,8 +32,9 @@ public class FirstStartTimeLine : MonoBehaviour
         {
             blackFade.SetActive(false);
             firstStartTimeLine.SetActive(false);
-            
-            player.GetComponent<CharacterController>().enabled = true;
+            // Re enable the movement and shooting once cutscene has ended
+            player.GetComponent<CharacterAction>().enabled = true;
+            player.GetComponent<ShootWater>().enabled = true;
         }
     }
 
