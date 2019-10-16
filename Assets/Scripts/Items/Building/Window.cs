@@ -52,6 +52,8 @@ public class Window: MonoBehaviour
 
         if (hasPerson) {
             transform.parent.GetComponent<Column>().wrongSwitch();
+        } else {
+            transform.parent.GetComponent<Column>().putOnCD();
         }
     }
 

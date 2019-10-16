@@ -6,11 +6,12 @@ public class Column : MonoBehaviour
 {
     
     public List<Window> windows;
+    private bool onCD;
 
     // Start is called before the first frame update
     void Start()
     { 
-
+        onCD = false;
     }
 
     // Update is called once per frame
@@ -55,6 +56,21 @@ public class Column : MonoBehaviour
 
     public List<Window> getWindows() {
         return windows;
+    }
+
+    public void putOnCD() {
+        onCD = true;
+        StartCoroutine(waitForCD());
+    }
+
+    public bool getOnCD() {
+        return onCD;
+    }
+
+    IEnumerator waitForCD() {
+        yield return new WaitForSeconds(5f);
+        onCD = false;
+        Debug.Log("off CD!!");
     }
 
     IEnumerator waitToTurnOn()
