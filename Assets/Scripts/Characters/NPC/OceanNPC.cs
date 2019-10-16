@@ -59,34 +59,38 @@ public class OceanNPC : MonoBehaviour, INPC
         // If player presses E it should continue the dialogue         
         if (Input.GetKeyDown(KeyCode.E))
         {
-            dialogueBox.SetActive(true);
-            // If in range of NPC and dialogue has not yet started then start
-            // the diagloue 
-            if (interactable && !initialised)
-            {
-                TriggerDialogue();
-                // Set dialogue to started
-                initialised = true;
-            }
-            // If still in range and dialogue has started then show the next 
-            // sentences in the dialogue
-            else if(interactable && initialised)
-            {
-                dialogueManager.DisplayNextSentence();
-                // Once dialogue has ended then set time scale to 1
-                if (dialogueManager.GetDialogueEnded())
-                {
-
-                    Time.timeScale = 1.0f;
-                    // Dialogue has ended
-                    initialised = false;
-
-                    // Start of level should only gets set to false once as that
-                    // dialogue only happens at the start
-                    startOfLevel = false;
-                }
-            }
+            CheckDialogueLogic();
         }     }
+
+    public void CheckDialogueLogic()
+    {
+        dialogueBox.SetActive(true);
+        // If in range of NPC and dialogue has not yet started then start
+        // the diagloue 
+        if (interactable && !initialised)
+        {
+            TriggerDialogue();
+            // Set dialogue to started
+            initialised = true;
+        }
+        // If still in range and dialogue has started then show the next 
+        // sentences in the dialogue
+        else if (interactable && initialised)
+        {
+            dialogueManager.DisplayNextSentence();
+            // Once dialogue has ended then set time scale to 1
+            if (dialogueManager.GetDialogueEnded())
+            {
+                Time.timeScale = 1.0f;
+                // Dialogue has ended
+                initialised = false;
+
+                // Start of level should only gets set to false once as that
+                // dialogue only happens at the start
+                startOfLevel = false;
+            }
+        }
+    }
 
     public void TriggerDialogue()
     {
