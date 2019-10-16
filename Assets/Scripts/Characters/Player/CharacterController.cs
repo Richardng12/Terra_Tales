@@ -31,12 +31,14 @@ public class CharacterController : MonoBehaviour, ICharacter
 
     AudioManager audioManager;
 
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
         audioManager = AudioManager.instance;
-
         Time.timeScale = 1f;
-        rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
     }
