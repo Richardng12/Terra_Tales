@@ -21,21 +21,44 @@ public class TimelineOceanTrigger : MonoBehaviour
     public GameObject bins;
 
     public GameObject spawners;
+
+public TrashScript[] trash;
+public OilSpriteController[] oilPuddles;
+
     public Text scoreText;
 
     //Plays cutscene once player has finished the ocean level
    public void PlayCutScene()
     {
-         player = GameObject.FindWithTag("Player");
+        //Disable player movement
+        player = GameObject.FindWithTag("Player");
         player.GetComponent<CharacterController>().enabled = false;
         player.GetComponent<CharacterAction>().enabled = false;
+
+        //Set new background
         oceanNPC = GameObject.FindWithTag("OceanNPC");
         oceanNPC.GetComponent<OceanNPC>().enabled = false;
-        Debug.Log("should be playing ocean cutscene");
         oceanLevelWall.SetActive(true);
         oceanLevelStart.SetActive(false);
+
+        //Destroy all trash
         bins.SetActive(false);
         spawners.SetActive(false);
+
+        trash = FindObjectsOfType(typeof(TrashScript)) as TrashScript[];
+        oilPuddles = FindObjectsOfType(typeof(OilSpriteController)) as OilSpriteController[];
+
+          foreach (TrashScript t in trash)
+        {
+            Destroy(t.gameObject);
+            Debug.Log("destroy trash");
+        }
+          foreach (OilSpriteController o in oilPuddles)
+        {
+            Destroy(o.gameObject);
+        }
+
+        
         timeline.Play();
 
     }

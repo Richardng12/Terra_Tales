@@ -48,6 +48,12 @@ public class OceanNPC : MonoBehaviour, INPC
                 initialised = true;
             }
         }
+
+          if(Input.GetKeyDown(KeyCode.S)){
+            if(interactable){
+                EndDialogueOcean();
+            }
+        }
         // If player presses E it should continue the dialogue         if (Input.GetKeyDown(KeyCode.E))
         {
             // If in range of NPC and dialogue has not yet started then start
@@ -118,6 +124,20 @@ public class OceanNPC : MonoBehaviour, INPC
         }
 
 
+    }
+
+     public void EndDialogueOcean(){
+
+        Debug.Log("WElp");
+         dialogueManager.EndDialogue();
+                StopAllCoroutines();
+                 dialogueManager.DisplayNextSentence();
+                    // Dialogue has ended
+
+                    initialised = false;
+                    // Start of level should only gets set to false once as that
+                    // dialogue only happens at the start
+                    startOfLevel = false;
     }
 
     public void CreateTaskDialogue()
