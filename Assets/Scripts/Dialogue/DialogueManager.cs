@@ -84,10 +84,12 @@ public class DialogueManager : MonoBehaviour {
     // Ends the dialogue and sets the time scale back to 1
     public void EndDialogue()
 	{
+		listOfSentences.Clear();
         dialogueEnded = true;
 		Time.timeScale = 1f;
         image.gameObject.SetActive(false);
         animator.SetBool("IsOpen", false);
+		 return;
 	}
 
 }
