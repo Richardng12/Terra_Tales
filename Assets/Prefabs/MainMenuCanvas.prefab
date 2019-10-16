@@ -1375,6 +1375,7 @@ GameObject:
   - component: {fileID: 1117837306569794128}
   - component: {fileID: 1117837306569794129}
   - component: {fileID: 1117837306569794130}
+  - component: {fileID: 6223398839921263959}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -1467,6 +1468,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6223398839921263959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117837306569794131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace253d40831a9a4683d25ae51ea466c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstTimePlay: {fileID: 3715300483926405055}
+  levelSelectionMenu: {fileID: 1117837306752764995}
 --- !u!1 &1117837306583680628
 GameObject:
   m_ObjectHideFlags: 0
@@ -6312,6 +6327,7 @@ GameObject:
   - component: {fileID: 1451759667097399442}
   - component: {fileID: 8429614788456059566}
   - component: {fileID: 8340791404809467943}
+  - component: {fileID: 5923009730659798826}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -6425,6 +6441,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5923009730659798826}
+        m_MethodName: SetFirstTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8340791404809467943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6435,6 +6462,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5923009730659798826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2937071160802655149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282db3b22bf8189429c42506915debf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3195634962606512186
@@ -6566,6 +6605,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1117837306752764995}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5923009730659798826}
+        m_MethodName: SetFirstTime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
