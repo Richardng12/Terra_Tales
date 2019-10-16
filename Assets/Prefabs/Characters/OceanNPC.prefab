@@ -124,7 +124,7 @@ MonoBehaviour:
       Yellow bins
     - Also be careful of the oil monsters that plague the seas, standing too close
       to them can damage you!
-    - 'Use your water gun to dilute them
+    - 'Use your special power to dilute them!!
 
 '
     - Talk to me once you have collected 3 of each type!
@@ -138,6 +138,12 @@ MonoBehaviour:
     sentences:
     - Thanks for cleaning up the ocean!
   oceanTrackerObject: {fileID: 0}
+  finishScreen: {fileID: 0}
+  scoreText: {fileID: 0}
+  gameManager: {fileID: 0}
+  imageHUD: {fileID: 0}
+  timerObject: {fileID: 0}
+  timelineOceanTrigger: {fileID: 0}
   showText: {fileID: 4698984390948260092}
 --- !u!1 &4698984390948260066
 GameObject:
