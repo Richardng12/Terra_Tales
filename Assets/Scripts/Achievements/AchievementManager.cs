@@ -47,6 +47,10 @@ public enum AchievementType
     Plays,
     Deaths,
     HighScore,
+    Fires,
+    LevelCompletionsForest,
+    LevelCompletionsOcean,
+    LevelCompletionsCity,
 };
 
 public class AchievementManager : MonoBehaviour
@@ -152,17 +156,18 @@ public class AchievementManager : MonoBehaviour
         foreach (AchievementName achievement in achievements)
         {
             bool waslocked = !achievement.isUnlocked;
-            if (curCount >= achievement.unlockCount )
+            if (curCount >= achievement.unlockCount)
             {
                 achievement.isUnlocked = true;
                 if (waslocked)
                 {
                     Debug.Log(curCount);
-                    if(curCount != 0){
-                    StartCoroutine(ShowAndFade());
-                    
-                    message.text = achievementsMap[ach].msg0 + achievement.unlockCount + achievementsMap[ach].msg1;
-                    name.text = achievement.name;
+                    if (curCount != 0)
+                    {
+                        StartCoroutine(ShowAndFade());
+
+                        message.text = achievementsMap[ach].msg0 + achievement.unlockCount + achievementsMap[ach].msg1;
+                        name.text = achievement.name;
                     }
                     achievementsMap[ach].unlockedAchievements++;
                 }
@@ -192,36 +197,59 @@ public class AchievementManager : MonoBehaviour
     void Start()
     {
         //Initialise achievement messages
-        Achievement achievement = new Achievement("Congratulations on playing for ", " time(s)");
-        achievementsMap.Add(AchievementType.Plays, achievement);
-        achievement = new Achievement("Congratulations on planting ", " tree(s)");
-        achievementsMap.Add(AchievementType.PlantingTrees, achievement);
-
-        achievement = new Achievement("Congratulations on finishing ", " level(s) in under one minute");
-        achievementsMap.Add(AchievementType.Time, achievement);
+        achievementsMap.Add(AchievementType.Plays, new Achievement("Congratulations on playing for ", " time(s)"));
+        achievementsMap.Add(AchievementType.PlantingTrees, new Achievement("Congratulations on planting ", " tree(s)"));
+        achievementsMap.Add(AchievementType.Time, new Achievement("Congratulations on finishing ", " level(s) in under one minute"));
+        achievementsMap.Add(AchievementType.Fires, new Achievement("Congratulations on putting out ", " fire(s)"));
+        achievementsMap.Add(AchievementType.LevelCompletionsForest,  new Achievement("Congratulations on completing ", " forest level(s)"));
+        achievementsMap.Add(AchievementType.LevelCompletionsOcean,  new Achievement("Congratulations on completing ", " ocean level(s)"));
+        achievementsMap.Add(AchievementType.LevelCompletionsCity,  new Achievement("Congratulations on completing ", " city level(s)"));
+        achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations on persisiting through ", " death(s)"));
 
 
         //Initialise achievement counts and names
         AddAchievementToType(AchievementType.Plays, 1, "First Time Playing!");
         IncrementAchievement(AchievementType.Plays);
 
-        
+
         AddAchievementToType(AchievementType.Time, 0, "Time");
-        updateAchievement(AchievementType.Time);
         AddAchievementToType(AchievementType.Time, 1, "Speed Demon");
         AddAchievementToType(AchievementType.Time, 2, "Sprint Demon");
         AddAchievementToType(AchievementType.Time, 5, "Speed God");
 
         AddAchievementToType(AchievementType.PlantingTrees, 0, "Planting Trees");
-        updateAchievement(AchievementType.PlantingTrees);
-
-        AddAchievementToType(AchievementType.PlantingTrees, 1, "Tree Trooper");
-        AddAchievementToType(AchievementType.PlantingTrees, 2, "Tree Hugger");
-        AddAchievementToType(AchievementType.PlantingTrees, 3, "Tree Mesiah");
+        AddAchievementToType(AchievementType.PlantingTrees, 6, "Tree Hugger");
+        AddAchievementToType(AchievementType.PlantingTrees, 7, "Tree Trooper");
+        AddAchievementToType(AchievementType.PlantingTrees, 10, "Tree Mesiah");
+        AddAchievementToType(AchievementType.Fires, 0, "Putting out fires");
+        AddAchievementToType(AchievementType.Fires, 5, "Fire Recruit");
+        AddAchievementToType(AchievementType.Fires, 8, "Fire Fighter");
+        AddAchievementToType(AchievementType.Fires, 12, "Fire Genneral");
+        AddAchievementToType(AchievementType.LevelCompletionsForest, 0, "Forest Level Completions");
+        AddAchievementToType(AchievementType.LevelCompletionsForest, 1, "Forest Trooper ");
+        AddAchievementToType(AchievementType.LevelCompletionsForest, 2, "Nature Lover");
+        AddAchievementToType(AchievementType.LevelCompletionsForest, 3, "Mother Nature");
+        AddAchievementToType(AchievementType.LevelCompletionsOcean, 0, "Ocean Level Completions");
+        AddAchievementToType(AchievementType.LevelCompletionsOcean, 1, "Ocean Trooper");
+        AddAchievementToType(AchievementType.LevelCompletionsOcean, 2, "Ocean Lover");
+        AddAchievementToType(AchievementType.LevelCompletionsOcean, 3, "Poseidon");
+        AddAchievementToType(AchievementType.LevelCompletionsCity, 0, "City Level Completeions");
+        AddAchievementToType(AchievementType.LevelCompletionsCity, 1, "City Trooper");
+        AddAchievementToType(AchievementType.LevelCompletionsCity, 2, "CIty Lover");
+        AddAchievementToType(AchievementType.LevelCompletionsCity, 3, "City Saviour");
+        AddAchievementToType(AchievementType.Deaths, 0, "Death Count");
+        AddAchievementToType(AchievementType.Deaths, 1, "Never Give Up");
+        AddAchievementToType(AchievementType.Deaths, 3, "Persevere");
+        AddAchievementToType(AchievementType.Deaths, 10, "God of Patience");
+        foreach (AchievementType achievementType in achievementsMap.Keys)
+        {
+            updateAchievement(achievementType);
+        }
 
     }
 
-    public int GetNumStars(AchievementType achievementType){
+    public int GetNumStars(AchievementType achievementType)
+    {
         return achievementsMap[achievementType].achievementNames.Count;
     }
 
