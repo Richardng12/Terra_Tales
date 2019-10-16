@@ -79,9 +79,12 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     // be generated from the spawner
     public override void OnDestroy()
     {
-        spawner.getSpawnedObjects()[this.GetLocation()] = null;
-        // Sets the delay
-        spawner.SetCurrentSpawnDelay(0);
+        if (spawner != null)
+        {
+            spawner.getSpawnedObjects()[this.GetLocation()] = null;
+            // Sets the delay
+            spawner.SetCurrentSpawnDelay(0);
+        }
     }
     // If sprite hits the player plays loses health
     void OnTriggerEnter2D(Collider2D other)
