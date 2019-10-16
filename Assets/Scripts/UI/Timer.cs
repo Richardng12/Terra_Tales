@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public Text text;
 
     private float countTime = 0f;
+    private bool isComplete = false;
 
    static Coroutine co;
     // routine that countsdown from given time in second to zero
@@ -47,8 +48,8 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         StopCoroutine(co);
-        if(countTime < 60){
-            Debug.Log("Count is less than 60");
+        if(countTime < 60 && !isComplete){
+            isComplete = true;
             AchievementManager.instance.IncrementAchievement(AchievementType.Time);
         }
     }
