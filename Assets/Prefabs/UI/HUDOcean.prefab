@@ -189,7 +189,7 @@ RectTransform:
   - {fileID: 190073414026618283}
   - {fileID: 7078268853701480418}
   m_Father: {fileID: 2739432745825510656}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1112,8 +1112,8 @@ RectTransform:
   - {fileID: 2542655208633386269}
   - {fileID: 2559138085824781344}
   - {fileID: 2771900333870442932}
-  - {fileID: 8293760351899841402}
   - {fileID: 374222068413332102}
+  - {fileID: 6030794556004209260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2110,7 +2110,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1001 &2878699622597945820
+--- !u!1001 &530235794070735050
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2121,16 +2121,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BlackFade
-      objectReference: {fileID: 0}
-    - target: {fileID: 6118818591496543065, guid: b4e095489a7d2034d85aea998ef0c8e4,
-        type: 3}
-      propertyPath: m_TagString
-      value: BlackFade
-      objectReference: {fileID: 0}
-    - target: {fileID: 6118818591496543065, guid: b4e095489a7d2034d85aea998ef0c8e4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6118818591496542886, guid: b4e095489a7d2034d85aea998ef0c8e4,
         type: 3}
@@ -2170,7 +2160,7 @@ PrefabInstance:
     - target: {fileID: 6118818591496542886, guid: b4e095489a7d2034d85aea998ef0c8e4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6118818591496542886, guid: b4e095489a7d2034d85aea998ef0c8e4,
         type: 3}
@@ -2239,11 +2229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4e095489a7d2034d85aea998ef0c8e4, type: 3}
---- !u!224 &8293760351899841402 stripped
+--- !u!224 &6030794556004209260 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6118818591496542886, guid: b4e095489a7d2034d85aea998ef0c8e4,
     type: 3}
-  m_PrefabInstance: {fileID: 2878699622597945820}
+  m_PrefabInstance: {fileID: 530235794070735050}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3933640082860267703
 PrefabInstance:
