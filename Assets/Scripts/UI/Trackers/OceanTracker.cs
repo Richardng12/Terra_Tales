@@ -50,7 +50,7 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
         if (RubbishTypes.RubbishBag.ToString().Equals(binItem))
         {
             tasks[0]++;
-            text.text = +tasks[0] + "/" + rubbishToCollect + " Rubbish Collected";
+            text.text = tasks[0] + "/" + rubbishToCollect + " Rubbish Collected";
 
         }
         else if (RubbishTypes.RecyclableCans.ToString().Equals(binItem))
@@ -65,7 +65,10 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
             text.text = tasks[2] + "/" + rubbishToCollect + " Compost Collected";
 
         }
-
+        if (CheckIsComplete())
+        {
+            text.text = "Tasks completed. Please Return to NPC";
+        }
         StartCoroutine(TextFadeOutRoutine());
 
         // checks whther game objective is met then calculates score for stage
@@ -73,6 +76,12 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
         {
             gameManager.GetComponent<Scoring>().StopStageTimer();
         }
+    }
+    public void ShowWrongRubbishPrompt()
+    {
+        text.color = startingColour;
+        text.text = "Hey that isn't meant to go there!!";
+        StartCoroutine(TextFadeOutRoutine());
     }
 
     public IEnumerator TextFadeOutRoutine()

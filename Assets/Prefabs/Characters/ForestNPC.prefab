@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 8074238995473248183}
   - component: {fileID: 8074238995473248180}
   - component: {fileID: 1568456827151103285}
+  - component: {fileID: 1333114991358705656}
   m_Layer: 0
   m_Name: ForestNPC
   m_TagString: Untagged
@@ -191,6 +192,10 @@ MonoBehaviour:
     sentences:
     - Thanks for replanting all our trees!!
   treeTrackerObject: {fileID: 0}
+  timelineTrigger: {fileID: 0}
+  timerObject: {fileID: 0}
+  seedlingHUD: {fileID: 0}
+  gameManager: {fileID: 0}
   showText: {fileID: 8074238995037273088}
 --- !u!61 &1568456827151103285
 BoxCollider2D:
@@ -218,6 +223,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47, y: 0.77}
   m_EdgeRadius: 0
+--- !u!95 &1333114991358705656
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074238995473248181}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b55f229f90344359a129722905cf7cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8074238995907745519
 GameObject:
   m_ObjectHideFlags: 0
