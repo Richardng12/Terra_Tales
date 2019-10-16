@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,14 +16,13 @@ public class HighScore : MonoBehaviour
 
     static public HighScore instance;
 
-    static private Dictionary<string, int> highScoreDict;
+    static public Dictionary<string, int> highScoreDict = new Dictionary<string, int>();
 
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            highScoreDict = new Dictionary<string, int>();
             // Dont destroy this object when a new scene is loaded
             DontDestroyOnLoad(this);
         }
@@ -40,15 +40,12 @@ public class HighScore : MonoBehaviour
     {
         totalScore = Scoring.cityScore + Scoring.forestScore + Scoring.oceanScore;
         scoreText.text = totalScore.ToString();
-        nextButton.onClick.AddListener(SetHighScore);
+        nextButton.onClick.AddListener(AddScore);
     }
 
-    public void SetHighScore()
+    public void AddScore()
     {
         highScoreDict.Add(playerText.text, totalScore);
-        foreach(KeyValuePair<string, int> item in highScoreDict)
-        {
-            Debug.Log("Name: " + item.Key + " Score: " + item.Value);
-        }
+        highScoreDict = highScoreDict.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
     }
 }
