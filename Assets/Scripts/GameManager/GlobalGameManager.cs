@@ -6,7 +6,7 @@ public class GlobalGameManager : MonoBehaviour
 {
 
     public static GlobalGameManager instance;
-    public bool firstPlay;
+    public bool firstPlay = true;
 
 
     // Start is called before the first frame update
