@@ -14,22 +14,51 @@ public class TimelineOceanTrigger : MonoBehaviour
     public GameObject oceanLevelStart;
     public GameObject finishScreen;
 
+    private GameObject player;
+
+    private GameObject oceanNPC;
+
+    public GameObject bins;
+
+    public GameObject spawners;
+
+public TrashScript[] trash;
+public OilSpriteController[] oilPuddles;
+
     public Text scoreText;
-    void Start()
-    {
-    
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    //Plays cutscene once player has finished the forest level
+    //Plays cutscene once player has finished the ocean level
    public void PlayCutScene()
     {
+        //Disable player movement
+        player = GameObject.FindWithTag("Player");
+        player.GetComponent<CharacterController>().enabled = false;
+        player.GetComponent<CharacterAction>().enabled = false;
+
+        //Set new background
+        oceanNPC = GameObject.FindWithTag("OceanNPC");
+        oceanNPC.GetComponent<OceanNPC>().enabled = false;
         oceanLevelWall.SetActive(true);
         oceanLevelStart.SetActive(false);
+
+        //Destroy all trash
+        bins.SetActive(false);
+        spawners.SetActive(false);
+
+        trash = FindObjectsOfType(typeof(TrashScript)) as TrashScript[];
+        oilPuddles = FindObjectsOfType(typeof(OilSpriteController)) as OilSpriteController[];
+
+          foreach (TrashScript t in trash)
+        {
+            Destroy(t.gameObject);
+            Debug.Log("destroy trash");
+        }
+          foreach (OilSpriteController o in oilPuddles)
+        {
+            Destroy(o.gameObject);
+        }
+
+        
         timeline.Play();
 
     }
@@ -39,6 +68,7 @@ public class TimelineOceanTrigger : MonoBehaviour
     {
         if (timeline == aDirector)
         {
+            Debug.Log("finish screen should show");
           //  firstStartTimeLine.SetActive(false);
          //   player.GetComponent<CharacterController>().enabled = true;
             scoreText.text = Scoring.oceanScore.ToString();

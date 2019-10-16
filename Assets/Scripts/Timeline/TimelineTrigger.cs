@@ -15,6 +15,9 @@ public class TimelineTrigger : MonoBehaviour
 
     public GameObject forestLevelWall;
 
+    private GameObject forestNPC;
+
+    private GameObject player;
     public Text scoreText;
     void Start()
     {
@@ -29,7 +32,11 @@ public class TimelineTrigger : MonoBehaviour
     //Plays cutscene once player has finished the forest level
    public void PlayCutScene()
     {
-
+        player = GameObject.FindWithTag("Player");
+        player.GetComponent<CharacterController>().enabled = false;
+         player.GetComponent<CharacterAction>().enabled = false;
+          forestNPC = GameObject.FindWithTag("ForestNPC");
+        forestNPC.GetComponent<ForestNPC>().enabled = false;
         greenScene.SetActive(true);
         forestLevelFinishWall.SetActive(true);
         forestLevelWall.SetActive(false);
@@ -44,6 +51,7 @@ public class TimelineTrigger : MonoBehaviour
         {
           //  firstStartTimeLine.SetActive(false);
          //   player.GetComponent<CharacterController>().enabled = true;
+            Debug.Log("finish screen should display");
             scoreText.text = Scoring.forestScore.ToString();
             finishScreen.SetActive(true);
             Time.timeScale = 0f;
