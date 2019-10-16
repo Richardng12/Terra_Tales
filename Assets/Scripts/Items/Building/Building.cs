@@ -30,7 +30,7 @@ public class Building : MonoBehaviour
 
         if (character != null && shortCircuit) {
             if (character.getBootsHealth() > 0) {
-                //TO DO
+                // if player's boots' health is above 0, the boots will take damage instead of the player when standing on a short-circuited building
                 character.loseBootsHealth();
                 Debug.Log("boots health: " + character.getBootsHealth());
             } else {
@@ -39,7 +39,7 @@ public class Building : MonoBehaviour
         } 
     }
 
-    // Turn all the building lights on due to wrong switch by player
+    // turn all the building lights on due to wrong switch by player
     public void turnAllOn()
     {
         foreach (Column column in columns) 

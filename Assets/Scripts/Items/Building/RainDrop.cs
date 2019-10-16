@@ -31,11 +31,12 @@ public class RainDrop : MonoBehaviour
             hasSplashed = true;
             Debug.Log("take rain dmg");
             this.gameObject.GetComponent<SpriteRenderer>().sprite = splash;
-            waitForCD();
+            StartCoroutine(waitForSplash());
         }
     }
-    IEnumerator waitForCD() {
-        yield return new WaitForSeconds(0.1f);
+
+    IEnumerator waitForSplash() {
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }

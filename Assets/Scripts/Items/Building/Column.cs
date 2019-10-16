@@ -6,6 +6,8 @@ public class Column : MonoBehaviour
 {
     
     public List<Window> windows;
+    // cooldown property: after the lights of a column has been turned on by the game, put it on cooldown to ensure the lights don't get turned
+    // on immediately after again
     private bool onCD;
 
     // Start is called before the first frame update
@@ -40,6 +42,7 @@ public class Column : MonoBehaviour
         }
     }
 
+    // method called when player incorrectly turns off the lights
     public void wrongSwitch() {
         Debug.Log("OIII");
         StartCoroutine(waitToTurnOn());
@@ -73,6 +76,7 @@ public class Column : MonoBehaviour
         Debug.Log("off CD!!");
     }
 
+    // allow the lights to be turned off for a few seconds before notifying building to turn all its lights on
     IEnumerator waitToTurnOn()
     {
         yield return new WaitForSeconds(1);

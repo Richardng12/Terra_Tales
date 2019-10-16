@@ -51,8 +51,10 @@ public class Window: MonoBehaviour
         isOn = false;
 
         if (hasPerson) {
+            // if window turned off while person is inside, signal to column parent that a mistake has been made
             transform.parent.GetComponent<Column>().wrongSwitch();
         } else {
+            // if window has been correctly turned off, put the window on cooldown 
             transform.parent.GetComponent<Column>().putOnCD();
         }
     }
@@ -65,6 +67,7 @@ public class Window: MonoBehaviour
         hasPerson = false;
     }
 
+    // turns on light of a window while maintaining its state (ie. whether or not the window had a person)
     public void turnOnEmpty() {
         if (hasPerson) {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOnPerson;

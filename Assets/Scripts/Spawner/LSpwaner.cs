@@ -30,6 +30,7 @@ public class LSpwaner : MonoBehaviour
         Building building = buildings[Random.Range(0, buildings.Count)];
         Column column = building.getColumns()[Random.Range(0, building.getColumns().Count)];
         if (column.ifWindowOn() || column.getOnCD()) {
+            // if the column's lights are currently on, or it is on cooldown, randomly select another column to turn on
             SpawnRandom();
         } else {
             column.turnOnWindows(true);
@@ -37,6 +38,7 @@ public class LSpwaner : MonoBehaviour
         }
     }
 
+    // allow person to stay in the window for a few seconds before leaving
     IEnumerator waitForPersonLeave(Column column) {
         yield return new WaitForSeconds(Random.Range(2, 10));
         foreach (Window window in column.getWindows()) {
