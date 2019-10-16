@@ -18,6 +18,7 @@ public class FirstStartOceanTimeline : MonoBehaviour
         //Cancel player movement during cutscene
         player = GameObject.FindWithTag("Player");
         player.GetComponent<CharacterController>().enabled = false;
+        player.GetComponent<CharacterAction>().enabled = false;
         blackFade = GameObject.FindGameObjectWithTag("BlackFade");
         StartCoroutine(delayedPlayback());
     }
@@ -36,12 +37,13 @@ public class FirstStartOceanTimeline : MonoBehaviour
             Debug.Log("blackfade should be disabled");
             blackFade.SetActive(false);
             player.GetComponent<CharacterController>().enabled = true;
+            player.GetComponent<CharacterAction>().enabled = true;
         }
 
     }
 
     IEnumerator delayedPlayback(){
-         yield return new WaitForSeconds(3f);
+         yield return new WaitForSeconds(4f);
          blackFade.GetComponent<DialogueFade>().FadeToDialogue();
     }
 
