@@ -30,6 +30,7 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
 
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         //Get reference to player object
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
         //Get reference to player position
@@ -37,9 +38,11 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         //Get reference to oil sprite
         centrePos = GameObject.FindGameObjectWithTag("Centre").transform;
         //Get reference to spawner objects
-        spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
+        if (GameObject.FindGameObjectWithTag("EnemySpawner") != null) {
+            spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
+        }
+
         //Get reference to rigidbody object
-        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     void Update()
