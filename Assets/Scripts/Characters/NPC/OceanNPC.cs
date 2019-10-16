@@ -23,6 +23,8 @@ public class OceanNPC : MonoBehaviour, INPC
 
     public GameObject timerObject;
 
+    public GameObject dialogueBox;
+
       public GameObject timelineOceanTrigger;
     private bool startOfLevel = true;
 
@@ -54,8 +56,10 @@ public class OceanNPC : MonoBehaviour, INPC
                 EndDialogueOcean();
             }
         }
-        // If player presses E it should continue the dialogue         if (Input.GetKeyDown(KeyCode.E))
+        // If player presses E it should continue the dialogue         
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            dialogueBox.SetActive(true);
             // If in range of NPC and dialogue has not yet started then start
             // the diagloue 
             if (interactable && !initialised)
@@ -128,6 +132,7 @@ public class OceanNPC : MonoBehaviour, INPC
 
      public void EndDialogueOcean(){
 
+        dialogueBox.SetActive(false);
         Debug.Log("WElp");
          dialogueManager.EndDialogue();
                 StopAllCoroutines();

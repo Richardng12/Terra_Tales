@@ -15,6 +15,8 @@ public class ForestNPC : MonoBehaviour, INPC
     public GameObject seedlingHUD;
     public GameObject gameManager;
 
+    public GameObject dialogueBox;
+
     private int treesToPlant;
 
     private bool startOfLevel = true;
@@ -62,6 +64,7 @@ public class ForestNPC : MonoBehaviour, INPC
         // If player presses E it should continue the dialogue
         if (Input.GetKeyDown(KeyCode.E))
         {
+            dialogueBox.SetActive(true);
             // If in range of NPC and dialogue has not yet started then start
             // the diagloue 
             if (interactable && !initialised)
@@ -125,6 +128,7 @@ public class ForestNPC : MonoBehaviour, INPC
 
     public void EndDialogueForest(){
 
+        dialogueBox.SetActive(false);
         Debug.Log("WElp");
          dialogueManager.EndDialogue();
                 StopAllCoroutines();
