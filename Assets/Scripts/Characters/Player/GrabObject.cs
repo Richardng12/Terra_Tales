@@ -33,7 +33,7 @@ public class GrabObject : MonoBehaviour
         }
         if (isGrabbed)
         {
-            // Throws the object
+            // The object stays at the hold position
             if (grabbedRubbishItem != null)
             {
                 grabbedRubbishItem.transform.position = holdPoint.position;
@@ -42,8 +42,8 @@ public class GrabObject : MonoBehaviour
     }
     private void Grab()
     {
-        // If player is already grabbing something
-        if (isGrabbed)
+        // If player is already grabbing something then throw it
+        if (isGrabbed && grabbedRubbishItem.GetComponent<TrashScript>().isThrowable)
         {
             isGrabbed = false;
             audioManager.Play(throwSound);

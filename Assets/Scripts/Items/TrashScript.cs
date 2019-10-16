@@ -7,7 +7,7 @@ public class TrashScript : AbstractSpawnableObject
 {
     private SpawnerScript spawner;
     private GrabObject player;
-
+    public bool isThrowable = true;
     private void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<SpawnerScript>();
@@ -36,6 +36,10 @@ public class TrashScript : AbstractSpawnableObject
             player.SetInteractable(true);
 
         }
+        if (collision.gameObject.tag.Equals("Ground"))
+        {
+            isThrowable = false;
+        }
     }
     // Sets interactable to false if leaves range of rubbish
     private void OnTriggerExit2D(Collider2D collision)
@@ -45,6 +49,10 @@ public class TrashScript : AbstractSpawnableObject
             player.SetRubbishItem(null);
             player.SetInteractable(false);
 
+        }
+        if (collision.gameObject.tag.Equals("Ground"))
+        {
+            isThrowable = true;
         }
     }
 
@@ -56,6 +64,7 @@ public class TrashScript : AbstractSpawnableObject
             player.SetInteractable(true);
 
         }
+
     }
 
 

@@ -2,33 +2,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Achievement
+public class AchievementName
 {
     public int unlockCount { get; set; }
     public bool isUnlocked { get; set; }
     public string name { get; set; }
-    public string msg0 { get; set; }
-    public string msg1 { get; set; }
 
-    public Achievement(int unlockCount, bool isUnlocked, string name, string msg0, string msg1)
+    public AchievementName(int unlockCount, string name)
     {
         this.unlockCount = unlockCount;
-        this.isUnlocked = isUnlocked;
+        this.isUnlocked = false;
         this.name = name;
+    }
+}
+public class Achievement
+{
+    public string msg0 { get; set; }
+    public string msg1 { get; set; }
+    public int count { get; set; }
+    public int unlockedAchievements { get; set; }
+
+    public List<AchievementName> achievementNames;
+
+    public Achievement(string msg0, string msg1)
+    {
+        unlockedAchievements = 0;
         this.msg0 = msg0;
         this.msg1 = msg1;
+        count = 0;
+        achievementNames = new List<AchievementName>();
     }
 }
 public enum AchievementType
 {
     PlantingTrees,
+    Time,
     ReducingFires,
     RefillingGun,
     LevelCompletions,
     Trash,
     Switch,
-    Boots,
+    Plays,
     Deaths,
     HighScore,
 };
@@ -37,16 +53,20 @@ public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager instance;
 
-    private Dictionary<AchievementType, List<Achievement>> achievementsMap = new Dictionary<AchievementType, List<Achievement>>();
+    public Text name;
+    public Text message;
+
+    public CanvasGroup achievementNotification;
+
+    private Dictionary<AchievementType, Achievement> achievementsMap = new Dictionary<AchievementType, Achievement>();
     //private static List<Achievement> unlockedAchievements;
-    private Dictionary<AchievementType, int> achievementCounts = new Dictionary<AchievementType, int>();
 
     //TODO get last unlocked.
 
-    public List<Achievement> GetCompletedAchievements(AchievementType achievementType)
+    public List<AchievementName> GetCompletedAchievements(AchievementType achievementType)
     {
-        List<Achievement> result = new List<Achievement>();
-        foreach (Achievement achievement in achievementsMap[achievementType])
+        List<AchievementName> result = new List<AchievementName>();
+        foreach (AchievementName achievement in achievementsMap[achievementType].achievementNames)
         {
             if (achievement.isUnlocked)
             {
@@ -57,24 +77,28 @@ public class AchievementManager : MonoBehaviour
         return result;
     }
 
-    public Achievement GetAchievementForType(AchievementType achievementType)
+    public AchievementName GetAchievementForType(AchievementType achievementType)
     {
-        return achievementsMap[achievementType][0];
+        return achievementsMap[achievementType].achievementNames[0];
     }
     public int GetCountForType(AchievementType achievementType)
     {
-        return achievementCounts[achievementType];
+        return achievementsMap[achievementType].count;
     }
 
-
-
-    public List<Achievement> GetUnlockedAchievements()
+    public AchievementName GetLastAchievement(AchievementType achievementType)
     {
-        List<Achievement> result = new List<Achievement>();
-        foreach (KeyValuePair<AchievementType, List<Achievement>> entry in achievementsMap)
+        Achievement achievement = achievementsMap[achievementType];
+        return achievement.achievementNames[achievement.count - 1];
+    }
+
+    public List<AchievementName> GetUnlockedAchievements()
+    {
+        List<AchievementName> result = new List<AchievementName>();
+        foreach (KeyValuePair<AchievementType, Achievement> entry in achievementsMap)
         {
             // do something with entry.Value or entry.Key
-            foreach (Achievement achievement in entry.Value)
+            foreach (AchievementName achievement in entry.Value.achievementNames)
             {
                 if (achievement.isUnlocked)
                 {
@@ -89,7 +113,7 @@ public class AchievementManager : MonoBehaviour
 
     void Awake()
     {
-            Debug.Log("Awaenachieveentangercalled");
+        Debug.Log("Awaenachieveentangercalled");
 
         if (instance == null)
         {
@@ -110,51 +134,101 @@ public class AchievementManager : MonoBehaviour
 
     public int getUnlockNum(AchievementType achievementType, int index)
     {
-        return achievementsMap[achievementType][index].unlockCount;
+        return achievementsMap[achievementType].achievementNames[index].unlockCount;
     }
 
     public void IncrementAchievement(AchievementType ach)
     {
-        achievementCounts[ach]++;
+        achievementsMap[ach].count++;
         updateAchievement(ach);
-
     }
 
     private void updateAchievement(AchievementType ach)
     {
         Debug.Log("Updating achievements");
 
-        int curCount = achievementCounts[ach];
-        List<Achievement> achievements = achievementsMap[ach];
-        foreach (Achievement achievement in achievements)
+        int curCount = achievementsMap[ach].count;
+        List<AchievementName> achievements = achievementsMap[ach].achievementNames;
+        foreach (AchievementName achievement in achievements)
         {
-            if (curCount >= achievement.unlockCount)
+            bool waslocked = !achievement.isUnlocked;
+            if (curCount >= achievement.unlockCount )
             {
                 achievement.isUnlocked = true;
+                if (waslocked)
+                {
+                    Debug.Log(curCount);
+                    if(curCount != 0){
+                    StartCoroutine(ShowAndFade());
+                    
+                    message.text = achievementsMap[ach].msg0 + achievement.unlockCount + achievementsMap[ach].msg1;
+                    name.text = achievement.name;
+                    }
+                    achievementsMap[ach].unlockedAchievements++;
+                }
                 Debug.Log("Unlocked one");
             }
         }
     }
 
-    // Start is called before the first frame update
+    IEnumerator ShowAndFade()
+    {
+        achievementNotification.gameObject.SetActive(true);
+        achievementNotification.alpha = 1;
+        yield return new WaitForSeconds(1);
+        for (float i = 1f; i > 0; i -= 0.01f)
+        {
+            yield return new WaitForSeconds(.01f);
+            achievementNotification.alpha = i;
+        }
+        achievementNotification.gameObject.SetActive(false);
+
+    }
+    public String GetMessageForAchievement(AchievementType achievementType)
+    {
+        Achievement achievement = achievementsMap[achievementType];
+        return achievement.msg0 + achievement.count + achievement.msg1;
+    }
     void Start()
     {
-        List<Achievement> initialList = new List<Achievement>();
-        Achievement ach = new Achievement(3, false, "First Time Playing!", "Congratulations on playing for ", " time");
-        initialList.Add(ach);
-        achievementsMap.Add(AchievementType.Boots, initialList);
+        //Initialise achievement messages
+        Achievement achievement = new Achievement("Congratulations on playing for ", " time(s)");
+        achievementsMap.Add(AchievementType.Plays, achievement);
+        achievement = new Achievement("Congratulations on planting ", " tree(s)");
+        achievementsMap.Add(AchievementType.PlantingTrees, achievement);
 
-        initialList = new List<Achievement>();
-        ach = new Achievement(1, false, "Tree Trooper", "Congratulations on planting ", " trees");
-        initialList.Add(ach);
-        ach = new Achievement(5, false, "Tree Hugger", "Congratulations on planting ", " trees");
-        initialList.Add(ach);
-        ach = new Achievement(10, false, "Tree Mesiah", "Congratulations on planting ", " trees");
-        initialList.Add(ach);
-        //TODO remove this
-        achievementsMap.Add(AchievementType.PlantingTrees, initialList);
-        achievementCounts.Add(AchievementType.PlantingTrees, 1);
-        IncrementAchievement(AchievementType.PlantingTrees);
+        achievement = new Achievement("Congratulations on finishing ", " level(s) in under one minute");
+        achievementsMap.Add(AchievementType.Time, achievement);
+
+
+        //Initialise achievement counts and names
+        AddAchievementToType(AchievementType.Plays, 1, "First Time Playing!");
+        IncrementAchievement(AchievementType.Plays);
+
+        
+        AddAchievementToType(AchievementType.Time, 0, "Time");
+        updateAchievement(AchievementType.Time);
+        AddAchievementToType(AchievementType.Time, 1, "Speed Demon");
+        AddAchievementToType(AchievementType.Time, 2, "Sprint Demon");
+        AddAchievementToType(AchievementType.Time, 5, "Speed God");
+
+        AddAchievementToType(AchievementType.PlantingTrees, 0, "Planting Trees");
+        updateAchievement(AchievementType.PlantingTrees);
+
+        AddAchievementToType(AchievementType.PlantingTrees, 1, "Tree Trooper");
+        AddAchievementToType(AchievementType.PlantingTrees, 2, "Tree Hugger");
+        AddAchievementToType(AchievementType.PlantingTrees, 3, "Tree Mesiah");
+
+    }
+
+    public int GetNumStars(AchievementType achievementType){
+        return achievementsMap[achievementType].achievementNames.Count;
+    }
+
+    private void AddAchievementToType(AchievementType type, int unlockCount, string name)
+    {
+        AchievementName achievement = new AchievementName(unlockCount, name);
+        achievementsMap[type].achievementNames.Add(achievement);
     }
 
     // Update is called once per frame
