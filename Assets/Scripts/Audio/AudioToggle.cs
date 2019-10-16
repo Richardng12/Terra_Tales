@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ForestAudioToggle : MonoBehaviour
+public class AudioToggle : MonoBehaviour
 {
 
     public AudioManager audioManager;
