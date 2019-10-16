@@ -152,15 +152,19 @@ public class AchievementManager : MonoBehaviour
         foreach (AchievementName achievement in achievements)
         {
             bool waslocked = !achievement.isUnlocked;
-            if (curCount >= achievement.unlockCount)
+            if (curCount >= achievement.unlockCount )
             {
                 achievement.isUnlocked = true;
                 if (waslocked)
                 {
+                    Debug.Log(curCount);
+                    if(curCount != 0){
                     StartCoroutine(ShowAndFade());
-                    achievementsMap[ach].unlockedAchievements++;
+                    
                     message.text = achievementsMap[ach].msg0 + achievement.unlockCount + achievementsMap[ach].msg1;
                     name.text = achievement.name;
+                    }
+                    achievementsMap[ach].unlockedAchievements++;
                 }
                 Debug.Log("Unlocked one");
             }
@@ -202,9 +206,14 @@ public class AchievementManager : MonoBehaviour
         IncrementAchievement(AchievementType.Plays);
 
         
+        AddAchievementToType(AchievementType.Time, 0, "Time");
+        updateAchievement(AchievementType.Time);
         AddAchievementToType(AchievementType.Time, 1, "Speed Demon");
         AddAchievementToType(AchievementType.Time, 2, "Sprint Demon");
-        AddAchievementToType(AchievementType.Time, 3, "Speed God");
+        AddAchievementToType(AchievementType.Time, 5, "Speed God");
+
+        AddAchievementToType(AchievementType.PlantingTrees, 0, "Planting Trees");
+        updateAchievement(AchievementType.PlantingTrees);
 
         AddAchievementToType(AchievementType.PlantingTrees, 1, "Tree Trooper");
         AddAchievementToType(AchievementType.PlantingTrees, 2, "Tree Hugger");
