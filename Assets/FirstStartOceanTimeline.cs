@@ -19,7 +19,6 @@ public class FirstStartOceanTimeline : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         player.GetComponent<CharacterController>().enabled = false;
         blackFade = GameObject.FindGameObjectWithTag("BlackFade");
-
         StartCoroutine(delayedPlayback());
     }
 
