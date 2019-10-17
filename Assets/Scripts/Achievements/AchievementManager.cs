@@ -203,7 +203,7 @@ public class AchievementManager : MonoBehaviour
     public String GetMessageForAchievement(AchievementType achievementType)
     {
         Achievement achievement = achievementsMap[achievementType];
-        if (achievement.count <= 1)
+        if (achievement.count < 1)
         {
             return achievement.lockedMsg;
         }
@@ -241,12 +241,12 @@ public class AchievementManager : MonoBehaviour
         AddAchievementToType(AchievementType.Time, 5, "Speed God");
 
         AddAchievementToType(AchievementType.PlantingTrees, 0, "Planting Trees");
-        AddAchievementToType(AchievementType.PlantingTrees, 6, "Tree Hugger");
+        AddAchievementToType(AchievementType.PlantingTrees, 1, "Tree Hugger");
         AddAchievementToType(AchievementType.PlantingTrees, 7, "Tree Trooper");
         AddAchievementToType(AchievementType.PlantingTrees, 10, "Tree Mesiah");
 
         AddAchievementToType(AchievementType.Fires, 0, "Putting out fires");
-        AddAchievementToType(AchievementType.Fires, 5, "Fire Recruit");
+        AddAchievementToType(AchievementType.Fires, 1, "Fire Recruit");
         AddAchievementToType(AchievementType.Fires, 8, "Fire Fighter");
         AddAchievementToType(AchievementType.Fires, 12, "Fire Genneral");
 
