@@ -12,6 +12,8 @@ public class FirstStartForestTimeline : MonoBehaviour
 
     public GameObject skipButton;
 
+    public GameObject seedlingHUD;
+
     private bool isPlaying = false;
 
    void Update(){
@@ -19,6 +21,7 @@ public class FirstStartForestTimeline : MonoBehaviour
         {
             if (isPlaying)
             {
+                seedlingHUD.SetActive(true);
                 StopTimeline();
                 skipButton.SetActive(false);
             }
@@ -28,6 +31,7 @@ public class FirstStartForestTimeline : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        seedlingHUD.SetActive(false);
         skipButton.SetActive(true);
         isPlaying = true;
         //Cancel player movement and shooting during cutscene
@@ -52,6 +56,7 @@ public class FirstStartForestTimeline : MonoBehaviour
             player.GetComponent<CharacterAction>().enabled = true;
             player.GetComponent<ShootWater>().enabled = true;
             skipButton.SetActive(false);
+            seedlingHUD.SetActive(true);
         }
     }
 
