@@ -8,6 +8,9 @@ public class Timer : MonoBehaviour
     public float time;
     public Text text;
 
+    private float countTime = 0f;
+    private bool isComplete = false;
+
    static Coroutine co;
     // routine that countsdown from given time in second to zero
     public IEnumerator StartCountdown()
@@ -29,6 +32,7 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
 
             time--;
+            countTime ++;
             text.text = secondsString;
             //TODO add the finish level thing here which is called to end the level.
         }
@@ -44,6 +48,10 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         StopCoroutine(co);
+        if(countTime < 60 && !isComplete){
+            isComplete = true;
+            AchievementManager.instance.IncrementAchievement(AchievementType.Time);
+        }
     }
 
 

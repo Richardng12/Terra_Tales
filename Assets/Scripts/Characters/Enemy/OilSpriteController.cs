@@ -24,12 +24,13 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     private Vector2 tempMove;
     private Vector2 oppMove;
     SpawnerScript spawner;
-
+    string monsterDeathSound = "FireMonsterDeath";
     //Variables for boundary collision
     private int travelTime = 0;
 
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         //Get reference to player object
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
         //Get reference to player position
@@ -37,9 +38,11 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         //Get reference to oil sprite
         centrePos = GameObject.FindGameObjectWithTag("Centre").transform;
         //Get reference to spawner objects
-        spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
+        if (GameObject.FindGameObjectWithTag("EnemySpawner") != null) {
+            spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
+        }
+
         //Get reference to rigidbody object
-        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -51,12 +54,17 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     //Method to destroy this gameobject
     public void LoseHealth()
     {
+        OceanTracker.oilSpriteDestroyed++;
+        Debug.Log(OceanTracker.oilSpriteDestroyed);
         OnDestroy();
     }
 
     //Method to destroy object and update spawn locations
     public override void OnDestroy()
     {
+        AudioManager.instance.Play(monsterDeathSound);
+        AchievementManager.instance.IncrementAchievement(AchievementType.OilSpills);
+
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
         spawner.SetCurrentSpawnDelay(0);
         Destroy(this.gameObject);
@@ -74,7 +82,8 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         }
 
         //If it hits a boundary
-        if (other.CompareTag("Boundary")) {
+        if (other.CompareTag("Boundary"))
+        {
             //Move oil sprite towards the map centre if it collides map boundary
             travelTime = 500;
             pos = new Vector2(centrePos.position.x, centrePos.position.y);
@@ -83,7 +92,7 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
             moveVelocity = moveInput.normalized * speed;
         }
     }
-    
+
     //Method to move oil sprite
     public void Move()
     {

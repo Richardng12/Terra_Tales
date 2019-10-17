@@ -14,25 +14,35 @@ public class Scoring : MonoBehaviour
 
     static public int cityScore = 0;
 
+    static private Timer timer;
+
     public int overallScore;
 
     private void Start()
     {
         Time.timeScale = 1f;
+        timer = timerObject.GetComponent<Timer>();
     }
 
     // calculates score for each stage and overall score
     public void CalculateStageScore(string stage)
     {
-        int currentScore = ScoreCalculation();
-        timerObject.GetComponent<Timer>().StopTimer();
+        Debug.Log("Stage: " + stage);
+        int currentScore = 0;
+        if (!stage.Equals(""))
+        {
+            currentScore = ScoreCalculation();
+        }
+
         // check the stage type and replaces score for stage if its greater than the current score 
         switch (stage)
         {
             case "Forest":
+                currentScore += (ForestTracker.fireSpriteDestroyed * 50);
                 forestScore = Math.Max(currentScore, forestScore);
                 break;
             case "Ocean":
+                currentScore += (OceanTracker.oilSpriteDestroyed * 20);
                 oceanScore = Math.Max(currentScore, oceanScore);
                 break;
             case "City":
@@ -44,16 +54,19 @@ public class Scoring : MonoBehaviour
         }
     }
 
+    public void StopStageTimer()
+    {
+        timer.StopTimer();
+    }
+
     private int ScoreCalculation()
     {
         // Grabs the scripts from the objects provided
         CharacterController characterController = playerObject.GetComponent<CharacterController>();
-        Timer timer = timerObject.GetComponent<Timer>();
 
         // Calculate the score from time and health
         int timerScore = (int)timer.time * 50;
         int healthScore = characterController.health * 200;
-
         return timerScore + healthScore;
     }
 }

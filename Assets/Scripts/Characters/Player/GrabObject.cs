@@ -13,6 +13,15 @@ public class GrabObject : MonoBehaviour
     public float throwVelocity;
     private bool interactable = false;
 
+    AudioManager audioManager;
+    string throwSound = "Throw";
+
+    private void Start()
+    {
+        // Sets audio manager
+        audioManager = AudioManager.instance;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -24,7 +33,7 @@ public class GrabObject : MonoBehaviour
         }
         if (isGrabbed)
         {
-            // Throws the object
+            // The object stays at the hold position
             if (grabbedRubbishItem != null)
             {
                 grabbedRubbishItem.transform.position = holdPoint.position;
@@ -33,10 +42,12 @@ public class GrabObject : MonoBehaviour
     }
     private void Grab()
     {
-        // If player is already grabbing something
-        if (isGrabbed)
+        // If player is already grabbing something then throw it
+        if (isGrabbed && grabbedRubbishItem.GetComponent<TrashScript>().isThrowable)
         {
             isGrabbed = false;
+            audioManager.Play(throwSound);
+
 
             if (grabbedRubbishItem != null)
             {
@@ -56,6 +67,7 @@ public class GrabObject : MonoBehaviour
             // If the player hasnt grabbed anything and is in range of r=grabbing a object
             if (interactable)
             {
+                audioManager.Play(throwSound);
                 if (rubbishItem != null)
                 {
                     // Set is grabbed to true so update method changes object location

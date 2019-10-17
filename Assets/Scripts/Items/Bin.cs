@@ -10,6 +10,7 @@ public class Bin : MonoBehaviour, IBins
     GrabObject grabObject;
     private OceanTracker oceanTracker;
     public string binItem;
+    string taskCompleted = "TaskComplete";
 
     void Start()
     {
@@ -35,7 +36,10 @@ public class Bin : MonoBehaviour, IBins
     // Destroys the rubbish that was collided with the bin
     public void DestroyRubbish()
     {
-        collidedObject.GetComponent<TrashScript>().OnDestroy();
+        if (collidedObject.GetComponent<TrashScript>() != null)
+        {
+            collidedObject.GetComponent<TrashScript>().OnDestroy();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,22 +50,26 @@ public class Bin : MonoBehaviour, IBins
 
     public void CheckCollision(Collider2D collision)
     {
+        collidedObject = null;
         // If the collsion object is a rubbish type which is grabbable and the player
         // has released it
-        if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
+        if (collision != null)
         {
-
-            collidedObject = collision.gameObject;
-            if (CheckRubbish())
+            if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
             {
-                // If the rubbish is the right type it should update the counter
-                oceanTracker.UpdateAndDisplayTaskCounter(binItem);
+                collidedObject = collision.gameObject;
+                if (CheckRubbish())
+                {
+                    AudioManager.instance.Play(taskCompleted);
+                    // If the rubbish is the right type it should update the counter
+                    oceanTracker.UpdateAndDisplayTaskCounter(binItem);
+                }
+                else
+                {
+                    oceanTracker.ShowWrongRubbishPrompt();
+                }
+                DestroyRubbish();
             }
-            else
-            {
-                // Character gets prompted of wrong rubbish placement
-            }
-            DestroyRubbish();
         }
     }
 

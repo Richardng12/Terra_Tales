@@ -30,10 +30,18 @@ public class CharacterController : MonoBehaviour, ICharacter
     //City scene
     private int bootsHealth = 0;
 
+    string jumpSound = "Jump";
+
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
+        audioManager = AudioManager.instance;
         Time.timeScale = 1f;
-        rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
     }
@@ -69,14 +77,6 @@ public class CharacterController : MonoBehaviour, ICharacter
         {
             jumps = 1;
         }
-        if (!Input.GetButton("Horizontal"))
-        {
-            move.SetBool("Moving", false);
-        }
-        if (!Input.GetButton("Jump"))
-        {
-            move.SetBool("Jumping", false);
-        }
         // Checks invulnerability if player is invulnerable
         if (isInVuln)
         {
@@ -103,14 +103,16 @@ public class CharacterController : MonoBehaviour, ICharacter
         }
     }
 
-
+    public bool OnGround()
+    {
+        return onGround;
+    }
 
 
 
     // Method to move the player
     public void Move(float moveInput, float speed)
     {
-        move.SetBool("Moving", true);
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         // If moving right and facing left then need to flip the image
@@ -129,22 +131,24 @@ public class CharacterController : MonoBehaviour, ICharacter
 
 
     // Method to jump
-    public void Jump(bool keyPressed, float jumpSpeed)
+    public bool Jump(bool keyPressed, float jumpSpeed)
     {
         if (keyPressed)
         {
             if (jumps == 0)
             {
-                return;
+                return false;
             }
-            else if (jumps > 0)
+            if (jumps > 0)
             {
-                move.SetBool("Jumping", true);
+                // Plays the jump sound
+                audioManager.Play(jumpSound);
                 jumps--;
                 rb.velocity = Vector2.up * jumpSpeed;
+                return true;
             }
-
         }
+        return false;
 
     }
 

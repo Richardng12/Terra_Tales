@@ -12,16 +12,25 @@ public class ForestNPC : MonoBehaviour, INPC
 
     public GameObject timerObject;
 
+    public GameObject seedlingHUD;
+    public GameObject gameManager;
+
+    public GameObject dialogueBox;
+
+    private int treesToPlant;
+
     private bool startOfLevel = true;
 
     private bool initialised = false;
     public Text showText;
+
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         treeTracker = treeTrackerObject.GetComponent<ForestTracker>();
+        treesToPlant = treeTracker.treesToPlant;
         interactable = false;
     }
 
@@ -45,36 +54,50 @@ public class ForestNPC : MonoBehaviour, INPC
                 initialised = true;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (interactable)
+            {
+                EndDialogueForest();
+            }
+        }
+
         // If player presses E it should continue the dialogue
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // If in range of NPC and dialogue has not yet started then start
-            // the diagloue 
-            if (interactable && !initialised)
-            {
-                TriggerDialogue();
-                // Set dialogue to started
-                initialised = true;
-            }
-            // If still in range and dialogue has started then show the next 
-            // sentences in the dialogue
-            else if (interactable && initialised)
-            {
-                dialogueManager.DisplayNextSentence();
-                // Once dialogue has ended then set time scale to 1
-                if (dialogueManager.GetDialogueEnded())
-                {
-                    Time.timeScale = 1.0f;
-                    // Dialogue has ended
-
-                    initialised = false;
-                    // Start of level should only gets set to false once as that
-                    // dialogue only happens at the start
-                    startOfLevel = false;
-                }
-            }
+            CheckDialogueLogic();
         }
     }
+    public void CheckDialogueLogic()
+    {
+        dialogueBox.SetActive(true);
+        // If in range of NPC and dialogue has not yet started then start
+        // the diagloue 
+        if (interactable && !initialised)
+        {
+            TriggerDialogue();
+            // Set dialogue to started
+            initialised = true;
+        }
+        // If still in range and dialogue has started then show the next 
+        // sentences in the dialogue
+        else if (interactable && initialised)
+        {
+            dialogueManager.DisplayNextSentence();
+            // Once dialogue has ended then set time scale to 1
+            if (dialogueManager.GetDialogueEnded())
+            {
+                Time.timeScale = 1.0f;
+                // Dialogue has ended
+
+                initialised = false;
+                // Start of level should only gets set to false once as that
+                // dialogue only happens at the start
+                startOfLevel = false;
+            }
+        }
+        }
 
     public void TriggerDialogue()
     {
@@ -84,13 +107,14 @@ public class ForestNPC : MonoBehaviour, INPC
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
             timerObject.GetComponent<Timer>().StartTimer();
+            seedlingHUD.SetActive(true);
         }
         // If complete then npc thanks
         else if (treeTracker.CheckIsComplete())
         {
+            gameManager.GetComponent<Scoring>().CalculateStageScore("Forest");
             dialogueManager.StartDialogue(dialogue[2]);
-            timelineTrigger.GetComponent<TimelineTrigger>().PlayCutScene();
-
+            timelineTrigger.GetComponent<TimelineForestTrigger>().PlayCutScene();
         }
         // Talks about current state of tasks
         else
@@ -104,8 +128,23 @@ public class ForestNPC : MonoBehaviour, INPC
     {
         // First sentence talks about rubbish bag task
         dialogue[1].sentences[0] = "You have planted " +
-        treeTracker.GetTasks()[0] + "/6 Trees";
+        treeTracker.GetTasks()[0] + "/" + treesToPlant + " Trees";
 
+    }
+
+    public void EndDialogueForest(){
+
+        dialogueBox.SetActive(false);
+        Debug.Log("WElp");
+         dialogueManager.EndDialogue();
+                StopAllCoroutines();
+                 dialogueManager.DisplayNextSentence();
+                    // Dialogue has ended
+
+                    initialised = false;
+                    // Start of level should only gets set to false once as that
+                    // dialogue only happens at the start
+                    startOfLevel = false;
     }
 
     private void OnTriggerEnter2D(Collider2D Collision)

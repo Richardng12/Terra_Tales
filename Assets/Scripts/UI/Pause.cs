@@ -7,9 +7,10 @@ public class Pause : MonoBehaviour
     public GameObject pauseMenu;
     public Button resumeButton;
     private bool paused;
-	
-	//Upon start, get the Resume button component and reference ContinueGame() method with it
-     void Start () {
+    readonly string mainMenuSound = "MainMenu";
+
+    //Upon start, get the Resume button component and reference ContinueGame() method with it
+    void Start () {
 		Button btn = GetComponent<Button>();
 		resumeButton.onClick.AddListener(ContinueGame);
 	}
@@ -48,5 +49,11 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         //enable the scripts again
+    }
+
+    public void ExitButtonPressed()
+    {
+        AudioManager.instance.StopAll();
+        AudioManager.instance.Play(mainMenuSound);
     }
 }
