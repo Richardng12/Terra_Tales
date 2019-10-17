@@ -14,6 +14,8 @@ public class FirstStartOceanTimeline : MonoBehaviour
 
      public GameObject itemHUD;
 
+    public GameObject liveScoreText;
+
     private bool isPlaying = false;
 
 
@@ -55,6 +57,7 @@ public class FirstStartOceanTimeline : MonoBehaviour
             blackFade.SetActive(false);
             player.GetComponent<CharacterAction>().enabled = true;
             player.GetComponent<ShootWater>().enabled = true;
+            liveScoreText.SetActive(true);
         }
 
     }

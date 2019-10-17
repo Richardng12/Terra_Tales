@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ForestTracker : MonoBehaviour, ITracker<int>
 {
     public int treesToPlant;
-    private int[] treesPlanted = new int[1];
+
+    static public int[] treesPlanted = new int[1];
 
     public Text text;
 
