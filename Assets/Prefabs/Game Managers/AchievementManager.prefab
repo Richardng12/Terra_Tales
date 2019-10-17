@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 613, y: -283}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: 603.2, y: -260.2}
+  m_SizeDelta: {x: 580.4, y: 245.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8028872844345897913
 CanvasRenderer:
@@ -107,7 +107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 691, y: -198}
+  m_AnchoredPosition: {x: 612, y: -156}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5941994731025797357
@@ -149,7 +149,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: New Table
 --- !u!1 &4615311939060868905
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,16 +175,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4615311939060868905}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 388739960131830618}
-  m_RootOrder: 2
+  m_Father: {fileID: 8403926136252353210}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 401, y: -280}
+  m_AnchoredPosition: {x: -266.90002, y: -6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7009525559398652853
@@ -250,14 +250,15 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1542976676691125679}
   m_Father: {fileID: 2579416249412547584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -112}
-  m_SizeDelta: {x: 400, y: 120}
+  m_AnchoredPosition: {x: 50.9, y: -132.2}
+  m_SizeDelta: {x: 380, y: 150.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7912222962755930389
 CanvasRenderer:
@@ -292,13 +293,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 46
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Congratulations on finishing two levels in under a minute
 --- !u!1 &5875301092855983578
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +380,6 @@ RectTransform:
   m_Children:
   - {fileID: 5794804529111277791}
   - {fileID: 2579416249412547584}
-  - {fileID: 1542976676691125679}
   m_Father: {fileID: 5875301092855983580}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

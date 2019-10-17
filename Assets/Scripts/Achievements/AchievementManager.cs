@@ -181,7 +181,7 @@ public class AchievementManager : MonoBehaviour
     {
         achievementNotification.gameObject.SetActive(true);
         achievementNotification.alpha = 1;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         for (float i = 1f; i > 0; i -= 0.01f)
         {
             yield return new WaitForSeconds(.01f);
