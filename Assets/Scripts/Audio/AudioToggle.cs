@@ -7,42 +7,48 @@ public class AudioToggle : MonoBehaviour
 {
 
     public AudioManager audioManager;
-
+    public Image volumeOn;
+    public Image volumeOff;
+    public Image button;
     private bool isStart = true;
 
 
-
-    public Toggle musicToggle;
     // Start is called before the first frame update
     void Start()
     {
-        musicToggle = GetComponent<Toggle>();
-        musicToggle.onValueChanged.AddListener(delegate
-        {
-            ToggleValueChanged(musicToggle);
-        });
         audioManager = AudioManager.instance;
 
          if(AudioManager.musicTicked){
-            gameObject.GetComponent<Toggle>().isOn = true;
-         }else{
-             gameObject.GetComponent<Toggle>().isOn = false;
-         }
+            volumeOn.enabled = true;
+            volumeOff.enabled = false;
+
+        }
+        else
+        {
+            volumeOn.enabled = false;
+            volumeOff.enabled = true;
+        }
          isStart = false;
     }
 
-    public void ToggleValueChanged(Toggle change)
+    public void ToggleValueChanged()
     {
+
         if (!isStart)
         {
+            // Turns off music
             if (AudioManager.musicTicked)
             {
                 AudioManager.musicTicked = false;
+                volumeOn.enabled = false;
+                volumeOff.enabled = true;
                 Debug.Log("musicTicked false");
             }
             else
             {
                 AudioManager.musicTicked = true;
+                volumeOn.enabled = true;
+                volumeOff.enabled = false;
                 Debug.Log("musicTicked true");
             }
         }
