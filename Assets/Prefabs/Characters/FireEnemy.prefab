@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728566034938495791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 5.07, z: 0}
-  m_LocalScale: {x: 9.581777, y: 0.9423157, z: 0}
+  m_LocalPosition: {x: -0.005, y: 0.209, z: 0}
+  m_LocalScale: {x: 0.43756258, y: 0.033210497, z: 0}
   m_Children: []
   m_Father: {fileID: 2838232147502429505}
   m_RootOrder: 1
@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2838232147502429510}
   - component: {fileID: 1720438530676308884}
   - component: {fileID: 114990044896446234}
+  - component: {fileID: 4722014432982942179}
   m_Layer: 12
   m_Name: FireEnemy
   m_TagString: Fire Enemy
@@ -124,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 2838232147502429532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.51, y: 21.09, z: 0}
-  m_LocalScale: {x: 0.25176, y: 0.25176, z: 1.2588}
+  m_LocalScale: {x: 10, y: 10, z: 1.2588}
   m_Children:
   - {fileID: 2838232148415816354}
   - {fileID: 3922514095324120148}
@@ -167,9 +168,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1436238373
-  m_SortingLayer: 19
+  m_SortingLayer: 16
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c61d02aab5875441ea8250418e7f6679, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c0a4673f4d76764fbfbb27e5a13ac52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -193,18 +194,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.4, y: 13.12}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 7.4, y: 13.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.4, y: 5.78}
+  m_Size: {x: 0.23, y: 0.12}
   m_EdgeRadius: 0
 --- !u!50 &2838232147502429507
 Rigidbody2D:
@@ -240,9 +241,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12, y: -3.21}
+  m_Offset: {x: 0, y: -0.03}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 0.1
 --- !u!114 &1720438530676308884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   distance: 5
-  health: 9
+  health: 0.3
   groundDetection: {fileID: 2838232148415816354}
   wallDetection: {fileID: 1788635571757080202}
 --- !u!114 &114990044896446234
@@ -274,6 +275,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 1136516451611570613, guid: f3816fd27b66a0c438c2cfcd67efff8d, type: 3}
   timeBetweenShots: 5
+--- !u!95 &4722014432982942179
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838232147502429532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8eb5b82b23a14c1aa5db2ddef55f062, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2838232148415816381
 GameObject:
   m_ObjectHideFlags: 0
