@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OceanTracker : MonoBehaviour, ITracker<string>
 {
     public int rubbishToCollect;
-    private int[] tasks = new int[3];
+    static public int[] tasks = new int[3];
 
     public Text text;
     private Color startingColour;

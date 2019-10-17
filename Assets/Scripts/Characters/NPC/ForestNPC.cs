@@ -24,6 +24,8 @@ public class ForestNPC : MonoBehaviour, INPC
     private bool initialised = false;
     public Text showText;
 
+    public GameObject liveScoreText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +110,7 @@ public class ForestNPC : MonoBehaviour, INPC
             dialogueManager.StartDialogue(dialogue[0]);
             timerObject.GetComponent<Timer>().StartTimer();
             seedlingHUD.SetActive(true);
+            liveScoreText.SetActive(true);
         }
         // If complete then npc thanks
         else if (treeTracker.CheckIsComplete())
