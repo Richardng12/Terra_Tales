@@ -43,7 +43,6 @@ public class CharacterAction : MonoBehaviour
         characterController.Move(moveInput, speed);
         if (characterController.Jump(jump, jumpSpeed)){
             // Shows jump animation
-            Debug.Log("Jumping");
             moveAnimator.SetTrigger("isJumping");
         }
         if (loseHealth)
