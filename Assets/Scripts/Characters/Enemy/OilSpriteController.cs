@@ -24,7 +24,7 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     private Vector2 tempMove;
     private Vector2 oppMove;
     SpawnerScript spawner;
-   string monsterDeathSound = "FireMonsterDeath";
+    string monsterDeathSound = "FireMonsterDeath";
     //Variables for boundary collision
     private int travelTime = 0;
 
@@ -60,6 +60,8 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     public override void OnDestroy()
     {
         AudioManager.instance.Play(monsterDeathSound);
+        AchievementManager.instance.IncrementAchievement(AchievementType.OilSpills);
+
         spawner.getSpawnedObjects()[this.GetLocation()] = null;
         spawner.SetCurrentSpawnDelay(0);
         Destroy(this.gameObject);
@@ -77,7 +79,8 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         }
 
         //If it hits a boundary
-        if (other.CompareTag("Boundary")) {
+        if (other.CompareTag("Boundary"))
+        {
             //Move oil sprite towards the map centre if it collides map boundary
             travelTime = 500;
             pos = new Vector2(centrePos.position.x, centrePos.position.y);
@@ -86,7 +89,7 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
             moveVelocity = moveInput.normalized * speed;
         }
     }
-    
+
     //Method to move oil sprite
     public void Move()
     {
