@@ -68,6 +68,7 @@ public class Bin : MonoBehaviour, IBins
                     oceanTracker.ShowWrongRubbishPrompt();
                 }
                 DestroyRubbish();
+                collidedObject = null;
             }
         }
     }
