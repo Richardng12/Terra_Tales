@@ -26,28 +26,26 @@ public class AchievementBox : MonoBehaviour
     {
         GetStats(achievementType);
     }
-    void GetStats(String achievementType)
+    void GetStats(String achievementTypeStr)
     {
         Type t = typeof(AchievementType);
-        AchievementType at = (AchievementType)Enum.Parse(t, achievementType);
-        Debug.Log(at);
-        // AchievementManager aMan = GetComponent<AchievementManager>();
+        AchievementType achievementType = (AchievementType)Enum.Parse(t, achievementTypeStr);
         AchievementManager aMan = AchievementManager.instance;
-        Debug.Log(aMan);
-        achievemntMessage.text = aMan.GetMessageForAchievement(at);
 
-        List<AchievementName> completedAchievements = aMan.GetCompletedAchievements(at);
+        achievemntMessage.text = aMan.GetMessageForAchievement(achievementType);
+
+        List<AchievementName> completedAchievements = aMan.GetCompletedAchievements(achievementType);
         Debug.Log(completedAchievements.Count);
         SetStars(completedAchievements.Count);
-        SetVisibleStars(aMan.GetNumStars(at));
+        SetVisibleStars(aMan.GetNumStars(achievementType));
 
         AchievementName curAch = completedAchievements[completedAchievements.Count - 1];
         achievementName.text = curAch.name;
-        int achievementCount = aMan.GetCountForType(at);
+        int achievementCount = aMan.GetCountForType(achievementType);
 
-        starOneText.text = aMan.getUnlockNum(at, 1).ToString();
-        starTwoText.text = aMan.getUnlockNum(at, 2).ToString();
-        starThreeText.text = aMan.getUnlockNum(at, 3).ToString();
+        starOneText.text = aMan.getUnlockNum(achievementType, 1).ToString();
+        starTwoText.text = aMan.getUnlockNum(achievementType, 2).ToString();
+        starThreeText.text = aMan.getUnlockNum(achievementType, 3).ToString();
 
     }
 

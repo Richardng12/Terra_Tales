@@ -21,13 +21,15 @@ public class Achievement
 {
     public string msg0 { get; set; }
     public string msg1 { get; set; }
+    public string lockedMsg { get; set; }
     public int count { get; set; }
     public int unlockedAchievements { get; set; }
 
     public List<AchievementName> achievementNames;
 
-    public Achievement(string msg0, string msg1)
+    public Achievement(string msg0, string msg1, string lockedMsg)
     {
+        this.lockedMsg = lockedMsg;
         unlockedAchievements = 0;
         this.msg0 = msg0;
         this.msg1 = msg1;
@@ -148,7 +150,8 @@ public class AchievementManager : MonoBehaviour
         updateAchievement(ach);
     }
 
-    public void closeNotificatino(){
+    public void closeNotificatino()
+    {
         StopAllCoroutines();
         achievementNotification.gameObject.SetActive(false);
 
@@ -196,24 +199,32 @@ public class AchievementManager : MonoBehaviour
         achievementNotification.gameObject.SetActive(false);
 
     }
+
     public String GetMessageForAchievement(AchievementType achievementType)
     {
         Achievement achievement = achievementsMap[achievementType];
-        return achievement.msg0 + achievement.count + achievement.msg1;
+        if (achievement.count <= 1)
+        {
+            return achievement.lockedMsg;
+        }
+        else
+        {
+            return achievement.msg0 + achievement.count + achievement.msg1;
+        }
     }
     void Start()
     {
         //Initialise achievement messages
-        achievementsMap.Add(AchievementType.Plays, new Achievement("Congratulations on playing for ", " time(s)"));
-        achievementsMap.Add(AchievementType.PlantingTrees, new Achievement("Congratulations on planting ", " tree(s)"));
-        achievementsMap.Add(AchievementType.Time, new Achievement("Congratulations on finishing ", " level(s) in under one minute"));
-        achievementsMap.Add(AchievementType.Fires, new Achievement("Congratulations on putting out ", " fire(s)"));
-        achievementsMap.Add(AchievementType.LevelCompletionsForest, new Achievement("Congratulations on completing ", " forest level(s)"));
-        achievementsMap.Add(AchievementType.LevelCompletionsOcean, new Achievement("Congratulations on completing ", " ocean level(s)"));
-        achievementsMap.Add(AchievementType.LevelCompletionsCity, new Achievement("Congratulations on completing ", " city level(s)"));
-        achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations on persisiting through ", " death(s)"));
-        achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)"));
-        achievementsMap.Add(AchievementType.Trash, new Achievement("Congratulations on cleaning up ", " pieces of trash"));
+        achievementsMap.Add(AchievementType.Plays, new Achievement("Congratulations on playing for ", " time(s)", "Play to unlock this achievement"));
+        achievementsMap.Add(AchievementType.PlantingTrees, new Achievement("Congratulations on planting ", " tree(s)", "Plant trees to unlock this achievement"));
+        achievementsMap.Add(AchievementType.Time, new Achievement("Congratulations on finishing ", " level(s) in under one minute", "Finish a level in under three minutes to unlock this achievement"));
+        achievementsMap.Add(AchievementType.Fires, new Achievement("Congratulations on putting out ", " fire(s)", "Put out fires to unlock this achievement"));
+        achievementsMap.Add(AchievementType.LevelCompletionsForest, new Achievement("Congratulations on completing ", " forest level(s)", "Finish the forest level to unlock this achievement"));
+        achievementsMap.Add(AchievementType.LevelCompletionsOcean, new Achievement("Congratulations on completing ", " ocean level(s)", "Finish the ocean level to unlock this achievement"));
+        achievementsMap.Add(AchievementType.LevelCompletionsCity, new Achievement("Congratulations on completing ", " city level(s)", "Finish the city level to unlock this achievement"));
+        achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations on persisiting through ", " failures(s)", "Continue trying despite failing"));
+        achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)", "Take care of oil spills to unlock this achievement"));
+        achievementsMap.Add(AchievementType.Trash, new Achievement("Congratulations on cleaning up ", " pieces of trash", "Take care of trash to unlock this achievement"));
 
         //Initialise achievement counts and names
         AddAchievementToType(AchievementType.Plays, 1, "First Time Playing!");
@@ -254,7 +265,7 @@ public class AchievementManager : MonoBehaviour
         AddAchievementToType(AchievementType.LevelCompletionsCity, 2, "CIty Lover");
         AddAchievementToType(AchievementType.LevelCompletionsCity, 3, "City Saviour");
 
-        AddAchievementToType(AchievementType.Deaths, 0, "Death Count");
+        AddAchievementToType(AchievementType.Deaths, 0, "Persisting");
         AddAchievementToType(AchievementType.Deaths, 1, "Never Give Up");
         AddAchievementToType(AchievementType.Deaths, 3, "Persevere");
         AddAchievementToType(AchievementType.Deaths, 10, "God of Patience");
