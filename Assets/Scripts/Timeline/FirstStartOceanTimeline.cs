@@ -10,11 +10,20 @@ public class FirstStartOceanTimeline : MonoBehaviour
 
     public GameObject blackFade;
 
-   // public float blackFadeTime;
+     public GameObject skipButton;
+
+     public GameObject itemHUD;
+
+    private bool isPlaying = false;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        itemHUD.SetActive(false);
+         skipButton.SetActive(true);
+        isPlaying = true;
         //Cancel player movement during cutscene
         player.GetComponent<CharacterAction>().enabled = false;
         player.GetComponent<ShootWater>().enabled = false;
@@ -23,16 +32,25 @@ public class FirstStartOceanTimeline : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-  
-    }
+    void Update(){
+         if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (isPlaying)
+            {
+                StopTimeline();
+                skipButton.SetActive(false);
+            }
+        }
+   }
 
     void OnPlayableDirectorStopped(PlayableDirector aDirector)
     {
 		//When initial ocean cutscene is finished, set the component to non-active and enable the player movement
         if (timeline == aDirector)
         {
+            itemHUD.SetActive(true);
+             skipButton.SetActive(false);
+            isPlaying = false;
             Debug.Log("blackfade should be disabled");
             blackFade.SetActive(false);
             player.GetComponent<CharacterAction>().enabled = true;
@@ -44,6 +62,10 @@ public class FirstStartOceanTimeline : MonoBehaviour
     IEnumerator delayedPlayback(){
          yield return new WaitForSeconds(4f);
          blackFade.GetComponent<DialogueFade>().FadeToDialogue();
+    }
+
+     void StopTimeline(){
+        timeline.Stop();
     }
 
 	//Lifecycle methods that get called once cutscene is finished
