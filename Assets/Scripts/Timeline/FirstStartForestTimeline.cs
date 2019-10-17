@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class FirstStartTimeLine : MonoBehaviour
+public class FirstStartForestTimeline : MonoBehaviour
 {
     public PlayableDirector timeline;
     public GameObject firstStartTimeLine;
