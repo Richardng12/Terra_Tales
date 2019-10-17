@@ -27,9 +27,31 @@ public OilSpriteController[] oilPuddles;
 
     public Text scoreText;
 
+    public GameObject skipButton;
+
+    private bool isPlaying = false;
+
+    public GameObject itemHUD;
+
+
+    void Update(){
+         if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (isPlaying)
+            {
+                StopTimeline();
+                skipButton.SetActive(false);
+                Debug.Log("should stop timeline");
+            }
+        }
+   }
+
     //Plays cutscene once player has finished the ocean level
    public void PlayCutScene()
     {
+        isPlaying = true;
+        itemHUD.SetActive(false);
+        skipButton.SetActive(true);
         //Disable player movement
         player = GameObject.FindWithTag("Player");
         // Sets the player movement to be 0 when the player talks to the npc to 
@@ -78,9 +100,13 @@ public OilSpriteController[] oilPuddles;
             scoreText.text = Scoring.oceanScore.ToString();
             finishScreen.SetActive(true);
             Time.timeScale = 0f;
+            skipButton.SetActive(false);
         }
     }
 
+   void StopTimeline(){
+        timeline.Stop();
+    }
 	//Lifecycle methods
     void OnEnable()
     {
