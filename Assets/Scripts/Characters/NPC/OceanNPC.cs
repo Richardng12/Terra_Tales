@@ -29,10 +29,22 @@ public class OceanNPC : MonoBehaviour, INPC
     private bool startOfLevel = true;
 
     private bool initialised = false;
+
+      private int rubbishCollected;
     public Text showText;
-     // Start is called before the first frame update     void Start()     {
+
+    // Start is called before the first frame update
+    void Start()
+    {
         dialogueManager = FindObjectOfType<DialogueManager>();
-        oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();         interactable = false;     }      // Update is called once per frame     void Update()     {   // When player walks into the starting npc it should trigger dialogue
+        oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
+         rubbishCollected = oceanTracker.rubbishToCollect;
+        interactable = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {   // When player walks into the starting npc it should trigger dialogue
         // that freezes the game unti dialogue is finished
         if (startOfLevel && interactable)
         {
@@ -56,11 +68,13 @@ public class OceanNPC : MonoBehaviour, INPC
                 EndDialogueOcean();
             }
         }
-        // If player presses E it should continue the dialogue         
+        // If player presses E it should continue the dialogue
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             CheckDialogueLogic();
-        }     }
+        }
+    }
 
     public void CheckDialogueLogic()
     {
@@ -153,21 +167,40 @@ public class OceanNPC : MonoBehaviour, INPC
     {
         // First sentence talks about rubbish bag task
         dialogue[1].sentences[0] = "You have collected " +
-        oceanTracker.GetTasks()[0] + "/3 Rubbish Bags";
+        oceanTracker.GetTasks()[0] + "/" + rubbishCollected +  " Rubbish Bags";
         // Second sentence talks about recycling task
         dialogue[1].sentences[1] = "You have Recycled " +
-        oceanTracker.GetTasks()[1] + "/3 Cans"; 
+        oceanTracker.GetTasks()[1] + "/" + rubbishCollected + " Cans"; 
         // Third sentence talks about compost task
         dialogue[1].sentences[2] = "You have Composted " +
-        oceanTracker.GetTasks()[2] + "/3 Apple cores";
+        oceanTracker.GetTasks()[2] + "/" + rubbishCollected + " Apple cores";
 
-    }      private void OnTriggerEnter2D(Collider2D Collision)     {
+    }
+
+    private void OnTriggerEnter2D(Collider2D Collision)
+    {
         // If collision is detected then set interactable to true meaning the
-        // player can press E to talk to the NpC         if (Collision.gameObject.tag.Equals("Player")) {             showText.gameObject.SetActive(true);             interactable = true;             showText.text = "Press E";         }     } 
-    // If out of range of NPC then the dialogue should automatically end     private void OnTriggerExit2D(Collider2D Collision)     {         if (Collision.gameObject.tag.Equals("Player"))         {             showText.gameObject.SetActive(false);             interactable = false;
+        // player can press E to talk to the NpC
+        if (Collision.gameObject.tag.Equals("Player")) {
+            showText.gameObject.SetActive(true);
+            interactable = true;
+            showText.text = "Press E";
+        }
+    }
+
+    // If out of range of NPC then the dialogue should automatically end
+    private void OnTriggerExit2D(Collider2D Collision)
+    {
+        if (Collision.gameObject.tag.Equals("Player"))
+        {
+            showText.gameObject.SetActive(false);
+            interactable = false;
             if (!interactable)
             {
                 initialised = false;
                 dialogueManager.EndDialogue();
-            }         }     } 
+            }
+        }
+    }
+
 }
