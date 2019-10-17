@@ -5,106 +5,59 @@ using UnityEngine.UI;
 
 public class Building : MonoBehaviour
 {
-    private Switch[] switches;
 
-    //public Rigidbody2D building;
-    public EnergyBar energyBar;
-    // public Text text;
-    private CharacterController character;
-    private bool inBuilding;
-    private bool applied;
+    public List<Column> columns;
+
     private bool shortCircuit;
     // Start is called before the first frame update
     void Start()
     {
-        switches = GetComponentsInChildren<Switch>();
-        applied = false;
-        Update();
-
-        foreach (Switch switcha in switches)
-        {
-            switcha.building = this;
-            switcha.energyBar = energyBar;
-        }
-    }
-
-    // Set all the building lights on
-    public void setAllOn()
-    {
-        foreach (Switch switcha in switches)
-        {
-            switcha.setIsOn(true);
-        }
-        Update();
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        inBuilding = false;
-    }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        inBuilding = true;
-        character = other.gameObject.GetComponent<CharacterController>();
-
-    }
-
-    // Set the colour to red to ward the player
-    private IEnumerator DelayedNormal()
-    {
-        applied = true;
-        // process pre-yield
-        yield return new WaitForSeconds(1f);
-        if (shortCircuit)
-        {
-            this.gameObject.GetComponent<Renderer>().material.color = Color.magenta;
-        }
         shortCircuit = false;
-
-        // process post-yield
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool switchOn = true;
-        foreach (Switch switcha in switches)
-        {
-            switchOn &= switcha.isOn;
-        }
-        if (switchOn)
-        {
-            // Set building to red if shortcircuited and update energy bar.
-            if (!applied)
-            {
-                applied = true;
-                energyBar.increaseEnergy(5);
-                shortCircuit = true;
-                // Change colour for 5 seconds
-                this.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                StartCoroutine(DelayedNormal());
-            }
-
-        }
-        else
-        {
-            if (applied)
-            {
-                // Undo energy bar change
-                energyBar.increaseEnergy(-5);
-
-            }
-            applied = false;
+        if (ifAllOn()) {
+            shortCircuit = true;
+        } else {
             shortCircuit = false;
-
-            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
-
         }
-        
-        // Make the character lose health if the building is shortcircuited.
-        if (character != null && shortCircuit && inBuilding)
+    }
+
+    void OnCollisionStay2D(Collision2D collision) {
+        CharacterController character = collision.gameObject.GetComponent<CharacterController>();
+
+        if (character != null && shortCircuit) {
+            if (character.getBootsHealth() > 0) {
+                // if player's boots' health is above 0, the boots will take damage instead of the player when standing on a short-circuited building
+                character.loseBootsHealth();
+                Debug.Log("boots health: " + character.getBootsHealth());
+            } else {
+                Debug.Log("take dmg");
+            }     
+        } 
+    }
+
+    // turn all the building lights on due to wrong switch by player
+    public void turnAllOn()
+    {
+        foreach (Column column in columns) 
         {
-            character.LoseHealth();
+            column.turnOnWindows(false);
+        }  
+    }
+
+    public bool ifAllOn() {
+        foreach (Column column in columns) {
+            if (!column.ifWindowOn()) {
+                return false;
+            }
         }
+        return true;
+    }
+
+    public List<Column> getColumns() {
+        return columns;
     }
 }

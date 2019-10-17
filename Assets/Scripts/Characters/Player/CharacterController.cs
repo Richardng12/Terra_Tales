@@ -27,6 +27,9 @@ public class CharacterController : MonoBehaviour, ICharacter
     Renderer renderer;
     Color c;
 
+    //City scene
+    private int bootsHealth = 0;
+
     string jumpSound = "Jump";
 
     AudioManager audioManager;
@@ -170,5 +173,17 @@ public class CharacterController : MonoBehaviour, ICharacter
     public void Move()
     {
         throw new System.NotImplementedException();
+    }
+
+    public int getBootsHealth() {
+        return bootsHealth;
+    }
+
+    public void fillBootsHealth() {
+        bootsHealth = 10;
+    }
+
+    public void loseBootsHealth() {
+        bootsHealth--;
     }
 }
