@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2014,6 +2014,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.39999992
       objectReference: {fileID: 0}
+    - target: {fileID: 3377724708536910198, guid: 59511ed6c91ad6045b00cb86bc701e92,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377724708536910198, guid: 59511ed6c91ad6045b00cb86bc701e92,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377724708536910198, guid: 59511ed6c91ad6045b00cb86bc701e92,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 193
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377724708536910198, guid: 59511ed6c91ad6045b00cb86bc701e92,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3377724707578366028, guid: 59511ed6c91ad6045b00cb86bc701e92,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2119,26 +2139,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -10
       objectReference: {fileID: 0}
-    - target: {fileID: 3377724708536910198, guid: 59511ed6c91ad6045b00cb86bc701e92,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 650
-      objectReference: {fileID: 0}
-    - target: {fileID: 3377724708536910198, guid: 59511ed6c91ad6045b00cb86bc701e92,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3377724708536910198, guid: 59511ed6c91ad6045b00cb86bc701e92,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 193
-      objectReference: {fileID: 0}
-    - target: {fileID: 3377724708536910198, guid: 59511ed6c91ad6045b00cb86bc701e92,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 40.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59511ed6c91ad6045b00cb86bc701e92, type: 3}
 --- !u!224 &4559050192497269224 stripped
@@ -2154,16 +2154,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3094633451972484056}
     m_Modifications:
-    - target: {fileID: 70359037847566425, guid: 0191bda11195dcb409bfcacb2a70de67,
-        type: 3}
-      propertyPath: m_Name
-      value: SettingsPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 70359037847566425, guid: 0191bda11195dcb409bfcacb2a70de67,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5814394912119576529, guid: 0191bda11195dcb409bfcacb2a70de67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2268,6 +2258,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 70359037847566425, guid: 0191bda11195dcb409bfcacb2a70de67,
+        type: 3}
+      propertyPath: m_Name
+      value: SettingsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 70359037847566425, guid: 0191bda11195dcb409bfcacb2a70de67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8218920382902451781, guid: 0191bda11195dcb409bfcacb2a70de67,
         type: 3}
