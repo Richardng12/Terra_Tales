@@ -19,8 +19,13 @@ public class Seedling : MonoBehaviour
 
     private ForestTracker treeCounter;
 
+    public float fadeOutTime;
+
     public GameObject player;
     private bool soundPlayed = false;
+    private Color startingColour;
+
+    public Text noWaterText;
     string taskCompletedSound = "TaskComplete";
 
 
@@ -29,6 +34,7 @@ public class Seedling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startingColour = noWaterText.color;
         currentProgress = 0;
         complete = false;
         progressBar.value = CalculateProgress();
@@ -63,11 +69,18 @@ public class Seedling : MonoBehaviour
         // updates the progress bar and increases the scale of seedling sprite 
         if (Input.GetKey("e") && interactable && !player.GetComponent<ShootWater>().isEmpty())
         {
-
+            
             float time = Time.deltaTime;
             currentProgress += time;
             progressBar.value = CalculateProgress();
             pivot.transform.localScale += new Vector3(time, time, 0);
+        }else{
+             if (Input.GetKey("e") && interactable && player.GetComponent<ShootWater>().isEmpty())
+        {
+              noWaterText.color = startingColour;
+           noWaterText.text = "Refill your water to grow the tree!";
+           StartCoroutine(TextFadeOutRoutine());
+        }
         }
         // if (Input.GetKeyUp("e") && currentProgress < maxProgress)
         // {
@@ -78,6 +91,17 @@ public class Seedling : MonoBehaviour
 
     }
 
+ public IEnumerator TextFadeOutRoutine()
+    {
+        Color color = noWaterText.color;
+
+        for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
+        {
+            noWaterText.color = Color.Lerp(color, Color.clear, Mathf.Min(1, t / fadeOutTime));
+
+            yield return null;
+        }
+    }
     // calculates the current progress of bar
     private float CalculateProgress()
     {
