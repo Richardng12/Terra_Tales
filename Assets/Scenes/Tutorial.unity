@@ -472,6 +472,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 023de8fd26ff53247a43a9da5b9a1a23, type: 3}
+--- !u!114 &253749610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8105518519802089685, guid: 023de8fd26ff53247a43a9da5b9a1a23,
+    type: 3}
+  m_PrefabInstance: {fileID: 253749609}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &272236409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,7 +2505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1001174737}
-  resumeButton: {fileID: 0}
+  resumeButton: {fileID: 253749610}
 --- !u!114 &1085340447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8857,7 +8869,7 @@ Transform:
   - {fileID: 1122443424}
   - {fileID: 2046858147}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1328898732
 GameObject:
@@ -9118,6 +9130,11 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 2812704985189748041, guid: a3979d4df8864e5488d561b48eb53d11,
+        type: 3}
+      propertyPath: amountOfAmmo
+      value: /9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3979d4df8864e5488d561b48eb53d11, type: 3}
 --- !u!1 &1409281808
@@ -9225,7 +9242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 1433967378}
   ammoCount: {fileID: 1230063560}
-  amountOfAmmo: "/\u221E"
+  amountOfAmmo: /9
 --- !u!114 &1433967376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9536,7 +9553,7 @@ RectTransform:
   - {fileID: 1433967374}
   - {fileID: 1328898733}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -54569,12 +54586,12 @@ PrefabInstance:
     - target: {fileID: 1711405531827897621, guid: bb423889362cd428e92ccc71639521d4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 155.98181
+      value: 156.4
       objectReference: {fileID: 0}
     - target: {fileID: 1711405531827897621, guid: bb423889362cd428e92ccc71639521d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.745522
+      value: 14.48
       objectReference: {fileID: 0}
     - target: {fileID: 1711405531827897621, guid: bb423889362cd428e92ccc71639521d4,
         type: 3}
