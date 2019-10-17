@@ -74,7 +74,7 @@ public class Scoring : MonoBehaviour
 
     public int CalculateLiveScore(string stage)
     {
-        int currentScore = ScoreCalculation();
+        int currentScore = 0;
         switch (stage)
         {
             case "Forest":
