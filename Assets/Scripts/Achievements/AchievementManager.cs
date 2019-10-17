@@ -148,6 +148,12 @@ public class AchievementManager : MonoBehaviour
         updateAchievement(ach);
     }
 
+    public void closeNotificatino(){
+        StopAllCoroutines();
+        achievementNotification.gameObject.SetActive(false);
+
+    }
+
     private void updateAchievement(AchievementType ach)
     {
         Debug.Log("Updating achievements");
