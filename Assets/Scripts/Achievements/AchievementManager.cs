@@ -39,10 +39,14 @@ public enum AchievementType
 {
     PlantingTrees,
     Time,
+    ReducingFires,
+    RefillingGun,
+    LevelCompletions,
     Trash,
     Switch,
     Plays,
     Deaths,
+    HighScore,
     Fires,
     LevelCompletionsForest,
     LevelCompletionsOcean,
@@ -203,6 +207,7 @@ public class AchievementManager : MonoBehaviour
         achievementsMap.Add(AchievementType.LevelCompletionsCity, new Achievement("Congratulations on completing ", " city level(s)"));
         achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations on persisiting through ", " death(s)"));
         achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)"));
+        achievementsMap.Add(AchievementType.Trash, new Achievement("Congratulations on cleaning up ", " pieces of trash"));
 
         //Initialise achievement counts and names
         AddAchievementToType(AchievementType.Plays, 1, "First Time Playing!");

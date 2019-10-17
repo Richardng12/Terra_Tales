@@ -25,7 +25,6 @@ public class ChangeColorOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void MakeTextWhite()
     {
         myText.color = UnityEngine.Color.white;
-        Debug.Log("as;dak;dkad");
     }
 
 }
