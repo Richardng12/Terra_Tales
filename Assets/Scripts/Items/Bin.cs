@@ -50,6 +50,7 @@ public class Bin : MonoBehaviour, IBins
 
     public void CheckCollision(Collider2D collision)
     {
+        collidedObject = null;
         // If the collsion object is a rubbish type which is grabbable and the player
         // has released it
         if (collision != null)
@@ -68,7 +69,6 @@ public class Bin : MonoBehaviour, IBins
                     oceanTracker.ShowWrongRubbishPrompt();
                 }
                 DestroyRubbish();
-                collidedObject = null;
             }
         }
     }
