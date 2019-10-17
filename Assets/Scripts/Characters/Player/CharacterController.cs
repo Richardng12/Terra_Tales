@@ -19,8 +19,8 @@ public class CharacterController : MonoBehaviour, ICharacter
     public Transform player;
     public Animator move;
 
-    private int jumps = 1;
-
+    private bool canDoubleJump = true;
+    private bool firstJump = true;
     bool isInVuln = false;
     float timeBeenInvulnerable = 0;
     readonly float inVulnerableTimer = 2;
@@ -73,9 +73,10 @@ public class CharacterController : MonoBehaviour, ICharacter
     // Also checks for animation frames
     private void Update()
     {
-        if (onGround)
+
+        if (onGround && !canDoubleJump)
         {
-            jumps = 1;
+            firstJump = true;
         }
         // Checks invulnerability if player is invulnerable
         if (isInVuln)
@@ -135,17 +136,24 @@ public class CharacterController : MonoBehaviour, ICharacter
     {
         if (keyPressed)
         {
-            if (jumps == 0)
+            if (onGround || firstJump)
             {
-                return false;
-            }
-            if (jumps > 0)
-            {
-                // Plays the jump sound
                 audioManager.Play(jumpSound);
-                jumps--;
                 rb.velocity = Vector2.up * jumpSpeed;
+                canDoubleJump = true;
+                firstJump = false;
                 return true;
+            }
+            else
+            {
+                if (canDoubleJump)
+                {
+                    // Plays the jump sound
+                    audioManager.Play(jumpSound);
+                    rb.velocity = Vector2.up * jumpSpeed;
+                    canDoubleJump = false;
+                    return true;
+                }
             }
         }
         return false;
