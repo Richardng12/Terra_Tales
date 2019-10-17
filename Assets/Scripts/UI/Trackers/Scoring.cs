@@ -39,10 +39,12 @@ public class Scoring : MonoBehaviour
         {
             case "Forest":
                 currentScore += (ForestTracker.fireSpriteDestroyed * 50);
+                currentScore += (ForestTracker.treesPlanted[0] * 100);
                 forestScore = Math.Max(currentScore, forestScore);
                 break;
             case "Ocean":
                 currentScore += (OceanTracker.oilSpriteDestroyed * 20);
+                currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 50;
                 oceanScore = Math.Max(currentScore, oceanScore);
                 break;
             case "City":
@@ -69,4 +71,27 @@ public class Scoring : MonoBehaviour
         int healthScore = characterController.health * 200;
         return timerScore + healthScore;
     }
+
+    public int CalculateLiveScore(string stage)
+    {
+        int currentScore = ScoreCalculation();
+        switch (stage)
+        {
+            case "Forest":
+                currentScore += (ForestTracker.fireSpriteDestroyed * 50);
+                currentScore += (ForestTracker.treesPlanted[0] * 100);
+                break;
+            case "Ocean":
+                currentScore += (OceanTracker.oilSpriteDestroyed * 20);
+                currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 50;
+                break;
+            case "City":
+                break;
+            default:
+                break;
+        }
+
+        return currentScore;
+    }   
+
 }
