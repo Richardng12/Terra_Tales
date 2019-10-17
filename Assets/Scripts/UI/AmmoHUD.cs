@@ -26,7 +26,7 @@ public class AmmoHUD : MonoBehaviour
     {
         if(ammo == 99)
         {
-            return ": " + "∞" + amountOfAmmo; 
+            return "Inf";
         }
         return ": " + ammo + amountOfAmmo;
     }
