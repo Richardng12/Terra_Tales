@@ -9,6 +9,11 @@ public class GlobalGameManager : MonoBehaviour
     public bool firstPlay = true;
 
 
+    public IEnumerator delayedSet(bool b)
+    {
+        yield return new WaitForSeconds(3);
+        firstPlay = b;
+    }
     // Start is called before the first frame update
     void Start()
     {

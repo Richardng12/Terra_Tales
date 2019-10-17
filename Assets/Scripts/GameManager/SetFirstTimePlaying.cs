@@ -6,7 +6,7 @@ public class SetFirstTimePlaying : MonoBehaviour
 {
     // Start is called before the first frame update
     public void SetFirstTime(){
-        GlobalGameManager.instance.firstPlay = false;
+        GlobalGameManager.instance.delayedSet(false);
         Debug.Log("Set first play to false");
     }
     void Start()
