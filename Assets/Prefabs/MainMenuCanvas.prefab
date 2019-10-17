@@ -2152,7 +2152,6 @@ GameObject:
   - component: {fileID: 1117837306752764994}
   - component: {fileID: 1117837306752764992}
   - component: {fileID: 1117837306752764993}
-  - component: {fileID: 1117837306752764999}
   m_Layer: 5
   m_Name: LevelSelectionPanel
   m_TagString: Untagged
@@ -2225,21 +2224,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1117837306752764999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117837306752764995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62b45bfdfc119e46941ec54891309a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forestScore: {fileID: 1117837307828046436}
-  oceanScore: {fileID: 1117837306668408433}
-  cityScore: {fileID: 1117837307462941836}
 --- !u!1 &1117837306809001065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,7 +6658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 38.399902, y: 0}
+  m_AnchoredPosition: {x: 38.399414, y: 0}
   m_SizeDelta: {x: -911.19995, y: -512.60004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7420175758055846206
@@ -7177,17 +7161,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8799592107051124431, guid: 59511ed6c91ad6045b00cb86bc701e92,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59511ed6c91ad6045b00cb86bc701e92, type: 3}
---- !u!1 &1117837308139350434 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3377724706525706825, guid: 59511ed6c91ad6045b00cb86bc701e92,
-    type: 3}
-  m_PrefabInstance: {fileID: 2405851986102932459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1117837308139350433 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3377724706525706826, guid: 59511ed6c91ad6045b00cb86bc701e92,
+    type: 3}
+  m_PrefabInstance: {fileID: 2405851986102932459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1117837308139350434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3377724706525706825, guid: 59511ed6c91ad6045b00cb86bc701e92,
     type: 3}
   m_PrefabInstance: {fileID: 2405851986102932459}
   m_PrefabAsset: {fileID: 0}

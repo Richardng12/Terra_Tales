@@ -27,7 +27,13 @@ public class Scoring : MonoBehaviour
     // calculates score for each stage and overall score
     public void CalculateStageScore(string stage)
     {
-        int currentScore = ScoreCalculation();
+        Debug.Log("Stage: " + stage);
+        int currentScore = 0;
+        if (!stage.Equals(""))
+        {
+            currentScore = ScoreCalculation();
+        }
+
         // check the stage type and replaces score for stage if its greater than the current score 
         switch (stage)
         {

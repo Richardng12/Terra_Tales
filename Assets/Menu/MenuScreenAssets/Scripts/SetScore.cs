@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +12,65 @@ public class SetScore : MonoBehaviour
 
     public Text cityScore;
 
+    public Text rankOneName, rankOneScore;
+
+    public Text rankTwoName, rankTwoScore;
+
+    public Text rankThreeName, rankThreeScore;
+
+    public Text rankFourName, rankFourScore;
+
+    public Text rankFiveName, rankFiveScore;
+
+
     // Start is called before the first frame update
     void Start()
     {
         forestScore.text = Scoring.forestScore.ToString();
         oceanScore.text = Scoring.oceanScore.ToString();
         cityScore.text = Scoring.cityScore.ToString();
+
+        if (HighScore.highScoreDict.Count > 0) {
+            SetHighScores();
+        }
+    }
+
+    private void SetHighScores()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            string name = HighScore.highScoreDict.ElementAt(i).Key;
+            string score = HighScore.highScoreDict.ElementAt(i).Value.ToString();
+            if (i == 0)
+            {
+                rankOneName.text = name;
+                rankOneScore.text = score;
+            }
+            else if (i == 1)
+            {
+                rankTwoName.text = name;
+                rankTwoScore.text = score;
+            }
+            else if (i == 2)
+            {
+                rankThreeName.text = name;
+                rankThreeScore.text = score;
+            }
+            else if (i == 3)
+            {
+                rankFourName.text = name;
+                rankFourScore.text = score;
+            }
+            else
+            {
+                rankFiveName.text = name;
+                rankFiveScore.text = score;
+            }
+
+            if (i + 1 == HighScore.highScoreDict.Count)
+            {
+                break;
+            }
+        }
     }
 }
