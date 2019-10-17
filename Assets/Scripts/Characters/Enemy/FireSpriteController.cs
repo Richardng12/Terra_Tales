@@ -44,6 +44,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         RaycastHit2D frontInfo = Physics2D.Raycast(wallDetection.position, Vector2.left, distance, mask);
         RaycastHit2D backInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, distance, mask);
         if (groundInfo.collider == false || frontInfo.collider == true || backInfo.collider == true)
+        //if (groundInfo.collider == false)
         {
             if (movingRight == true)
             {
@@ -96,14 +97,6 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         {
             character.LoseHealth();
         }
-
-        // //collision with the projectile
-        // if (other.CompareTag("WaterBullet"))
-        // {
-        //     //Destroy projectile
-        //     Destroy(other.gameObject);
-        //     LoseHealth();
-        // }
     }
 
 
