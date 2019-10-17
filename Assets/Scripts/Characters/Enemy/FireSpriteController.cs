@@ -70,6 +70,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         else
         {
             AudioManager.instance.Play(monsterDeathSound);
+            AchievementManager.instance.IncrementAchievement(AchievementType.Fires);
             ForestTracker.fireSpriteDestroyed++;
             Destroy(this.gameObject);
             OnDestroy();
