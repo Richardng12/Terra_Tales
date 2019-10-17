@@ -203,7 +203,6 @@ public class AchievementManager : MonoBehaviour
         achievementsMap.Add(AchievementType.LevelCompletionsCity, new Achievement("Congratulations on completing ", " city level(s)"));
         achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations on persisiting through ", " death(s)"));
         achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)"));
-        achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)"));
 
         //Initialise achievement counts and names
         AddAchievementToType(AchievementType.Plays, 1, "First Time Playing!");
@@ -213,7 +212,6 @@ public class AchievementManager : MonoBehaviour
         AddAchievementToType(AchievementType.Trash, 1, "Garbage Man");
         AddAchievementToType(AchievementType.Trash, 2, "Garbage Hero");
         AddAchievementToType(AchievementType.Trash, 5, "God of garbage");
-        AddAchievementToType(AchievementType.Trash, 500, "Java Garbage Collection");
 
         AddAchievementToType(AchievementType.Time, 0, "Time");
         AddAchievementToType(AchievementType.Time, 1, "Speed Demon");
