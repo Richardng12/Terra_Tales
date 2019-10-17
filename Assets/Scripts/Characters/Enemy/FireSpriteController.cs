@@ -11,7 +11,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
 
     private bool movingRight = true;
 
-    public int health = 9;
+    public float health = 0.3f;
 
     public Transform groundDetection;
     public Transform wallDetection;
@@ -62,10 +62,10 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     // Reduces the sprites health and destroys the object is health is 0
     public void LoseHealth()
     {
-        if (health > 3)
+        if (health > 0.1f)
         {
             AudioManager.instance.Play(hitSound);
-            health -= 3;
+            health -= 0.1f;
         }
         else
         {

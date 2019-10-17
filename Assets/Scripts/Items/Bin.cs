@@ -63,9 +63,11 @@ public class Bin : MonoBehaviour, IBins
                     AudioManager.instance.Play(taskCompleted);
                     // If the rubbish is the right type it should update the counter
                     oceanTracker.UpdateAndDisplayTaskCounter(binItem);
+
                 }
                 else
                 {
+                    Debug.Log(collidedObject.name);
                     oceanTracker.ShowWrongRubbishPrompt();
                 }
                 DestroyRubbish();
