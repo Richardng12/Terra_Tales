@@ -35,6 +35,9 @@ public class TimelineForestTrigger : MonoBehaviour
                 Debug.Log("should stop timeline");
             }
         }
+        if(Input.GetKeyDown(KeyCode.J)){
+            PlayCutScene();
+        }
    }
 
     void Start()
@@ -76,6 +79,7 @@ public class TimelineForestTrigger : MonoBehaviour
             finishScreen.SetActive(true);
             Time.timeScale = 0f;
             skipButton.SetActive(false);
+            AchievementManager.instance.IncrementAchievement(AchievementType.LevelCompletionsForest);
         }
     }
 

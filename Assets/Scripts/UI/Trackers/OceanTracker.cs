@@ -65,8 +65,9 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
             text.text = tasks[2] + "/" + rubbishToCollect + " Compost Collected";
 
         }
-        Debug.Log("HEHEHJBKSBKDSB");
+        
         Publisher.TriggerEvent("UpdateOceanScore");
+        Publisher.TriggerEvent("IncreasePlayerHealth");
 
         if (CheckIsComplete())
         {
