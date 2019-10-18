@@ -35,6 +35,9 @@ public class TimelineForestTrigger : MonoBehaviour
                 Debug.Log("should stop timeline");
             }
         }
+        if(Input.GetKeyDown(KeyCode.J)){
+            PlayCutScene();
+        }
    }
 
     void Start()
