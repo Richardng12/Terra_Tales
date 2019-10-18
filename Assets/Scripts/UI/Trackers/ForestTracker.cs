@@ -44,6 +44,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         text.color = startingColour;
         treesPlanted[i]++;
         Publisher.TriggerEvent("UpdateForestScore");
+        Publisher.TriggerEvent("IncreasePlayerHealth");
 
         if (CheckIsComplete())
         {
