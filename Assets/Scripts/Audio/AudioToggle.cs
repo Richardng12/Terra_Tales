@@ -39,17 +39,15 @@ public class AudioToggle : MonoBehaviour
             // Turns off music
             if (AudioManager.musicTicked)
             {
-                AudioManager.musicTicked = false;
+                AudioManager.instance.MusicOff();
                 volumeOn.enabled = false;
                 volumeOff.enabled = true;
-                Debug.Log("musicTicked false");
             }
             else
             {
-                AudioManager.musicTicked = true;
+                AudioManager.instance.MusicOn();
                 volumeOn.enabled = true;
                 volumeOff.enabled = false;
-                Debug.Log("musicTicked true");
             }
         }
     }

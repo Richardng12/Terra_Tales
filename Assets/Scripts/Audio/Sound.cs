@@ -19,9 +19,9 @@ public class Sound {
 
 
 
-    public void Play() {
+    public void Play(int vol) {
 
-        source.volume = vol;
+        source.volume = this.vol*vol;
         source.pitch = pitch;
         source.loop = loop;
         source.Play();

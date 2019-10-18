@@ -10,27 +10,31 @@ public class AudioManager : MonoBehaviour
     public static bool initalised = false;
 
     public static bool musicTicked = true;
+    int volume = 1;
 
-    
 
+    public void MusicOn()
+    {
+        musicTicked = true;
+        volume = 1;
+        foreach (Sound s in sounds)
+        {
+            s.setSoundOn();
+        }
+    }
+    public void MusicOff()
+    {
+        musicTicked = false;
+        volume = 0;
+        foreach (Sound s in sounds)
+        {
+            s.setSoundOff();
+        }
+    }
 
     private void Update()
     {
-        if (musicTicked)
-        {
-            foreach (Sound s in sounds)
-            {
-                s.setSoundOn();
-            }
-        }
-        else
-        {
-              foreach (Sound s in sounds)
-            {
-                Debug.Log("turning sound on off");
-                s.setSoundOff();
-            }
-        }
+  
     }
 
 
@@ -69,7 +73,7 @@ public void Play(string name)
     {
         if (s.name.Equals(name))
         {
-            s.Play();
+            s.Play(volume);
             return;
         }
     }
