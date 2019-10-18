@@ -55,7 +55,7 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
     public void LoseHealth()
     {
         OceanTracker.oilSpriteDestroyed++;
-        Debug.Log(OceanTracker.oilSpriteDestroyed);
+        Publisher.TriggerEvent("UpdateOceanScore");
         OnDestroy();
     }
 
