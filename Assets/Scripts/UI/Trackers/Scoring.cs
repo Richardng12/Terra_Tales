@@ -82,6 +82,7 @@ public class Scoring : MonoBehaviour
                 currentScore += (ForestTracker.treesPlanted[0] * 1000);
                 break;
             case "Ocean":
+                Debug.Log("IM IN SCOREEEE");
                 currentScore += (OceanTracker.oilSpriteDestroyed * 20);
                 currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 500;
                 break;

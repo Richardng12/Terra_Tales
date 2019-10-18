@@ -65,10 +65,14 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
             text.text = tasks[2] + "/" + rubbishToCollect + " Compost Collected";
 
         }
+        Debug.Log("HEHEHJBKSBKDSB");
+        Publisher.TriggerEvent("UpdateOceanScore");
+
         if (CheckIsComplete())
         {
             text.text = "Tasks completed. Please Return to NPC";
         }
+
         StartCoroutine(TextFadeOutRoutine());
 
         // checks whther game objective is met then calculates score for stage

@@ -18,7 +18,7 @@ public class LiveScore : MonoBehaviour
     private void OnEnable()
     {
         Publisher.StartListening("UpdateForestScore", UpdateForestLiveScore);
-        Publisher.StopListening("UpdateOceanScore", UpdateOceanLiveScore);
+        Publisher.StartListening("UpdateOceanScore", UpdateOceanLiveScore);
     }
 
     private void OnDisable()
@@ -34,6 +34,7 @@ public class LiveScore : MonoBehaviour
 
     void UpdateOceanLiveScore()
     {
+        Debug.Log("HELLO");
         liveScoreText.text = "Score: " + scoringObject.GetComponent<Scoring>().CalculateLiveScore("Ocean").ToString();
     }
 }
