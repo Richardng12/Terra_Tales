@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HouseTrigger : MonoBehaviour
 {
+    public LevelLoader levelLoader;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class HouseTrigger : MonoBehaviour
         if (Collision.gameObject.tag.Equals("Player"))
         {
 
-             SceneManager.LoadScene(2);
+             levelLoader.LoadLevel(2);
         }
     }
 }
