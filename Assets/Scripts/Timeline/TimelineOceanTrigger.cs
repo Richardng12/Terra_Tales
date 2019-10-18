@@ -99,6 +99,7 @@ public OilSpriteController[] oilPuddles;
          //   player.GetComponent<CharacterController>().enabled = true;
             scoreText.text = Scoring.oceanScore.ToString();
             finishScreen.SetActive(true);
+            AchievementManager.instance.IncrementAchievement(AchievementType.LevelCompletionsOcean);
             Time.timeScale = 0f;
             skipButton.SetActive(false);
         }

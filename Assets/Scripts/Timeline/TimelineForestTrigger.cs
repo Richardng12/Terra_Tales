@@ -76,6 +76,7 @@ public class TimelineForestTrigger : MonoBehaviour
             finishScreen.SetActive(true);
             Time.timeScale = 0f;
             skipButton.SetActive(false);
+            AchievementManager.instance.IncrementAchievement(AchievementType.LevelCompletionsForest);
         }
     }
 
