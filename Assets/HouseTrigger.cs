@@ -23,7 +23,7 @@ public class HouseTrigger : MonoBehaviour
         if (Collision.gameObject.tag.Equals("Player"))
         {
 
-             SceneManager.LoadScene(0);
+             SceneManager.LoadScene(2);
         }
     }
 }
