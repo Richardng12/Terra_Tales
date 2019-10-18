@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
-
+    public GameObject nextLevelCanvas;
    public void LoadLevel(int sceneIndex)
     {
         loadingScreen.SetActive(true);
@@ -27,5 +27,10 @@ public class LevelLoader : MonoBehaviour
         loadingScreen.SetActive(false);
         slider.value = 0;
 
+    }
+
+    public void HideCanvas()
+    {
+        nextLevelCanvas.SetActive(false);
     }
 }
