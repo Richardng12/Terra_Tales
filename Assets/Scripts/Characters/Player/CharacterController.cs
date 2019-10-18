@@ -46,6 +46,15 @@ public class CharacterController : MonoBehaviour, ICharacter
         c = renderer.material.color;
     }
 
+    private void OnEnable()
+    {
+        Publisher.StartListening("IncreasePlayerHealth", IncreaseHealth);
+    }
+
+    private void OnDisable()
+    {
+        Publisher.StopListening("IncreasePlayerHealth", IncreaseHealth);
+    }
     // Collision 2D
 
     // Checks if the character is invulnerable and changes the renderer colour
@@ -101,6 +110,14 @@ public class CharacterController : MonoBehaviour, ICharacter
                 health--;
                 isInVuln = true;
             }
+        }
+    }
+
+    public void IncreaseHealth()
+    {
+        if(health != 5)
+        {
+            health++;
         }
     }
 
