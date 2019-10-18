@@ -11,7 +11,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
 
     private bool movingRight = true;
 
-    public float health = 0.3f;
+    public int health = 3;
 
     public Transform groundDetection;
     public Transform wallDetection;
@@ -63,16 +63,17 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     // Reduces the sprites health and destroys the object is health is 0
     public void LoseHealth()
     {
-        if (health > 0.1f)
+        if (health > 1)
         {
             AudioManager.instance.Play(hitSound);
-            health -= 0.1f;
+            health -= 1;
         }
         else
         {
             AudioManager.instance.Play(monsterDeathSound);
             AchievementManager.instance.IncrementAchievement(AchievementType.Fires);
             ForestTracker.fireSpriteDestroyed++;
+            Publisher.TriggerEvent("UpdateForestScore");
             Destroy(this.gameObject);
             OnDestroy();
         }

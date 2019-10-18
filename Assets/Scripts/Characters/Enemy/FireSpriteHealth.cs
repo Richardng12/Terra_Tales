@@ -16,7 +16,7 @@ public class FireSpriteHealth : MonoBehaviour
     void Update()
     {
         // Changes the length of the health bar
-        localScale.x = fire.health;
+        localScale.x = fire.health*0.1f;
         transform.localScale = localScale;
     }
 }

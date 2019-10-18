@@ -15,9 +15,26 @@ public class LiveScore : MonoBehaviour
         liveScoreText.text = "Score: 0";
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
+    {
+        Publisher.StartListening("UpdateForestScore", UpdateForestLiveScore);
+        Publisher.StartListening("UpdateOceanScore", UpdateOceanLiveScore);
+    }
+
+    private void OnDisable()
+    {
+        Publisher.StopListening("UpdateForestScore", UpdateForestLiveScore);
+        Publisher.StopListening("UpdateOceanScore", UpdateOceanLiveScore);
+    }
+
+    void UpdateForestLiveScore()
     {
         liveScoreText.text = "Score: " + scoringObject.GetComponent<Scoring>().CalculateLiveScore("Forest").ToString();
+    }
+
+    void UpdateOceanLiveScore()
+    {
+        Debug.Log("HELLO");
+        liveScoreText.text = "Score: " + scoringObject.GetComponent<Scoring>().CalculateLiveScore("Ocean").ToString();
     }
 }
