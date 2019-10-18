@@ -156,6 +156,7 @@ public class ForestNPC : MonoBehaviour, INPC
         // player can press E to talk to the NpC
         if (Collision.gameObject.tag.Equals("Player"))
         {
+            Debug.Log("text should show");
             showText.gameObject.SetActive(true);
             interactable = true;
             showText.text = "Press E";
