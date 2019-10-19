@@ -26,10 +26,12 @@ public class RainDrop : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.name.Equals("Player"))
+        CharacterController character = collision.gameObject.GetComponent<CharacterController>();
+
+        if (character != null);
         {
             hasSplashed = true;
-            Debug.Log("take rain dmg");
+            character.LoseHealth();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = splash;
             StartCoroutine(waitForSplash());
         }

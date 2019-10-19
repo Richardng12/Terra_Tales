@@ -25,7 +25,7 @@ public class Building : MonoBehaviour
         }
     }
 
-    void OnCollisionStay2D(Collision2D collision) {
+    void OnTriggerStay2D(Collider2D collision) {
         CharacterController character = collision.gameObject.GetComponent<CharacterController>();
 
         if (character != null && shortCircuit) {
@@ -34,6 +34,7 @@ public class Building : MonoBehaviour
                 character.loseBootsHealth();
                 Debug.Log("boots health: " + character.getBootsHealth());
             } else {
+                character.LoseHealth();
                 Debug.Log("take dmg");
             }     
         } 

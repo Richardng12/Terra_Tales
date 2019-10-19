@@ -7,7 +7,8 @@ using UnityEngine.UI;
 //https://www.youtube.com/watch?v=yFKg8qVclBk
 public class Window: MonoBehaviour
 {
-    public Animator animator;
+    public Animation anim;
+
     public bool hasPerson;
     public bool isOn;
 
@@ -18,6 +19,7 @@ public class Window: MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        anim = GetComponent<Animation>();
 
         hasPerson = false;
         isOn = false;
@@ -61,7 +63,6 @@ public class Window: MonoBehaviour
         // foreach(AnimationState state in anim) {
         //     state.speed = 1F;
         // }
-        animator.SetTrigger("leaving");
         this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOnEmpty;
         hasPerson = false;
     }

@@ -10,7 +10,7 @@ public class RubberBootsSpawner : MonoBehaviour
 
     private float timer = 0;
 
-    public float no;
+    public Transform[] spawnLocations;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class RubberBootsSpawner : MonoBehaviour
     }
 
     private void SpawnRandom() {
-        Vector2 spawnPosition = Camera.main.ScreenToWorldPoint (new Vector2(Random.Range(0, Screen.width), no));
+        Vector2 spawnPosition = Camera.main.ScreenToWorldPoint (new Vector2(x, y));
 
         Instantiate(rubberBoots, spawnPosition, Quaternion.identity);
         Debug.Log("boots!!!!!!!");
