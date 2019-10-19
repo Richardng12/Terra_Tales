@@ -48,7 +48,7 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         StopCoroutine(co);
-        if(countTime < 60 && !isComplete){
+        if(countTime < 1800 && !isComplete){
             isComplete = true;
             AchievementManager.instance.IncrementAchievement(AchievementType.Time);
         }

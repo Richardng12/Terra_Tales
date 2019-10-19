@@ -217,7 +217,7 @@ public class AchievementManager : MonoBehaviour
         //Initialise achievement messages
         achievementsMap.Add(AchievementType.Plays, new Achievement("Congratulations on playing for ", " time(s)", "Play to unlock this achievement"));
         achievementsMap.Add(AchievementType.PlantingTrees, new Achievement("Congratulations on planting ", " tree(s)", "Plant trees to unlock this achievement"));
-        achievementsMap.Add(AchievementType.Time, new Achievement("Congratulations on finishing ", " level(s) in under one minute", "Finish a level in under three minutes to unlock this achievement"));
+        achievementsMap.Add(AchievementType.Time, new Achievement("Congratulations on finishing ", " level(s) in under three minutes", "Finish a level in under three minutes to unlock this achievement"));
         achievementsMap.Add(AchievementType.Fires, new Achievement("Congratulations on putting out ", " fire(s)", "Put out fires to unlock this achievement"));
         achievementsMap.Add(AchievementType.LevelCompletionsForest, new Achievement("Congratulations on completing ", " forest level(s)", "Finish the forest level to unlock this achievement"));
         achievementsMap.Add(AchievementType.LevelCompletionsOcean, new Achievement("Congratulations on completing ", " ocean level(s)", "Finish the ocean level to unlock this achievement"));
