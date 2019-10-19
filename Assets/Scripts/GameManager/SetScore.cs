@@ -30,7 +30,7 @@ public class SetScore : MonoBehaviour
         oceanScore.text = Scoring.oceanScore.ToString();
         cityScore.text = Scoring.cityScore.ToString();
 
-        if (HighScore.highScoreDict.Count > 0) {
+        if (GlobalGameManager.instance.highScoreDict.Count > 0) {
             SetHighScores();
         }
     }
@@ -39,8 +39,8 @@ public class SetScore : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            string name = HighScore.highScoreDict.ElementAt(i).Key;
-            string score = HighScore.highScoreDict.ElementAt(i).Value.ToString();
+            string name = GlobalGameManager.instance.highScoreDict.ElementAt(i).Key;
+            string score = GlobalGameManager.instance.highScoreDict.ElementAt(i).Value.ToString();
             if (i == 0)
             {
                 rankOneName.text = name;
@@ -67,7 +67,7 @@ public class SetScore : MonoBehaviour
                 rankFiveScore.text = score;
             }
 
-            if (i + 1 == HighScore.highScoreDict.Count)
+            if (i + 1 == GlobalGameManager.instance.highScoreDict.Count)
             {
                 break;
             }

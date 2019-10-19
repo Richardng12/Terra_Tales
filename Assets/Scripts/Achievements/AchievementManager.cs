@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+[System.Serializable]
 
 public class AchievementName
 {
@@ -17,6 +18,8 @@ public class AchievementName
         this.name = name;
     }
 }
+[System.Serializable]
+
 public class Achievement
 {
     public string msg0 { get; set; }
@@ -37,6 +40,8 @@ public class Achievement
         achievementNames = new List<AchievementName>();
     }
 }
+[System.Serializable]
+
 public enum AchievementType
 {
     PlantingTrees,
@@ -65,7 +70,7 @@ public class AchievementManager : MonoBehaviour
 
     public CanvasGroup achievementNotification;
 
-    private Dictionary<AchievementType, Achievement> achievementsMap = new Dictionary<AchievementType, Achievement>();
+    public Dictionary<AchievementType, Achievement> achievementsMap = new Dictionary<AchievementType, Achievement>();
     //private static List<Achievement> unlockedAchievements;
 
     //TODO get last unlocked.
