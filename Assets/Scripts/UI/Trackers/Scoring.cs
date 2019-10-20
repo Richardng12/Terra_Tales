@@ -16,6 +16,8 @@ public class Scoring : MonoBehaviour
 
     static private Timer timer;
 
+    static public double multiplier;
+
     public int overallScore;
 
     private void Start()
@@ -40,11 +42,13 @@ public class Scoring : MonoBehaviour
             case "Forest":
                 currentScore += (ForestTracker.fireSpriteDestroyed * 50);
                 currentScore += (ForestTracker.treesPlanted[0] * 100);
+                currentScore =  (int) (currentScore * multiplier);
                 forestScore = Math.Max(currentScore, forestScore);
                 break;
             case "Ocean":
                 currentScore += (OceanTracker.oilSpriteDestroyed * 20);
                 currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 50;
+                currentScore = (int)(currentScore * multiplier);
                 oceanScore = Math.Max(currentScore, oceanScore);
                 break;
             case "City":
@@ -82,7 +86,6 @@ public class Scoring : MonoBehaviour
                 currentScore += (ForestTracker.treesPlanted[0] * 1000);
                 break;
             case "Ocean":
-                Debug.Log("IM IN SCOREEEE");
                 currentScore += (OceanTracker.oilSpriteDestroyed * 20);
                 currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 500;
                 break;
@@ -91,6 +94,7 @@ public class Scoring : MonoBehaviour
             default:
                 break;
         }
+        currentScore = (int)(currentScore * multiplier);
 
         return currentScore;
     }   

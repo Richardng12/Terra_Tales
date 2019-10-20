@@ -20,6 +20,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
+        Time.timeScale = 1;
         loadingScreen.SetActive(true);
         switch (sceneIndex)
         {

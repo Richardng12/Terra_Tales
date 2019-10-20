@@ -30,7 +30,8 @@ public class OceanNPC : MonoBehaviour, INPC
 
     private bool initialised = false;
 
-      private int rubbishCollected;
+    private int rubbishCollected;
+
     public Text showText;
 
     // Start is called before the first frame update
@@ -38,7 +39,7 @@ public class OceanNPC : MonoBehaviour, INPC
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
-         rubbishCollected = oceanTracker.rubbishToCollect;
+        rubbishCollected = oceanTracker.rubbishToCollect;
         interactable = false;
     }
 
