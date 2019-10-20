@@ -114,21 +114,19 @@ MonoBehaviour:
   dialogue:
   - name: Gary the Snail
     sentences:
+    - Is that a human underwater?...
     - I am Gary the Snail that lives in this part of the ocean.
-    - Please help save us, our habitat and ecosystem is being destroyed by trash that
-      you humans have left!
     - Take responsibility by cleaning up the rubbish and putting them in the correct
       bins
     - You can press "E" on the rubbish to grab it and press "E" again to throw it
       in the bins.
     - The Rubbish Bags go in the Black bins, Cans in the Blue and Apple cores in the
       Yellow bins
-    - Also be careful of the oil monsters that plague the seas, standing too close
-      to them can damage you!
-    - 'Use your special power to dilute them!!
-
-'
-    - Talk to me once you have collected 3 of each type!
+    - Be careful of the oil monsters that plague the seas, standing too close to them
+      can damage you!
+    - Try to dilute them with your power!!
+    - Also watch for nets scattered around in the ocean they hurt as well!
+    - Talk to me once you have completed!
   - name: Gary the Snail
     sentences:
     - 
@@ -144,6 +142,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   imageHUD: {fileID: 0}
   timerObject: {fileID: 0}
+  dialogueBox: {fileID: 0}
   timelineOceanTrigger: {fileID: 0}
   showText: {fileID: 4698984390948260092}
 --- !u!95 &95882369770609440
