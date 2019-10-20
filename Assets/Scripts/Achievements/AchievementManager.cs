@@ -59,6 +59,7 @@ public enum AchievementType
     LevelCompletionsOcean,
     LevelCompletionsCity,
     OilSpills,
+    Achievements,
 };
 
 public class AchievementManager : MonoBehaviour
@@ -148,11 +149,15 @@ public class AchievementManager : MonoBehaviour
     {
         return achievementsMap[achievementType].achievementNames[index].unlockCount;
     }
-
+    private HashSet<AchievementType> achievementsHashSet = new HashSet<AchievementType>();
     public void IncrementAchievement(AchievementType ach)
     {
         achievementsMap[ach].count++;
         updateAchievement(ach);
+
+        achievementsHashSet.Add(ach);
+        achievementsHashSet.Add(AchievementType.Achievements);
+        achievementsMap[AchievementType.Achievements].count = achievementsHashSet.Count;
     }
 
     public void closeNotificatino()
@@ -231,10 +236,20 @@ public class AchievementManager : MonoBehaviour
         achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)", "Take care of oil spills to unlock this achievement"));
         achievementsMap.Add(AchievementType.Trash, new Achievement("Congratulations on cleaning up ", " pieces of trash", "Take care of trash to unlock this achievement"));
         achievementsMap.Add(AchievementType.Switch, new Achievement("Congratulations on turning off ", " lights", "Turn off a light to unlock this achievement"));
+        achievementsMap.Add(AchievementType.Achievements, new Achievement("Congratulations on finishing ", " Achievements", "Get an achievement to unlock this achievement"));
 
         //Initialise achievement counts and names
-        AddAchievementToType(AchievementType.Plays, 1, "First Time Playing!");
+        AddAchievementToType(AchievementType.Plays, 0, "Play Count");
+        AddAchievementToType(AchievementType.Plays, 1, "Novice");
+        AddAchievementToType(AchievementType.Plays, 4, "Adventurer");
+        AddAchievementToType(AchievementType.Plays, 10, "Expert");
         IncrementAchievement(AchievementType.Plays);
+
+        //Initialise achievement counts and names
+        AddAchievementToType(AchievementType.Achievements, 0, "Achievements Unlocked");
+        AddAchievementToType(AchievementType.Achievements, 1, "Trophy Hunter");
+        AddAchievementToType(AchievementType.Achievements, 4, "Trophy Collector");
+        AddAchievementToType(AchievementType.Achievements, 10, "Museum Owner");
 
         AddAchievementToType(AchievementType.Trash, 0, "Garbage Collection");
         AddAchievementToType(AchievementType.Trash, 1, "Garbage Man");

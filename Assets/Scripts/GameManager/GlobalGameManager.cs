@@ -111,7 +111,7 @@ public class GlobalGameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            SaveValues.getInstance().LoadGame();
+           SaveValues.getInstance().LoadGame();
             Debug.Log("Loading in values");
             //Get the path of the Game data folder
             string m_Path = Application.dataPath;
