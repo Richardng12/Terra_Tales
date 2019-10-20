@@ -8,8 +8,8 @@ public class GlobalGameManager : MonoBehaviour
     public static GlobalGameManager instance;
     
     public bool firstPlay = true;
-    public bool forestUnlocked;
-    public bool oceanUnlocked;
+    public bool forestUnlocked= false;
+    public bool oceanUnlocked = false;
 
     private ForestLevelProperties[] forestProperties;
     public ForestLevelProperties chosenForestProperties;
