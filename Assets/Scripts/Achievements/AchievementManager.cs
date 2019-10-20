@@ -126,11 +126,9 @@ public class AchievementManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("Awaenachieveentangercalled");
 
         if (instance == null)
         {
-            Debug.Log("Thiis");
             instance = this;
             DontDestroyOnLoad(this);
 
@@ -169,7 +167,6 @@ public class AchievementManager : MonoBehaviour
 
     private void updateAchievement(AchievementType ach)
     {
-        Debug.Log("Updating achievements");
 
         int curCount = achievementsMap[ach].count;
         List<AchievementName> achievements = achievementsMap[ach].achievementNames;
@@ -181,7 +178,6 @@ public class AchievementManager : MonoBehaviour
                 achievement.isUnlocked = true;
                 if (waslocked)
                 {
-                    Debug.Log(curCount);
                     if (curCount != 0)
                     {
                         StartCoroutine(ShowAndFade());
@@ -191,7 +187,6 @@ public class AchievementManager : MonoBehaviour
                     }
                     achievementsMap[ach].unlockedAchievements++;
                 }
-                Debug.Log("Unlocked one");
             }
         }
     }

@@ -22,7 +22,6 @@ public class Pause : MonoBehaviour
 		//If the player presses escape, look at current game state, if its not paused - pause, if it is paused, unpause.
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-        Debug.Log("escape pressed");
             if (!paused) 
             {
                 PauseGame();
@@ -38,7 +37,6 @@ public class Pause : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0f;
-        Debug.Log(Time.timeScale);
         pauseMenu.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
     } 
