@@ -9,7 +9,6 @@ using System;
 
 public class Save : MonoBehaviour
 {
-
     public void SaveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -54,8 +53,7 @@ public sealed class SaveValues
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
         SaveValues.getInstance().UpdateValues();
         bf.Serialize(file, SaveValues.getInstance());
-            Debug.Log("Count asd" );
-
+           
             Debug.Log("Count " + SaveValues.getInstance().highScoreDict.Count);
 
         Debug.Log("Serialising " + Application.persistentDataPath + "/gamesave.save");
@@ -76,7 +74,7 @@ public sealed class SaveValues
 
             SaveValues sv = (SaveValues)bf.Deserialize(file);
             AchievementManager.instance.achievementsMap = sv.achievementsMap;
-            HighScore.highScoreDict = sv.highScoreDict;
+            GlobalGameManager.instance.highScoreDict = sv.highScoreDict;
             Debug.Log("Count " + sv.highScoreDict.Count);
 
             file.Close();
@@ -87,7 +85,7 @@ public sealed class SaveValues
     public void UpdateValues()
     {
         achievementsMap = AchievementManager.instance.achievementsMap;
-        highScoreDict = HighScore.highScoreDict;
+        highScoreDict = GlobalGameManager.instance.highScoreDict;
     }
     public static SaveValues getInstance()
     {

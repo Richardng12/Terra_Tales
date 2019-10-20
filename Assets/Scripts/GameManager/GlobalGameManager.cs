@@ -11,7 +11,13 @@ public class GlobalGameManager : MonoBehaviour
     public ForestLevelProperties chosenForestProperties;
     private OceanLevelProperties[] oceanProperties;
     public OceanLevelProperties chosenOceanLevelProperties;
+    public Dictionary<string, int> highScoreDict = new Dictionary<string, int>();
 
+
+    void Update()
+    {
+        //Debug.Log("Number of highscores" + highScoreDict.Count);
+    }
 
     public void delayedSet(bool b)
     {
@@ -177,4 +183,6 @@ public class OceanLevelProperties : LevelProperties
         this.spawnRate = spawnRate;
         this.rubbishToCollect = rubbishToCollect;
     }
+
+
 }
