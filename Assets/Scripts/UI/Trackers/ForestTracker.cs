@@ -23,12 +23,12 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     string forestLevelAudio = "ForestLevel";
 
-    private bool isComplete = false;
     void Update()
     {
 
       if(Input.GetKeyDown(KeyCode.J)){
-            treesPlanted[0] = treesToPlant;
+            treesPlanted[0] = treesToPlant - 1;
+            UpdateAndDisplayTaskCounter();
         }
     }
 
@@ -96,11 +96,9 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         {
             if (treesPlanted[i] < treesToPlant) {
                 return false;
-             }else{
-                 return isComplete;
-             }
         }
-        return true;
+    }
+       return true;
     }
 
     // returns the number of trees planted array

@@ -25,6 +25,17 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
 
     // Start is called before the first frame update
 
+void Update(){
+    
+      if(Input.GetKeyDown(KeyCode.J)){
+            tasks[0] = rubbishToCollect;
+            tasks[1] = rubbishToCollect;
+            tasks[2] = rubbishToCollect;
+            text.text = "Tasks completed. Please Return to NPC";
+            StartCoroutine(TextFadeOutRoutine());
+            gameManager.GetComponent<Scoring>().StopStageTimer();
+        }
+}
     void Start()
     {
         audioManager = AudioManager.instance;
