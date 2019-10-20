@@ -31,8 +31,12 @@ public class Building : MonoBehaviour
         if (character != null && shortCircuit) {
             if (character.getBootsHealth() > 0) {
                 // if player's boots' health is above 0, the boots will take damage instead of the player when standing on a short-circuited building
-                character.loseBootsHealth();
-                Debug.Log("boots health: " + character.getBootsHealth());
+                if (!character.isOnCD()) {
+                    character.putOnCD();
+                    character.loseBootsHealth();
+                    Debug.Log("boots health: " + character.getBootsHealth());
+                }
+                
             } else {
                 character.LoseHealth();
                 Debug.Log("take dmg");

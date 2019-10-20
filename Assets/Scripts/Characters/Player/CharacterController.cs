@@ -29,6 +29,9 @@ public class CharacterController : MonoBehaviour, ICharacter
 
     //City scene
     private int bootsHealth = 0;
+    public int bootsMaxHealth;
+    private bool bootsOnCD = false;
+    public float durationCD = 2f;
 
     string jumpSound = "Jump";
 
@@ -205,10 +208,24 @@ public class CharacterController : MonoBehaviour, ICharacter
     }
 
     public void fillBootsHealth() {
-        bootsHealth = 10;
+        bootsHealth = bootsMaxH ealth;
     }
 
     public void loseBootsHealth() {
         bootsHealth--;
+    }
+
+    public void putOnCD() {
+        bootsOnCD = true;
+        StartCoroutine(waitForCD());
+    }
+
+    public bool isOnCD() {
+        return bootsOnCD;
+    }
+
+    IEnumerator waitForCD() {
+        yield return new WaitForSeconds(durationCD);
+        bootsOnCD = false;
     }
 }
