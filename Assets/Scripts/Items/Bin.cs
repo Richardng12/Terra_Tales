@@ -14,12 +14,14 @@ public class Bin : MonoBehaviour, IBins
 
     void Start()
     {
-        oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
+        if (oceanTracker != null)
+        {
+            oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
+        }
         character = player.GetComponent<CharacterController>();
         grabObject = player.GetComponent<GrabObject>();
 
     }
-
     // Checks if the rubbish is of the same type as the bin
     public bool CheckRubbish()
     {
@@ -55,19 +57,24 @@ public class Bin : MonoBehaviour, IBins
         // has released it
         if (collision != null)
         {
+          
+            Debug.Log(grabObject);
             if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
             {
+                Debug.Log("asdjnfihsdgjbhvfhisgbuoghbj");
                 collidedObject = collision.gameObject;
                 if (CheckRubbish())
                 {
                     AudioManager.instance.Play(taskCompleted);
                     // If the rubbish is the right type it should update the counter
+                    if(oceanTracker!= null)
                     oceanTracker.UpdateAndDisplayTaskCounter(binItem);
 
                 }
                 else
                 {
                     Debug.Log(collidedObject.name);
+                    if(oceanTracker!= null)
                     oceanTracker.ShowWrongRubbishPrompt();
                 }
                 DestroyRubbish();
