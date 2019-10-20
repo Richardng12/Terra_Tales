@@ -110,6 +110,8 @@ public class GlobalGameManager : MonoBehaviour
     {
         if (instance == null)
         {
+            DontDestroyOnLoad(this);
+
             instance = this;
             SaveValues.getInstance().LoadGame();
             Debug.Log("Loading in values");
@@ -120,7 +122,6 @@ public class GlobalGameManager : MonoBehaviour
             Debug.Log("Path : " + m_Path);
             StartCoroutine(continuousSave());
             // Dont destroy this object when a new scene is loaded
-            DontDestroyOnLoad(this);
         }
         else
         {
