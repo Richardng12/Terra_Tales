@@ -54,6 +54,8 @@ public sealed class SaveValues
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
         SaveValues.getInstance().UpdateValues();
         bf.Serialize(file, SaveValues.getInstance());
+            Debug.Log("Count asd" );
+
             Debug.Log("Count " + SaveValues.getInstance().highScoreDict.Count);
 
         Debug.Log("Serialising " + Application.persistentDataPath + "/gamesave.save");
