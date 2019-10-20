@@ -11,6 +11,7 @@ public class LevelLoader : MonoBehaviour
     public GameObject nextLevelCanvas;
     public Text loadingText;
     public string[] tips;
+    public string[] facts;
     public Text tip;
 
     void Update()
@@ -25,16 +26,16 @@ public class LevelLoader : MonoBehaviour
         switch (sceneIndex)
         {
             case 2:
-                tip.text = tips[1];
+                tip.text ="Tip: "+tips[0];
                 break;
             case 3:
-                tip.text = tips[2];
+                tip.text = "Tip: " + tips[1];
                 break;
             case 4:
-                tip.text = tips[3];
+                tip.text = "Tip: " + tips[2];
                 break;
             default:
-                tip.text = tips[0];
+                tip.text ="Did you know? " + facts[Random.Range(0, facts.Length)];
                 break;
         }
         StartCoroutine(LoadAsynchrously(sceneIndex));
