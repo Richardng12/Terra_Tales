@@ -16,7 +16,7 @@ public class Scoring : MonoBehaviour
 
     static private Timer timer;
 
-    static public double multiplier;
+    static public double multiplier = 1;
 
     public int overallScore;
 

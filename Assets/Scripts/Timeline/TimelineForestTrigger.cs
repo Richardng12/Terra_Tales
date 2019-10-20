@@ -75,7 +75,7 @@ public class TimelineForestTrigger : MonoBehaviour
             //  firstStartTimeLine.SetActive(false);
             //   player.GetComponent<CharacterController>().enabled = true;
             Debug.Log("finish screen should display");
-            scoreText.text = Scoring.forestScore.ToString();
+            scoreText.text = "Score: "+ Scoring.forestScore.ToString();
             finishScreen.SetActive(true);
             Time.timeScale = 0f;
             skipButton.SetActive(false);
