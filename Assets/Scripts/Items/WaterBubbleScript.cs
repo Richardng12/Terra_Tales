@@ -39,7 +39,8 @@ public class WaterBubbleScript : MonoBehaviour
 
         if (!collision.gameObject.tag.Equals("Obstacles") && 
         !collision.gameObject.tag.Equals("Items") &&
-             (!collision.gameObject.tag.Equals("Grabbable")))
+             !collision.gameObject.tag.Equals("Grabbable") && !collision.gameObject.tag.Equals("City") && 
+             !collision.gameObject.tag.Equals("RubberBoots"))
         {
             Destroy(this.gameObject);
         }

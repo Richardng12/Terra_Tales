@@ -27,14 +27,33 @@ public class RainDrop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         CharacterController character = collision.gameObject.GetComponent<CharacterController>();
-
-        if (character != null);
+        if (!collision.gameObject.tag.Equals("Cloud") && !collision.gameObject.tag.Equals("City")) {
+            hasSplashed = true;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = splash;
+            StartCoroutine(waitForSplash());
+            if (character != null) {
+                character.LoseHealth();
+            }
+        }
+        if (collision.CompareTag("Boundary"))
         {
             hasSplashed = true;
-            character.LoseHealth();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = splash;
             StartCoroutine(waitForSplash());
         }
+        // if (character != null);
+        // {
+        //     hasSplashed = true;
+        //     character.LoseHealth();
+        //     this.gameObject.GetComponent<SpriteRenderer>().sprite = splash;
+        //     StartCoroutine(waitForSplash());
+        // }
+        // if (collision.gameObject.tag.Equals("WaterBullet")) {
+        //     hasSplashed = true;
+        //     this.gameObject.GetComponent<SpriteRenderer>().sprite = splash;
+        //     StartCoroutine(waitForSplash());
+        //     Debug.Log("HI");
+        // }
     }
 
     IEnumerator waitForSplash() {

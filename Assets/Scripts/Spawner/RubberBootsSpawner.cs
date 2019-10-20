@@ -39,7 +39,7 @@ public class RubberBootsSpawner : MonoBehaviour
     }
 
     private void SpawnRandom() {
-        Vector2 spawnPosition = Camera.main.ScreenToWorldPoint (new Vector2(x, y));
+        Vector2 spawnPosition = Camera.main.ScreenToWorldPoint (new Vector2(1, 2));
 
         Instantiate(rubberBoots, spawnPosition, Quaternion.identity);
         Debug.Log("boots!!!!!!!");

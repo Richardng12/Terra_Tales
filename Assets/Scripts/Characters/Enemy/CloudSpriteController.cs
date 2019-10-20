@@ -9,6 +9,8 @@ public class CloudSpriteController : MonoBehaviour
     public int health = 3;
     public float spawnTime = 0.8f;
 
+    //Speed of cloud
+    public float direction = 0.05f;
     private float timer = 0;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class CloudSpriteController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > spawnTime) {
+        if (timer > Random.Range(0.3f, 20f)) {
             spawnRainDrop();
             timer = 0;
         }
@@ -41,6 +43,19 @@ public class CloudSpriteController : MonoBehaviour
     }
 
     public void move() {
-        cloud.transform.position = new Vector2(cloud.position.x - 0.05f, cloud.position.y);
+        
+        cloud.transform.position = new Vector2(cloud.position.x + direction, cloud.position.y);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        //If it hits a boundary
+        if (other.CompareTag("Boundary"))
+        {
+            //Move cloud in other direction if a boundary is hit
+            direction = direction * -1;
+        }
+    }
+
 }
