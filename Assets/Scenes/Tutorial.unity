@@ -10458,6 +10458,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
+        type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 9167482706953049360}
+    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 4087027563679015343}
+    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
+        type: 3}
+      propertyPath: nextLevelCanvas
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
+        type: 3}
+      propertyPath: loadingText
+      value: 
+      objectReference: {fileID: 3552066044922857574}
+    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
+        type: 3}
+      propertyPath: tip
+      value: 
+      objectReference: {fileID: 5136610004492096683}
     - target: {fileID: 3203419559960611066, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10513,31 +10538,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
-        type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 9167482706953049360}
-    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 4087027563679015343}
-    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
-        type: 3}
-      propertyPath: nextLevelCanvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
-        type: 3}
-      propertyPath: loadingText
-      value: 
-      objectReference: {fileID: 3552066044922857574}
-    - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
-        type: 3}
-      propertyPath: tip
-      value: 
-      objectReference: {fileID: 5136610004492096683}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f031a72bd9f7e4caf90b7b4a806ed72a, type: 3}
 --- !u!114 &1841497985 stripped
@@ -63912,7 +63912,7 @@ PrefabInstance:
     - target: {fileID: 2238465309856715265, guid: 0b278707f16ca4be7bd9168cf9fe871f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 357250767762137734, guid: 0b278707f16ca4be7bd9168cf9fe871f,
         type: 3}
