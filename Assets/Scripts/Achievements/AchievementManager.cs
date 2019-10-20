@@ -225,6 +225,7 @@ public class AchievementManager : MonoBehaviour
         achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations on persisiting through ", " failures(s)", "Continue trying despite failing"));
         achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)", "Take care of oil spills to unlock this achievement"));
         achievementsMap.Add(AchievementType.Trash, new Achievement("Congratulations on cleaning up ", " pieces of trash", "Take care of trash to unlock this achievement"));
+        achievementsMap.Add(AchievementType.Switch, new Achievement("Congratulations on turning off ", " lights", "Turn off a light to unlock this achievement"));
 
         //Initialise achievement counts and names
         AddAchievementToType(AchievementType.Plays, 1, "First Time Playing!");
@@ -239,6 +240,11 @@ public class AchievementManager : MonoBehaviour
         AddAchievementToType(AchievementType.Time, 1, "Speed Demon");
         AddAchievementToType(AchievementType.Time, 2, "Sprint Demon");
         AddAchievementToType(AchievementType.Time, 5, "Speed God");
+
+        AddAchievementToType(AchievementType.Switch, 0, "Switches turned off");
+        AddAchievementToType(AchievementType.Switch, 1, "Conserver");
+        AddAchievementToType(AchievementType.Switch, 5, "Light Hero");
+        AddAchievementToType(AchievementType.Switch, 15, "Faster than Light");
 
         AddAchievementToType(AchievementType.PlantingTrees, 0, "Planting Trees");
         AddAchievementToType(AchievementType.PlantingTrees, 1, "Tree Hugger");
