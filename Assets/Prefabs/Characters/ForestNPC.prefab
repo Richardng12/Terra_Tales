@@ -89,7 +89,6 @@ GameObject:
   - component: {fileID: 8074238995473248183}
   - component: {fileID: 8074238995473248180}
   - component: {fileID: 1568456827151103285}
-  - component: {fileID: 1333114991358705656}
   m_Layer: 0
   m_Name: ForestNPC
   m_TagString: Untagged
@@ -181,8 +180,8 @@ MonoBehaviour:
     - Please help us our village is being ravaged by fire entities, and our home is
       being destroyed!
     - Trees need to be replanted to allow our species to live in harmony and peace.
-    - Take this water gun to extinguish the fires, refill the water gun by standing
-      over the puddles present.
+    - Use your powers to extinguish the fires, ryou can recharge by standing over
+      the puddles present.
     - Come back to me once you have completed the task
   - name: Lola The Bunny
     sentences:
@@ -225,25 +224,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47, y: 0.77}
   m_EdgeRadius: 0
---- !u!95 &1333114991358705656
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8074238995473248181}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3b55f229f90344359a129722905cf7cc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8074238995907745519
 GameObject:
   m_ObjectHideFlags: 0

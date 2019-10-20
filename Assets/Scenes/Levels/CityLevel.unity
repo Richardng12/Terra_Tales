@@ -4325,24 +4325,6 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &490821344 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6437798812931292715, guid: 1fa70fe1c645b4bbd887859b55b87fd5,
-    type: 3}
-  m_PrefabInstance: {fileID: 490821342}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &490821345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2438365628867008586, guid: 1fa70fe1c645b4bbd887859b55b87fd5,
-    type: 3}
-  m_PrefabInstance: {fileID: 490821342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &585353396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56665,12 +56647,12 @@ PrefabInstance:
         type: 3}
       propertyPath: loadingScreen
       value: 
-      objectReference: {fileID: 490821345}
+      objectReference: {fileID: 0}
     - target: {fileID: 3203419559960611067, guid: f031a72bd9f7e4caf90b7b4a806ed72a,
         type: 3}
       propertyPath: slider
       value: 
-      objectReference: {fileID: 490821344}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f031a72bd9f7e4caf90b7b4a806ed72a, type: 3}
 --- !u!114 &1859134856 stripped

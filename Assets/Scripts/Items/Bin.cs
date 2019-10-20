@@ -14,7 +14,7 @@ public class Bin : MonoBehaviour, IBins
 
     void Start()
     {
-        if (oceanTracker != null)
+        if (oceanTrackerObject != null)
         {
             oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
         }
@@ -58,22 +58,22 @@ public class Bin : MonoBehaviour, IBins
         if (collision != null)
         {
           
-            Debug.Log(grabObject);
             if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
             {
-                Debug.Log("asdjnfihsdgjbhvfhisgbuoghbj");
                 collidedObject = collision.gameObject;
                 if (CheckRubbish())
                 {
+                    Debug.Log("adskfljbndkjn");
                     AudioManager.instance.Play(taskCompleted);
                     // If the rubbish is the right type it should update the counter
-                    if(oceanTracker!= null)
-                    oceanTracker.UpdateAndDisplayTaskCounter(binItem);
-
+                    if (oceanTracker != null)
+                    {
+                        Debug.Log("2349y2952345");
+                        oceanTracker.UpdateAndDisplayTaskCounter(binItem);
+                    }
                 }
                 else
                 {
-                    Debug.Log(collidedObject.name);
                     if(oceanTracker!= null)
                     oceanTracker.ShowWrongRubbishPrompt();
                 }
