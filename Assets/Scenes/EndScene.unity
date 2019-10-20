@@ -626,7 +626,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -126.7}
-  m_SizeDelta: {x: 85.1, y: 52.2}
+  m_SizeDelta: {x: 255, y: 52.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384757314
 MonoBehaviour:
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 3
+  m_CharacterLimit: 10
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -1028,7 +1028,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ???
+  m_Text: ???????????
 --- !u!222 &749966160
 CanvasRenderer:
   m_ObjectHideFlags: 0
