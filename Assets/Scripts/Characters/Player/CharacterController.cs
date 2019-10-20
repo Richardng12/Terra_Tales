@@ -208,7 +208,7 @@ public class CharacterController : MonoBehaviour, ICharacter
     }
 
     public void fillBootsHealth() {
-        bootsHealth = bootsMaxH ealth;
+        bootsHealth = bootsMaxHealth;
     }
 
     public void loseBootsHealth() {

@@ -2,20 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudSpriteController : MonoBehaviour
+public class CloudSpriteController : AbstractSpawnableObject, ICharacter
 {
     public GameObject rainDrop;
     public Transform cloud;
-    public int health = 3;
+    public int health = 1;
     public float spawnTime = 0.8f;
 
     //Speed of cloud
     public float direction = 0.05f;
     private float timer = 0;
+
+    //Refernce
+    SpawnerScript spawner;
+
+    //Initialise object body
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody2D>();
+
+        //Get reference to spawner objects
+        if (GameObject.FindGameObjectWithTag("EnemySpawner") != null) {
+            spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
+        }
     }
 
     // Update is called once per frame
@@ -26,15 +38,21 @@ public class CloudSpriteController : MonoBehaviour
             spawnRainDrop();
             timer = 0;
         }
-        move();
+        Move();
     }
 
+    //Method to destroy this gameobject
     public void LoseHealth()
     {
-        health--;
-        if (health <= 0) {
-            Destroy(gameObject);
-        } 
+            OnDestroy();
+    }
+
+    //Method to destroy object and update spawn locations
+    public override void OnDestroy()
+    {
+        spawner.getSpawnedObjects()[this.GetLocation()] = null;
+        spawner.SetCurrentSpawnDelay(0);
+        Destroy(this.gameObject);
     }
 
     public void spawnRainDrop() {
@@ -42,20 +60,30 @@ public class CloudSpriteController : MonoBehaviour
         Instantiate(rainDrop, pos, Quaternion.identity);
     }
 
-    public void move() {
+    public void Move() {
         
         cloud.transform.position = new Vector2(cloud.position.x + direction, cloud.position.y);
     }
 
+    public void Move(float moveInput, float speed)
+    {
+        throw new System.NotImplementedException();
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        
+        CharacterController character = other.gameObject.GetComponent<CharacterController>();
+        if (character != null) {
+            character.LoseHealth();
+        }
         //If it hits a boundary
         if (other.CompareTag("Boundary"))
         {
             //Move cloud in other direction if a boundary is hit
             direction = direction * -1;
         }
+
+
     }
 
 }
