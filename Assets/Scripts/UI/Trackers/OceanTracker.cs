@@ -46,6 +46,7 @@ public class OceanTracker : MonoBehaviour, ITracker<string>
     // Checks what task the update corresponds too and shows the text
     public void UpdateAndDisplayTaskCounter(string binItem)
     {
+        Debug.Log("UPDATE DISPLAY");
         text.color = startingColour;
         if (RubbishTypes.RubbishBag.ToString().Equals(binItem))
         {

@@ -32,7 +32,6 @@ public class TimelineForestTrigger : MonoBehaviour
             {
                 StopTimeline();
                 skipButton.SetActive(false);
-                Debug.Log("should stop timeline");
             }
         }
         if(Input.GetKeyDown(KeyCode.J)){
@@ -74,12 +73,13 @@ public class TimelineForestTrigger : MonoBehaviour
         {
             //  firstStartTimeLine.SetActive(false);
             //   player.GetComponent<CharacterController>().enabled = true;
-            Debug.Log("finish screen should display");
             scoreText.text = "Score: "+ Scoring.forestScore.ToString();
             finishScreen.SetActive(true);
             Time.timeScale = 0f;
             skipButton.SetActive(false);
             AchievementManager.instance.IncrementAchievement(AchievementType.LevelCompletionsForest);
+            Publisher.TriggerEvent("FinishForest");
+
         }
     }
 

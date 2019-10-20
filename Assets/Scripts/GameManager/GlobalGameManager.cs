@@ -6,7 +6,11 @@ public class GlobalGameManager : MonoBehaviour
 {
 
     public static GlobalGameManager instance;
+    
     public bool firstPlay = true;
+    public bool forestUnlocked;
+    public bool oceanUnlocked;
+
     private ForestLevelProperties[] forestProperties;
     public ForestLevelProperties chosenForestProperties;
     private OceanLevelProperties[] oceanProperties;
@@ -26,6 +30,8 @@ public class GlobalGameManager : MonoBehaviour
         Publisher.StartListening("OceanLevelEasy", SetOceanLevelEasy);
         Publisher.StartListening("OceanLevelMedium", SetOceanLevelMedium);
         Publisher.StartListening("OceanLevelHard", SetOceanLevelHard);
+        Publisher.StartListening("FinishCity", UnlockForest);
+        Publisher.StartListening("FinishForest", UnlockOcean);
     }
 
     private void OnDisable()
@@ -36,6 +42,8 @@ public class GlobalGameManager : MonoBehaviour
         Publisher.StopListening("OceanLevelEasy", SetOceanLevelEasy);
         Publisher.StopListening("OceanLevelMedium", SetOceanLevelMedium);
         Publisher.StopListening("OceanLevelHard", SetOceanLevelHard);
+        Publisher.StopListening("FinishCity", UnlockForest);
+        Publisher.StopListening("FinishForest", UnlockOcean);
     }
 
     private void SetForestLevelEasy()
@@ -84,6 +92,16 @@ public class GlobalGameManager : MonoBehaviour
         chosenOceanLevelProperties = oceanProperties[i];
     }
 
+    private void UnlockOcean()
+    {
+        oceanUnlocked = true;
+    }
+
+    private void UnlockForest()
+    {
+        forestUnlocked = true;
+    }
+
     private void SetMultiplierEasy()
     {
         Scoring.multiplier = 1.0;
@@ -119,6 +137,9 @@ public class GlobalGameManager : MonoBehaviour
 
     private void InitLevels()
     {
+        forestUnlocked = false;
+        oceanUnlocked = false;
+
         forestProperties = new ForestLevelProperties[3]
         {
             new ForestLevelProperties(360, 6, 4),
