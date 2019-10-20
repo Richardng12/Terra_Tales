@@ -16,7 +16,6 @@ public class HighScore : MonoBehaviour
 
     static public HighScore instance;
 
-    static public Dictionary<string, int> highScoreDict = new Dictionary<string, int>();
 
     void Awake()
     {
@@ -34,7 +33,7 @@ public class HighScore : MonoBehaviour
             }
         }
     }
-
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +44,7 @@ public class HighScore : MonoBehaviour
 
     public void AddScore()
     {
-        highScoreDict.Add(playerText.text, totalScore);
-        highScoreDict = highScoreDict.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+        GlobalGameManager.instance.highScoreDict.Add(playerText.text, totalScore);
+        GlobalGameManager.instance.highScoreDict = GlobalGameManager.instance.highScoreDict.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
     }
 }

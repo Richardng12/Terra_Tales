@@ -11,7 +11,13 @@ public class GlobalGameManager : MonoBehaviour
     public ForestLevelProperties chosenForestProperties;
     private OceanLevelProperties[] oceanProperties;
     public OceanLevelProperties chosenOceanLevelProperties;
+    public Dictionary<string, int> highScoreDict = new Dictionary<string, int>();
 
+
+    void Update()
+    {
+        //Debug.Log("Number of highscores" + highScoreDict.Count);
+    }
 
     public void delayedSet(bool b)
     {
@@ -47,7 +53,7 @@ public class GlobalGameManager : MonoBehaviour
     private void SetForestLevelMedium()
     {
         SetForestProperties(1);
-        SetMultiplierMedium();   
+        SetMultiplierMedium();
     }
 
     private void SetForestLevelHard()
@@ -105,6 +111,14 @@ public class GlobalGameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            SaveValues.getInstance().LoadGame();
+            Debug.Log("Loading in values");
+            //Get the path of the Game data folder
+            string m_Path = Application.dataPath;
+
+            //Output the Game data path to the console
+            Debug.Log("Path : " + m_Path);
+            InvokeRepeating("continuousSave", 60.0f, 10f);
             // Dont destroy this object when a new scene is loaded
             DontDestroyOnLoad(this);
         }
@@ -115,6 +129,12 @@ public class GlobalGameManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    private IEnumerable continuousSave()
+    {
+        yield return new WaitForSeconds(10);
+        SaveValues.getInstance().SaveGame();
     }
 
     private void InitLevels()
@@ -144,7 +164,7 @@ public abstract class LevelProperties
 public class ForestLevelProperties : LevelProperties
 {
     public int treesToPlant;
-    
+
     public ForestLevelProperties(int time, int spawnRate, int treesToPlant)
     {
         this.time = time;
@@ -163,4 +183,6 @@ public class OceanLevelProperties : LevelProperties
         this.spawnRate = spawnRate;
         this.rubbishToCollect = rubbishToCollect;
     }
+
+
 }
