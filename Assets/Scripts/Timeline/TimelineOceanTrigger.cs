@@ -44,9 +44,6 @@ public OilSpriteController[] oilPuddles;
                 Debug.Log("should stop timeline");
             }
         }
-         if(Input.GetKeyDown(KeyCode.J)){
-            PlayCutScene();
-        }
    }
 
     //Plays cutscene once player has finished the ocean level
