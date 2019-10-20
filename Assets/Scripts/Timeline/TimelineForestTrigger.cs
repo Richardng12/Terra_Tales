@@ -34,9 +34,9 @@ public class TimelineForestTrigger : MonoBehaviour
                 skipButton.SetActive(false);
             }
         }
-        if(Input.GetKeyDown(KeyCode.J)){
-            PlayCutScene();
-        }
+        // if(Input.GetKeyDown(KeyCode.J)){
+        //     PlayCutScene();
+        // }
    }
 
     void Start()

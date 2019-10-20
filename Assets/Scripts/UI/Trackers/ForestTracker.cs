@@ -23,6 +23,14 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
 
     string forestLevelAudio = "ForestLevel";
 
+    private bool isComplete = false;
+    void Update()
+    {
+
+      if(Input.GetKeyDown(KeyCode.J)){
+            treesPlanted[0] = treesToPlant;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +96,8 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         {
             if (treesPlanted[i] < treesToPlant) {
                 return false;
+             }else{
+                 return isComplete;
              }
         }
         return true;

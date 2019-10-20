@@ -100,7 +100,7 @@ public OilSpriteController[] oilPuddles;
             Debug.Log("finish screen should show");
           //  firstStartTimeLine.SetActive(false);
          //   player.GetComponent<CharacterController>().enabled = true;
-            scoreText.text = Scoring.oceanScore.ToString();
+            scoreText.text = "Score: " + Scoring.oceanScore.ToString();
             finishScreen.SetActive(true);
             AchievementManager.instance.IncrementAchievement(AchievementType.LevelCompletionsOcean);
             Time.timeScale = 0f;
