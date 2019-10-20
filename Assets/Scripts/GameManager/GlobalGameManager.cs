@@ -111,14 +111,14 @@ public class GlobalGameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-           SaveValues.getInstance().LoadGame();
+            SaveValues.getInstance().LoadGame();
             Debug.Log("Loading in values");
             //Get the path of the Game data folder
             string m_Path = Application.dataPath;
 
             //Output the Game data path to the console
             Debug.Log("Path : " + m_Path);
-            InvokeRepeating("continuousSave", 60.0f, 10f);
+            StartCoroutine(continuousSave());
             // Dont destroy this object when a new scene is loaded
             DontDestroyOnLoad(this);
         }
@@ -131,10 +131,11 @@ public class GlobalGameManager : MonoBehaviour
         }
     }
 
-    private IEnumerable continuousSave()
+    private IEnumerator continuousSave()
     {
         yield return new WaitForSeconds(10);
         SaveValues.getInstance().SaveGame();
+        continuousSave();
     }
 
     private void InitLevels()
