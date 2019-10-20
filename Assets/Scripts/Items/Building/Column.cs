@@ -31,7 +31,8 @@ public class Column : MonoBehaviour
             foreach (Window window in windows) {
                 window.turnOnEmpty();
             }
-        }     
+        }
+        transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().increaseEnergy();    
     }
 
     public void useSwitch() {
@@ -40,6 +41,7 @@ public class Column : MonoBehaviour
         foreach (Window window in windows) {
             window.turnOff();
         }
+        transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy(); 
     }
 
     // method called when player incorrectly turns off the lights
