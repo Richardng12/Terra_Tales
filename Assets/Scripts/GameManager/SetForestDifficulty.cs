@@ -10,11 +10,10 @@ public class SetForestDifficulty : MonoBehaviour
 
     public GameObject treeTracker;
 
-
     void Start()
     {
-        spawnerObject.GetComponent<SpawnerScript>().spawnDelay = GlobalGameManager.instance.chosenForestLevel.spawnRate;
-        timerObject.GetComponent<Timer>().time = GlobalGameManager.instance.chosenForestLevel.time;
-        treeTracker.GetComponent<ForestTracker>().treesToPlant = GlobalGameManager.instance.chosenForestLevel.treesToPlant;
+        spawnerObject.GetComponent<SpawnerScript>().spawnDelay = GlobalGameManager.instance.chosenForestProperties.spawnRate;
+        timerObject.GetComponent<Timer>().time = GlobalGameManager.instance.chosenForestProperties.time;
+        treeTracker.GetComponent<ForestTracker>().treesToPlant = GlobalGameManager.instance.chosenForestProperties.treesToPlant;
     }
 }
