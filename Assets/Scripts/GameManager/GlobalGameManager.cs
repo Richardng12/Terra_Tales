@@ -117,6 +117,7 @@ public class GlobalGameManager : MonoBehaviour
             Debug.Log("Loading in values");
             //Get the path of the Game data folder
             string m_Path = Application.dataPath;
+            AchievementManager.instance.IncrementAchievement(AchievementType.Plays);
 
             //Output the Game data path to the console
             Debug.Log("Path : " + m_Path);
