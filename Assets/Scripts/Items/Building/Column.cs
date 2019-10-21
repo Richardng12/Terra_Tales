@@ -39,6 +39,7 @@ public class Column : MonoBehaviour
             }
         }
         transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().increaseEnergy();
+        Publisher.TriggerEvent("UpdateEnergy");
     }
 
     public void useSwitch()

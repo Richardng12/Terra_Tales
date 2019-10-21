@@ -35,20 +35,21 @@ public class Scoring : MonoBehaviour
         switch (stage)
         {
             case "Forest":
-                currentScore += (ForestTracker.fireSpriteDestroyed * 50);
-                currentScore += (ForestTracker.treesPlanted[0] * 100);
+                currentScore += (ForestTracker.fireSpriteDestroyed * 500);
+                currentScore += (ForestTracker.treesPlanted[0] * 1000);
                 currentScore =  (int) (currentScore * multiplier);
                 forestScore = Math.Max(currentScore, forestScore);
                 break;
             case "Ocean":
-                currentScore += (OceanTracker.oilSpriteDestroyed * 20);
-                currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 50;
+                currentScore += (OceanTracker.oilSpriteDestroyed * 200);
+                currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 500;
                 currentScore = (int)(currentScore * multiplier);
-                Debug.Log("Ocean Score: " + currentScore);
                 oceanScore = Math.Max(currentScore, oceanScore);
-                Debug.Log("OCEAN: " + oceanScore);
                 break;
             case "City":
+                currentScore += CityTracker.energyDiff * 2000;
+                currentScore += CityTracker.cloudsDestroyed * 100;
+                currentScore = (int)(currentScore * multiplier);
                 cityScore = Math.Max(currentScore, cityScore);
                 break;
             default:
@@ -86,6 +87,7 @@ public class Scoring : MonoBehaviour
                 currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 500;
                 break;
             case "City":
+                currentScore += CityTracker.cloudsDestroyed * 100;
                 break;
             default:
                 break;

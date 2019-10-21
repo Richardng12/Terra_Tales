@@ -17,11 +17,9 @@ public class TimelineCityTrigger : MonoBehaviour
     private GameObject cityNPC;
 
     private GameObject player;
-    public Text scoreText;
-
     public GameObject skipButton;
     
- public GameObject energyBar;
+    public GameObject energyBar;
     public GameObject bootsBar;
 
     public GameObject boot;
@@ -32,7 +30,7 @@ public class TimelineCityTrigger : MonoBehaviour
 
      private bool isPlaying = false;
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -40,7 +38,6 @@ public class TimelineCityTrigger : MonoBehaviour
             {
                 StopTimeline();
                 skipButton.SetActive(false);
-                
             }
         }
         
@@ -67,7 +64,6 @@ public class TimelineCityTrigger : MonoBehaviour
         cityBackgroundFinish.SetActive(true);
         cityBackground.SetActive(false);
         timeline.Play();
-
     }
 
     //Pause the game and display the finish screen once the FINISH cutscene is done playing
@@ -75,14 +71,11 @@ public class TimelineCityTrigger : MonoBehaviour
     {
         if (timeline == aDirector)
         {
-            //TODO set city score
-          //  scoreText.text = "Score: "+ Scoring.forestScore.ToString();
             finishScreen.SetActive(true);
             Time.timeScale = 0f;
             skipButton.SetActive(false);
             AchievementManager.instance.IncrementAchievement(AchievementType.LevelCompletionsCity);
-           // Publisher.TriggerEvent("FinishForest");
-
+            Publisher.TriggerEvent("FinishCity");
         }
     }
 

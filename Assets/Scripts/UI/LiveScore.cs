@@ -32,12 +32,14 @@ public class LiveScore : MonoBehaviour
     {
         Publisher.StartListening("UpdateForestScore", UpdateForestLiveScore);
         Publisher.StartListening("UpdateOceanScore", UpdateOceanLiveScore);
+        Publisher.StartListening("UpdateCityScore", UpdateCityLiveScore);
     }
 
     private void OnDisable()
     {
         Publisher.StopListening("UpdateForestScore", UpdateForestLiveScore);
         Publisher.StopListening("UpdateOceanScore", UpdateOceanLiveScore);
+        Publisher.StopListening("UpdateCityScore", UpdateCityLiveScore);
     }
 
     void UpdateForestLiveScore()
@@ -52,6 +54,14 @@ public class LiveScore : MonoBehaviour
     {
         prevScore = curScore;
         curScore = scoringObject.GetComponent<Scoring>().CalculateLiveScore("Ocean");
+        StartCoroutine(fadingText());
+        liveScoreText.text = "Score: " + curScore.ToString();
+    }
+
+    void UpdateCityLiveScore()
+    {
+        prevScore = curScore;
+        curScore = scoringObject.GetComponent<Scoring>().CalculateLiveScore("City");
         StartCoroutine(fadingText());
         liveScoreText.text = "Score: " + curScore.ToString();
     }

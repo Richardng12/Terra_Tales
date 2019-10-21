@@ -223,9 +223,9 @@ public class GlobalGameManager : MonoBehaviour
 
         cityProperties = new CityLevelProperties[3]
         {
-            new CityLevelProperties(90, 6, 6, 15, 18),
-            new CityLevelProperties(120, 5, 5, 18, 16),
-            new CityLevelProperties(180, 4, 4, 20, 14)
+            new CityLevelProperties(90, 6, 6f, 15, 18),
+            new CityLevelProperties(120, 5, 5f, 18, 16),
+            new CityLevelProperties(180, 4, 4f, 20, 14)
         };
     }
 }
@@ -265,10 +265,10 @@ public class OceanLevelProperties : LevelProperties
 
 public class CityLevelProperties : LevelProperties
 {
-    public int lightSpawnRate;
+    public float lightSpawnRate;
     public int bootSpawnRate;
     public int maxEnergy;
-    public CityLevelProperties(int time, int spawnRate, int lightSpawnRate, int bootSpawnRate, int maxEnergy)
+    public CityLevelProperties(int time, int spawnRate, float lightSpawnRate, int bootSpawnRate, int maxEnergy)
     {
         this.time = time;
         this.spawnRate = spawnRate;

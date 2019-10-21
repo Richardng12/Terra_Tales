@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CityTracker : MonoBehaviour
 {
@@ -12,12 +13,17 @@ public class CityTracker : MonoBehaviour
     public float fadeOutTime;
 
     public GameObject gameManager;
-
+    public GameObject energyTracker;
     private Color startingColour;
-        public GameObject timer;
-       AudioManager audioManager;
+    public GameObject timer;
+    AudioManager audioManager;
+    public bool isCompleted = false;
 
-       public bool isCompleted = false;
+    public static int maxEnergyReached;
+
+    public static int energyDiff;
+
+    public static int cloudsDestroyed;
 
 
     string cityLevelAudio = "CityLevel";
@@ -43,6 +49,9 @@ public class CityTracker : MonoBehaviour
 
      void Start()
     {
+        maxEnergyReached = 0;
+        cloudsDestroyed = 0;
+        energyDiff = 0;
         startingColour = text.color;
         audioManager = AudioManager.instance;
         if(audioManager != null)
@@ -64,14 +73,28 @@ public class CityTracker : MonoBehaviour
         }
     }
     void OnEnable(){
-        Publisher.StartListening("TimerFinished", Win);
+        Publisher.StartListening("UpdateEnergy", UpdateEnergy);
+        Publisher.StartListening("CloudDestroyed", CloudKilled);
     }
 
     void OnDisable(){
-        Publisher.StopListening("TimerFinished", Win);
+        Publisher.StopListening("UpdateEnergy", UpdateEnergy);
+        Publisher.StopListening("CloudDestroyed", CloudKilled);
     }
 
-    private void Win(){
-        Debug.Log("GIN");
+    private void UpdateEnergy()
+    {
+        maxEnergyReached = Math.Max((int) energyTracker.GetComponent<EnergyTracker>().getCurrent(), maxEnergyReached);
+        SetEnergyDiff();
+    }
+
+    private void CloudKilled()
+    {
+        cloudsDestroyed++;
+    }
+
+    private void SetEnergyDiff()
+    {
+        energyDiff = (int) energyTracker.GetComponent<EnergyTracker>().max - maxEnergyReached;
     }
 }
