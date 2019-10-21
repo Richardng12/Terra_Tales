@@ -61,20 +61,22 @@ public class Bin : MonoBehaviour, IBins
             if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
             {
                 collidedObject = collision.gameObject;
+                // If of correct rubbish
                 if (CheckRubbish())
                 {
+                    // Increments achievment for rubbish
                     AchievementManager.instance.IncrementAchievement(AchievementType.Trash);
-                    Debug.Log("adskfljbndkjn");
                     AudioManager.instance.Play(taskCompleted);
                     // If the rubbish is the right type it should update the counter
                     if (oceanTracker != null)
                     {
-                        Debug.Log("2349y2952345");
+                        // Displays the text and updates tracker
                         oceanTracker.UpdateAndDisplayTaskCounter(binItem);
                     }
                 }
                 else
                 {
+                    // Shows wrong rubbish prompt
                     if(oceanTracker!= null)
                     oceanTracker.ShowWrongRubbishPrompt();
                 }

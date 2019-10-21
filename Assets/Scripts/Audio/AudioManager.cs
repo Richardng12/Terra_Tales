@@ -12,7 +12,8 @@ public class AudioManager : MonoBehaviour
     public static bool musicTicked = true;
     int volume = 1;
 
-
+    // If music is turned on set the volume to normal (1) and for each sound
+    // Set the sounds back on if current playing
     public void MusicOn()
     {
         musicTicked = true;
@@ -22,6 +23,8 @@ public class AudioManager : MonoBehaviour
             s.setSoundOn();
         }
     }
+    // If music is turned off set the volume off (0) and for each sound
+    // Set the sounds off if current playing
     public void MusicOff()
     {
         musicTicked = false;
@@ -32,14 +35,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-  
-    }
-
 
 void Awake()
 {
+        // Creates the singleton
     if (instance == null)
     {
         instance = this;
@@ -55,8 +54,11 @@ void Awake()
     }
 }
 
+
 private void Start()
 {
+        // Retrieves all the sounds in the components and sets the source of each
+        // sound to have a volume and pitch indicated in the gameobject
     foreach (Sound s in sounds)
     {
         GameObject gameSound = new GameObject(s.name);
@@ -64,10 +66,12 @@ private void Start()
         s.SetSource(gameSound.AddComponent<AudioSource>());
     }
     initalised = true;
+        // Plays main menu music
     Play("MainMenu");
     mainMenuMusic = true;
 }
 
+    // Plays a specific music using the string inputted
 public void Play(string name)
 {
     foreach (Sound s in sounds)
@@ -80,6 +84,7 @@ public void Play(string name)
     }
 }
 
+    // Stops all music that is currently playing
 public void StopAll()
 {
     foreach (Sound s in sounds)
@@ -87,7 +92,7 @@ public void StopAll()
         s.Stop();
     }
 }
-
+    // Stops a specified music 
 public void Stop(string name)
 {
     foreach (Sound s in sounds)

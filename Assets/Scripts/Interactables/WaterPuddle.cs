@@ -19,7 +19,6 @@ public class WaterPuddle : MonoBehaviour
 
 
     // Change sprite color to selected color
-
     public Text allowSwitchText;
     private bool isOn;
     private Rigidbody2D switc;
@@ -42,6 +41,7 @@ public class WaterPuddle : MonoBehaviour
             ChangeState();
     }
 
+    // Need to check if the trigger collided is a player
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals("Player"))
@@ -51,6 +51,7 @@ public class WaterPuddle : MonoBehaviour
         }
     }
 
+    // Need to check if the trigger collided is a player to enable switch again
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals("Player"))

@@ -21,10 +21,13 @@ public class MenuManager : MonoBehaviour
         {
             if (AudioManager.initalised)
             {
+                // If main menu music isnt playing then it should stop all current
+                // music and play main menu music
                 if (!AudioManager.mainMenuMusic)
                 {
                     audioManager.StopAll();
                     audioManager.Play(MainMenuSound);
+                    AudioManager.mainMenuMusic = true;
                 }
             }
         }

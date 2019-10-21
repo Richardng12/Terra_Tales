@@ -20,12 +20,15 @@ public class CharacterAction : MonoBehaviour
         {
             jump = true;
         }
+        // Looks for the water caster animation
         if (Input.GetButtonDown("Fire1"))
         {
             moveAnimator.SetTrigger("castWater");
         }
         // Sets the animation to moving
         moveAnimator.SetFloat("speed",Mathf.Abs(moveInput));
+
+        // Checks if the character is on ground to show right animation
         if (characterController.OnGround())
         {
             moveAnimator.SetBool("onGround", true);

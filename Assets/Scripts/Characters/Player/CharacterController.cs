@@ -83,7 +83,8 @@ public class CharacterController : MonoBehaviour, ICharacter
     // Also checks for animation frames
     private void Update()
     {
-
+        // if player is on the ground and cant double jump it allows the play to
+        // do his first jump
         if (onGround && !canDoubleJump)
         {
             firstJump = true;
@@ -117,7 +118,7 @@ public class CharacterController : MonoBehaviour, ICharacter
             }
         }
     }
-
+    // Increases player health
     public void IncreaseHealth()
     {
         if(health != 5)
@@ -156,23 +157,30 @@ public class CharacterController : MonoBehaviour, ICharacter
     // Method to jump
     public bool Jump(bool keyPressed, float jumpSpeed)
     {
+        // If button to jump is pressed
         if (keyPressed)
         {
+            // If player is on the ground or hasnt jumped for the first time since
+            // touching the ground it should jump
             if (onGround || firstJump)
             {
                 audioManager.Play(jumpSound);
                 rb.velocity = Vector2.up * jumpSpeed;
+                // player can now double jump
                 canDoubleJump = true;
+                // player has done his first jump
                 firstJump = false;
                 return true;
             }
             else
             {
+                // If player can double jump
                 if (canDoubleJump)
                 {
                     // Plays the jump sound
                     audioManager.Play(jumpSound);
                     rb.velocity = Vector2.up * jumpSpeed;
+                    // player cant double jump anymore
                     canDoubleJump = false;
                     return true;
                 }

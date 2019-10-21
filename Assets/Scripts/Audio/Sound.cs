@@ -2,6 +2,9 @@
 using UnityEngine.Audio;
 using UnityEngine;
 
+// Sound class to store the variables for different sounds like volume and pitch
+// and if loopable
+
 [System.Serializable]
 public class Sound {
 
