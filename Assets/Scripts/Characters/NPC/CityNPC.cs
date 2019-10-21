@@ -128,6 +128,7 @@ public class CityNPC : MonoBehaviour, INPC
         //If complete then npc thanks
         else if (cityTracker.isCompleted)
         {
+            Debug.Log("citytracker is completed");
           //  gameManager.GetComponent<Scoring>().CalculateStageScore("Forest");
             dialogueManager.StartDialogue(dialogue[2]);
             timelineTrigger.GetComponent<TimelineCityTrigger>().PlayCutScene();
