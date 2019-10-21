@@ -11,6 +11,8 @@ public class GlobalGameManager : MonoBehaviour
     public bool forestUnlocked= false;
     public bool oceanUnlocked = false;
 
+    public string difficulty;
+
     private ForestLevelProperties[] forestProperties;
     public ForestLevelProperties chosenForestProperties;
     private OceanLevelProperties[] oceanProperties;
@@ -51,18 +53,21 @@ public class GlobalGameManager : MonoBehaviour
 
     private void SetForestLevelEasy()
     {
+        difficulty = "Easy";
         SetForestProperties(0);
         SetMultiplierEasy();
     }
 
     private void SetForestLevelMedium()
     {
+        difficulty = "Medium";
         SetForestProperties(1);
         SetMultiplierMedium();
     }
 
     private void SetForestLevelHard()
     {
+        difficulty = "Hard";
         SetForestProperties(2);
         SetMultiplierHard();
     }
@@ -75,18 +80,21 @@ public class GlobalGameManager : MonoBehaviour
 
     private void SetOceanLevelEasy()
     {
+        difficulty = "Easy";
         SetOceanProperties(0);
         SetMultiplierEasy();
     }
 
     private void SetOceanLevelMedium()
     {
+        difficulty = "Medium";
         SetOceanProperties(1);
         SetMultiplierMedium();
     }
 
     private void SetOceanLevelHard()
     {
+        difficulty = "Hard";
         SetOceanProperties(2);
         SetMultiplierHard();
     }

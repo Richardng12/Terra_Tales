@@ -11,7 +11,7 @@ public class LiveScore : MonoBehaviour
     private float origx;
     private float origy;
 
-    private int curScore;
+    public int curScore;
 
     private int prevScore = 0;
 
