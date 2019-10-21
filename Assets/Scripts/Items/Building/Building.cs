@@ -26,6 +26,7 @@ public class Building : MonoBehaviour
     }
 
     void OnTriggerStay2D(Collider2D collision) {
+        if(collision.tag == "Player"){
         CharacterController character = collision.gameObject.GetComponent<CharacterController>();
 
         if (character != null && shortCircuit) {
@@ -40,9 +41,10 @@ public class Building : MonoBehaviour
                 
             } else {
                 character.LoseHealth();
-                Debug.Log("take dmg");
+                Debug.Log(character.health);
             }     
         } 
+        }
     }
 
     // turn all the building lights on due to wrong switch by player
