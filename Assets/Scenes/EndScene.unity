@@ -975,7 +975,7 @@ GameObject:
   - component: {fileID: 459704104}
   - component: {fileID: 459704103}
   m_Layer: 5
-  m_Name: FinalScoreText
+  m_Name: TotalScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -997,7 +997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 250.38, y: 87.524}
+  m_AnchoredPosition: {x: 250.37996, y: 69.000015}
   m_SizeDelta: {x: -279.23523, y: 239.74872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459704103
@@ -1031,7 +1031,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'FINAL SCORE:'
+  m_Text: 'TOTAL SCORE:'
 --- !u!222 &459704104
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1617,7 +1617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 250.38, y: -23}
+  m_AnchoredPosition: {x: 250.38, y: -22}
   m_SizeDelta: {x: -132.90002, y: 18.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1035048494
@@ -2652,7 +2652,7 @@ GameObject:
   - component: {fileID: 1704543239}
   - component: {fileID: 1704543238}
   m_Layer: 5
-  m_Name: FinalScoreNumber
+  m_Name: TotalScoreNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2674,7 +2674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 250.38002, y: 62.524025}
+  m_AnchoredPosition: {x: 250.38002, y: 44}
   m_SizeDelta: {x: -279.2353, y: 189.74872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1704543238
