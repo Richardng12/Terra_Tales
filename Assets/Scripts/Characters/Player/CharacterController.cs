@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour, ICharacter
 {
@@ -32,8 +33,7 @@ public class CharacterController : MonoBehaviour, ICharacter
     public int bootsMaxHealth;
     private bool bootsOnCD = false;
     public float durationCD = 2f;
-    
-    [SerializeField] public Bar bar;
+    public Slider bootsBar;
 
     string jumpSound = "Jump";
 
@@ -50,7 +50,8 @@ public class CharacterController : MonoBehaviour, ICharacter
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
 
-        bar.gameObject.SetActive(false);
+        bootsBar.maxValue = bootsMaxHealth;
+        // bootsBar.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -100,12 +101,9 @@ public class CharacterController : MonoBehaviour, ICharacter
             CheckInvulnerability();
         }
 
-        if (bootsHealth != 0) {
-            bar.gameObject.SetActive(true);
-            bar.setSize((bootsHealth / bootsMaxHealth));
-        } else {
-            bar.gameObject.SetActive(false);
-        }    
+    
+        bootsBar.value = bootsHealth;
+          
     }
     private void FixedUpdate()
     {
@@ -238,5 +236,10 @@ public class CharacterController : MonoBehaviour, ICharacter
     IEnumerator waitForCD() {
         yield return new WaitForSeconds(durationCD);
         bootsOnCD = false;
+    }
+
+    IEnumerator setSliderValue(float v) {
+        yield return new WaitForSeconds(0f);
+        bootsBar.value = v;
     }
 }

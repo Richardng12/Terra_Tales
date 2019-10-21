@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnergyTracker : MonoBehaviour
 {
     public float max;
     private float current = 0;
-
-    [SerializeField] private Bar bar;
+    
+    public Slider energyBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        bar.setBar("eBar");
+       energyBar.maxValue = max;
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class EnergyTracker : MonoBehaviour
             Debug.Log("u lose");
         }
         Debug.Log(current);
-        bar.setSize((current / max));
+        StartCoroutine(setSliderValue(current));
     }
 
     public void increaseEnergy() {
@@ -31,5 +32,10 @@ public class EnergyTracker : MonoBehaviour
 
     public void decreaseEnergy() {
         current--;
+    }
+
+    IEnumerator setSliderValue(float v) {
+        yield return new WaitForSeconds(0f);
+        energyBar.value = v;
     }
 }

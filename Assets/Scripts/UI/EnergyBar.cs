@@ -9,7 +9,7 @@ public class EnergyBar : MonoBehaviour
 
     public Slider energyThreshold;
 
-public int maxEnergy;
+        public int maxEnergy;
     public int threshold;
     //private Slider slider;
     public int currentValue;
