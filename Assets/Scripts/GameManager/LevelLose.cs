@@ -21,7 +21,7 @@ public class LevelLose : MonoBehaviour
     void Update()
     {
         //If the players health reaches 0, or the timer reaches 0, display the lose screen
-        if (lose)
+        if (!lose)
         {
             if ((player.GetComponent<CharacterController>().health == 0 || timer.GetComponent<Timer>().time == 0))
             {
