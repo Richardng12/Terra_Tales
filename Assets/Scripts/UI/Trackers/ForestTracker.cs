@@ -27,8 +27,10 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
     {
 
       if(Input.GetKeyDown(KeyCode.J)){
-            treesPlanted[0] = treesToPlant - 1;
-            UpdateAndDisplayTaskCounter();
+            treesPlanted[0] = treesToPlant;
+            text.text = "Tasks completed. Please Return to NPC";
+            StartCoroutine(TextFadeOutRoutine());
+            gameManager.GetComponent<Scoring>().StopStageTimer();
         }
     }
 

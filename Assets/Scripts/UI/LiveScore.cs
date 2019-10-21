@@ -11,7 +11,7 @@ public class LiveScore : MonoBehaviour
     private float origx;
     private float origy;
 
-    private int curScore;
+    public int curScore;
 
     private int prevScore = 0;
 
@@ -42,16 +42,24 @@ public class LiveScore : MonoBehaviour
 
     void UpdateForestLiveScore()
     {
-        StartCoroutine(fadingText());
+        prevScore = curScore;
         curScore = scoringObject.GetComponent<Scoring>().CalculateLiveScore("Forest");
-        liveScoreText.text = "Score: " + scoringObject.GetComponent<Scoring>().CalculateLiveScore("Forest").ToString();
-  
+        StartCoroutine(fadingText());
+        liveScoreText.text = "Score: " + curScore.ToString();
+    }
+
+    void UpdateOceanLiveScore()
+    {
+        prevScore = curScore;
+        curScore = scoringObject.GetComponent<Scoring>().CalculateLiveScore("Ocean");
+        StartCoroutine(fadingText());
+        liveScoreText.text = "Score: " + curScore.ToString();
     }
 
     IEnumerator fadingText()
     {
-        //TODO for brian
-        scoreIncrement.text = "+SOME NUMBER";
+        int diff = curScore - prevScore;
+        scoreIncrement.text = "+" + diff;
         scoreIncrement.color = new Color(255, 255, 255, 1);
         assign_text_1RT.anchoredPosition = new Vector3(origx, origy, 0f);
 
@@ -63,11 +71,5 @@ public class LiveScore : MonoBehaviour
             scoreIncrement.color = new Color(255, 255, 255, j);
             assign_text_1RT.anchoredPosition = new Vector3(origx, origy + i, 0f);
         }
-    }
-
-    void UpdateOceanLiveScore()
-    {
-        Debug.Log("HELLO");
-        liveScoreText.text = "Score: " + scoringObject.GetComponent<Scoring>().CalculateLiveScore("Ocean").ToString();
     }
 }

@@ -17,7 +17,6 @@ public class TimelineForestTrigger : MonoBehaviour
     private GameObject forestNPC;
 
     private GameObject player;
-    public Text scoreText;
 
     public GameObject skipButton;
     
@@ -70,13 +69,11 @@ public class TimelineForestTrigger : MonoBehaviour
         {
             //  firstStartTimeLine.SetActive(false);
             //   player.GetComponent<CharacterController>().enabled = true;
-            scoreText.text = "Score: "+ Scoring.forestScore.ToString();
+            Publisher.TriggerEvent("FinishForest");
             finishScreen.SetActive(true);
             Time.timeScale = 0f;
             skipButton.SetActive(false);
             AchievementManager.instance.IncrementAchievement(AchievementType.LevelCompletionsForest);
-            Publisher.TriggerEvent("FinishForest");
-
         }
     }
 
