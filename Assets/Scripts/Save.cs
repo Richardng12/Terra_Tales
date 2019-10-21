@@ -7,8 +7,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+/**
+    Class to deal with save and loading into files
+ */
 public class Save : MonoBehaviour
 {
+    //Save game to a file
     public void SaveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -23,6 +27,7 @@ public class Save : MonoBehaviour
         Debug.Log("Game Saved");
     }
 
+    //Load game to a file
     public void LoadGame()
     {
         Debug.Log("Serialising" + Application.persistentDataPath + "/gamesave.save");
@@ -49,7 +54,8 @@ public sealed class SaveValues
     public bool firstPlay;
     public bool forestUnlocked;
     public bool oceanUnlocked;
-
+    
+    //Save game to a file
     public void SaveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -66,6 +72,7 @@ public sealed class SaveValues
         Debug.Log("Game Saved");
     }
 
+    //Load game to a file
     public void LoadGame()
     {
         // 1
@@ -90,6 +97,8 @@ public sealed class SaveValues
 
 
     }
+
+    //Grab update to values
     public void UpdateValues()
     {
         achievementsMap = AchievementManager.instance.achievementsMap;
