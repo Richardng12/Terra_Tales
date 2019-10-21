@@ -25,6 +25,7 @@ public class SetHighScores : MonoBehaviour
         }
     }
 
+    // checks the number of high scores and sets the top 5 from the sorted dictionary
     private void SetHighScore()
     {
         for (int i = 0; i < 5; i++)

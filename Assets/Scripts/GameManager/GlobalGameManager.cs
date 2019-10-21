@@ -21,6 +21,8 @@ public class GlobalGameManager : MonoBehaviour
     {
         firstPlay = b;
     }
+
+    // listens for difficulty events and level finish events
     private void OnEnable()
     {
         InitLevels();
@@ -34,6 +36,7 @@ public class GlobalGameManager : MonoBehaviour
         Publisher.StartListening("FinishForest", UnlockOcean);
     }
 
+    // unmounts all listeners when disabled
     private void OnDisable()
     {
         Publisher.StopListening("ForestLevelEasy", SetForestLevelEasy);
@@ -64,10 +67,10 @@ public class GlobalGameManager : MonoBehaviour
         SetMultiplierHard();
     }
 
+    // sets difficulty for level based on the chosen properties
     private void SetForestProperties(int i)
     {
         chosenForestProperties = forestProperties[i];
-        Debug.Log(chosenForestProperties.spawnRate + " " + chosenForestProperties.time);
     }
 
     private void SetOceanLevelEasy()
@@ -156,6 +159,7 @@ public class GlobalGameManager : MonoBehaviour
         continuousSave();
     }
 
+    // initialises all the difficulty prperties for levels
     private void InitLevels()
     {
         forestUnlocked = false;
@@ -177,6 +181,7 @@ public class GlobalGameManager : MonoBehaviour
     }
 }
 
+// model class representing properties of each level
 public abstract class LevelProperties
 {
     public int time;

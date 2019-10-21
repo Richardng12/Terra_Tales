@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// publishes events based on button onclicks and sets the difficulty 
 public class CheckDifficulty : MonoBehaviour
 {
     public void SetForestEasy()
