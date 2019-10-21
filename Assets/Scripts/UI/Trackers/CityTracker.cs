@@ -72,6 +72,6 @@ public class CityTracker : MonoBehaviour
     }
 
     private void Win(){
-        Debug.Log("NIG");
+        Debug.Log("GIN");
     }
 }
