@@ -10,17 +10,12 @@ public class CheckTutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GlobalGameManager.instance.firstPlay)
+        // If its the first time the player is playing ask user to play tutorial
+        if (!GlobalGameManager.instance.firstPlay)
         {
             tutorialMenu.SetActive(true);
             levelSelectionPanel.SetActive(false);
-            GlobalGameManager.instance.firstPlay = false;
+            GlobalGameManager.instance.firstPlay = true;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

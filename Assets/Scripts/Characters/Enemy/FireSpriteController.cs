@@ -23,6 +23,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
 
     private void Start()
     {
+        if (GameObject.FindGameObjectWithTag("EnemySpawner") != null)
         spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
     }
 

@@ -11,6 +11,7 @@ public class TrashScript : AbstractSpawnableObject
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<GrabObject>();
+        if(GameObject.FindGameObjectWithTag("ItemSpawner") != null)
         spawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<SpawnerScript>();
 
     }

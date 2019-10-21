@@ -34,12 +34,16 @@ public class Seedling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startingColour = noWaterText.color;
+        if (noWaterText != null)
+        {
+            startingColour = noWaterText.color;
+        }
         currentProgress = 0;
         complete = false;
         progressBar.value = CalculateProgress();
         progressBar.gameObject.SetActive(false);
         pivot.transform.localScale = new Vector3(1, 1, 0);
+        if(treeCounterObject != null)
         treeCounter = treeCounterObject.GetComponent<ForestTracker>();
         //co = StartCoroutine(StartGlow());
     }
@@ -64,6 +68,7 @@ public class Seedling : MonoBehaviour
                 AudioManager.instance.Play(taskCompletedSound);
                 soundPlayed = true;
             }
+            if(treeCounter != null)
             treeCounter.UpdateAndDisplayTaskCounter();
         }
         // updates the progress bar and increases the scale of seedling sprite 
