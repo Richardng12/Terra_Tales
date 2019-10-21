@@ -7,9 +7,10 @@ public class Pause : MonoBehaviour
     public GameObject pauseMenu;
     public Button resumeButton;
     private bool paused;
-	
-	//Upon start, get the Resume button component and reference ContinueGame() method with it
-     void Start () {
+    readonly string mainMenuSound = "MainMenu";
+
+    //Upon start, get the Resume button component and reference ContinueGame() method with it
+    void Start () {
 		Button btn = GetComponent<Button>();
 		resumeButton.onClick.AddListener(ContinueGame);
 	}
@@ -19,9 +20,8 @@ public class Pause : MonoBehaviour
         //PauseGame();
         //   Debug.Log("ewe");
 		//If the player presses escape, look at current game state, if its not paused - pause, if it is paused, unpause.
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.P)) 
         {
-        Debug.Log("escape pressed");
             if (!paused) 
             {
                 PauseGame();
@@ -37,7 +37,6 @@ public class Pause : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0f;
-        Debug.Log(Time.timeScale);
         pauseMenu.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
     } 
@@ -48,5 +47,11 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         //enable the scripts again
+    }
+
+    public void ExitButtonPressed()
+    {
+        AudioManager.instance.StopAll();
+        AudioManager.instance.Play(mainMenuSound);
     }
 }

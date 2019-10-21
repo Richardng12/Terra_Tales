@@ -11,21 +11,26 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
 
     private bool movingRight = true;
 
-    public int health = 9;
+    public int health = 3;
 
     public Transform groundDetection;
-
+    public Transform wallDetection;
     private CharacterController character;
     private SpawnerScript spawner;
 
+    string hitSound = "Hit";
+    string monsterDeathSound = "FireMonsterDeath";
+
     private void Start()
     {
+        if (GameObject.FindGameObjectWithTag("EnemySpawner") != null)
         spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<SpawnerScript>();
     }
 
     void Update()
 
     {
+        // Every frame should call move to move the fire sprite
         Move();
     }
 
@@ -35,12 +40,13 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-    
-
+        LayerMask mask = LayerMask.GetMask("Ground");
         //origin, direction, length
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-    
-        if (groundInfo.collider == false)
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance, mask);
+        RaycastHit2D frontInfo = Physics2D.Raycast(wallDetection.position, Vector2.left, distance, mask);
+        RaycastHit2D backInfo = Physics2D.Raycast(wallDetection.position, Vector2.right, distance, mask);
+        if (groundInfo.collider == false || frontInfo.collider == true || backInfo.collider == true)
+        //if (groundInfo.collider == false)
         {
             if (movingRight == true)
             {
@@ -59,24 +65,32 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     // Reduces the sprites health and destroys the object is health is 0
     public void LoseHealth()
     {
-        if (health > 3)
+        if (health > 1)
         {
-            health -= 3;
+            AudioManager.instance.Play(hitSound);
+            health -= 1;
         }
         else
         {
+            // Plays monster death sound and sets achievements
+            AudioManager.instance.Play(monsterDeathSound);
+            AchievementManager.instance.IncrementAchievement(AchievementType.Fires);
+            ForestTracker.fireSpriteDestroyed++;
             Destroy(this.gameObject);
+            Publisher.TriggerEvent("UpdateForestScore");
             OnDestroy();
-
         }
     }
     // Sets the index of the spawner array to be null so that more sprites can
     // be generated from the spawner
     public override void OnDestroy()
     {
-        spawner.getSpawnedObjects()[this.GetLocation()] = null;
-        // Sets the delay
-        spawner.SetCurrentSpawnDelay(0);
+        if (spawner != null)
+        {
+            spawner.getSpawnedObjects()[this.GetLocation()] = null;
+            // Sets the delay
+            spawner.SetCurrentSpawnDelay(0);
+        }
     }
     // If sprite hits the player plays loses health
     void OnTriggerEnter2D(Collider2D other)
@@ -87,14 +101,6 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         {
             character.LoseHealth();
         }
-
-        // //collision with the projectile
-        // if (other.CompareTag("WaterBullet"))
-        // {
-        //     //Destroy projectile
-        //     Destroy(other.gameObject);
-        //     LoseHealth();
-        // }
     }
 
 

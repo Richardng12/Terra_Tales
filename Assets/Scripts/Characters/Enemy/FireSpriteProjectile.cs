@@ -13,7 +13,7 @@ public class FireSpriteProjectile : MonoBehaviour
     //Get reference to rigid body
     private Rigidbody2D rb;
     //Projectile travel distance
-    private float time = 3f;
+    private float time = 1f;
 
     void Start() { 
         //Invoke DestroyFireProjectile after the time has passed

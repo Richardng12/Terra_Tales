@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3203419559960611064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3203419559960611066}
+  - component: {fileID: 3203419559960611067}
+  m_Layer: 0
+  m_Name: LevelLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3203419559960611066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203419559960611064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2754.8633, y: 1383.4072, z: 44.06208}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3203419559960611067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203419559960611064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46765f185fde845cb9df4c7e7cb0093a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 0}
+  slider: {fileID: 0}
+  nextLevelCanvas: {fileID: 0}
+  loadingText: {fileID: 0}
+  tips:
+  - Make sure you have enough water to grow a tree
+  - Traverse the whole map to find different types of rubbish
+  - Dont turn off lights with people in them!
+  facts:
+  - There are more harmful gasses in the atmosphere today than at any point in the
+    last 800,000 years.
+  - A reduction in the overall average temperature of the Earth of 5 degrees C could
+    cause an ice age.
+  - Reducing your carbon footprint is the best way to reduce climate change.
+  - Planting trees helps reduce climate change by removing carbon dioxide from the
+    air, and releasing oxygen.
+  - Animals, such as polar bears, that live in Arctic regions may become extinct as
+    they lose habitat.
+  - Storms sometimes become more common and severe as the climate changes.
+  - Since 1870, global sea levels have risen by about 8 inches.
+  - 120,000 square kilometres of tropical forest were lost in 2018
+  tip: {fileID: 0}

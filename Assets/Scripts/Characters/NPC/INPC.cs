@@ -4,4 +4,5 @@
     {
     void TriggerDialogue();
     void CreateTaskDialogue();
+    void CheckDialogueLogic();
     }

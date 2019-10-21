@@ -5,98 +5,88 @@ using UnityEngine.UI;
 
 public class Building : MonoBehaviour
 {
-    private Switch[] switches;
 
-    //public Rigidbody2D building;
-    public EnergyBar energyBar;
-    // public Text text;
+    public List<Column> columns;
 
-    private bool applied;
+    public Sprite shortcircuit;
+    public Sprite notShortcircuit;
+
     private bool shortCircuit;
     // Start is called before the first frame update
     void Start()
     {
-        switches = GetComponentsInChildren<Switch>();
-        applied = false;
-        Update();
-
-        foreach (Switch switcha in switches)
-        {
-            switcha.building = this;
-            switcha.energyBar = energyBar;
-        }
-    }
-
-    // Set all the building lights on
-    public void setAllOn()
-    {
-        foreach (Switch switcha in switches)
-        {
-            switcha.setIsOn(true);
-        }
-        Update();
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        CharacterController character = other.gameObject.GetComponent<CharacterController>();
-
-        // Make the character lose health if the building is shortcircuited.
-        if (character != null && shortCircuit)
-        {
-            character.LoseHealth();
-        }
-    }
-
-    // Set the colour to red to ward the player
-    private IEnumerator HandleIt()
-    {
-        applied = true;
-        // process pre-yield
-        yield return new WaitForSeconds(5.0f);
         shortCircuit = false;
-        if (shortCircuit)
-        {
-            this.gameObject.GetComponent<Renderer>().material.color = Color.magenta;
-        }
-        // process post-yield
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool switchOn = true;
-        foreach (Switch switcha in switches)
+        if (ifAllOn())
         {
-            switchOn &= switcha.isOn;
-        }
-        if (switchOn)
-        {
-            // Set building to red if shortcircuited and update energy bar.
-            if (!applied)
-            {
-                applied = true;
-                energyBar.increaseEnergy(5);
-                shortCircuit = true;
-                // Change colour for 5 seconds
-                this.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                StartCoroutine(HandleIt());
-            }
-
+            shortCircuit = true;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = shortcircuit;
         }
         else
         {
-            if (applied)
-            {
-                // Undo energy bar change
-                energyBar.increaseEnergy(-5);
-
-            }
-            applied = false;
             shortCircuit = false;
-
-            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
-
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = notShortcircuit;
         }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            CharacterController character = collision.gameObject.GetComponent<CharacterController>();
+
+            if (character != null && shortCircuit)
+            {
+                if (character.GetComponent<BootsBar>().getBootsHealth() > 0)
+                {
+                    // if player's boots' health is above 0, the boots will take damage instead of the player when standing on a short-circuited building
+                    if (!character.GetComponent<BootsBar>().isOnCD())
+                    {
+                        character.GetComponent<BootsBar>().putOnCD();
+                        character.GetComponent<BootsBar>().loseBootsHealth();
+                        Debug.Log("boots health: " + character.GetComponent<BootsBar>().getBootsHealth());
+                    }
+
+                }
+                else
+                {
+                    character.LoseHealth();
+                    Debug.Log(character.health);
+                }
+            }
+        }
+    }
+
+    // turn all the building lights on due to wrong switch by player
+    public void turnAllOn()
+    {
+        foreach (Column column in columns)
+        {
+            if (!column.ifWindowOn())
+            {
+                column.turnOnWindows(false);
+            }
+        }
+    }
+
+    public bool ifAllOn()
+    {
+        foreach (Column column in columns)
+        {
+            if (!column.ifWindowOn())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public List<Column> getColumns()
+    {
+        return columns;
     }
 }

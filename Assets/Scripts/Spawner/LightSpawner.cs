@@ -4,37 +4,45 @@ using UnityEngine;
 
 public class LightSpawner : MonoBehaviour
 {
-    public Switch[] switches;
-    int randomSpawnPoint;
-    private readonly int spawnDelay = 10;
-    public static float currentSpawnDelay = 10;
-    public static FireSpriteController[] spawnedMonsters;
+    public List<Building> buildings;
+
+    public float spawnTime = 5000f;
+
+    private float timer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        switches = (Switch[])Resources.FindObjectsOfTypeAll(typeof(Switch));
-
-        InvokeRepeating("SpawnMonster", 0f, 5f);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentSpawnDelay <= spawnDelay)
-        {
-            currentSpawnDelay = Time.deltaTime + currentSpawnDelay;
+        timer += Time.deltaTime;
+        if (timer > spawnTime) {
+            SpawnRandom();
+            timer = 0;
         }
-
     }
 
-    void SpawnMonster()
-    {
-        randomSpawnPoint = Random.Range(0, switches.Length);
-
-        if (currentSpawnDelay >= spawnDelay)
-        {
-            switches[randomSpawnPoint].setIsOn( true);
+    private void SpawnRandom() {
+        Building building = buildings[Random.Range(0, buildings.Count)];
+        Column column = building.getColumns()[Random.Range(0, building.getColumns().Count)];
+        if (column.ifWindowOn() || column.getOnCD()) {
+            // if the column's lights are currently on, or it is on cooldown, randomly select another column to turn on
+            SpawnRandom();
+        } else {
+            column.turnOnWindows(true);
+            StartCoroutine(waitForPersonLeave(column));
         }
+    }
 
+    // allow person to stay in the window for a few seconds before leaving
+    IEnumerator waitForPersonLeave(Column column) {
+        yield return new WaitForSeconds(Random.Range(2, 10));
+        foreach (Window window in column.getWindows()) {
+            window.personLeave();
+        }
     }
 }

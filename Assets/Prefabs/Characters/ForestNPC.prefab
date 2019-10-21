@@ -145,8 +145,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1053558941
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 522d916af9f7944fc9739fa8abcde570, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -180,8 +180,8 @@ MonoBehaviour:
     - Please help us our village is being ravaged by fire entities, and our home is
       being destroyed!
     - Trees need to be replanted to allow our species to live in harmony and peace.
-    - Take this water gun to extinguish the fires, refill the water gun by standing
-      over the puddles present.
+    - Use your powers to extinguish the fires, ryou can recharge by standing over
+      the puddles present.
     - Come back to me once you have completed the task
   - name: Lola The Bunny
     sentences:
@@ -191,7 +191,13 @@ MonoBehaviour:
     sentences:
     - Thanks for replanting all our trees!!
   treeTrackerObject: {fileID: 0}
+  timelineTrigger: {fileID: 0}
+  timerObject: {fileID: 0}
+  seedlingHUD: {fileID: 0}
+  gameManager: {fileID: 0}
+  dialogueBox: {fileID: 0}
   showText: {fileID: 8074238995037273088}
+  liveScoreText: {fileID: 0}
 --- !u!61 &1568456827151103285
 BoxCollider2D:
   m_ObjectHideFlags: 0

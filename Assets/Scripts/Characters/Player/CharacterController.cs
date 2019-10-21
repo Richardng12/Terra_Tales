@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour, ICharacter
 {
@@ -19,22 +20,42 @@ public class CharacterController : MonoBehaviour, ICharacter
     public Transform player;
     public Animator move;
 
-    private int jumps = 1;
-
+    private bool canDoubleJump = true;
+    private bool firstJump = true;
     bool isInVuln = false;
     float timeBeenInvulnerable = 0;
     readonly float inVulnerableTimer = 2;
     Renderer renderer;
     Color c;
 
+    //City scene
+    string jumpSound = "Jump";
+
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
+        audioManager = AudioManager.instance;
         Time.timeScale = 1f;
-        rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
+
+
     }
 
+    private void OnEnable()
+    {
+        Publisher.StartListening("IncreasePlayerHealth", IncreaseHealth);
+    }
+
+    private void OnDisable()
+    {
+        Publisher.StopListening("IncreasePlayerHealth", IncreaseHealth);
+    }
     // Collision 2D
 
     // Checks if the character is invulnerable and changes the renderer colour
@@ -62,23 +83,21 @@ public class CharacterController : MonoBehaviour, ICharacter
     // Also checks for animation frames
     private void Update()
     {
-        if (onGround)
+        // if player is on the ground and cant double jump it allows the play to
+        // do his first jump
+        if (onGround && !canDoubleJump)
         {
-            jumps = 1;
-        }
-        if (!Input.GetButton("Horizontal"))
-        {
-            move.SetBool("Moving", false);
-        }
-        if (!Input.GetButton("Jump"))
-        {
-            move.SetBool("Jumping", false);
+            firstJump = true;
         }
         // Checks invulnerability if player is invulnerable
         if (isInVuln)
         {
             CheckInvulnerability();
         }
+
+    
+    
+          
     }
     private void FixedUpdate()
     {
@@ -99,15 +118,25 @@ public class CharacterController : MonoBehaviour, ICharacter
             }
         }
     }
+    // Increases player health
+    public void IncreaseHealth()
+    {
+        if(health != 5)
+        {
+            health++;
+        }
+    }
 
-
+    public bool OnGround()
+    {
+        return onGround;
+    }
 
 
 
     // Method to move the player
     public void Move(float moveInput, float speed)
     {
-        move.SetBool("Moving", true);
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         // If moving right and facing left then need to flip the image
@@ -126,22 +155,38 @@ public class CharacterController : MonoBehaviour, ICharacter
 
 
     // Method to jump
-    public void Jump(bool keyPressed, float jumpSpeed)
+    public bool Jump(bool keyPressed, float jumpSpeed)
     {
+        // If button to jump is pressed
         if (keyPressed)
         {
-            if (jumps == 0)
+            // If player is on the ground or hasnt jumped for the first time since
+            // touching the ground it should jump
+            if (onGround || firstJump)
             {
-                return;
-            }
-            else if (jumps > 0)
-            {
-                move.SetBool("Jumping", true);
-                jumps--;
+                audioManager.Play(jumpSound);
                 rb.velocity = Vector2.up * jumpSpeed;
+                // player can now double jump
+                canDoubleJump = true;
+                // player has done his first jump
+                firstJump = false;
+                return true;
             }
-
+            else
+            {
+                // If player can double jump
+                if (canDoubleJump)
+                {
+                    // Plays the jump sound
+                    audioManager.Play(jumpSound);
+                    rb.velocity = Vector2.up * jumpSpeed;
+                    // player cant double jump anymore
+                    canDoubleJump = false;
+                    return true;
+                }
+            }
         }
+        return false;
 
     }
 
@@ -167,4 +212,6 @@ public class CharacterController : MonoBehaviour, ICharacter
     {
         throw new System.NotImplementedException();
     }
+
+   
 }

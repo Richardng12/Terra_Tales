@@ -10,15 +10,18 @@ public class Bin : MonoBehaviour, IBins
     GrabObject grabObject;
     private OceanTracker oceanTracker;
     public string binItem;
+    string taskCompleted = "TaskComplete";
 
     void Start()
     {
-        oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
+        if (oceanTrackerObject != null)
+        {
+            oceanTracker = oceanTrackerObject.GetComponent<OceanTracker>();
+        }
         character = player.GetComponent<CharacterController>();
         grabObject = player.GetComponent<GrabObject>();
 
     }
-
     // Checks if the rubbish is of the same type as the bin
     public bool CheckRubbish()
     {
@@ -35,7 +38,10 @@ public class Bin : MonoBehaviour, IBins
     // Destroys the rubbish that was collided with the bin
     public void DestroyRubbish()
     {
-        collidedObject.GetComponent<TrashScript>().OnDestroy();
+        if (collidedObject.GetComponent<TrashScript>() != null)
+        {
+            collidedObject.GetComponent<TrashScript>().OnDestroy();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,22 +52,36 @@ public class Bin : MonoBehaviour, IBins
 
     public void CheckCollision(Collider2D collision)
     {
+        collidedObject = null;
         // If the collsion object is a rubbish type which is grabbable and the player
         // has released it
-        if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
+        if (collision != null)
         {
-
-            collidedObject = collision.gameObject;
-            if (CheckRubbish())
+          
+            if (collision.gameObject.tag.Equals("Grabbable") && !grabObject.GetIsGrabbed())
             {
-                // If the rubbish is the right type it should update the counter
-                oceanTracker.UpdateAndDisplayTaskCounter(binItem);
+                collidedObject = collision.gameObject;
+                // If of correct rubbish
+                if (CheckRubbish())
+                {
+                    // Increments achievment for rubbish
+                    AchievementManager.instance.IncrementAchievement(AchievementType.Trash);
+                    AudioManager.instance.Play(taskCompleted);
+                    // If the rubbish is the right type it should update the counter
+                    if (oceanTracker != null)
+                    {
+                        // Displays the text and updates tracker
+                        oceanTracker.UpdateAndDisplayTaskCounter(binItem);
+                    }
+                }
+                else
+                {
+                    // Shows wrong rubbish prompt
+                    if(oceanTracker!= null)
+                    oceanTracker.ShowWrongRubbishPrompt();
+                }
+                DestroyRubbish();
             }
-            else
-            {
-                // Character gets prompted of wrong rubbish placement
-            }
-            DestroyRubbish();
         }
     }
 

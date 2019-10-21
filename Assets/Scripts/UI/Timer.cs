@@ -8,6 +8,9 @@ public class Timer : MonoBehaviour
     public float time;
     public Text text;
 
+    private float countTime = 0f;
+    private bool isComplete = false;
+
    static Coroutine co;
     // routine that countsdown from given time in second to zero
     public IEnumerator StartCountdown()
@@ -29,9 +32,11 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
 
             time--;
+            countTime ++;
             text.text = secondsString;
             //TODO add the finish level thing here which is called to end the level.
         }
+        Publisher.TriggerEvent("TimerFinished");
     }
 
     // used to start the countdown for timer
@@ -40,10 +45,14 @@ public class Timer : MonoBehaviour
         text = GetComponent<Text>();
         co = StartCoroutine(StartCountdown());
     }
-
+    // Stops the timer when the timer is within 3mins for achievement
     public void StopTimer()
     {
         StopCoroutine(co);
+        if(countTime < 180 && !isComplete){
+            isComplete = true;
+            AchievementManager.instance.IncrementAchievement(AchievementType.Time);
+        }
     }
 
 

@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public Text nameText;
 	public Text dialogueText;
+    public GameObject dialogueBox;
 
 	public Animator animator;
 	private bool first;
@@ -50,11 +51,10 @@ public class DialogueManager : MonoBehaviour {
 		if(first){
 			first = true;
 		}
-
 		//If theres no more sentences left in array, end the dialogue
 		if (listOfSentences.Count == 0)
 		{
-			EndDialogue();
+            EndDialogue();
             return;
 		}
 		//Remove the current sentence from the queue
@@ -84,10 +84,12 @@ public class DialogueManager : MonoBehaviour {
     // Ends the dialogue and sets the time scale back to 1
     public void EndDialogue()
 	{
+		listOfSentences.Clear();
+        Time.timeScale = 1f;
         dialogueEnded = true;
-		Time.timeScale = 1f;
         image.gameObject.SetActive(false);
         animator.SetBool("IsOpen", false);
+        return;
 	}
 
 }
