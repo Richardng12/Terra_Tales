@@ -82,9 +82,13 @@ public class Seedling : MonoBehaviour
         }else{
              if (Input.GetKey("e") && interactable && player.GetComponent<ShootWater>().isEmpty())
         {
-              noWaterText.color = startingColour;
-           noWaterText.text = "Refill your water to grow the tree!";
-           StartCoroutine(TextFadeOutRoutine());
+                if (noWaterText != null)
+                {
+                    noWaterText.color = startingColour;
+                    noWaterText.text = "Refill your water to grow the tree!";
+                    StartCoroutine(TextFadeOutRoutine());
+                }
+
         }
         }
         // if (Input.GetKeyUp("e") && currentProgress < maxProgress)

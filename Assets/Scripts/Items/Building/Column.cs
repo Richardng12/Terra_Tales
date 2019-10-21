@@ -52,7 +52,9 @@ public class Column : MonoBehaviour
             {
                 window.turnOff();
             }
-            //transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy();
+            if (transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>() != null){
+                transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy();
+            }
         }
     }
 
