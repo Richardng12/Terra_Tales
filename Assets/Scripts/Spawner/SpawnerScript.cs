@@ -52,11 +52,14 @@ public class SpawnerScript : MonoBehaviour
              Quaternion.identity).GetComponent<AbstractSpawnableObject>();
             // Sets the name so that it doesnt appear to be
             // "entity 1" "entity 2" etc..
-            spawnedObject[randomSpawnPoint].name = objectsToSpawn[chosenObject].name;
-            // Sets the location of the spawned object to the rng spawn point
-            spawnedObject[randomSpawnPoint]
-            .GetComponent<AbstractSpawnableObject>()
-                .SetLocation(randomSpawnPoint);
+            if (spawnedObject[randomSpawnPoint] != null && objectsToSpawn[chosenObject])
+            {
+                spawnedObject[randomSpawnPoint].name = objectsToSpawn[chosenObject].name;
+                // Sets the location of the spawned object to the rng spawn point
+                spawnedObject[randomSpawnPoint]
+                .GetComponent<AbstractSpawnableObject>()
+                    .SetLocation(randomSpawnPoint);
+            }
         }
 
     }
