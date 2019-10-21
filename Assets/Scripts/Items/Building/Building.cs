@@ -29,12 +29,13 @@ public class Building : MonoBehaviour
         CharacterController character = collision.gameObject.GetComponent<CharacterController>();
 
         if (character != null && shortCircuit) {
-            if (character.getBootsHealth() > 0) {
+            if (character.GetComponent<BootsBar>().getBootsHealth() > 0) {
+                Debug.Log("boots health is greater than 0");
                 // if player's boots' health is above 0, the boots will take damage instead of the player when standing on a short-circuited building
-                if (!character.isOnCD()) {
-                    character.putOnCD();
-                    character.loseBootsHealth();
-                    Debug.Log("boots health: " + character.getBootsHealth());
+                if (!character.GetComponent<BootsBar>().isOnCD()) {
+                    character.GetComponent<BootsBar>().putOnCD();
+                    character.GetComponent<BootsBar>().loseBootsHealth();
+                    Debug.Log("boots health: " + character.GetComponent<BootsBar>().getBootsHealth());
                 }
                 
             } else {
