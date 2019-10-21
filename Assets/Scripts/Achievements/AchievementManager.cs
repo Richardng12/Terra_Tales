@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 [System.Serializable]
 
+/**
+    Class to deal with the different achievement names associated with each achievement
+ */
 public class AchievementName
 {
     public int unlockCount { get; set; }
@@ -20,6 +23,10 @@ public class AchievementName
 }
 [System.Serializable]
 
+
+/**
+    Class to deal with the different achievements
+ */
 public class Achievement
 {
     public string msg0 { get; set; }
@@ -42,6 +49,10 @@ public class Achievement
 }
 [System.Serializable]
 
+
+/**
+    Class to deal with the different achievements enums.
+ */
 public enum AchievementType
 {
     PlantingTrees,
@@ -62,6 +73,10 @@ public enum AchievementType
     Achievements,
 };
 
+
+/**
+    Class to deal with the different achievement, showing notification when it starts
+ */
 public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager instance;
@@ -76,6 +91,8 @@ public class AchievementManager : MonoBehaviour
 
     //TODO get last unlocked.
 
+    
+    //Gets the list of completed achieveents for a given achievement type
     public List<AchievementName> GetCompletedAchievements(AchievementType achievementType)
     {
         List<AchievementName> result = new List<AchievementName>();
@@ -90,21 +107,26 @@ public class AchievementManager : MonoBehaviour
         return result;
     }
 
+    //Retrieves an achievement for a given type
     public AchievementName GetAchievementForType(AchievementType achievementType)
     {
         return achievementsMap[achievementType].achievementNames[0];
     }
+
+    //Retrieves acheivement count for a given type
     public int GetCountForType(AchievementType achievementType)
     {
         return achievementsMap[achievementType].count;
     }
 
+    //Retrieves last acheivement for a given type
     public AchievementName GetLastAchievement(AchievementType achievementType)
     {
         Achievement achievement = achievementsMap[achievementType];
         return achievement.achievementNames[achievement.count - 1];
     }
 
+    //Retrieves unlocked achievements for a given type
     public List<AchievementName> GetUnlockedAchievements()
     {
         List<AchievementName> result = new List<AchievementName>();
@@ -124,6 +146,7 @@ public class AchievementManager : MonoBehaviour
         //return unlockedAchievements;
     }
 
+    //Generate singleton
     void Awake()
     {
 
@@ -143,11 +166,15 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
+    //Retrieves required unlocks for a given class
     public int getUnlockNum(AchievementType achievementType, int index)
     {
         return achievementsMap[achievementType].achievementNames[index].unlockCount;
     }
+
     private HashSet<AchievementType> achievementsHashSet = new HashSet<AchievementType>();
+
+    //INcrement a given achievement.
     public void IncrementAchievement(AchievementType ach)
     {
         achievementsMap[ach].count++;
@@ -159,6 +186,7 @@ public class AchievementManager : MonoBehaviour
         updateAchievement(AchievementType.Achievements);
     }
 
+    //CLoses the notification
     public void closeNotificatino()
     {
         StopAllCoroutines();
@@ -166,6 +194,7 @@ public class AchievementManager : MonoBehaviour
 
     }
 
+    //Checks if achievement has been unlocked, if it has update and show the unlcoked achievement
     private void updateAchievement(AchievementType ach)
     {
 
@@ -192,6 +221,7 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
+    //Show and fade the notification
     IEnumerator ShowAndFade()
     {
         achievementNotification.gameObject.SetActive(true);
@@ -206,6 +236,7 @@ public class AchievementManager : MonoBehaviour
 
     }
 
+    // Retrieve a message for a given achievement, alongside its message.
     public String GetMessageForAchievement(AchievementType achievementType)
     {
         Achievement achievement = achievementsMap[achievementType];
@@ -218,6 +249,8 @@ public class AchievementManager : MonoBehaviour
             return achievement.msg0 + achievement.count + achievement.msg1;
         }
     }
+
+    // Initialise all achievements
     void Start()
     {
         //Initialise achievement messages
@@ -304,11 +337,13 @@ public class AchievementManager : MonoBehaviour
 
     }
 
+    //Return number of stars for a given achievement
     public int GetNumStars(AchievementType achievementType)
     {
         return achievementsMap[achievementType].achievementNames.Count;
     }
 
+    //Add achievement name to an achievement
     private void AddAchievementToType(AchievementType type, int unlockCount, string name)
     {
         AchievementName achievement = new AchievementName(unlockCount, name);
