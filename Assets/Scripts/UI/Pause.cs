@@ -20,7 +20,7 @@ public class Pause : MonoBehaviour
         //PauseGame();
         //   Debug.Log("ewe");
 		//If the player presses escape, look at current game state, if its not paused - pause, if it is paused, unpause.
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.P)) 
         {
             if (!paused) 
             {

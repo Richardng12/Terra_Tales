@@ -512,16 +512,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4301554219192313942, guid: 023de8fd26ff53247a43a9da5b9a1a23,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3732717870766749048, guid: 023de8fd26ff53247a43a9da5b9a1a23,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 15.399902
-      objectReference: {fileID: 0}
     - target: {fileID: 395753840580617345, guid: 023de8fd26ff53247a43a9da5b9a1a23,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -536,6 +526,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301554219192313942, guid: 023de8fd26ff53247a43a9da5b9a1a23,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732717870766749048, guid: 023de8fd26ff53247a43a9da5b9a1a23,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15.399902
       objectReference: {fileID: 0}
     - target: {fileID: 8105518519802089685, guid: 023de8fd26ff53247a43a9da5b9a1a23,
         type: 3}
@@ -3233,7 +3233,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'PRESS ESC TO
+  m_Text: 'PRESS ''P'' TO
 
     PAUSE'
 --- !u!222 &696457175
@@ -68241,6 +68241,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2264280114096445399, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.098
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264280114096445399, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.159
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264280113014911957, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b,
+        type: 3}
+      propertyPath: radiusCheck
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2264280113014911961, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b,
         type: 3}
       propertyPath: ammo
@@ -68270,21 +68285,6 @@ PrefabInstance:
         type: 3}
       propertyPath: throwVelocity
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264280114096445399, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.098
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264280114096445399, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.159
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264280113014911957, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b,
-        type: 3}
-      propertyPath: radiusCheck
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ad0ec1e4bba458b9d8096a0d18bc0b, type: 3}
