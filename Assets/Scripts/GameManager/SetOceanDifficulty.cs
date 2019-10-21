@@ -9,7 +9,8 @@ public class SetOceanDifficulty : MonoBehaviour
     public GameObject timerObject;
 
     public GameObject oceanTracker;
-    // Start is called before the first frame update
+
+    // sets the properties of ocean based on chosen difficulty level
     void Start()
     {
         spawnerObject.GetComponent<SpawnerScript>().spawnDelay = GlobalGameManager.instance.chosenOceanLevelProperties.spawnRate;
