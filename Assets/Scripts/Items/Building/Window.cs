@@ -15,6 +15,8 @@ public class Window : MonoBehaviour
     public Sprite WindowOnPerson;
     public Sprite WindowOnEmpty;
 
+    string taskCompleted = "TaskComplete";
+
     // Use this for initialization
     private void Start()
     {
@@ -61,6 +63,7 @@ public class Window : MonoBehaviour
         {
             // if window has been correctly turned off, put the window on cooldown
             transform.parent.GetComponent<Column>().putOnCD();
+            AudioManager.instance.Play(taskCompleted);
         }
     }
 
