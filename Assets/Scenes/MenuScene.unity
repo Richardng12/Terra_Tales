@@ -357,28 +357,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1890668253}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1207004615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207004614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6ad0e15d9b8b744bf9cb522a28463b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rankOneName: {fileID: 1117837306626303301}
-  rankOneScore: {fileID: 1117837306626303300}
-  rankTwoName: {fileID: 1117837306626303299}
-  rankTwoScore: {fileID: 1117837306626303298}
-  rankThreeName: {fileID: 1117837306626303297}
-  rankThreeScore: {fileID: 1117837306626303296}
-  rankFourName: {fileID: 1117837306626303295}
-  rankFourScore: {fileID: 1117837306626303294}
-  rankFiveName: {fileID: 1117837306626303293}
-  rankFiveScore: {fileID: 1117837306626303292}
 --- !u!114 &1207004616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,6 +512,34 @@ MonoBehaviour:
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1674822183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1117837306632595571, guid: 8bbb9262969ad482fbe145d6936d7e40,
+    type: 3}
+  m_PrefabInstance: {fileID: 1117837306626303291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1674822184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674822183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6ad0e15d9b8b744bf9cb522a28463b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankOneName: {fileID: 1117837306626303301}
+  rankOneScore: {fileID: 1117837306626303300}
+  rankTwoName: {fileID: 1117837306626303299}
+  rankTwoScore: {fileID: 1117837306626303298}
+  rankThreeName: {fileID: 1117837306626303297}
+  rankThreeScore: {fileID: 1117837306626303296}
+  rankFourName: {fileID: 1117837306626303295}
+  rankFourScore: {fileID: 1117837306626303294}
+  rankFiveName: {fileID: 1117837306626303293}
+  rankFiveScore: {fileID: 1117837306626303292}
 --- !u!1001 &1890668253
 PrefabInstance:
   m_ObjectHideFlags: 0
