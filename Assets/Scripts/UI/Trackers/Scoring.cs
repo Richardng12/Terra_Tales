@@ -111,4 +111,9 @@ public class Scoring : MonoBehaviour
         return (int)timer.time * 25;
     }
 
+    public int CalculateEnergyScore()
+    {
+        return CityTracker.energyDiff * 2000;
+    }
+
 }
