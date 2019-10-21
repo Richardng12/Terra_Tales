@@ -75,9 +75,9 @@ public sealed class SaveValues
             AchievementManager.instance.achievementsMap = sv.achievementsMap;
             GlobalGameManager.instance.highScoreDict = sv.highScoreDict;
 
-            GlobalGameManager.instance.forestUnlocked = forestUnlocked;
-            GlobalGameManager.instance.oceanUnlocked = oceanUnlocked;
-            GlobalGameManager.instance.firstPlay = firstPlay;
+            GlobalGameManager.instance.forestUnlocked = sv.forestUnlocked;
+            GlobalGameManager.instance.oceanUnlocked = sv.oceanUnlocked;
+            GlobalGameManager.instance.firstPlay = sv.firstPlay;
 
             file.Close();
         }
