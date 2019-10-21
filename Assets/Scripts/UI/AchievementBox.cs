@@ -26,6 +26,8 @@ public class AchievementBox : MonoBehaviour
     {
         GetStats(achievementType);
     }
+
+    // Retrieve stats to show
     void GetStats(String achievementTypeStr)
     {
         Type t = typeof(AchievementType);
@@ -49,6 +51,7 @@ public class AchievementBox : MonoBehaviour
 
     }
 
+    // Set visible stars to yellow if required
     private void SetStars(int count)
     {
         if (count > 1)
