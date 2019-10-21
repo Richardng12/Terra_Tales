@@ -50,7 +50,7 @@ public class CharacterController : MonoBehaviour, ICharacter
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
 
-        bar.SetActive(false);
+        bar.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -101,10 +101,10 @@ public class CharacterController : MonoBehaviour, ICharacter
         }
 
         if (bootsHealth != 0) {
-            bar.SetActive(true);
+            bar.gameObject.SetActive(true);
             bar.setSize((bootsHealth / bootsMaxHealth));
         } else {
-            bar.SetActive(false);
+            bar.gameObject.SetActive(false);
         }    
     }
     private void FixedUpdate()
