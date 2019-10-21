@@ -18,5 +18,17 @@ public class SetCompleteCanvas : MonoBehaviour
         healthBonus.text = scoring.CalculateHealthScore().ToString();
         currentScore.text = liveScore.GetComponent<LiveScore>().curScore.ToString();
         totalScore.text = Scoring.forestScore.ToString();
+
+        string difficulty = GlobalGameManager.instance.difficulty;
+        if(Equals(difficulty, "Easy"))
+        {
+            Publisher.TriggerEvent("OceanLevelEasy");
+        } else if (Equals(difficulty, "Medium"))
+        {
+            Publisher.TriggerEvent("OceanLevelMedium");
+        } else
+        {
+            Publisher.TriggerEvent("OceanLevelHard");
+        }
     }
 }

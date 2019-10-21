@@ -121,12 +121,12 @@ public class GlobalGameManager : MonoBehaviour
 
     private void SetMultiplierMedium()
     {
-        Scoring.multiplier = 1.5;
+        Scoring.multiplier = 2.0;
     }
 
     private void SetMultiplierHard()
     {
-        Scoring.multiplier = 2.0;
+        Scoring.multiplier = 3.0;
     }
 
 
