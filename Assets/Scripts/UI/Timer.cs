@@ -36,6 +36,7 @@ public class Timer : MonoBehaviour
             text.text = secondsString;
             //TODO add the finish level thing here which is called to end the level.
         }
+        Publisher.TriggerEvent("TimerFinished");
     }
 
     // used to start the countdown for timer

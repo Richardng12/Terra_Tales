@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1593964625024846190}
   - component: {fileID: 1593964625024846189}
   - component: {fileID: 1593964625024847505}
+  - component: {fileID: 7462606095338308769}
   m_Layer: 0
   m_Name: RainDrop
-  m_TagString: Untagged
+  m_TagString: Rain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1336760341
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 42353a93873241844a287db354235bbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -110,3 +111,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.029}
   serializedVersion: 2
   m_Radius: 0.051
+--- !u!50 &7462606095338308769
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593964625024846188}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

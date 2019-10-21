@@ -570,7 +570,7 @@ RectTransform:
   - {fileID: 7998594747658647799}
   - {fileID: 5339564339131237906}
   m_Father: {fileID: 2772260827642856821}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -984,7 +984,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2772260827642856821}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1286,7 +1286,6 @@ RectTransform:
   - {fileID: 2202477983145716193}
   - {fileID: 1313408206253220913}
   - {fileID: 5404754417126756812}
-  - {fileID: 422934631705537323}
   - {fileID: 2536710116858750312}
   - {fileID: 2593657349828836437}
   - {fileID: 2741183314353244609}
@@ -1757,7 +1756,7 @@ RectTransform:
   - {fileID: 2433977728012023338}
   - {fileID: 3646042701269091285}
   m_Father: {fileID: 2772260827642856821}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2498,11 +2497,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkipButtonCutscene
       objectReference: {fileID: 0}
-    - target: {fileID: 3617428366274337078, guid: 4742ea96f9d0a694faaf5e88a3313b28,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 7369713894605108837}
     - target: {fileID: 5736159002346752349, guid: 4742ea96f9d0a694faaf5e88a3313b28,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2541,7 +2535,7 @@ PrefabInstance:
     - target: {fileID: 5736159002346752349, guid: 4742ea96f9d0a694faaf5e88a3313b28,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5736159002346752349, guid: 4742ea96f9d0a694faaf5e88a3313b28,
         type: 3}
@@ -2608,6 +2602,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3617428366274337078, guid: 4742ea96f9d0a694faaf5e88a3313b28,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7369713894605108837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4742ea96f9d0a694faaf5e88a3313b28, type: 3}
 --- !u!224 &4911624600250160395 stripped
@@ -2666,7 +2665,7 @@ PrefabInstance:
     - target: {fileID: 8806537137052415099, guid: a5b0969a1875bd14a9ba2c77fd4ef01f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8806537137052415099, guid: a5b0969a1875bd14a9ba2c77fd4ef01f,
         type: 3}
@@ -2811,7 +2810,7 @@ PrefabInstance:
     - target: {fileID: 6118818591496542886, guid: b4e095489a7d2034d85aea998ef0c8e4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6118818591496542886, guid: b4e095489a7d2034d85aea998ef0c8e4,
         type: 3}

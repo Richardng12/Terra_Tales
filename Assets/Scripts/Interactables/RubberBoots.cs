@@ -24,6 +24,7 @@ public class RubberBoots : MonoBehaviour
         if (character != null && character.getBootsHealth() < 10)
         {
             pickUp(character);
+            Debug.Log("GOT IT");
         }
     }
 

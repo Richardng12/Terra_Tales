@@ -16,12 +16,11 @@ public class LightSpawner : MonoBehaviour
         
     }
 
-    // Add in delay to nesure all lights can be found and switched on
-    IEnumerator delayedLoad()
+    // Update is called once per frame
+    void Update()
     {
         timer += Time.deltaTime;
         if (timer > spawnTime) {
-            yield return new WaitForSeconds(0);
             SpawnRandom();
             timer = 0;
         }
