@@ -13,7 +13,7 @@ public class PuddleScript : MonoBehaviour
         StartCoroutine(regen());
     }
 
-
+    //Make the water puddle regenerate over time
     IEnumerator regen()
     {
         while (true)
@@ -25,7 +25,7 @@ public class PuddleScript : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
+    // Update to poll for if the user is in the puddle, and if his ammo isnt full, increment his water ammo
     void Update()
     {
         if (inPuddle)
@@ -41,6 +41,7 @@ public class PuddleScript : MonoBehaviour
         }
     }
 
+    //Check if player is in puddle
     private void OnTriggerEnter2D(Collider2D collision)
     {
             Debug.Log("In pudddle not player");
@@ -53,6 +54,7 @@ public class PuddleScript : MonoBehaviour
         }
     }
 
+    //When player exits puddle, set inPuddle to false
     private void OnTriggerExit2D(Collider2D collision)
     {
         
