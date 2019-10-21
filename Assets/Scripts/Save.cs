@@ -54,8 +54,6 @@ public sealed class SaveValues
         SaveValues.getInstance().UpdateValues();
         bf.Serialize(file, SaveValues.getInstance());
 
-        Debug.Log("Count " + SaveValues.getInstance().highScoreDict.Count);
-
         Debug.Log("Serialising " + Application.persistentDataPath + "/gamesave.save");
 
         file.Close();
@@ -80,8 +78,6 @@ public sealed class SaveValues
             GlobalGameManager.instance.forestUnlocked = forestUnlocked;
             GlobalGameManager.instance.oceanUnlocked = oceanUnlocked;
             GlobalGameManager.instance.firstPlay = firstPlay;
-
-            Debug.Log("Count " + sv.highScoreDict.Count);
 
             file.Close();
         }
