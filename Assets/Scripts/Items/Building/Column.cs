@@ -36,12 +36,12 @@ public class Column : MonoBehaviour
     }
 
     public void useSwitch() {
-        bool correct = true;
-
-        foreach (Window window in windows) {
-            window.turnOff();
-        }
-        transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy(); 
+        if (ifWindowOn()) {
+            foreach (Window window in windows) {
+                window.turnOff();
+            }
+            transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy(); 
+        }  
     }
 
     // method called when player incorrectly turns off the lights

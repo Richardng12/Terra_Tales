@@ -8,6 +8,9 @@ public class Building : MonoBehaviour
 
     public List<Column> columns;
 
+    public Sprite shortcircuit;
+    public Sprite notShortcircuit;
+
     private bool shortCircuit;
     // Start is called before the first frame update
     void Start()
@@ -20,8 +23,10 @@ public class Building : MonoBehaviour
     {
         if (ifAllOn()) {
             shortCircuit = true;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = shortcircuit;
         } else {
             shortCircuit = false;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = notShortcircuit;
         }
     }
 
@@ -31,7 +36,6 @@ public class Building : MonoBehaviour
 
         if (character != null && shortCircuit) {
             if (character.GetComponent<BootsBar>().getBootsHealth() > 0) {
-                Debug.Log("boots health is greater than 0");
                 // if player's boots' health is above 0, the boots will take damage instead of the player when standing on a short-circuited building
                 if (!character.GetComponent<BootsBar>().isOnCD()) {
                     character.GetComponent<BootsBar>().putOnCD();

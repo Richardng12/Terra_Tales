@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BootsBar : MonoBehaviour
@@ -8,17 +9,19 @@ public class BootsBar : MonoBehaviour
     public int bootsMaxHealth;
     private bool bootsOnCD = false;
 
-     public float durationCD = 2f;
+    public float durationCD = 2f;
+
+    public Slider bootsBar;
     // Start is called before the first frame update
     void Start()
     {
-        
+        bootsBar.maxValue = bootsMaxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine(setSliderValue(bootsHealth));
     }
      public int getBootsHealth() {
         return bootsHealth;
@@ -29,7 +32,6 @@ public class BootsBar : MonoBehaviour
     }
 
     public void loseBootsHealth() {
-        Debug.Log("Should be losing boots health");
         bootsHealth--;
     }
 
@@ -47,4 +49,8 @@ public class BootsBar : MonoBehaviour
         bootsOnCD = false;
     }
 
+    IEnumerator setSliderValue(float v) {
+        yield return new WaitForSeconds(0f);
+        bootsBar.value = v;
+    }
 }
