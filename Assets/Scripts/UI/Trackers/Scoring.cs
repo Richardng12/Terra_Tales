@@ -29,12 +29,7 @@ public class Scoring : MonoBehaviour
     // calculates score for each stage and overall score
     public void CalculateStageScore(string stage)
     {
-        Debug.Log("Stage: " + stage);
-        int currentScore = 0;
-        if (!stage.Equals(""))
-        {
-            currentScore = ScoreCalculation();
-        }
+        int currentScore = ScoreCalculation();
 
         // check the stage type and replaces score for stage if its greater than the current score 
         switch (stage)
@@ -49,7 +44,9 @@ public class Scoring : MonoBehaviour
                 currentScore += (OceanTracker.oilSpriteDestroyed * 20);
                 currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 50;
                 currentScore = (int)(currentScore * multiplier);
+                Debug.Log("Ocean Score: " + currentScore);
                 oceanScore = Math.Max(currentScore, oceanScore);
+                Debug.Log("OCEAN: " + oceanScore);
                 break;
             case "City":
                 cityScore = Math.Max(currentScore, cityScore);

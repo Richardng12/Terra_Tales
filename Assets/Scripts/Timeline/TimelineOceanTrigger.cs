@@ -25,8 +25,6 @@ public class TimelineOceanTrigger : MonoBehaviour
 public TrashScript[] trash;
 public OilSpriteController[] oilPuddles;
 
-    public Text scoreText;
-
     public GameObject skipButton;
 
     private bool isPlaying = false;
@@ -41,7 +39,6 @@ public OilSpriteController[] oilPuddles;
             {
                 StopTimeline();
                 skipButton.SetActive(false);
-                Debug.Log("should stop timeline");
             }
         }
    }
@@ -77,7 +74,6 @@ public OilSpriteController[] oilPuddles;
           foreach (TrashScript t in trash)
         {
             Destroy(t.gameObject);
-            Debug.Log("destroy trash");
         }
           foreach (OilSpriteController o in oilPuddles)
         {
@@ -94,10 +90,8 @@ public OilSpriteController[] oilPuddles;
     {
         if (timeline == aDirector)
         {
-            Debug.Log("finish screen should show");
           //  firstStartTimeLine.SetActive(false);
          //   player.GetComponent<CharacterController>().enabled = true;
-            scoreText.text = "Score: " + Scoring.oceanScore.ToString();
             finishScreen.SetActive(true);
             AchievementManager.instance.IncrementAchievement(AchievementType.LevelCompletionsOcean);
             Time.timeScale = 0f;
