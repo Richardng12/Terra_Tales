@@ -6,6 +6,16 @@ using UnityEngine.UI;
 public class LiveScore : MonoBehaviour
 {
     public Text liveScoreText;
+    public Text scoreIncrement;
+
+    private float origx;
+    private float origy;
+
+    private int curScore;
+
+    private int prevScore = 0;
+
+    private RectTransform assign_text_1RT;
 
     public GameObject scoringObject;
 
@@ -13,6 +23,9 @@ public class LiveScore : MonoBehaviour
     void Start()
     {
         liveScoreText.text = "Score: 0";
+        assign_text_1RT = scoreIncrement.GetComponent<RectTransform>();
+        origx = assign_text_1RT.anchoredPosition.x;
+        origy = assign_text_1RT.anchoredPosition.y;
     }
 
     private void OnEnable()
@@ -29,7 +42,27 @@ public class LiveScore : MonoBehaviour
 
     void UpdateForestLiveScore()
     {
+        StartCoroutine(fadingText());
+        curScore = scoringObject.GetComponent<Scoring>().CalculateLiveScore("Forest");
         liveScoreText.text = "Score: " + scoringObject.GetComponent<Scoring>().CalculateLiveScore("Forest").ToString();
+  
+    }
+
+    IEnumerator fadingText()
+    {
+        //TODO for brian
+        scoreIncrement.text = "+SOME NUMBER";
+        scoreIncrement.color = new Color(255, 255, 255, 1);
+        assign_text_1RT.anchoredPosition = new Vector3(origx, origy, 0f);
+
+        for (int i = 0; i < 100; i++)
+        {
+            float j = i / 100f;
+            j = 1 - j;
+            yield return new WaitForSeconds(0.01f);
+            scoreIncrement.color = new Color(255, 255, 255, j);
+            assign_text_1RT.anchoredPosition = new Vector3(origx, origy + i, 0f);
+        }
     }
 
     void UpdateOceanLiveScore()

@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.2000122}
+  m_AnchoredPosition: {x: 0, y: 1.2000732}
   m_SizeDelta: {x: 0, y: 2.4001465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5192263053998188304
@@ -818,7 +818,7 @@ RectTransform:
   m_Children:
   - {fileID: 9059234158180965684}
   m_Father: {fileID: 2772260827642856821}
-  m_RootOrder: 3
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1292,6 +1292,7 @@ RectTransform:
   - {fileID: 4439199054899482180}
   - {fileID: 4911624600250160395}
   - {fileID: 4361599190647500726}
+  - {fileID: 422934631705537323}
   - {fileID: 1789653150019099790}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2742,8 +2743,25 @@ PrefabInstance:
       propertyPath: m_FontData.m_MinSize
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8806537137052415098, guid: a5b0969a1875bd14a9ba2c77fd4ef01f,
+        type: 3}
+      propertyPath: scoreIncrement
+      value: 
+      objectReference: {fileID: 3264346533584501836}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5b0969a1875bd14a9ba2c77fd4ef01f, type: 3}
+--- !u!114 &3264346533584501836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7781604874490439553, guid: a5b0969a1875bd14a9ba2c77fd4ef01f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5093739983930891213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4361599190647500726 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8806537137052415099, guid: a5b0969a1875bd14a9ba2c77fd4ef01f,
