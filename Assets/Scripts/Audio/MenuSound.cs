@@ -8,7 +8,14 @@ public class MenuSound : MonoBehaviour
     string clickSound = "ClickSound";
     string MainMenuSound = "MainMenu";
 
-
+    private void Start()
+    {
+        if (!AudioManager.mainMenuMusic)
+        {
+            AudioManager.instance.StopAll();
+            AudioManager.instance.Play(MainMenuSound);
+        }
+    }
     public void OnMouseOver()
     {
         AudioManager.instance.Play(hoverSound);
@@ -17,4 +24,5 @@ public class MenuSound : MonoBehaviour
     {
         AudioManager.instance.Play(clickSound);
     }
+
 }
