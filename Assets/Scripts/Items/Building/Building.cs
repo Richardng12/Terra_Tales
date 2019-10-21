@@ -49,7 +49,9 @@ public class Building : MonoBehaviour
     {
         foreach (Column column in columns) 
         {
-            column.turnOnWindows(false);
+            if (!column.ifWindowOn()) {
+                column.turnOnWindows(false);
+            }   
         }  
     }
 

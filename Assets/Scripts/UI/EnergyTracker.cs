@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EnergyTracker : MonoBehaviour
 {
-    public int max;
-    private int current = 0;
+    public float max;
+    private float current = 0;
+
+    [SerializeField] private Bar bar;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        bar.setBar("eBar");
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class EnergyTracker : MonoBehaviour
             Debug.Log("u lose");
         }
         Debug.Log(current);
+        bar.setSize((current / max));
     }
 
     public void increaseEnergy() {

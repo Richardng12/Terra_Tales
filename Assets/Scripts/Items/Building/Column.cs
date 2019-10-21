@@ -19,7 +19,7 @@ public class Column : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void turnOnWindows(bool withPerson) {
@@ -32,7 +32,7 @@ public class Column : MonoBehaviour
                 window.turnOnEmpty();
             }
         }
-        transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().increaseEnergy();    
+        transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().increaseEnergy();   
     }
 
     public void useSwitch() {
@@ -46,7 +46,6 @@ public class Column : MonoBehaviour
 
     // method called when player incorrectly turns off the lights
     public void wrongSwitch() {
-        Debug.Log("OIII");
         StartCoroutine(waitToTurnOn());
     }
 
@@ -73,15 +72,14 @@ public class Column : MonoBehaviour
     }
 
     IEnumerator waitForCD() {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         onCD = false;
-        Debug.Log("off CD!!");
     }
 
     // allow the lights to be turned off for a few seconds before notifying building to turn all its lights on
     IEnumerator waitToTurnOn()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         transform.parent.GetComponent<Building>().turnAllOn();
     } 
 }

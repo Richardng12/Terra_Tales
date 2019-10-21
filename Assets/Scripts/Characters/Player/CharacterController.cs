@@ -32,6 +32,8 @@ public class CharacterController : MonoBehaviour, ICharacter
     public int bootsMaxHealth;
     private bool bootsOnCD = false;
     public float durationCD = 2f;
+    
+    [SerializeField] public Bar bar;
 
     string jumpSound = "Jump";
 
@@ -47,6 +49,8 @@ public class CharacterController : MonoBehaviour, ICharacter
         Time.timeScale = 1f;
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
+
+        bar.SetActive(false);
     }
 
     private void OnEnable()
@@ -95,6 +99,13 @@ public class CharacterController : MonoBehaviour, ICharacter
         {
             CheckInvulnerability();
         }
+
+        if (bootsHealth != 0) {
+            bar.SetActive(true);
+            bar.setSize((bootsHealth / bootsMaxHealth));
+        } else {
+            bar.SetActive(false);
+        }    
     }
     private void FixedUpdate()
     {

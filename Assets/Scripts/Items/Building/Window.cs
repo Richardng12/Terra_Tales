@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//https://www.youtube.com/watch?v=yFKg8qVclBk
 public class Window: MonoBehaviour
 {
     public Animation anim;
