@@ -45,6 +45,7 @@ public class Column : MonoBehaviour
     {
         if (ifWindowOn())
         {
+
             foreach (Window window in windows)
             {
                 window.turnOff();

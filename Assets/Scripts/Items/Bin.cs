@@ -63,6 +63,7 @@ public class Bin : MonoBehaviour, IBins
                 collidedObject = collision.gameObject;
                 if (CheckRubbish())
                 {
+                    AchievementManager.instance.IncrementAchievement(AchievementType.Trash);
                     Debug.Log("adskfljbndkjn");
                     AudioManager.instance.Play(taskCompleted);
                     // If the rubbish is the right type it should update the counter

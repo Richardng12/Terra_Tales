@@ -262,7 +262,7 @@ public class AchievementManager : MonoBehaviour
         achievementsMap.Add(AchievementType.LevelCompletionsForest, new Achievement("Congratulations on completing ", " forest level(s)", "Finish the forest level to unlock this achievement"));
         achievementsMap.Add(AchievementType.LevelCompletionsOcean, new Achievement("Congratulations on completing ", " ocean level(s)", "Finish the ocean level to unlock this achievement"));
         achievementsMap.Add(AchievementType.LevelCompletionsCity, new Achievement("Congratulations on completing ", " city level(s)", "Finish the city level to unlock this achievement"));
-        achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations on persisiting through ", " failures(s)", "Continue trying despite failing"));
+        achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations removing ", " acid rain clouds(s)", "Take care of clouds"));
         achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)", "Take care of oil spills to unlock this achievement"));
         achievementsMap.Add(AchievementType.Trash, new Achievement("Congratulations on cleaning up ", " pieces of trash", "Take care of trash to unlock this achievement"));
         achievementsMap.Add(AchievementType.Switch, new Achievement("Congratulations on turning off ", " lights", "Turn off a light to unlock this achievement"));
@@ -293,8 +293,8 @@ public class AchievementManager : MonoBehaviour
 
         AddAchievementToType(AchievementType.Switch, 0, "Switches turned off");
         AddAchievementToType(AchievementType.Switch, 1, "Conserver");
-        AddAchievementToType(AchievementType.Switch, 5, "Light Hero");
-        AddAchievementToType(AchievementType.Switch, 15, "Faster than Light");
+        AddAchievementToType(AchievementType.Switch, 15, "Light Hero");
+        AddAchievementToType(AchievementType.Switch, 45, "Faster than Light");
 
         AddAchievementToType(AchievementType.PlantingTrees, 0, "Planting Trees");
         AddAchievementToType(AchievementType.PlantingTrees, 1, "Tree Hugger");
@@ -308,23 +308,23 @@ public class AchievementManager : MonoBehaviour
 
         AddAchievementToType(AchievementType.LevelCompletionsForest, 0, "Forest Level Completions");
         AddAchievementToType(AchievementType.LevelCompletionsForest, 1, "Forest Trooper ");
-        AddAchievementToType(AchievementType.LevelCompletionsForest, 2, "Nature Lover");
-        AddAchievementToType(AchievementType.LevelCompletionsForest, 3, "Mother Nature");
+        AddAchievementToType(AchievementType.LevelCompletionsForest, 4, "Nature Lover");
+        AddAchievementToType(AchievementType.LevelCompletionsForest, 10, "Mother Nature");
 
         AddAchievementToType(AchievementType.LevelCompletionsOcean, 0, "Ocean Level Completions");
         AddAchievementToType(AchievementType.LevelCompletionsOcean, 1, "Ocean Trooper");
-        AddAchievementToType(AchievementType.LevelCompletionsOcean, 2, "Ocean Lover");
-        AddAchievementToType(AchievementType.LevelCompletionsOcean, 3, "Poseidon");
+        AddAchievementToType(AchievementType.LevelCompletionsOcean, 4, "Ocean Lover");
+        AddAchievementToType(AchievementType.LevelCompletionsOcean, 10, "Poseidon");
 
         AddAchievementToType(AchievementType.LevelCompletionsCity, 0, "City Level Completeions");
         AddAchievementToType(AchievementType.LevelCompletionsCity, 1, "City Trooper");
-        AddAchievementToType(AchievementType.LevelCompletionsCity, 2, "CIty Lover");
-        AddAchievementToType(AchievementType.LevelCompletionsCity, 3, "City Saviour");
+        AddAchievementToType(AchievementType.LevelCompletionsCity, 4, "CIty Lover");
+        AddAchievementToType(AchievementType.LevelCompletionsCity, 10, "City Saviour");
 
-        AddAchievementToType(AchievementType.Deaths, 0, "Persisting");
-        AddAchievementToType(AchievementType.Deaths, 1, "Never Give Up");
-        AddAchievementToType(AchievementType.Deaths, 3, "Persevere");
-        AddAchievementToType(AchievementType.Deaths, 10, "God of Patience");
+        AddAchievementToType(AchievementType.Deaths, 0, "Clouds");
+        AddAchievementToType(AchievementType.Deaths, 1, "Pillow Cleaner");
+        AddAchievementToType(AchievementType.Deaths, 5, "Cloud 9");
+        AddAchievementToType(AchievementType.Deaths, 10, "Cloud Strife");
 
         AddAchievementToType(AchievementType.OilSpills, 0, "Cleaning up oill spills");
         AddAchievementToType(AchievementType.OilSpills, 1, "Environmentalist");

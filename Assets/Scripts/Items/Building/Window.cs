@@ -60,6 +60,8 @@ public class Window : MonoBehaviour
         else
         {
             // if window has been correctly turned off, put the window on cooldown
+            AchievementManager.instance.IncrementAchievement(AchievementType.Switch);
+
             transform.parent.GetComponent<Column>().putOnCD();
         }
     }
