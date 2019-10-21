@@ -72,9 +72,9 @@ public sealed class SaveValues
             Debug.Log("Loading " + Application.persistentDataPath + "/gamesave.save");
 
             SaveValues sv = (SaveValues)bf.Deserialize(file);
+
             AchievementManager.instance.achievementsMap = sv.achievementsMap;
             GlobalGameManager.instance.highScoreDict = sv.highScoreDict;
-
             GlobalGameManager.instance.forestUnlocked = sv.forestUnlocked;
             GlobalGameManager.instance.oceanUnlocked = sv.oceanUnlocked;
             GlobalGameManager.instance.firstPlay = sv.firstPlay;
