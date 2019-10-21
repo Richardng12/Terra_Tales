@@ -196,9 +196,10 @@ public class GlobalGameManager : MonoBehaviour
 
     private IEnumerator continuousSave()
     {
-        yield return new WaitForSeconds(20);
-        SaveValues.getInstance().SaveGame();
-        continuousSave();
+        while (true){
+            yield return new WaitForSeconds(20);
+            SaveValues.getInstance().SaveGame();
+        }
     }
 
     // initialises all the difficulty prperties for levels
