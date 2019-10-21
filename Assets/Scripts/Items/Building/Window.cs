@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Window : MonoBehaviour
 {
-    public Animation anim;
 
     public bool hasPerson;
     public bool isOn;
@@ -20,8 +19,6 @@ public class Window : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        anim = GetComponent<Animation>();
-
         hasPerson = false;
         isOn = false;
     }
@@ -42,6 +39,7 @@ public class Window : MonoBehaviour
         return isOn;
     }
 
+    // this method is used by the spawner to turn on lights so it will always spawn with a person
     public void turnOn()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOnPerson;
@@ -52,6 +50,7 @@ public class Window : MonoBehaviour
     public void turnOff()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOffEmpty;
+        // lights will always turn off, but person may still be in the window so hasPerson is not set to false
         isOn = false;
 
         if (hasPerson)
@@ -69,11 +68,9 @@ public class Window : MonoBehaviour
         }
     }
 
+    // person leave window so player can correctly turn off light
     public void personLeave()
     {
-        // foreach(AnimationState state in anim) {
-        //     state.speed = 1F;
-        // }
         this.gameObject.GetComponent<SpriteRenderer>().sprite = WindowOnEmpty;
         hasPerson = false;
     }

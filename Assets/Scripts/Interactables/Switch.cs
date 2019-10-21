@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
-//https://www.youtube.com/watch?v=yFKg8qVclBk
+
 public class Switch : MonoBehaviour
 {
-    
+    // field allows the switch to interacted with
     private bool switchAllowed;
 
     // Use this for initialization
@@ -25,6 +25,7 @@ public class Switch : MonoBehaviour
         }
     }
 
+    // two triggers below allow/disallow player to interact with switch depending on the player's proximity to the switch
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))

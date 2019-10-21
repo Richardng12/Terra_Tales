@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CloudSpriteController : AbstractSpawnableObject, ICharacter
 {
+    
     public GameObject rainDrop;
     public Transform cloud;
     public int health = 1;
@@ -44,7 +45,7 @@ public class CloudSpriteController : AbstractSpawnableObject, ICharacter
     //Method to destroy this gameobject
     public void LoseHealth()
     {
-            OnDestroy();
+        OnDestroy();
     }
 
     //Method to destroy object and update spawn locations
@@ -77,7 +78,6 @@ public class CloudSpriteController : AbstractSpawnableObject, ICharacter
         if (character != null) {
             character.LoseHealth();
         }
-        //If it hits a boundary
         if (other.CompareTag("Boundary"))
         {
             //Move cloud in other direction if a boundary is hit
