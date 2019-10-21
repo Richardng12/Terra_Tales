@@ -21,6 +21,8 @@ Playing from website
 ---
 Click this link! https://coecere.itch.io/terratales
 
+<iframe frameborder="0" src="https://itch.io/embed-upload/1727177?color=333333" allowfullscreen="" width="980" height="320"></iframe>
+
 Team Members
 ---
 
