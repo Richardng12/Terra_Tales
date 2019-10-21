@@ -4,14 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SetScore : MonoBehaviour
+public class SetHighScores : MonoBehaviour
 {
-    public Text forestScore;
-
-    public Text oceanScore;
-
-    public Text cityScore;
-
     public Text rankOneName, rankOneScore;
 
     public Text rankTwoName, rankTwoScore;
@@ -22,20 +16,16 @@ public class SetScore : MonoBehaviour
 
     public Text rankFiveName, rankFiveScore;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        forestScore.text = Scoring.forestScore.ToString();
-        oceanScore.text = Scoring.oceanScore.ToString();
-        cityScore.text = Scoring.cityScore.ToString();
-
-        if (GlobalGameManager.instance.highScoreDict.Count > 0) {
-            SetHighScores();
+        if (GlobalGameManager.instance.highScoreDict.Count > 0)
+        {
+            SetHighScore();
         }
     }
 
-    private void SetHighScores()
+    private void SetHighScore()
     {
         for (int i = 0; i < 5; i++)
         {
