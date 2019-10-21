@@ -47,7 +47,7 @@ public class LevelChecker : MonoBehaviour
             variable.enabled = false;
         }
     }
-
+    // function that enables the buttons if unlocked
     private void EnableButton(Button button)
     {
         button.interactable = true;

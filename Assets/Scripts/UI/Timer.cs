@@ -45,7 +45,7 @@ public class Timer : MonoBehaviour
         text = GetComponent<Text>();
         co = StartCoroutine(StartCountdown());
     }
-
+    // Stops the timer when the timer is within 3mins for achievement
     public void StopTimer()
     {
         StopCoroutine(co);
