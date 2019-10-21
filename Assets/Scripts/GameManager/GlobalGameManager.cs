@@ -136,9 +136,7 @@ public class GlobalGameManager : MonoBehaviour
 
     private void SetCityLevelProperties(int i)
     {
-        Debug.Log("SETTING CITY");
         chosenCityLevelProperties = cityProperties[i];
-        Debug.Log(chosenCityLevelProperties.bootSpawnRate + " " + chosenCityLevelProperties.maxEnergy);
     }
 
     private void UnlockOcean()
