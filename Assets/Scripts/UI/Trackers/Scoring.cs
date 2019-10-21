@@ -71,8 +71,8 @@ public class Scoring : MonoBehaviour
         CharacterController characterController = playerObject.GetComponent<CharacterController>();
 
         // Calculate the score from time and health
-        int timerScore = (int)timer.time * 50;
-        int healthScore = characterController.health * 200;
+        int timerScore = (int)timer.time * 25;
+        int healthScore = characterController.health * 1000;
         return timerScore + healthScore;
     }
 
@@ -82,11 +82,11 @@ public class Scoring : MonoBehaviour
         switch (stage)
         {
             case "Forest":
-                currentScore += (ForestTracker.fireSpriteDestroyed * 50);
+                currentScore += (ForestTracker.fireSpriteDestroyed * 500);
                 currentScore += (ForestTracker.treesPlanted[0] * 1000);
                 break;
             case "Ocean":
-                currentScore += (OceanTracker.oilSpriteDestroyed * 20);
+                currentScore += (OceanTracker.oilSpriteDestroyed * 200);
                 currentScore += (OceanTracker.tasks[0] + OceanTracker.tasks[1] + OceanTracker.tasks[2]) * 500;
                 break;
             case "City":
