@@ -15,6 +15,8 @@ public class Window : MonoBehaviour
     public Sprite WindowOnPerson;
     public Sprite WindowOnEmpty;
 
+    string taskCompleted = "TaskComplete";
+
     // Use this for initialization
     private void Start()
     {
@@ -63,6 +65,7 @@ public class Window : MonoBehaviour
             AchievementManager.instance.IncrementAchievement(AchievementType.Switch);
 
             transform.parent.GetComponent<Column>().putOnCD();
+            AudioManager.instance.Play(taskCompleted);
         }
     }
 
