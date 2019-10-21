@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Window : MonoBehaviour
 {
 
-    public bool hasPerson;
-    public bool isOn;
+    public bool hasPerson = false;
+    public bool isOn = false;
 
     public Sprite WindowOffEmpty;
     public Sprite WindowOnPerson;
@@ -19,14 +19,13 @@ public class Window : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        hasPerson = false;
-        isOn = false;
+        
     }
 
     // Update is called once per frame
     private void Update()
     {
-
+        
     }
 
     public bool getHasPerson()

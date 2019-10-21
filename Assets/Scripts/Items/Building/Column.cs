@@ -44,7 +44,7 @@ public class Column : MonoBehaviour
     }
 
     public void useSwitch()
-    {
+    {    
         // only turn off windows if they are on so the energy bar does not incorrectly update
         if (ifWindowOn())
         {
@@ -52,7 +52,7 @@ public class Column : MonoBehaviour
             {
                 window.turnOff();
             }
-            transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy();
+            //transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy();
         }
     }
 
