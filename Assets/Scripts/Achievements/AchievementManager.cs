@@ -273,7 +273,7 @@ public class AchievementManager : MonoBehaviour
         AddAchievementToType(AchievementType.Plays, 1, "Novice");
         AddAchievementToType(AchievementType.Plays, 4, "Adventurer");
         AddAchievementToType(AchievementType.Plays, 10, "Expert");
-        IncrementAchievement(AchievementType.Plays);
+        //IncrementAchievement(AchievementType.Plays);
 
         //Initialise achievement counts and names
         AddAchievementToType(AchievementType.Achievements, 0, "Achievements Unlocked");

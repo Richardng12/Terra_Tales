@@ -85,6 +85,7 @@ public sealed class SaveValues
 
             file.Close();
         }
+        AchievementManager.instance.IncrementAchievement(AchievementType.Plays);
 
 
     }
