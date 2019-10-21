@@ -40,6 +40,7 @@ public class TimelineCityTrigger : MonoBehaviour
             {
                 StopTimeline();
                 skipButton.SetActive(false);
+                
             }
         }
         

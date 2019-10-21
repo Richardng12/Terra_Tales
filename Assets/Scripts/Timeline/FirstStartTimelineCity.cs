@@ -44,10 +44,6 @@ public class FirstStartTimelineCity : MonoBehaviour
         {
             if (isPlaying)
             {
-                energyBar.SetActive(true);
-                bootsBar.SetActive(true);
-                 boot.SetActive(true);
-                bolt.SetActive(true);
                 StopTimeline();
                 skipButton.SetActive(false);
             }
@@ -66,10 +62,10 @@ void OnPlayableDirectorStopped(PlayableDirector aDirector)
             player.GetComponent<CharacterAction>().enabled = true;
             player.GetComponent<ShootWater>().enabled = true;
             skipButton.SetActive(false);
-            energyBar.SetActive(true);
-            bootsBar.SetActive(true);
-             boot.SetActive(true);
-            bolt.SetActive(true);
+               boot.SetActive(true);
+                bolt.SetActive(true);
+                energyBar.SetActive(true);
+                bootsBar.SetActive(true);
         }
     }
 

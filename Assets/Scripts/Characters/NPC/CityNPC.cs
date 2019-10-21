@@ -94,8 +94,8 @@ public class CityNPC : MonoBehaviour, INPC
             // Once dialogue has ended then set time scale to 1
             if (dialogueManager.GetDialogueEnded())
             {
-        boot.SetActive(true);
-        bolt.SetActive(true);
+                  boot.SetActive(true);
+                  bolt.SetActive(true);
         energyBar.SetActive(true);
         bootsBar.SetActive(true);
                 Time.timeScale = 1.0f;
@@ -161,6 +161,10 @@ public class CityNPC : MonoBehaviour, INPC
                     // Start of level should only gets set to false once as that
                     // dialogue only happens at the start
                     startOfLevel = false;
+                      energyBar.SetActive(false);
+            bootsBar.SetActive(false);
+             boot.SetActive(false);
+            bolt.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D Collision)
@@ -181,7 +185,10 @@ public class CityNPC : MonoBehaviour, INPC
     {
         if (Collision.gameObject.tag.Equals("Player"))
         {
-            
+               boot.SetActive(true);
+                bolt.SetActive(true);
+                energyBar.SetActive(true);
+                bootsBar.SetActive(true);
             showText.gameObject.SetActive(false);
             interactable = false;
             if (!interactable)
