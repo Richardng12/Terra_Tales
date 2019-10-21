@@ -22,6 +22,7 @@ public class Column : MonoBehaviour
 
     }
 
+    // withPerson variable indicates whether or not this method should turn on window with a person or maintain its current state (whether or not a person is occupying window)    
     public void turnOnWindows(bool withPerson)
     {
         if (withPerson)
@@ -43,9 +44,9 @@ public class Column : MonoBehaviour
 
     public void useSwitch()
     {
+        // only turn off windows if they are on so the energy bar does not incorrectly update
         if (ifWindowOn())
         {
-
             foreach (Window window in windows)
             {
                 window.turnOff();
@@ -76,7 +77,8 @@ public class Column : MonoBehaviour
     {
         return windows;
     }
-
+    
+    // put column on cooldown so its windows won't turn on for a period of time after spawning
     public void putOnCD()
     {
         onCD = true;

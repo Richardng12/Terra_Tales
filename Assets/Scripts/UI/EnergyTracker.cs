@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class EnergyTracker : MonoBehaviour
 {
+    // max number of windows that can be turned on 
     public float max;
+    // number of windows that are currently on
     private float current = 0;
     
     public Slider energyBar;
@@ -19,7 +21,7 @@ public class EnergyTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        // every second, update the slider value with the current number of windows on
         StartCoroutine(setSliderValue(current));
     }
 
