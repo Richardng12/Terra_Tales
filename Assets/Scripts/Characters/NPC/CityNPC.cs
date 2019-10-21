@@ -35,7 +35,7 @@ public class CityNPC : MonoBehaviour, INPC
     // Start is called before the first frame update
     void Start()
     {
-            cityTracker = cityTrackerObject.GetComponent<CityTracker>();
+         cityTracker = cityTrackerObject.GetComponent<CityTracker>();
          dialogueManager = FindObjectOfType<DialogueManager>();
          interactable = false;
     }
@@ -94,10 +94,10 @@ public class CityNPC : MonoBehaviour, INPC
             // Once dialogue has ended then set time scale to 1
             if (dialogueManager.GetDialogueEnded())
             {
-                  boot.SetActive(true);
-                  bolt.SetActive(true);
-        energyBar.SetActive(true);
-        bootsBar.SetActive(true);
+                boot.SetActive(true);
+                bolt.SetActive(true);
+                energyBar.SetActive(true);
+                bootsBar.SetActive(true);
                 Time.timeScale = 1.0f;
                 // Dialogue has ended
 
@@ -128,8 +128,7 @@ public class CityNPC : MonoBehaviour, INPC
         //If complete then npc thanks
         else if (cityTracker.isCompleted)
         {
-            Debug.Log("citytracker is completed");
-          //  gameManager.GetComponent<Scoring>().CalculateStageScore("Forest");
+            gameManager.GetComponent<Scoring>().CalculateStageScore("City");
             dialogueManager.StartDialogue(dialogue[2]);
             timelineTrigger.GetComponent<TimelineCityTrigger>().PlayCutScene();
         }
@@ -151,7 +150,6 @@ public class CityNPC : MonoBehaviour, INPC
      public void EndDialogueCity(){
 
         dialogueBox.SetActive(false);
-        Debug.Log("WElp");
          dialogueManager.EndDialogue();
                 StopAllCoroutines();
                  dialogueManager.DisplayNextSentence();

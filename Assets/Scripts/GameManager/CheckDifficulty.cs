@@ -34,4 +34,19 @@ public class CheckDifficulty : MonoBehaviour
     {
         Publisher.TriggerEvent("OceanLevelHard");
     }
+
+    public void SetCityEasy()
+    {
+        Publisher.TriggerEvent("CityLevelEasy");
+    }
+
+    public void SetCityMedium()
+    {
+        Publisher.TriggerEvent("CityLevelMedium");
+    }
+
+    public void SetCityHard()
+    {
+        Publisher.TriggerEvent("CityLevelHard");
+    }
 }

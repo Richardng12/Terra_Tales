@@ -17,6 +17,9 @@ public class GlobalGameManager : MonoBehaviour
     public ForestLevelProperties chosenForestProperties;
     private OceanLevelProperties[] oceanProperties;
     public OceanLevelProperties chosenOceanLevelProperties;
+    public CityLevelProperties chosenCityLevelProperties;
+    public CityLevelProperties[] cityProperties;
+
     public Dictionary<string, int> highScoreDict = new Dictionary<string, int>();
 
     public void delayedSet(bool b)
@@ -34,6 +37,9 @@ public class GlobalGameManager : MonoBehaviour
         Publisher.StartListening("OceanLevelEasy", SetOceanLevelEasy);
         Publisher.StartListening("OceanLevelMedium", SetOceanLevelMedium);
         Publisher.StartListening("OceanLevelHard", SetOceanLevelHard);
+        Publisher.StartListening("CityLevelEasy", SetCityLevelEasy);
+        Publisher.StartListening("CityLevelMedium", SetCityLevelMedium);
+        Publisher.StartListening("CityLevelHard", SetCityLevelHard);
         Publisher.StartListening("FinishCity", UnlockForest);
         Publisher.StartListening("FinishForest", UnlockOcean);
     }
@@ -47,6 +53,9 @@ public class GlobalGameManager : MonoBehaviour
         Publisher.StopListening("OceanLevelEasy", SetOceanLevelEasy);
         Publisher.StopListening("OceanLevelMedium", SetOceanLevelMedium);
         Publisher.StopListening("OceanLevelHard", SetOceanLevelHard);
+        Publisher.StopListening("CityLevelEasy", SetCityLevelEasy);
+        Publisher.StopListening("CityLevelMedium", SetCityLevelMedium);
+        Publisher.StopListening("CityLevelHard", SetCityLevelHard);
         Publisher.StopListening("FinishCity", UnlockForest);
         Publisher.StopListening("FinishForest", UnlockOcean);
     }
@@ -102,6 +111,32 @@ public class GlobalGameManager : MonoBehaviour
     private void SetOceanProperties(int i)
     {
         chosenOceanLevelProperties = oceanProperties[i];
+    }
+
+    private void SetCityLevelEasy()
+    {
+        difficulty = "Easy";
+        SetCityLevelProperties(0);
+        SetMultiplierEasy();
+    }
+
+    private void SetCityLevelMedium()
+    {
+        difficulty = "Medium";
+        SetCityLevelProperties(1);
+        SetMultiplierMedium();
+    }
+
+    private void SetCityLevelHard()
+    {
+        difficulty = "Hard";
+        SetCityLevelProperties(2);
+        SetMultiplierHard();
+    }
+
+    private void SetCityLevelProperties(int i)
+    {
+        chosenCityLevelProperties = cityProperties[i];
     }
 
     private void UnlockOcean()
@@ -185,6 +220,13 @@ public class GlobalGameManager : MonoBehaviour
             new OceanLevelProperties(300, 5, 4),
             new OceanLevelProperties(240, 4, 5)
         };
+
+        cityProperties = new CityLevelProperties[3]
+        {
+            new CityLevelProperties(90, 6, 6f, 15, 18),
+            new CityLevelProperties(120, 5, 5f, 18, 16),
+            new CityLevelProperties(180, 4, 4f, 20, 14)
+        };
     }
 }
 
@@ -219,4 +261,19 @@ public class OceanLevelProperties : LevelProperties
     }
 
 
+}
+
+public class CityLevelProperties : LevelProperties
+{
+    public float lightSpawnRate;
+    public int bootSpawnRate;
+    public int maxEnergy;
+    public CityLevelProperties(int time, int spawnRate, float lightSpawnRate, int bootSpawnRate, int maxEnergy)
+    {
+        this.time = time;
+        this.spawnRate = spawnRate;
+        this.lightSpawnRate = lightSpawnRate;
+        this.bootSpawnRate = bootSpawnRate;
+        this.maxEnergy = maxEnergy;
+    }
 }
