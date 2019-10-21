@@ -43,9 +43,18 @@ public class HighScore : MonoBehaviour
     }
 
     // adds highscore to map with name and score then sorts it 
+    // same name just overrides
     public void AddScore()
     {
-        GlobalGameManager.instance.highScoreDict.Add(playerText.text, totalScore);
+        if (GlobalGameManager.instance.highScoreDict.ContainsKey(playerText.text))
+        {
+            GlobalGameManager.instance.highScoreDict[playerText.text] = totalScore;
+        }
+        else
+        {
+            GlobalGameManager.instance.highScoreDict.Add(playerText.text, totalScore);
+
+        }
         GlobalGameManager.instance.highScoreDict = GlobalGameManager.instance.highScoreDict.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
     }
 }
