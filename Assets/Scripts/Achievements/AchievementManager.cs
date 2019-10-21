@@ -262,7 +262,7 @@ public class AchievementManager : MonoBehaviour
         achievementsMap.Add(AchievementType.LevelCompletionsForest, new Achievement("Congratulations on completing ", " forest level(s)", "Finish the forest level to unlock this achievement"));
         achievementsMap.Add(AchievementType.LevelCompletionsOcean, new Achievement("Congratulations on completing ", " ocean level(s)", "Finish the ocean level to unlock this achievement"));
         achievementsMap.Add(AchievementType.LevelCompletionsCity, new Achievement("Congratulations on completing ", " city level(s)", "Finish the city level to unlock this achievement"));
-        achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations removing ", " acid rain clouds(s)", "Take care of clouds"));
+        achievementsMap.Add(AchievementType.Deaths, new Achievement("Congratulations on removing ", " acid rain clouds(s)", "Take care of acid rain clouds"));
         achievementsMap.Add(AchievementType.OilSpills, new Achievement("Congratulations on cleaning up ", " spill(s)", "Take care of oil spills to unlock this achievement"));
         achievementsMap.Add(AchievementType.Trash, new Achievement("Congratulations on cleaning up ", " pieces of trash", "Take care of trash to unlock this achievement"));
         achievementsMap.Add(AchievementType.Switch, new Achievement("Congratulations on turning off ", " lights", "Turn off a light to unlock this achievement"));
@@ -321,7 +321,7 @@ public class AchievementManager : MonoBehaviour
         AddAchievementToType(AchievementType.LevelCompletionsCity, 4, "CIty Lover");
         AddAchievementToType(AchievementType.LevelCompletionsCity, 10, "City Saviour");
 
-        AddAchievementToType(AchievementType.Deaths, 0, "Clouds");
+        AddAchievementToType(AchievementType.Deaths, 0, "Acid Rain Clouds Removed");
         AddAchievementToType(AchievementType.Deaths, 1, "Pillow Cleaner");
         AddAchievementToType(AchievementType.Deaths, 5, "Cloud 9");
         AddAchievementToType(AchievementType.Deaths, 10, "Cloud Strife");
