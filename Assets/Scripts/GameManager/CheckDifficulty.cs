@@ -12,8 +12,6 @@ public class CheckDifficulty : MonoBehaviour
     public void SetForestMedium()
     {
         Publisher.TriggerEvent("ForestLevelMedium");
-        Debug.Log("HELLO");
-
     }
 
     public void SetForestHard()
