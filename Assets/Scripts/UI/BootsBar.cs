@@ -17,6 +17,7 @@ public class BootsBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(bootsBar != null)
         bootsBar.maxValue = bootsMaxHealth;
     }
 
@@ -56,6 +57,7 @@ public class BootsBar : MonoBehaviour
 
     IEnumerator setSliderValue(float v) {
         yield return new WaitForSeconds(0f);
-        bootsBar.value = v;
+        if (bootsBar != null)
+            bootsBar.value = v;
     }
 }
