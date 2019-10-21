@@ -9,6 +9,7 @@ public class Publisher : MonoBehaviour
 
     private static Publisher publisher;
 
+    // singleton only allowing one instance of publisher
     public static Publisher instance
     {
         get
@@ -31,6 +32,7 @@ public class Publisher : MonoBehaviour
         }
     }
 
+    // initialises the event dictionary
     void Init()
     {
         if (eventDictionary == null)
@@ -39,6 +41,7 @@ public class Publisher : MonoBehaviour
         }
     }
 
+    // adds the trigger string and event to dictionary
     public static void StartListening(string eventName, UnityAction listener)
     {
         UnityEvent thisEvent = null;
@@ -54,6 +57,7 @@ public class Publisher : MonoBehaviour
         }
     }
 
+    // removes trigger string and event from dictionary
     public static void StopListening(string eventName, UnityAction listener)
     {
         if (publisher == null) return;
@@ -64,12 +68,12 @@ public class Publisher : MonoBehaviour
         }
     }
 
+    // searches for event in dictionary and dispatches the UnityEvent
     public static void TriggerEvent(string eventName)
     {
         UnityEvent thisEvent = null;
         if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
-            Debug.Log("TRIGGER");
             thisEvent.Invoke();
         }
     }
