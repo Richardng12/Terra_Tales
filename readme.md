@@ -9,7 +9,7 @@ change, while also overcoming obstacles along the way. When the final challenge 
 
 Are you ready for the challenge?
 
-Running the Prebuilt gane
+Running the Prebuilt gane (Best way to play)
 ---
 1. Download the latest release from our release page.
 
