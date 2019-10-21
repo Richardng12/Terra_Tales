@@ -19,10 +19,7 @@ public class EnergyTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(current >= max) {
-            Debug.Log("u lose");
-        }
-        Debug.Log(current);
+    
         StartCoroutine(setSliderValue(current));
     }
 
@@ -32,6 +29,10 @@ public class EnergyTracker : MonoBehaviour
 
     public void decreaseEnergy() {
         current--;
+    }
+
+    public float getCurrent(){
+        return current;
     }
 
     IEnumerator setSliderValue(float v) {
