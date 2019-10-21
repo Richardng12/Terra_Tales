@@ -57,6 +57,7 @@ public class CityTracker : MonoBehaviour
         if(audioManager != null)
         {
             audioManager.StopAll();
+            AudioManager.mainMenuMusic = false;
             audioManager.Play(cityLevelAudio);
         }
     }

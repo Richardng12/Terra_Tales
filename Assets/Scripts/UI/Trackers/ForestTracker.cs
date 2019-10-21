@@ -44,6 +44,7 @@ public class ForestTracker : MonoBehaviour, ITracker<int>
         if(audioManager != null)
         {
             audioManager.StopAll();
+            AudioManager.mainMenuMusic = false;
             audioManager.Play(forestLevelAudio);
         }
     }
