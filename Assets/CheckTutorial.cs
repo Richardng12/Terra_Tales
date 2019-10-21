@@ -11,11 +11,11 @@ public class CheckTutorial : MonoBehaviour
     void Start()
     {
         // If its the first time the player is playing ask user to play tutorial
-        if (!GlobalGameManager.instance.firstPlay)
+        if (GlobalGameManager.instance.firstPlay)
         {
             tutorialMenu.SetActive(true);
             levelSelectionPanel.SetActive(false);
-            GlobalGameManager.instance.firstPlay = true;
+            GlobalGameManager.instance.firstPlay = false;
         }
     }
 }
