@@ -67,12 +67,10 @@ public class Scoring : MonoBehaviour
 
     private int ScoreCalculation()
     {
-        // Grabs the scripts from the objects provided
-        CharacterController characterController = playerObject.GetComponent<CharacterController>();
-
+        int healthScore = CalculateHealthScore();
         // Calculate the score from time and health
-        int timerScore = (int)timer.time * 25;
-        int healthScore = characterController.health * 1000;
+        int timerScore = CalculateTimerScore();
+
         return timerScore + healthScore;
     }
 
@@ -99,5 +97,19 @@ public class Scoring : MonoBehaviour
 
         return currentScore;
     }   
+
+    public int CalculateHealthScore()
+    {
+        // Grabs the scripts from the objects provided
+        CharacterController characterController = playerObject.GetComponent<CharacterController>();
+        int healthScore = characterController.health * 1000;
+
+        return healthScore;
+    }
+
+    public int CalculateTimerScore()
+    {
+        return (int)timer.time * 25;
+    }
 
 }
