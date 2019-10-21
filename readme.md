@@ -17,6 +17,9 @@ Running the Prebuilt gane (Best way to play)
 
 3. Run 306 Project 2.exe
 
+Playing from website
+---
+Click this link! https://coecere.itch.io/terratales
 
 Team Members
 ---
