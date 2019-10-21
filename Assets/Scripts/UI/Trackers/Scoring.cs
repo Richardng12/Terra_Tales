@@ -76,6 +76,7 @@ public class Scoring : MonoBehaviour
         return timerScore + healthScore;
     }
 
+    // gets current score for level not including timer and health bonus
     public int CalculateLiveScore(string stage)
     {
         int currentScore = 0;
