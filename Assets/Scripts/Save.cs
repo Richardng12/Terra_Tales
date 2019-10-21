@@ -46,6 +46,9 @@ public sealed class SaveValues
     private static readonly object padlock = new object();
     public Dictionary<AchievementType, Achievement> achievementsMap;
     public Dictionary<string, int> highScoreDict;
+    public bool firstPlay;
+    public bool forestUnlocked;
+    public bool oceanUnlocked;
 
     public void SaveGame()
     {
@@ -53,8 +56,8 @@ public sealed class SaveValues
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
         SaveValues.getInstance().UpdateValues();
         bf.Serialize(file, SaveValues.getInstance());
-           
-            Debug.Log("Count " + SaveValues.getInstance().highScoreDict.Count);
+
+        Debug.Log("Count " + SaveValues.getInstance().highScoreDict.Count);
 
         Debug.Log("Serialising " + Application.persistentDataPath + "/gamesave.save");
 
@@ -75,6 +78,11 @@ public sealed class SaveValues
             SaveValues sv = (SaveValues)bf.Deserialize(file);
             AchievementManager.instance.achievementsMap = sv.achievementsMap;
             GlobalGameManager.instance.highScoreDict = sv.highScoreDict;
+
+            GlobalGameManager.instance.forestUnlocked = forestUnlocked;
+            GlobalGameManager.instance.oceanUnlocked = oceanUnlocked;
+            GlobalGameManager.instance.firstPlay = firstPlay;
+
             Debug.Log("Count " + sv.highScoreDict.Count);
 
             file.Close();
@@ -86,6 +94,9 @@ public sealed class SaveValues
     {
         achievementsMap = AchievementManager.instance.achievementsMap;
         highScoreDict = GlobalGameManager.instance.highScoreDict;
+        forestUnlocked = GlobalGameManager.instance.forestUnlocked;
+        oceanUnlocked = GlobalGameManager.instance.oceanUnlocked;
+        firstPlay = GlobalGameManager.instance.firstPlay;
     }
     public static SaveValues getInstance()
     {
