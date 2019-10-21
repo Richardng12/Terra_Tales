@@ -14,7 +14,17 @@ public class CityNPC : MonoBehaviour, INPC
 
     public GameObject dialogueBox;
 
+ public GameObject cityTrackerObject;
+    public GameObject timerObject;
        public GameObject energyBar;
+       public GameObject bootsBar;
+
+       public GameObject timelineTrigger;
+
+    private CityTracker cityTracker;
+       public GameObject boot;
+
+       public GameObject bolt;
  private bool startOfLevel = true;
 
     private bool initialised = false;
@@ -25,6 +35,7 @@ public class CityNPC : MonoBehaviour, INPC
     // Start is called before the first frame update
     void Start()
     {
+            cityTracker = cityTrackerObject.GetComponent<CityTracker>();
          dialogueManager = FindObjectOfType<DialogueManager>();
          interactable = false;
     }
@@ -54,7 +65,7 @@ public class CityNPC : MonoBehaviour, INPC
         {
             if (interactable)
             {
-                EndDialogueForest();
+                EndDialogueCity();
             }
         }
 
@@ -83,6 +94,10 @@ public class CityNPC : MonoBehaviour, INPC
             // Once dialogue has ended then set time scale to 1
             if (dialogueManager.GetDialogueEnded())
             {
+        boot.SetActive(true);
+        bolt.SetActive(true);
+        energyBar.SetActive(true);
+        bootsBar.SetActive(true);
                 Time.timeScale = 1.0f;
                 // Dialogue has ended
 
@@ -97,23 +112,27 @@ public class CityNPC : MonoBehaviour, INPC
 
          public void TriggerDialogue()
     {
+        boot.SetActive(false);
+        bolt.SetActive(false);
+        energyBar.SetActive(false);
+        bootsBar.SetActive(false);
         // Introduces the scene
         if (startOfLevel)
         {
             StartCoroutine(dialogueManager.LoadDialogueBox());
             dialogueManager.StartDialogue(dialogue[0]);
-//            timerObject.GetComponent<Timer>().StartTimer();
+            timerObject.GetComponent<Timer>().StartTimer();
           //  seedlingHUD.SetActive(true);
             liveScoreText.SetActive(true);
         }
-        // If complete then npc thanks
-        // else if (treeTracker.CheckIsComplete())
-        // {
-        //   //  gameManager.GetComponent<Scoring>().CalculateStageScore("Forest");
-        //     dialogueManager.StartDialogue(dialogue[2]);
-        //  //   timelineTrigger.GetComponent<TimelineForestTrigger>().PlayCutScene();
-        // }
-        // Talks about current state of tasks
+        //If complete then npc thanks
+        else if (cityTracker.isCompleted)
+        {
+          //  gameManager.GetComponent<Scoring>().CalculateStageScore("Forest");
+            dialogueManager.StartDialogue(dialogue[2]);
+            timelineTrigger.GetComponent<TimelineCityTrigger>().PlayCutScene();
+        }
+       // Talks about current state of tasks
         else
         {
             CreateTaskDialogue();
@@ -128,7 +147,7 @@ public class CityNPC : MonoBehaviour, INPC
 
     }
 
-     public void EndDialogueForest(){
+     public void EndDialogueCity(){
 
         dialogueBox.SetActive(false);
         Debug.Log("WElp");
@@ -161,6 +180,7 @@ public class CityNPC : MonoBehaviour, INPC
     {
         if (Collision.gameObject.tag.Equals("Player"))
         {
+            
             showText.gameObject.SetActive(false);
             interactable = false;
             if (!interactable)
