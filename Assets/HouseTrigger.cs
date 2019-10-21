@@ -12,7 +12,8 @@ public class HouseTrigger : MonoBehaviour
         // If collision is detected then go back to main menu
         if (Collision.gameObject.tag.Equals("Player"))
         {
-             levelLoader.LoadLevel(2);
+            //Loads level selection screen
+             levelLoader.LoadLevel(6);
         }
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4255874239489687547}
   - component: {fileID: 2534407762550086787}
   - component: {fileID: 7401957082189662452}
+  - component: {fileID: 1336426092443684622}
   m_Layer: 5
   m_Name: BackToMainButton
   m_TagString: Untagged
@@ -37,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -440, y: -379.25928}
-  m_SizeDelta: {x: 200, y: 70}
+  m_AnchoredPosition: {x: -478.7, y: -353.4}
+  m_SizeDelta: {x: 225, y: 85.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5850713463137935649
 CanvasRenderer:
@@ -138,6 +139,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1336426092443684622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821102072461025627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6723983541955743688}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6723983541955743688}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &5120549167497384745
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +195,7 @@ GameObject:
   - component: {fileID: 5120549167497384746}
   - component: {fileID: 5120549167497384747}
   - component: {fileID: 5120549167497384744}
+  - component: {fileID: 6723983541955743688}
   m_Layer: 5
   m_Name: LoseGameCanvas
   m_TagString: Untagged
@@ -237,6 +283,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6723983541955743688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120549167497384745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25efaf73f97a4e57a103ca42c77d56f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5120549167825480405
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +601,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "YOU RAN OUT OF LIVES OR TIME!\n PLEASE TRY AGAIN - THE PLANET NEEDS YOU."
+  m_Text: 'YOU RAN OUT OF LIVES OR TIME!
+
+    PLEASE TRY AGAIN - THE PLANET NEEDS YOU.'
 --- !u!1 &5120549169002479114
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +617,7 @@ GameObject:
   - component: {fileID: 5120549169002479158}
   - component: {fileID: 5120549169002479159}
   - component: {fileID: 5120549169002479156}
+  - component: {fileID: 7938907630380389842}
   m_Layer: 5
   m_Name: NextLevelButton
   m_TagString: Untagged
@@ -581,8 +642,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 440, y: -379.26}
-  m_SizeDelta: {x: 200, y: 70}
+  m_AnchoredPosition: {x: 452.9, y: -349.1}
+  m_SizeDelta: {x: 207.6, y: 87.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5120549169002479153
 CanvasRenderer:
@@ -682,6 +743,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ec033bc948fe94bbf93571e1a4c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7938907630380389842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120549169002479114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6723983541955743688}
+          m_MethodName: OnMouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6723983541955743688}
+          m_MethodName: OnMouseClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &9027032518441309008
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +814,7 @@ RectTransform:
   m_GameObject: {fileID: 9027032518441309008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 3070511877027873306}
   m_RootOrder: 0
@@ -747,7 +852,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 61165c170c0b97c48a9bf5be5ee0f5b6, type: 3}
-    m_FontSize: 100
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -758,4 +863,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: Menu

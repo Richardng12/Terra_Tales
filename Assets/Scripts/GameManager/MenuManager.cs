@@ -7,8 +7,6 @@ public class MenuManager : MonoBehaviour
 {
 
     AudioManager audioManager;
-    string hoverSound = "HoverSound";
-    string clickSound = "ClickSound";
     string MainMenuSound = "MainMenu";
 
     // Start is called before the first frame update
@@ -27,14 +25,5 @@ public class MenuManager : MonoBehaviour
                 audioManager.Play(MainMenuSound);
             }
         }
-    }
-
-    public void OnMouseOver()
-    {
-        audioManager.Play(hoverSound);
-    }
-    public void OnMouseClick()
-    {
-        audioManager.Play(clickSound);
     }
 }
