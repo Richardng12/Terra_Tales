@@ -13,6 +13,7 @@ public class SetCompleteCanvasOcean : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Calculate the score breakdown
         Scoring scoring = gameManager.GetComponent<Scoring>();
         timerBonus.text = scoring.CalculateTimerScore().ToString();
         healthBonus.text = scoring.CalculateHealthScore().ToString();
