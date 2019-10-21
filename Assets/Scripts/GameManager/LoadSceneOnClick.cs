@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadSceneOnClick : MonoBehaviour
-    //This class is to load a scene without loading screen
+    //This class is to load a scene without a loading screen
 {
  public void loadByIndex(int sceneIndex)
     {

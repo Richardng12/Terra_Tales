@@ -17,7 +17,8 @@ public class AudioToggle : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.instance;
-
+        // When pause menu is shown it checks the current status of the sound
+        // toggle to check what picture it should show
          if(AudioManager.musicTicked){
             volumeOn.enabled = true;
             volumeOff.enabled = false;
@@ -31,6 +32,7 @@ public class AudioToggle : MonoBehaviour
          isStart = false;
     }
 
+    // If toggle is clicked change the picture and set the volume correspondingly
     public void ToggleValueChanged()
     {
 
@@ -43,6 +45,7 @@ public class AudioToggle : MonoBehaviour
                 volumeOn.enabled = false;
                 volumeOff.enabled = true;
             }
+            // Turns music back on
             else
             {
                 AudioManager.instance.MusicOn();

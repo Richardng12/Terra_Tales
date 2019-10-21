@@ -120,12 +120,12 @@ public class ShootWater : MonoBehaviour
         {
             return ammo;
         }
-
+        // Decreases ammo count
         public void DecreaseAmmoCount()
         {
             ammo--;
         }
-
+        // Increases ammo count and added a reload sound
         public void IncreaseAmmoCount()
         {
             audioManager.Play(reloadSound);

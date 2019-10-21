@@ -29,6 +29,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
     void Update()
 
     {
+        // Every frame should call move to move the fire sprite
         Move();
     }
 
@@ -70,6 +71,7 @@ public class FireSpriteController : AbstractSpawnableObject, ICharacter
         }
         else
         {
+            // Plays monster death sound and sets achievements
             AudioManager.instance.Play(monsterDeathSound);
             AchievementManager.instance.IncrementAchievement(AchievementType.Fires);
             ForestTracker.fireSpriteDestroyed++;

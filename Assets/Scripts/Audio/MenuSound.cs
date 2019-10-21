@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Sounds for the hover button and click button
+
 public class MenuSound : MonoBehaviour
 {
     string hoverSound = "HoverSound";
