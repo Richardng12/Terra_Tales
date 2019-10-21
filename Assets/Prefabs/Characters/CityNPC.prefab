@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 2397386884687034323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 8895286135318019310}
   m_Father: {fileID: 0}
@@ -194,9 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: []
+  gameManager: {fileID: 0}
+  dialogueBox: {fileID: 0}
   energyBar: {fileID: 0}
-  timerObject: {fileID: 0}
   showText: {fileID: 0}
+  liveScoreText: {fileID: 0}
 --- !u!61 &2397386884687034320
 BoxCollider2D:
   m_ObjectHideFlags: 0
