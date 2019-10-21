@@ -16,7 +16,7 @@ public class HighScore : MonoBehaviour
 
     static public HighScore instance;
 
-
+    // singleton only allowing one instance
     void Awake()
     {
         if (instance == null)
@@ -34,7 +34,7 @@ public class HighScore : MonoBehaviour
         }
     }
   
-    // Start is called before the first frame update
+    // calculates total score of all levels
     void Start()
     {
         totalScore = Scoring.cityScore + Scoring.forestScore + Scoring.oceanScore;
@@ -42,6 +42,7 @@ public class HighScore : MonoBehaviour
         nextButton.onClick.AddListener(AddScore);
     }
 
+    // adds highscore to map with name and score then sorts it 
     public void AddScore()
     {
         GlobalGameManager.instance.highScoreDict.Add(playerText.text, totalScore);

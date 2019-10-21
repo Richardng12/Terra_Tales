@@ -10,6 +10,7 @@ public class SetForestDifficulty : MonoBehaviour
 
     public GameObject treeTracker;
 
+    // sets the properties of forest based on chosen difficulty level
     void Start()
     {
         spawnerObject.GetComponent<SpawnerScript>().spawnDelay = GlobalGameManager.instance.chosenForestProperties.spawnRate;

@@ -12,7 +12,7 @@ public class SetLevelScore : MonoBehaviour
 
     public Text cityScore;
 
-    // Start is called before the first frame update
+    // sets score for stages on LevelSelectionScreen
     void Start()
     {
         forestScore.text = Scoring.forestScore.ToString();

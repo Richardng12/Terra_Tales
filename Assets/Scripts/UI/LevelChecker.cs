@@ -14,6 +14,7 @@ public class LevelChecker : MonoBehaviour
 
     private void OnEnable()
     {
+        // checks if stages are unlocked and enables or disables the buttons and displays locked images
         if(GlobalGameManager.instance.forestUnlocked == false)
         {
             DisableButton(forestButton);
@@ -37,7 +38,7 @@ public class LevelChecker : MonoBehaviour
     }
 
 
-
+    // function that disables all on hover scripts in hover
     private void DisableButton(Button button)
     {
         button.interactable = false;

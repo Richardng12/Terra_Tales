@@ -65,7 +65,7 @@ private void Start()
     }
     initalised = true;
     Play("MainMenu");
-        mainMenuMusic = true;
+    mainMenuMusic = true;
 }
 
 public void Play(string name)
