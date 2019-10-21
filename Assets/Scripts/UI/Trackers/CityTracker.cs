@@ -8,6 +8,7 @@ public class CityTracker : MonoBehaviour
 
  public Text text;
 
+
     public float fadeOutTime;
 
     public GameObject gameManager;
@@ -25,7 +26,9 @@ public class CityTracker : MonoBehaviour
     {
 
       if(Input.GetKeyDown(KeyCode.J)){
-            timer.GetComponent<Timer>().time = 0f;
+         timer.GetComponent<Timer>().StopTimer();
+           isCompleted = true;
+            timer.GetComponent<Timer>().text.text = "Time Left: 0:00";
              text.text = "Task finished. Please Return to NPC";
             StartCoroutine(TextFadeOutRoutine());
             gameManager.GetComponent<Scoring>().StopStageTimer();

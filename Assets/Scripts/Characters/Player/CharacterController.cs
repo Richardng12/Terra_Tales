@@ -29,12 +29,6 @@ public class CharacterController : MonoBehaviour, ICharacter
     Color c;
 
     //City scene
-    //private int bootsHealth = 0;
-    //public int bootsMaxHealth;
-    //private bool bootsOnCD = false;
-    //public float durationCD = 2f;
-    //public Slider bootsBar;
-
     string jumpSound = "Jump";
 
     AudioManager audioManager;
@@ -50,8 +44,7 @@ public class CharacterController : MonoBehaviour, ICharacter
         renderer = GetComponent<Renderer>();
         c = renderer.material.color;
 
-        //bootsBar.maxValue = bootsMaxHealth;
-        // bootsBar.gameObject.SetActive(false);
+
     }
 
     private void OnEnable()
@@ -102,7 +95,7 @@ public class CharacterController : MonoBehaviour, ICharacter
         }
 
     
-        //bootsBar.value = bootsHealth;
+    
           
     }
     private void FixedUpdate()
@@ -212,34 +205,5 @@ public class CharacterController : MonoBehaviour, ICharacter
         throw new System.NotImplementedException();
     }
 
-    //public int getBootsHealth() {
-    //    return bootsHealth;
-    //}
-
-    //public void fillBootsHealth() {
-    //    bootsHealth = bootsMaxHealth;
-    //}
-
-    //public void loseBootsHealth() {
-    //    bootsHealth--;
-    //}
-
-    //public void putOnCD() {
-    //    bootsOnCD = true;
-    //    StartCoroutine(waitForCD());
-    //}
-
-    //public bool isOnCD() {
-    //    return bootsOnCD;
-    //}
-
-    //IEnumerator waitForCD() {
-    //    yield return new WaitForSeconds(durationCD);
-    //    bootsOnCD = false;
-    //}
-
-    //IEnumerator setSliderValue(float v) {
-    //    yield return new WaitForSeconds(0f);
-    //    bootsBar.value = v;
-    //}
+   
 }

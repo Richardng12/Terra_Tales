@@ -20,16 +20,16 @@
 //    private void OnTriggerEnter2D(Collider2D collision) {
 //        CharacterController character = collision.gameObject.GetComponent<CharacterController>();
 
-//        // if player's boots' hp is full, player can't pick it up
-//        if (character != null && character.getBootsHealth() < 10)
-//        {
-//            pickUp(character);
-//            Debug.Log("GOT IT");
-//        }
-//    }
+        // if player's boots' hp is full, player can't pick it up
+        if (character != null && character.GetComponent<BootsBar>().getBootsHealth() < 10)
+        {
+            pickUp(character);
+            Debug.Log("GOT IT");
+        }
+    }
 
-//    private void pickUp(CharacterController character) {
-//        character.fillBootsHealth();
-//        Destroy(gameObject);
-//    }
-//}
+    private void pickUp(CharacterController character) {
+        character.GetComponent<BootsBar>().fillBootsHealth();
+        Destroy(gameObject);
+    }
+}
