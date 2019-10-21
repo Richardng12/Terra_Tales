@@ -1,85 +1,102 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class Column : MonoBehaviour
-//{
-    
-//    public List<Window> windows;
-//    // cooldown property: after the lights of a column has been turned on by the game, put it on cooldown to ensure the lights don't get turned
-//    // on immediately after again
-//    private bool onCD;
+public class Column : MonoBehaviour
+{
 
-//    // Start is called before the first frame update
-//    void Start()
-//    { 
-//        onCD = false;
-//    }
+    public List<Window> windows;
+    // cooldown property: after the lights of a column has been turned on by the game, put it on cooldown to ensure the lights don't get turned
+    // on immediately after again
+    private bool onCD;
 
-//    // Update is called once per frame
-//    void Update()
-//    {
-        
-//    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        onCD = false;
+    }
 
-//    public void turnOnWindows(bool withPerson) {
-//        if (withPerson) {
-//            foreach (Window window in windows) {
-//                window.turnOn();
-//            }
-//        } else {
-//            foreach (Window window in windows) {
-//                window.turnOnEmpty();
-//            }
-//        }
-//        transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().increaseEnergy();   
-//    }
+    // Update is called once per frame
+    void Update()
+    {
 
-//    public void useSwitch() {
-//        bool correct = true;
+    }
 
-//        foreach (Window window in windows) {
-//            window.turnOff();
-//        }
-//        transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy(); 
-//    }
+    public void turnOnWindows(bool withPerson)
+    {
+        if (withPerson)
+        {
+            foreach (Window window in windows)
+            {
+                window.turnOn();
+            }
+        }
+        else
+        {
+            foreach (Window window in windows)
+            {
+                window.turnOnEmpty();
+            }
+        }
+        transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().increaseEnergy();
+    }
 
-//    // method called when player incorrectly turns off the lights
-//    public void wrongSwitch() {
-//        StartCoroutine(waitToTurnOn());
-//    }
+    public void useSwitch()
+    {
+        if (ifWindowOn())
+        {
+            foreach (Window window in windows)
+            {
+                window.turnOff();
+            }
+            transform.parent.GetComponent<Building>().transform.parent.GetComponent<EnergyTracker>().decreaseEnergy();
+        }
+    }
 
-//    public bool ifWindowOn() {
-//        foreach (Window window in windows) {
-//            if (window.getIsOn()) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    // method called when player incorrectly turns off the lights
+    public void wrongSwitch()
+    {
+        StartCoroutine(waitToTurnOn());
+    }
 
-//    public List<Window> getWindows() {
-//        return windows;
-//    }
+    public bool ifWindowOn()
+    {
+        foreach (Window window in windows)
+        {
+            if (window.getIsOn())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
-//    public void putOnCD() {
-//        onCD = true;
-//        StartCoroutine(waitForCD());
-//    }
+    public List<Window> getWindows()
+    {
+        return windows;
+    }
 
-//    public bool getOnCD() {
-//        return onCD;
-//    }
+    public void putOnCD()
+    {
+        onCD = true;
+        StartCoroutine(waitForCD());
+    }
 
-//    IEnumerator waitForCD() {
-//        yield return new WaitForSeconds(10f);
-//        onCD = false;
-//    }
+    public bool getOnCD()
+    {
+        return onCD;
+    }
 
-//    // allow the lights to be turned off for a few seconds before notifying building to turn all its lights on
-//    IEnumerator waitToTurnOn()
-//    {
-//        yield return new WaitForSeconds(1f);
-//        transform.parent.GetComponent<Building>().turnAllOn();
-//    } 
-//}
+    IEnumerator waitForCD()
+    {
+        yield return new WaitForSeconds(10f);
+        onCD = false;
+    }
+
+    // allow the lights to be turned off for a few seconds before notifying building to turn all its lights on
+    IEnumerator waitToTurnOn()
+    {
+        yield return new WaitForSeconds(1f);
+        transform.parent.GetComponent<Building>().turnAllOn();
+    }
+}
