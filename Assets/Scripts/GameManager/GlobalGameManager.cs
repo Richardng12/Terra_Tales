@@ -17,12 +17,6 @@ public class GlobalGameManager : MonoBehaviour
     public OceanLevelProperties chosenOceanLevelProperties;
     public Dictionary<string, int> highScoreDict = new Dictionary<string, int>();
 
-
-    void Update()
-    {
-        //Debug.Log("Number of highscores" + highScoreDict.Count);
-    }
-
     public void delayedSet(bool b)
     {
         firstPlay = b;
@@ -73,6 +67,7 @@ public class GlobalGameManager : MonoBehaviour
     private void SetForestProperties(int i)
     {
         chosenForestProperties = forestProperties[i];
+        Debug.Log(chosenForestProperties.spawnRate + " " + chosenForestProperties.time);
     }
 
     private void SetOceanLevelEasy()
@@ -129,18 +124,8 @@ public class GlobalGameManager : MonoBehaviour
         if (instance == null)
         {
             DontDestroyOnLoad(this);
-
             instance = this;
-            SaveValues.getInstance().LoadGame();
-            Debug.Log("Loading in values");
-            //Get the path of the Game data folder
-            string m_Path = Application.dataPath;
-            AchievementManager.instance.IncrementAchievement(AchievementType.Plays);
-
-            //Output the Game data path to the console
-            Debug.Log("Path : " + m_Path);
-            StartCoroutine(continuousSave());
-            // Dont destroy this object when a new scene is loaded
+            StartCoroutine(startUp());
         }
         else
         {
@@ -149,6 +134,19 @@ public class GlobalGameManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    private IEnumerator startUp()
+    {
+        yield return new WaitForSeconds(0);
+        SaveValues.getInstance().LoadGame();
+        //Get the path of the Game data folder
+        string m_Path = Application.dataPath;
+        AchievementManager.instance.IncrementAchievement(AchievementType.Plays);
+
+        //Output the Game data path to the console
+        StartCoroutine(continuousSave());
+        // Dont destroy this object when a new scene is loaded
     }
 
     private IEnumerator continuousSave()

@@ -69,6 +69,7 @@ public class Publisher : MonoBehaviour
         UnityEvent thisEvent = null;
         if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
+            Debug.Log("TRIGGER");
             thisEvent.Invoke();
         }
     }
