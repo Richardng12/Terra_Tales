@@ -51,9 +51,12 @@ public class CloudSpriteController : AbstractSpawnableObject, ICharacter
     //Method to destroy object and update spawn locations
     public override void OnDestroy()
     {
-        AchievementManager.instance.IncrementAchievement(AchievementType.Deaths);        
-        spawner.getSpawnedObjects()[this.GetLocation()] = null;
-        spawner.SetCurrentSpawnDelay(0);
+        AchievementManager.instance.IncrementAchievement(AchievementType.Deaths);
+        if (spawner != null)
+        {
+            spawner.getSpawnedObjects()[this.GetLocation()] = null;
+            spawner.SetCurrentSpawnDelay(0);
+        }
         Publisher.TriggerEvent("UpdateCityScore");
         Publisher.TriggerEvent("CloudDestroyed");
         Publisher.TriggerEvent("IncreasePlayerHealth");

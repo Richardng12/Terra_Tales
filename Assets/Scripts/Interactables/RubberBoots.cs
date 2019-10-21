@@ -30,6 +30,7 @@ public class RubberBoots : MonoBehaviour
     private void pickUp(CharacterController character)
     {
         // picking up boots will fill up the boots' health
+        if(character.GetComponent<BootsBar>() != null)
         character.GetComponent<BootsBar>().fillBootsHealth();
         Destroy(gameObject);
     }

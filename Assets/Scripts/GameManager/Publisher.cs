@@ -20,7 +20,7 @@ public class Publisher : MonoBehaviour
 
                 if (!publisher)
                 {
-                    Debug.LogError("There needs to be one active EventManger script on a GameObject in your scene.");
+                    Debug.Log("There needs to be one active EventManger script on a GameObject in your scene.");
                 }
                 else
                 {
@@ -72,9 +72,15 @@ public class Publisher : MonoBehaviour
     public static void TriggerEvent(string eventName)
     {
         UnityEvent thisEvent = null;
-        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if (instance != null)
         {
-            thisEvent.Invoke();
+            if (instance.eventDictionary != null)
+            {
+                if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+                {
+                    thisEvent.Invoke();
+                }
+            }
         }
     }
 }

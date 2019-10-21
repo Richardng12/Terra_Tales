@@ -65,8 +65,11 @@ public class OilSpriteController : AbstractSpawnableObject, ICharacter
         AudioManager.instance.Play(monsterDeathSound);
         AchievementManager.instance.IncrementAchievement(AchievementType.OilSpills);
 
-        spawner.getSpawnedObjects()[this.GetLocation()] = null;
-        spawner.SetCurrentSpawnDelay(0);
+        if (spawner != null)
+        {
+            spawner.getSpawnedObjects()[this.GetLocation()] = null;
+            spawner.SetCurrentSpawnDelay(0);
+        }
         Destroy(this.gameObject);
 
     }
