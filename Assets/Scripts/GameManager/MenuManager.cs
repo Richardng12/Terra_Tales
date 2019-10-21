@@ -21,8 +21,11 @@ public class MenuManager : MonoBehaviour
         {
             if (AudioManager.initalised)
             {
-                audioManager.StopAll();
-                audioManager.Play(MainMenuSound);
+                if (!AudioManager.mainMenuMusic)
+                {
+                    audioManager.StopAll();
+                    audioManager.Play(MainMenuSound);
+                }
             }
         }
     }

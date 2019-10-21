@@ -1,5 +1,72 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 5770893112419309495}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398660019124738544}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &398660019124738544
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 6169376893399518791, guid: fc014b68cdc49de44aee5e1c3b82f9fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5770893112419309495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 5770893112419309495}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400000}
+  m_Layer: 0
+  m_Name: CreditsPanel (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 5770893112419309495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 398660019124738544}
+  m_Father: {fileID: 1117837306569794135}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &132327190071231796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1327,6 @@ GameObject:
   - component: {fileID: 1117837306569794128}
   - component: {fileID: 1117837306569794129}
   - component: {fileID: 1117837306569794130}
-  - component: {fileID: 6223398839921263959}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -1283,7 +1349,7 @@ RectTransform:
   - {fileID: 1117837308139350433}
   - {fileID: 1117837306632595570}
   - {fileID: 7124197083125444843}
-  - {fileID: 398660019124738544}
+  - {fileID: 400000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1352,20 +1418,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6223398839921263959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117837306569794131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace253d40831a9a4683d25ae51ea466c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstTimePlay: {fileID: 0}
-  levelSelectionMenu: {fileID: 0}
 --- !u!1 &1117837306583680628
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,11 +4475,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -17
       objectReference: {fileID: 0}
-    - target: {fileID: 3377724708536910200, guid: 59511ed6c91ad6045b00cb86bc701e92,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1117837306987078702}
     - target: {fileID: 3377724707478298804, guid: 59511ed6c91ad6045b00cb86bc701e92,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -4443,6 +4490,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3377724708536910200, guid: 59511ed6c91ad6045b00cb86bc701e92,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1117837306987078702}
     - target: {fileID: 8799592107051124431, guid: 59511ed6c91ad6045b00cb86bc701e92,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4450,15 +4502,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59511ed6c91ad6045b00cb86bc701e92, type: 3}
---- !u!1 &1117837308139350434 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3377724706525706825, guid: 59511ed6c91ad6045b00cb86bc701e92,
-    type: 3}
-  m_PrefabInstance: {fileID: 2405851986102932459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1117837308139350433 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3377724706525706826, guid: 59511ed6c91ad6045b00cb86bc701e92,
+    type: 3}
+  m_PrefabInstance: {fileID: 2405851986102932459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1117837308139350434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3377724706525706825, guid: 59511ed6c91ad6045b00cb86bc701e92,
     type: 3}
   m_PrefabInstance: {fileID: 2405851986102932459}
   m_PrefabAsset: {fileID: 0}
@@ -4469,16 +4521,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1117837306569794135}
     m_Modifications:
-    - target: {fileID: 6169376893399518790, guid: fc014b68cdc49de44aee5e1c3b82f9fa,
-        type: 3}
-      propertyPath: m_Name
-      value: CreditsPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6169376893399518790, guid: fc014b68cdc49de44aee5e1c3b82f9fa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6169376893399518791, guid: fc014b68cdc49de44aee5e1c3b82f9fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4584,6 +4626,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6169376893399518790, guid: fc014b68cdc49de44aee5e1c3b82f9fa,
+        type: 3}
+      propertyPath: m_Name
+      value: CreditsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6169376893399518790, guid: fc014b68cdc49de44aee5e1c3b82f9fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5835609540013371708, guid: fc014b68cdc49de44aee5e1c3b82f9fa,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4616,9 +4668,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc014b68cdc49de44aee5e1c3b82f9fa, type: 3}
---- !u!224 &398660019124738544 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6169376893399518791, guid: fc014b68cdc49de44aee5e1c3b82f9fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 5770893112419309495}
-  m_PrefabAsset: {fileID: 0}

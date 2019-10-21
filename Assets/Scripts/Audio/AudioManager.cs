@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
     public static bool initalised = false;
-
+    public static bool mainMenuMusic = true;
     public static bool musicTicked = true;
     int volume = 1;
 
@@ -65,6 +65,7 @@ private void Start()
     }
     initalised = true;
     Play("MainMenu");
+        mainMenuMusic = true;
 }
 
 public void Play(string name)
