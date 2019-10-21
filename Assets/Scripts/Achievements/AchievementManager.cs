@@ -184,7 +184,7 @@ public class AchievementManager : MonoBehaviour
         achievementsHashSet.Add(AchievementType.Achievements);
         achievementsMap[AchievementType.Achievements].count = achievementsHashSet.Count;
         updateAchievement(AchievementType.Achievements);
-        SaveValues.getInstance().SaveGame();
+        //SaveValues.getInstance().SaveGame();
     }
 
     //CLoses the notification

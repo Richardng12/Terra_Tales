@@ -15,16 +15,7 @@ public class Save : MonoBehaviour
     //Save game to a file
     public void SaveGame()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
-        SaveValues.getInstance().UpdateValues();
-        bf.Serialize(file, SaveValues.getInstance());
-        Debug.Log("Serialising" + Application.persistentDataPath + "/gamesave.save");
-        Debug.Log("Serialising" + SaveValues.getInstance().highScoreDict.Count + "/gamesave.save");
-
-        file.Close();
-
-        Debug.Log("Game Saved");
+       SaveValues.getInstance().SaveGame();
     }
 
     //Load game to a file

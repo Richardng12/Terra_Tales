@@ -154,7 +154,7 @@ public class GlobalGameManager : MonoBehaviour
 
     private IEnumerator continuousSave()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         SaveValues.getInstance().SaveGame();
         continuousSave();
     }
